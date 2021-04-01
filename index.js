@@ -47,28 +47,3 @@ app.get("/cool",(request,response) => {
 app.listen(port, () =>{
     console.log(`Server ready listening on port ${port}`);
 });
-
-
-// cambios para F04
-
-var BASE_API_PATH = "/api/v1";
-
-var contacts = [
-    {
-        "name":"pablo",
-        "phone":1234
-    },
-    {
-        "name":"alguien",
-        "phone":1265
-    }
-]
-
-
-app.get(BASE_API_PATH+"/contacts",(req,res)=>{
-    res.send(JSON.stringify(contacts,null,2))
-});
-
-app.listen(port, () =>{
-    console.log(`Server ready listening on port ${port}`);
-});
