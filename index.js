@@ -7,6 +7,7 @@ var app = express();
 
 var port = (process.env.PORT || 10000);
 var BASE_API_PATH="/api/v1";
+app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname,"public")));
 
 //foodConsumption-stats
@@ -58,9 +59,9 @@ app.get(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 });
 
 app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
-	var newContact =req.body;
-	console.log(`nuevo contacto: <${JSON.stringify(newContact,null,2)}>`);
-	obesity.push(newContact);
+	var newObesity =req.body;
+	console.log(`Nuevo objeto en Obesity: <${JSON.stringify(newObesity,null,2)}>`);
+	obesity.push(newObesity);
 	
 	res.sendStatus(201);
 });
