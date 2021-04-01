@@ -73,6 +73,22 @@ app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	res.sendStatus(201);
 });
 
+var china= [{
+		"country": "China",
+		"year": 2011,
+		"man-percent": 4.2,
+		"woman-percent": 5.2,
+		"total-population": 1376498048
+	}];
+
+app.get(BASE_API_PATH+"/obesity-stats/china", (req,res)=>{
+	res.send(JSON.stringify(china,null,2));
+});
+
+app.delete(BASE_API_PATH+"/obesity-stats/china", (req,res)=>{
+	res.send(JSON.stringify(china,null,2));
+});
+
 
 app.get("/cool",(request,response) => {
 	
