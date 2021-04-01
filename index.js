@@ -2,11 +2,11 @@
 var cool = require("cool-ascii-faces");
 var express = require("express");
 var path = require("path");
-
+var bodyParser=require("body-parser");
 var app = express();
 
 var port = (process.env.PORT || 10000);
-
+var BASE_API_PATH="/api/v1";
 app.use("/", express.static(path.join(__dirname,"public")));
 
 //foodConsumption-stats
@@ -28,14 +28,42 @@ app.post("/info/sanity-stats", (req, res) => {
     res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>health-expenditure-in-percentage</th> <th>doctor-per-1000-habitant</th> <th>hospital-bed</th></tr> <tr><td>China</td> <td>2011</td> <td>10'61685285</td> <td>1'5</td> <td>3705100</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>19'01326713</td> <td>2'41</td> <td>945199</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>15'73140496</td> <td>4'67</td> <td>146934</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>18'14760105</td> <td>3'775</td> <td>674473</td> </tr> <tr> <td>India</td> <td>2009</td> <td>4'36884071</td> <td>0'264</td> <td>540328</td> </tr></table></body></html>");
 });
 //obesity-stats
-app.get("/info/obesity-stats", (req, res) => {
-    res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> <td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+//app.get("/info/obesity-stats", (req, res) => {
+ //   res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> //<td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> //<td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+//});
+
+//app.post("/info/obesity-stats", (req, res) => {
+//     res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> //<td>5.2</td> <td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+//});
+
+var obesity = [
+	{
+		"country": "China",
+		"year": 2011,
+		"man-percent": 4.2,
+		"woman-percent": 5.2,
+		"total-population": 1376498048
+	},
+	{
+		"country": "United States",
+		"year": 2007,
+		"man-percent": 29.1,
+		"woman-percent": 31.5,
+		"total-population": 300608000
+	}
+];
+
+app.get(BASE_API_PATH+"/obesity-stats", (req,res)=>{
+	res.send(JSON.stringify(obesity,null,2));
 });
 
-app.post("/info/obesity-stats", (req, res) => {
-     res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> <td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
+	var newContact =req.body;
+	console.log(`nuevo contacto: <${JSON.stringify(newContact,null,2)}>`);
+	obesity.push(newContact);
+	
+	res.sendStatus(201);
 });
-
 
 
 app.get("/cool",(request,response) => {
