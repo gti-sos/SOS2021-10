@@ -36,13 +36,13 @@ app.post("/info/sanity-stats", (req, res) => {
     res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>health-expenditure-in-percentage</th> <th>doctor-per-1000-habitant</th> <th>hospital-bed</th></tr> <tr><td>China</td> <td>2011</td> <td>10'61685285</td> <td>1'5</td> <td>3705100</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>19'01326713</td> <td>2'41</td> <td>945199</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>15'73140496</td> <td>4'67</td> <td>146934</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>18'14760105</td> <td>3'775</td> <td>674473</td> </tr> <tr> <td>India</td> <td>2009</td> <td>4'36884071</td> <td>0'264</td> <td>540328</td> </tr></table></body></html>");
 });
 //obesity-stats
-//app.get("/info/obesity-stats", (req, res) => {
- //   res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> //<td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> //<td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
-//});
+app.get("/info/obesity-stats", (req, res) => {
+res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> //<td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> //<td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+});
 
-//app.post("/info/obesity-stats", (req, res) => {
-//     res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> //<td>5.2</td> <td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
-//});
+app.post("/info/obesity-stats", (req, res) => {
+res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>man-percent</th> <th>woman-percent</th> <th>total-population</th></tr> <tr><td>China</td> <td>2011</td> <td>4.2</td> <td>5.2</td> <td>1376498048</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>29.1</td> <td>31.5</td> <td>300608000</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>20.8</td> <td>21</td> <td>46069000</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>21.1</td> <td>18.6</td> <td>80827000</td> </tr> <tr> <td>India</td> <td>2009</td> <td>1.7</td> <td>3.6</td> <td>1217725952</td> </tr></table></body></html>");
+});
 var obesity = [];
 var obesityInitialData = [
 	{
@@ -71,6 +71,14 @@ app.get(BASE_API_PATH+"/obesity-stats/loadInitialData", (req, res)=>{
 	
 	res.send("Datos cargados");
 });
+
+//app.get(BASE_API_PATH+"/obesity-stats/China", (req, res)=>{
+//	if(obesityInitialData.get("country")=="China"){
+	//	obesity.push(obesityInitialData[0]);
+	//}
+	
+//	res.send("Datos cargados");
+//});
 
 app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	var newObesity =req.body;
