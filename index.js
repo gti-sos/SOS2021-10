@@ -64,6 +64,7 @@ var obesityInitialData = [
 app.get(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	res.send(JSON.stringify(obesity,null,2));
 });
+
 app.get(BASE_API_PATH+"/obesity-stats/loadInitialData", (req, res)=>{
 	for(var i=0; i<obesityInitialData.length; i++){
 		obesity.push(obesityInitialData[i]);
