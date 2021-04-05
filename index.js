@@ -187,49 +187,51 @@ app.get(BASE_API_PATH+"/sanity-stats/loadInitialData", (req, res)=>{
 	res.send("Datos cargados");
 });
 
-app.get(BASE_API_PATH+"/sanity-stats/China", (req, res)=>{
+app.get(BASE_API_PATH+"/sanity-stats/:country", (req, res)=>{
+	var filtrado = []
 	for(var i=0; i<sanity.length; i++){
-		if(sanity[i].country=="China"){
+		if(sanity[i].country==req.params.country){
+			filtrado.push(sanity[i]);
+		}
+	}
+	res.send(JSON.stringify(filtrado,null,2));
+	
+});
+
+app.get(BASE_API_PATH+"/sanity-stats/:country/:year", (req, res)=>{
+	for(var i=0; i<sanity.length; i++){
+		if(sanity[i].country==req.params.country&&sanity[i].year==req.params.year){
 			res.send(JSON.stringify(sanity[i],null,2));
 			
 		}
 	}
+	//res.sendStatus(200);
 });
-app.get(BASE_API_PATH+"/sanity-stats/China/2011", (req, res)=>{
-	for(var i=0; i<sanity.length; i++){
-		if(sanity[i].country=="China"&&sanity[i].year==2011){
-			res.send(JSON.stringify(sanity[i],null,2));
-			
+
+app.delete(BASE_API_PATH+"/sanity-stats/:country/:year", (req,res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(sanity[i].country==req.params.country&&sanity[i].year==req.params.year){
+			sanity.splice(i, 1);
+			console.log(sanity);
 		}
 	}
+	res.send("Deleted Data");
+	//res.sendStatus(200);
 });
 
-app.post(BASE_API_PATH+"/sanity-stats", (req,res)=>{
-	var newsanity =req.body;
-	console.log(`Nuevo objeto en Obesity: <${JSON.stringify(newsanity,null,2)}>`);
-	sanity.push(newsanity);
-	res.sendStatus(201);
-});
 
-app.delete(BASE_API_PATH+"/sanity-stats/China/2011", (req, res)=>{
+
+app.put(BASE_API_PATH+"/sanity-stats/:country/:year",(req,res)=>{
 	for(var i=0; i<sanity.length; i++){
-		if(sanity[i].country=="China"&&sanity[i].year==2011){
-			sanity.splice(i,1);
-		}
-	}
-	res.send("Datos borrados");
-});
-
-app.put(BASE_API_PATH+"/sanity-stats/China/2011", (req, res)=>{
-	for(var i=0; i<sanity.length; i++){
-		if(sanity[i].country=="China"&&sanity[i].year==2011){
+		if(sanity[i].country==req.params.country&&sanity[i].year==req.params.year){
 			sanity[i]=req.body;
 		}
 	}
-	res.send("Datos actualizados");
+	res.send("Updated Data");
+	//res.sendStatus(200);
 });
 
-app.post(BASE_API_PATH+"/sanity-stats/China/2011", (req,res)=>{
+app.post(BASE_API_PATH+"/sanity-stats/:country/:year", (req,res)=>{
 
 	res.sendStatus(405);
 });
@@ -300,7 +302,6 @@ app.get(BASE_API_PATH+"/obesity-stats/:country", (req, res)=>{
 	for(var i=0; i<obesity.length; i++){
 		if(obesity[i].country==req.params.country){
 			filtrado.push(obesity[i]);
-			
 		}
 	}
 	res.send(JSON.stringify(filtrado,null,2));
