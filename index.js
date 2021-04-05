@@ -264,23 +264,16 @@ var obesityInitialData = [
 
 app.get(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	res.send(JSON.stringify(obesity,null,2));
+	res.sendStatus(200);
 });
 
 app.get(BASE_API_PATH+"/obesity-stats/loadInitialData", (req, res)=>{
 	for(var i=0; i<obesityInitialData.length; i++){
 		obesity.push(obesityInitialData[i]);
 	}
-	
-	res.send("Datos cargados");
+	res.sendStatus(200);
+	res.send("Loaded Data");
 });
-
-//app.get(BASE_API_PATH+"/obesity-stats/China", (req, res)=>{
-//	if(obesityInitialData.get("country")=="China"){
-	//	obesity.push(obesityInitialData[0]);
-	//}
-	
-//	res.send("Datos cargados");
-//});
 
 app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	var newObesity =req.body;
@@ -289,6 +282,69 @@ app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	
 	res.sendStatus(201);
 });
+
+app.get(BASE_API_PATH+"/obesity-stats/China", (req, res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(obesity[i].country=="China"){
+			res.send(JSON.stringify(obesity[i],null,2));
+			
+		}
+	}
+	res.sendStatus(200);
+});
+
+app.get(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(obesity[i].country=="China"&&obesity[i].year==2011){
+			res.send(JSON.stringify(obesity[i],null,2));
+			
+		}
+	}
+	res.sendStatus(200);
+});
+
+app.delete(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(obesity[i].country=="China"&&obesity[i].year==2011){
+			obesity.splice(i, 1);
+			console.log(obesity);
+			
+		}
+	}
+	res.sendStatus(200);
+	res.send("Deleted Data");
+});
+
+app.put(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(obesity[i].country=="China"&&obesity[i].year==2011){
+			obesity[i]=req.body;
+			console.log(obesity);
+			
+		}
+	}res.sendStatus(201);
+	res.send("Updated Data");
+});
+
+app.post(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+	res.sendStatus(405);
+});
+
+app.put(BASE_API_PATH+"/obesity-stats", (req, res)=>{
+	res.sendStatus(405);
+});
+
+app.delete(BASE_API_PATH+"/obesity-stats", (req, res)=>{
+	for(var i=0; i<obesity.length+1; i++){
+			obesity.pop();
+			console.log(obesity);
+			
+	}
+	res.sendStatus(200);
+	res.send("Deleted Data");
+});
+
+
 
 
 
