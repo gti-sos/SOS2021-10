@@ -109,7 +109,7 @@ app.get(BASE_API_PATH+"/foodconsumption-stats/:country/:year", (req, res)=>{
 
 app.delete(BASE_API_PATH+"/foodconsumption-stats/:country/:year", (req,res)=>{
 	for(var i=0; i<foodconsumption.length; i++){
-		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
+		if(foodconsumption[i].country==req.params.country&&foodconsumption[i].year==req.params.year){
 			foodconsumption.splice(i, 1);
 			console.log(foodconsumption);
 		}
@@ -120,7 +120,7 @@ app.delete(BASE_API_PATH+"/foodconsumption-stats/:country/:year", (req,res)=>{
 
 app.put(BASE_API_PATH+"/foodconsumption-stats/:country/:year",(req,res)=>{
 	for(var i=0; i<foodconsumption.length; i++){
-		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
+		if(foodconsumption[i].country==req.params.country&&foodconsumption[i].year==req.params.year){
 			foodconsumption[i]=req.body;
 		}
 	}
@@ -295,67 +295,69 @@ app.post(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 	res.sendStatus(201);
 });
 
-app.get(BASE_API_PATH+"/obesity-stats/China", (req, res)=>{
+app.get(BASE_API_PATH+"/obesity-stats/:country", (req, res)=>{
+	var filtrado = []
 	for(var i=0; i<obesity.length; i++){
-		if(obesity[i].country=="China"){
+		if(obesity[i].country==req.params.country){
+			filtrado.push(obesity[i]);
+			
+		}
+	}
+	res.send(JSON.stringify(filtrado,null,2));
+	
+});
+
+app.get(BASE_API_PATH+"/obesity-stats/:country/:year", (req, res)=>{
+	for(var i=0; i<obesity.length; i++){
+		if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
 			res.send(JSON.stringify(obesity[i],null,2));
 			
 		}
 	}
-	res.sendStatus(200);
+	//res.sendStatus(200);
 });
 
-app.get(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+app.delete(BASE_API_PATH+"/obesity-stats/:country/:year", (req,res)=>{
 	for(var i=0; i<obesity.length; i++){
-		if(obesity[i].country=="China"&&obesity[i].year==2011){
-			res.send(JSON.stringify(obesity[i],null,2));
-			
-		}
-	}
-	res.sendStatus(200);
-});
-
-app.delete(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
-	for(var i=0; i<obesity.length; i++){
-		if(obesity[i].country=="China"&&obesity[i].year==2011){
+		if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
 			obesity.splice(i, 1);
 			console.log(obesity);
-			
 		}
 	}
-	res.sendStatus(200);
 	res.send("Deleted Data");
+	//res.sendStatus(200);
 });
 
-app.put(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
+
+
+app.put(BASE_API_PATH+"/obesity-stats/:country/:year",(req,res)=>{
 	for(var i=0; i<obesity.length; i++){
-		if(obesity[i].country=="China"&&obesity[i].year==2011){
+		if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
 			obesity[i]=req.body;
-			console.log(obesity);
-			
 		}
-	}res.sendStatus(201);
-	res.send("Updated Data");
-});
-
-app.post(BASE_API_PATH+"/obesity-stats/China/2011", (req, res)=>{
-	res.sendStatus(405);
-});
-
-app.put(BASE_API_PATH+"/obesity-stats", (req, res)=>{
-	res.sendStatus(405);
-});
-
-app.delete(BASE_API_PATH+"/obesity-stats", (req, res)=>{
-	for(var i=0; i<obesity.length+1; i++){
-			obesity.pop();
-			console.log(obesity);
-			
 	}
-	res.sendStatus(200);
-	res.send("Deleted Data");
+	res.send("Updated Data");
+	//res.sendStatus(200);
 });
 
+app.post(BASE_API_PATH+"/obesity-stats/:country/:year", (req,res)=>{
+
+	res.sendStatus(405);
+});
+
+app.put(BASE_API_PATH+"/obesity-stats", (req,res)=>{
+
+	res.sendStatus(405);
+});
+
+app.delete(BASE_API_PATH+"/obesity-stats", (req,res)=>{
+	for(var i=0; i<obesity.length+1; i++){
+		obesity.pop();
+		
+	}
+	res.send("Deleted Data");
+	//res.sendStatus(200);
+});
 
 
 
