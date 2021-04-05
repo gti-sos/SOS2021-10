@@ -95,14 +95,61 @@ app.post(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
 
 
 
-//sanity-stats
-app.get("/info/sanity-stats", (req, res) => {
-    res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>health-expenditure-in-percentage</th> <th>doctor-per-1000-habitant</th> <th>hospital-bed</th></tr> <tr><td>China</td> <td>2011</td> <td>10'61685285</td> <td>1'5</td> <td>3705100</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>19'01326713</td> <td>2'41</td> <td>945199</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>15'73140496</td> <td>4'67</td> <td>146934</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>18'14760105</td> <td>3'775</td> <td>674473</td> </tr> <tr> <td>India</td> <td>2009</td> <td>4'36884071</td> <td>0'264</td> <td>540328</td> </tr></table></body></html>");
-});
 
-app.post("/info/sanity-stats", (req, res) => {
-    res.send("<html><body><table border='1'><tr><th>country</th> <th>year</th> <th>health-expenditure-in-percentage</th> <th>doctor-per-1000-habitant</th> <th>hospital-bed</th></tr> <tr><td>China</td> <td>2011</td> <td>10'61685285</td> <td>1'5</td> <td>3705100</td> </tr> <tr> <td>United States</td> <td>2007</td> <td>19'01326713</td> <td>2'41</td> <td>945199</td>  </tr> <tr> <td>Spain</td> <td>2008</td> <td>15'73140496</td> <td>4'67</td> <td>146934</td></tr> <tr> <td>Germany</td> <td>2010</td> <td>18'14760105</td> <td>3'775</td> <td>674473</td> </tr> <tr> <td>India</td> <td>2009</td> <td>4'36884071</td> <td>0'264</td> <td>540328</td> </tr></table></body></html>");
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
