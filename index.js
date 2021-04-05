@@ -54,32 +54,17 @@ var foodconsumptionInitialData = [
 
 app.get(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
 	res.send(JSON.stringify(foodconsumption,null,2));
+	res.sendStatus(200);
 });
 
 app.get(BASE_API_PATH+"/foodconsumption-stats/loadInitialData", (req, res)=>{
 	for(var i=0; i<foodconsumptionInitialData.length; i++){
 		foodconsumption.push(foodconsumptionInitialData[i]);
-		console.log(foodconsumptionInitialData[i].country);
+		
 	}
 	
-	res.send("Datos cargados");
-});
-
-app.get(BASE_API_PATH+"/foodconsumption-stats/China", (req, res)=>{
-	for(var i=0; i<foodconsumptionInitialData.length; i++){
-		if(foodconsumption[i].country=="China"){
-			res.send(JSON.stringify(foodconsumptionInitialData[i],null,2));
-			
-		}
-	}
-});
-app.get(BASE_API_PATH+"/foodconsumption-stats/China/2011", (req, res)=>{
-	for(var i=0; i<foodconsumptionInitialData.length; i++){
-		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
-			res.send(JSON.stringify(foodconsumptionInitialData[i],null,2));
-			
-		}
-	}
+	res.send("Loaded Data");
+	res.sendStatus(200);
 });
 
 app.post(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
@@ -89,6 +74,68 @@ app.post(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
 	
 	res.sendStatus(201);
 });
+
+
+app.get(BASE_API_PATH+"/foodconsumption-stats/China", (req, res)=>{
+	for(var i=0; i<foodconsumption.length; i++){
+		if(foodconsumption[i].country=="China"){
+			res.send(JSON.stringify(foodconsumption[i],null,2));
+			
+		}
+	}
+	res.sendStatus(200);
+});
+app.get(BASE_API_PATH+"/foodconsumption-stats/China/2011", (req, res)=>{
+	for(var i=0; i<foodconsumption.length; i++){
+		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
+			res.send(JSON.stringify(foodconsumption[i],null,2));
+			
+		}
+	}
+	res.sendStatus(200);
+});
+
+app.delete(BASE_API_PATH+"/foodconsumption-stats/China/2011", (req,res)=>{
+	for(var i=0; i<foodconsumption.length; i++){
+		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
+			foodconsumption.splice(i, 1);
+			console.log(foodconsumption);
+		}
+	}
+	res.send("Deleted Data");
+	res.sendStatus(200);
+});
+
+app.put(BASE_API_PATH+"/foodconsumption-stats/China/2011",(req,res)=>{
+	for(var i=0; i<foodconsumption.length; i++){
+		if(foodconsumption[i].country=="China"&&foodconsumption[i].year==2011){
+			foodconsumption[i]=req.body;
+		}
+	}
+	res.send("Updated Data");
+	res.sendStatus(200);
+});
+
+app.post(BASE_API_PATH+"/foodconsumption-stats/China/2011", (req,res)=>{
+
+	res.sendStatus(405);
+});
+
+app.put(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
+
+	res.sendStatus(405);
+});
+
+app.delete(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
+	for(var i=0; i<foodconsumption.length+1; i++){
+		foodconsumption.pop();
+		
+	}
+	res.send("Deleted Data");
+	res.sendStatus(200);
+});
+
+
 
 
 
