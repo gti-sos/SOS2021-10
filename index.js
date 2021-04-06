@@ -129,7 +129,7 @@ app.put(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
 });
 
 app.delete(BASE_API_PATH+"/foodconsumption-stats", (req,res)=>{
-	for(var i=0; i<foodconsumption.length+1; i++){
+	while(foodconsumption.length>0){
 		foodconsumption.pop();
 		
 	}
@@ -239,8 +239,9 @@ app.put(BASE_API_PATH+"/sanity-stats", (req,res)=>{
 	res.sendStatus(405);
 });
 app.delete(BASE_API_PATH+"/sanity-stats", (req,res)=>{
-	for(var i=0; i<sanity.length+1; i++){
+	while(sanity.length>0){
 		sanity.pop();
+		
 	}
 	console.log("Deleted Data");
 	res.sendStatus(200);
@@ -349,7 +350,7 @@ app.put(BASE_API_PATH+"/obesity-stats", (req,res)=>{
 });
 
 app.delete(BASE_API_PATH+"/obesity-stats", (req,res)=>{
-	for(var i=0; i<obesity.length+1; i++){
+	while(obesity.length>0){
 		obesity.pop();
 		
 	}
