@@ -230,7 +230,13 @@ app.put(BASE_API_PATH+"/sanity-stats", (req,res)=>{
 
 	res.sendStatus(405);
 });
-
+app.post(BASE_API_PATH+"/sanity-stats", (req,res)=>{
+	var newsanity =req.body;
+	console.log(`Nuevo objeto en Obesity: <${JSON.stringify(newsanity,null,2)}>`);
+	sanity.push(newsanity);
+	
+	res.sendStatus(201);
+});
 app.delete(BASE_API_PATH+"/sanity-stats", (req,res)=>{
 	for(var i=0; i<sanity.length+1; i++){
 		sanity.pop();
