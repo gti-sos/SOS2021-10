@@ -198,8 +198,16 @@ app.get(BASE_API_PATH+"/sanity-stats/:country/:year", (req, res)=>{
 	//res.sendStatus(200);
 });
 
+app.post(BASE_API_PATH+"/sanity-stats", (req,res)=>{
+	var newsanity =req.body;
+	console.log(`Nuevo objeto en sanity: <${JSON.stringify(newsanity,null,2)}>`);
+	sanity.push(newsanity);
+	
+	res.sendStatus(201);
+});
+
 app.delete(BASE_API_PATH+"/sanity-stats/:country/:year", (req,res)=>{
-	for(var i=0; i<obesity.length; i++){
+	for(var i=0; i<sanity.length; i++){
 		if(sanity[i].country==req.params.country&&sanity[i].year==req.params.year){
 			sanity.splice(i, 1);
 			console.log(sanity);
@@ -229,13 +237,6 @@ app.post(BASE_API_PATH+"/sanity-stats/:country/:year", (req,res)=>{
 app.put(BASE_API_PATH+"/sanity-stats", (req,res)=>{
 
 	res.sendStatus(405);
-});
-app.post(BASE_API_PATH+"/sanity-stats", (req,res)=>{
-	var newsanity =req.body;
-	console.log(`Nuevo objeto en Obesity: <${JSON.stringify(newsanity,null,2)}>`);
-	sanity.push(newsanity);
-	
-	res.sendStatus(201);
 });
 app.delete(BASE_API_PATH+"/sanity-stats", (req,res)=>{
 	for(var i=0; i<sanity.length+1; i++){
