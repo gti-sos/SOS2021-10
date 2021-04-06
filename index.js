@@ -40,15 +40,7 @@ var foodconsumptionInitialData = [
 		"dailygram": 2334,
 		"dailycalory": 3023
 	},
-	{
-		"country": "China",
-		"year": 2012,
-		"foodtype": "Meat",
-		"caloryperperson": 509,
-		"gramperperson": 254,
-		"dailygram": 2368,
-		"dailycalory": 3070
-	},
+
 	{
 		"country": "United States",
 		"year": 2007,
