@@ -165,8 +165,8 @@ var sanityInitialData = [
 		"hospital-bed": 3705100
 	},
 	{
-		"country": "China",
-		"year": 2011,
+		"country": "United States",
+		"year": 2007,
 		"health-expenditure-in-percentage": 19.01326713,
 		"doctor-per-1000-habitant": 2.41,
 		"hospital-bed": 945199
