@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
-var food_consumptionAPI =  require("./food_consumptionAPI");
+var food_consumptionAPI =  require("./foodconsumptionAPI");
 var sanityAPI =  require("./sanityAPI");
 var obesityAPI =  require("./obesityAPI");
 
