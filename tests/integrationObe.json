@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "7fdf6f0a-5e34-4317-bdcf-97dcac7f2dc4",
+		"name": "SOS2021-10-obesity-stats",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info/obesity-stats/loadinitialdata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/loadinitialdata",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"loadinitialdata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 54654\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info/obesity-stats/China/2011",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"China",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info/obesity-stats/China/2011",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"China",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info/obesity-stats/Prueba/2011",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 66666666\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Prueba/2011",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"Prueba",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/info/obesity-stats/China/2011",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"China\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"China",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
