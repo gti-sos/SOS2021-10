@@ -1,4 +1,4 @@
-var BASE_API_PATH = "/api/v1/foodconsumption-stats";
+var BASE_API_PATH = "/api/v1/foodconsumptionstats";
 
 
 var food_consumption = [];
