@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "2e23871c-aade-44ef-ae8c-18792c4a3183",
+		"name": "Sanity samples",
+		"description": "Sanity samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "sanity-stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/loadInitialData",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sanity-stats 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post prueba",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"prueba\",\r\n\"year\": 2000,\r\n\"health-expenditure-in-percentage\": 11.111115,\r\n\"doctor-per-1000-habitant\": 1.1,\r\n\"hospital-bed\": 1111111111\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET prueba",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/prueba/2000",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats",
+						"prueba",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT prueba",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"prueba\",\r\n\"year\": 2000,\r\n\"health-expenditure-in-percentage\": 10.222222,\r\n\"doctor-per-1000-habitant\": 2.2,\r\n\"hospital-bed\": 222222222\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/prueba/2000",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats",
+						"prueba",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete prueba",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/prueba/2000",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats",
+						"prueba",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sanity-stats 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post prueba error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"prueba\",\r\n\"year\": 2000,\r\n\"health-expenditure-in-percentage\": 11.111115,\r\n\"doctor-per-1000-habitant\": 1.1,\r\n\"hospital-bed\": 1111111111\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/prueba/2000",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats",
+						"prueba",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
