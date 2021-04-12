@@ -1,17 +1,16 @@
 name: CI
 
-
 on:
-	push:
-		branches: [ main ]
-		
+  push:
+    branches: [ main ]
+
 jobs:
-	integrationTests:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v2
-			- run: npm install
-			- run: npm start &
-			- run: npx newman tests/integrationObe.json
+  integrationTests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm start &
+      - run: npx newman run tests/integrationObe.json
 			
 			
