@@ -1,11 +1,14 @@
 var express = require("express");
+
+var path = require("path");
+
 var bodyParser = require("body-parser");
 
 var food_consumptionAPI =  require("./foodconsumptionAPI");
 var sanityAPI =  require("./sanityAPI");
 var obesityAPI =  require("./obesityAPI");
 
-var PORT = (process.env.PORT || 1607);
+var PORT = (process.env.PORT || 10000);
 
 var app = express();
 app.use(bodyParser.json());
