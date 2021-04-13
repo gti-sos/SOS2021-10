@@ -3,14 +3,14 @@ var BASE_API_PATH = "/api/v1/obesity-stats";
 
 var obesity = [];
 var obesityInitialData = [
-	{
+	{	
 		"country": "China",
 		"year": 2011,
 		"man-percent": 4.2,
 		"woman-percent": 5.2,
 		"total-population": 1376498048
 	},
-	{
+	{	
 		"country": "United States",
 		"year": 2007,
 		"man-percent": 29.1,
@@ -34,24 +34,40 @@ var obesityInitialData = [
     });
     
     app.get(BASE_API_PATH+"/:country", (req, res)=>{
-        var filtrado = []
+		var filtrado =[]
         for(var i=0; i<obesity.length; i++){
             if(obesity[i].country==req.params.country){
                 filtrado.push(obesity[i]);
             }
+
         }
-        res.send(JSON.stringify(filtrado,null,2));
-        
+		if(filtrado.length>0){
+		res.send(JSON.stringify(filtrado, null,2));
+		}
+
+		else{
+            console.log("Not Found");
+              res.sendStatus(404);
+        }
+
     });
+	 
     
-    app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
+   app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
+	   var filtrado =[]
         for(var i=0; i<obesity.length; i++){
             if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
-                res.send(JSON.stringify(obesity[i],null,2));
-                
+                filtrado.push(obesity[i]);
             }
         }
-        //res.sendStatus(200);
+        if(filtrado.length>0){
+		res.send(JSON.stringify(filtrado, null,2));
+		}
+
+		else{
+            console.log("Not Found");
+              res.sendStatus(404);
+        }
     });
     
     app.post(BASE_API_PATH, (req,res)=>{
