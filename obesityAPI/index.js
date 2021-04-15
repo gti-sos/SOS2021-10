@@ -1,29 +1,43 @@
 var BASE_API_PATH = "/api/v1/obesity-stats";
-
+var Datastore = require("nedb");
+var db=new Datastore();
 
 var obesity = [];
 var obesityInitialData = [
 	{	
 		"country": "China",
 		"year": 2011,
-		"man-percent": 4.2,
-		"woman-percent": 5.2,
-		"total-population": 1376498048
+		"man_percent": 4.2,
+		"woman_percent": 5.2,
+		"total_population": 1376498048
 	},
 	{	
 		"country": "United States",
 		"year": 2007,
-		"man-percent": 29.1,
-		"woman-percent": 31.5,
-		"total-population": 300608000
+		"man_percent": 29.1,
+		"woman_percent": 31.5,
+		"total_population": 300608000
 	}
 ];
 
  module.exports.register = (app) => {
 
     app.get(BASE_API_PATH, (req,res)=>{
-        res.send(JSON.stringify(obesity,null,2));
-    });
+	
+		db.find({}, (err,obesityInDB)=>{
+			if(err){
+				console.error("ERROR accessing BB in GET");
+				res.sendStatus(500);
+			}else{
+				var obesityToSend = obesityInDB.map((c)=>{
+				return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
+			});
+			res.send(JSON.stringify(obesityToSend,null,2));
+		}
+		
+	});
+    
+ });
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
         for(var i=0; i<obesityInitialData.length; i++){
@@ -73,9 +87,24 @@ var obesityInitialData = [
     app.post(BASE_API_PATH, (req,res)=>{
         var newobesity =req.body;
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
-        obesity.push(newobesity);
-        
-        res.sendStatus(201);
+        db.find({country: newobesity.country, year: newobesity.year}, (err, obesityInDB)=>{
+		if(err){
+			console.error("ERROR accessing 	DB in GET");
+			res.sendStatus(500);
+		}
+		else{
+			if(obesityInDB.length==0){
+				console.log("Inserting new contact in DB: "+ JSON.stringify(newobesity, null,2));
+				dbFood.insert(newobesity);
+				res.sendStatus(201); //CREATED
+			}
+			else{
+				console.log();
+				res.sendStatus(409); //CONFLICT
+			}
+		}
+        });
+       
     });
     
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
