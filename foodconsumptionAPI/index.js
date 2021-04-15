@@ -130,11 +130,13 @@ var food_consumptionInitialData = [
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
 		var countryD = req.params.country;
 		var yearD = req.params.year;
-		dbFood.remove({country: countryD , year: yearD}, {}, (err, numFoodConsumptionRemoved)=>{
+		dbFood.remove({ country: countryD, year: yearD }, {}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 			res.sendStatus(500);
 		}else{
+			console.log(yearD);
+			console.log(countryD);
 			if(numFoodConsumptionRemoved==0){
 				res.sendStatus(404);
 			}else{
@@ -151,7 +153,7 @@ var food_consumptionInitialData = [
 		var countryD = req.params.country;
 		var yearD = req.params.year;
 		var update = req.body;
-		db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year, foodtype: update.foodtype, caloryperperson: 			update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {}, 						function(err, updateFood) {
+		dbFood.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year, foodtype: update.foodtype, caloryperperson: 			update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {}, 						function(err, updateFood) {
 				if (err) {
 					console.error("ERROR deleting DB contacts in DELETE: "+err);
 				}else{
@@ -172,7 +174,7 @@ var food_consumptionInitialData = [
         res.sendStatus(405);
     });
     app.delete(BASE_API_PATH, (req,res)=>{
-        db.remove({}, {}, (err, numFoodConsumptionRemoved)=>{
+        dbFood.remove({}, {}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 		}else{
