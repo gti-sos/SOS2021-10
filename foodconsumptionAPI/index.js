@@ -31,7 +31,7 @@ var food_consumptionInitialData = [
  module.exports.register = (app) => {
 
     app.get(BASE_API_PATH, (req,res)=>{
-		db.find({}, (err, foodConsumption)=>{
+		dbFood.find({}, (err, foodConsumption)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in GET");
 			res.sendStatus(500); //Internal Server Error
@@ -86,7 +86,7 @@ var food_consumptionInitialData = [
 	 res.send("Intentando cosas");
 	
 	
-	})
+	});
     
     /*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
         for(var i=0; i<food_consumption.length; i++){
@@ -107,7 +107,7 @@ var food_consumptionInitialData = [
     app.post(BASE_API_PATH, (req,res)=>{
         var newfood_consumption =req.body;
         console.log(`Nuevo objeto en food_consumption: <${JSON.stringify(newfood_consumption,null,2)}>`);
-        db.find({country: newfood_consumption.country, year: newfood_consumption.year}, (err, food_consumption)=>{
+        dbFood.find({country: newfood_consumption.country, year: newfood_consumption.year}, (err, food_consumption)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in GET");
 			res.sendStatus(500);
@@ -115,7 +115,7 @@ var food_consumptionInitialData = [
 		else{
 			if(food_consumption.length==0){
 				console.log("Inserting new contact in DB: "+ JSON.stringify(newfood_consumption, null,2));
-				db.insert(newfood_consumption);
+				dbFood.insert(newfood_consumption);
 				res.sendStatus(201); //CREATED
 			}
 			else{
@@ -130,7 +130,7 @@ var food_consumptionInitialData = [
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
 		var countryD = req.params.country;
 		var yearD = req.params.year;
-		db.remove({country: countryD, year: yearD}, {}, (err, numFoodConsumptionRemoved)=>{
+		dbFood.remove({country: countryD , year: yearD}, {}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 			res.sendStatus(500);
