@@ -25,12 +25,12 @@ var obesityInitialData = [
     app.get(BASE_API_PATH, (req,res)=>{
 	
 		db.find({}, (err,obesityInDB)=>{
-			if(err){
-				console.error("ERROR accessing BB in GET");
-				res.sendStatus(500);
-			}else{
-				var obesityToSend = obesityInDB.map((c)=>{
-				return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
+		if(err){
+			console.error("ERROR accessing BB in GET");
+			res.sendStatus(500);
+		}else{
+			var obesityToSend = obesityInDB.map((d)=>{
+			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
 			});
 			res.send(JSON.stringify(obesityToSend,null,2));
 		}
@@ -40,14 +40,12 @@ var obesityInitialData = [
  });
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
-        for(var i=0; i<obesityInitialData.length; i++){
-            obesity.push(obesityInitialData[i]);
-        }
+        db.insert(obesityInitialData);
         
         res.send("Datos cargados");
     });
     
-    app.get(BASE_API_PATH+"/:country", (req, res)=>{
+  /*  app.get(BASE_API_PATH+"/:country", (req, res)=>{
 		var filtrado =[]
         for(var i=0; i<obesity.length; i++){
             if(obesity[i].country==req.params.country){
@@ -65,7 +63,7 @@ var obesityInitialData = [
         }
 
     });
-	 
+	 */
     
    app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 	   var filtrado =[]
@@ -87,7 +85,7 @@ var obesityInitialData = [
     app.post(BASE_API_PATH, (req,res)=>{
         var newobesity =req.body;
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
-        db.find({country: newobesity.country, year: newobesity.year}, (err, obesityInDB)=>{
+        db.find({country: newobesity.country, year: newobesity.year, man_percent: newobesity.man_percent, woman_percent: newobesity.woman_percent, total_population: newobesity.total_population}, (err, obesityInDB)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in GET");
 			res.sendStatus(500);
@@ -95,7 +93,7 @@ var obesityInitialData = [
 		else{
 			if(obesityInDB.length==0){
 				console.log("Inserting new contact in DB: "+ JSON.stringify(newobesity, null,2));
-				dbFood.insert(newobesity);
+				db.insert(newobesity);
 				res.sendStatus(201); //CREATED
 			}
 			else{
@@ -108,14 +106,22 @@ var obesityInitialData = [
     });
     
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
-        for(var i=0; i<obesity.length; i++){
-            if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
-                obesity.splice(i, 1);
-                console.log(obesity);
-            }
-        }
-        console.log("Deleted Data");
-        res.sendStatus(200);
+        var countryD = req.params.country;
+		var yearD =  parseInt(req.params.year);
+		db.remove({ $and: [{ country: countryD}, {year: yearD }] }, {}, (err, numObesityRemoved)=>{
+		if (err){
+			console.error("ERROR deleting DB contacts in DELETE: "+err);
+			res.sendStatus(500);
+		}else{
+			console.log(yearD);
+			console.log(countryD);
+			if(numObesityRemoved==0){
+				res.sendStatus(404);
+			}else{
+				res.sendStatus(200);
+			}
+		}
+	});
     });
     
     
