@@ -53,7 +53,7 @@ var food_consumptionInitialData = [
         res.send("Datos cargados");
     });
     
-    
+
 	
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 		var countryD = req.params.country;
