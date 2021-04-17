@@ -56,10 +56,15 @@ var obesityInitialData = [
 			console.error("ERROR accessing BB in GET");
 			res.sendStatus(500);
 		}else{
-			var obesityToSend = obesityInDB.map((d)=>{
+			if(obesityInDB.length==0){
+				res.sendStatus(404);
+			}else{
+				var obesityToSend = obesityInDB.map((d)=>{
 			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
 			});
 			res.send(JSON.stringify(obesityToSend,null,2));
+			}
+			
 		}
 		
 	});
@@ -115,9 +120,9 @@ var obesityInitialData = [
 		var update = req.body;
 		db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year,  man_percent: update.man_percent, woman_percent: update.woman_percent, total_population: update.total_population}}, {},(err, updateObesity) => {
 				if (err) {
-					console.error("ERROR deleting DB contacts in DELETE: "+err);
+					res.sendStatus(400);
 				}else{
-					res.sendStatus(200);
+					res.sendStatus(201);
 				}
 			
 			});
