@@ -115,9 +115,9 @@ var obesityInitialData = [
 		var update = req.body;
 		db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year,  man_percent: update.man_percent, woman_percent: update.woman_percent, total_population: update.total_population}}, {},(err, updateObesity) => {
 				if (err) {
-					console.error("ERROR deleting DB contacts in DELETE: "+err);
+					res.sendStatus(400);
 				}else{
-					res.sendStatus(200);
+					res.sendStatus(201);
 				}
 			
 			});
