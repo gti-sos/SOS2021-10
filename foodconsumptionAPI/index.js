@@ -53,7 +53,7 @@ var food_consumptionInitialData = [
         res.send("Datos cargados");
     });
     
-    /*app.get(BASE_API_PATH+"/:country", (req, res)=>{
+    app.get(BASE_API_PATH+"/:country", (req, res)=>{
         var filtrado = []
         for(var i=0; i<food_consumption.length; i++){
             if(food_consumption[i].country==req.params.country){
@@ -62,7 +62,7 @@ var food_consumptionInitialData = [
         }
         res.send(JSON.stringify(filtrado,null,2));
         
-    });*/
+    });
 	app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
 	 	var country = req.params.country;
 		var year = req.params.year;
