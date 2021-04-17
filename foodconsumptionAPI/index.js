@@ -3,7 +3,7 @@ var Datastore = require("nedb");
 
 var dbFood = new Datastore();
 
-var food_consumption = [];
+
 var food_consumptionInitialData = [
 	{
 		"country": "China",
@@ -11,12 +11,39 @@ var food_consumptionInitialData = [
 		"foodtype": "Meat",
 		"caloryperperson": 539,
 		"gramperperson": 265,
-		"dailygram": 2334,
-		"dailycalory": 3023
+		"dailygram": 2368,
+		"dailycalory": 3073
+	},
+	{
+		"country": "Spain",
+		"year": 2011,
+		"foodtype": "Sugar&Fat",
+		"caloryperperson": 955,
+		"gramperperson": 132,
+		"dailygram": 2559,
+		"dailycalory": 3192
+	},
+	{
+		"country": "Germany",
+		"year": 2010,
+		"foodtype": "Produce",
+		"caloryperperson": 279,
+		"gramperperson": 625,
+		"dailygram": 2594,
+		"dailycalory": 3501
+	},
+	{
+		"country": "China",
+		"year": 2011,
+		"foodtype": "Grain",
+		"caloryperperson": 1451,
+		"gramperperson": 418,
+		"dailygram": 2368,
+		"dailycalory": 3073
 	},
 
 	{
-		"country": "United States",
+		"country": "United_States",
 		"year": 2007,
 		"foodtype": "Grain",
 		"caloryperperson": 828,
