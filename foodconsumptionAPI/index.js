@@ -54,47 +54,7 @@ var food_consumptionInitialData = [
     });
     
     
-	/*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
-	 	var country = req.params.country;
-		var year = req.params.year;
-		var foodtype = req.params.foodtype;
-		var caloryperperson = req.params.caloryperperson;
-		var gramperperson = req.params.gramperperson;
-		var dailygram = req.params.dailygram;
-		var dailycalory = req.params.dailycalory;
-		var filtros = [];
-		for(var i=0; i<req.params.size; i++){
-			if(req.params[i]==null){
-				var newfilter = req.params[i]
-				filtros.push(newfilter);
-			}
-		}
-		console.log(filtros);
-		 /*food_consumption = food_consumption.filter( (c)=>{
-            return (c.country == country || c.year == year || c.foodtype == foodtype || c.caloryperperson == caloryperperson || c.gramperperson == gramperperson || c.dailygram == dailygram || c.dailycalory == dailycalory);
-        });
-	 res.send(JSON.stringify(food_consumption,null,2));
-	 res.send("Intentando cosas");
 	
-	
-	});*/
-    
-    /*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
-        for(var i=0; i<food_consumption.length; i++){
-            if(food_consumption[i].country==req.params.country){
-				if(food_consumption[i].year==req.params.year){
-					res.send(JSON.stringify(food_consumption[i],null,2));
-				}
-				else{
-					 res.send(JSON.stringify(food_consumption[i],null,2));
-				}
-               
-                
-            }
-        }
-        //res.sendStatus(200);
-    });*/
-    
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
