@@ -56,10 +56,15 @@ var obesityInitialData = [
 			console.error("ERROR accessing BB in GET");
 			res.sendStatus(500);
 		}else{
-			var obesityToSend = obesityInDB.map((d)=>{
+			if(obesityInDB.length==0){
+				res.sendStatus(404);
+			}else{
+				var obesityToSend = obesityInDB.map((d)=>{
 			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
 			});
 			res.send(JSON.stringify(obesityToSend,null,2));
+			}
+			
 		}
 		
 	});
