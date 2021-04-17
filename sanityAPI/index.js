@@ -6,9 +6,9 @@ var sanityInitialData = [
 	{
 		"country": "China",
 		"year": 2011,
-		"health-expenditure-in-percentage": 10.61685285,
-		"doctor-per-1000-habitant": 1.5,
-		"hospital-bed": 3705100
+		"health_expenditure_in_percentage": 10.61685285,
+		"doctor_per_1000_habitant": 1.5,
+		"hospital_bed": 3705100
 	},
 	{
 		"country": "United States",
@@ -31,8 +31,12 @@ var sanityInitialData = [
         }
         
         res.send("Datos cargados");
+
     });
+
     
+
+    /*
     app.get(BASE_API_PATH+"/:country", (req, res)=>{
         var filtrado = []
         for(var i=0; i<sanity.length; i++){
@@ -53,7 +57,33 @@ var sanityInitialData = [
         }
         //res.sendStatus(200);
     });
-    
+    app.get(BASE_API_PATH+"/:country/health/:healthexpenditureinpercentage", (req, res)=>{
+        for(var i=0; i<sanity.length; i++){
+            if(sanity[i].country==req.params.country&&sanity[i].health_expenditure_in_percentage==req.params.healthexpenditureinpercentage){
+                res.send(JSON.stringify(sanity[i],null,2));
+                
+            }
+        }
+        //res.sendStatus(200);
+    });
+     app.get(BASE_API_PATH+"/:country/doctor/:doctorper1000habitant", (req, res)=>{
+        for(var i=0; i<sanity.length; i++){
+            if(sanity[i].country==req.params.country&&sanity[i].doctor_per_1000_habitant==req.params.doctorper1000habitant){
+                res.send(JSON.stringify(sanity[i],null,2));
+                
+            }
+        }
+        //res.sendStatus(200);
+    });
+    app.get(BASE_API_PATH+"?county=:country&bed=:hospitalbed", (req, res)=>{
+        for(var i=0; i<sanity.length; i++){
+            if(sanity[i].country==req.params.country&&sanity[i].hospital_bed==req.params.hospitalbed){
+                res.send(JSON.stringify(sanity[i],null,2));
+                
+            }
+        }
+        //res.sendStatus(200);
+    });*/
     app.post(BASE_API_PATH, (req,res)=>{
         var newsanity =req.body;
         console.log(`Nuevo objeto en sanity: <${JSON.stringify(newsanity,null,2)}>`);
