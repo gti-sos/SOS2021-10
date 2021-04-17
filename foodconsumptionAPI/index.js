@@ -53,16 +53,7 @@ var food_consumptionInitialData = [
         res.send("Datos cargados");
     });
     
-   /* app.get(BASE_API_PATH+"/:country", (req, res)=>{
-        var filtrado = []
-        for(var i=0; i<food_consumption.length; i++){
-            if(food_consumption[i].country==req.params.country){
-                filtrado.push(food_consumption[i]);
-            }
-        }
-        res.send(JSON.stringify(filtrado,null,2));
-        
-    });*/
+    
 	/*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
 	 	var country = req.params.country;
 		var year = req.params.year;
@@ -81,7 +72,7 @@ var food_consumptionInitialData = [
 		console.log(filtros);
 		 /*food_consumption = food_consumption.filter( (c)=>{
             return (c.country == country || c.year == year || c.foodtype == foodtype || c.caloryperperson == caloryperperson || c.gramperperson == gramperperson || c.dailygram == dailygram || c.dailycalory == dailycalory);
-        });*/
+        });
 	 res.send(JSON.stringify(food_consumption,null,2));
 	 res.send("Intentando cosas");
 	
@@ -105,20 +96,25 @@ var food_consumptionInitialData = [
     });*/
     
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
-	   var countryD = req.params.country;
+		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
-	   db.find({ country: countryD , year: yearD }, (err,foodConsumption)=>{
-		if(err){
-			console.error("ERROR accessing BB in GET");
-			res.sendStatus(500);
-		}else{
-			var foodConsumptionToSend = foodConsumption.map((d)=>{
-			return {country: d.country, year: d.year, foodtype: d.foodtype, caloryperperson: d.caloryperperson, gramperperson: d.gramperperson, 				dailygram: d.dailygram, dailycalory: d.dailycaly};
-			});
-			res.send(JSON.stringify(obesityToSend,null,2));
-		}
+	    db.find({ country: countryD , year: yearD }, (err,foodConsumption)=>{
+			if(err){
+				console.error("ERROR accessing DB in GET");
+				res.sendStatus(500);
+			}else{
+				if(foodConsumption.length==0){
+					res.sendStatus(404);
+				}
+				else{
+					var foodConsumptionToSend = foodConsumption.map((d)=>{
+				return {country: d.country, year: d.year, foodtype: d.foodtype, caloryperperson: d.caloryperperson, gramperperson: d.gramperperson, 				dailygram: d.dailygram, dailycalory: d.dailycaly};
+				});
+				res.send(JSON.stringify(obesityToSend,null,2));
+				}
+			}
 		
-	});
+		});
     });
 
 
