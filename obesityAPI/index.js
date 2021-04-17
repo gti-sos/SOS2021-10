@@ -85,7 +85,7 @@ var obesityInitialData = [
     app.post(BASE_API_PATH, (req,res)=>{
         var newobesity =req.body;
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
-        db.find({country: newobesity.country, year: newobesity.year, man_percent: newobesity.man_percent, woman_percent: newobesity.woman_percent, total_population: newobesity.total_population}, (err, obesityInDB)=>{
+        db.find({country: newobesity.country, year: newobesity.year, man_percent: newobesity.man_percent, woman_percent: newobesity.woman_percent, 			total_population: newobesity.total_population}, (err, obesityInDB)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in GET");
 			res.sendStatus(500);
