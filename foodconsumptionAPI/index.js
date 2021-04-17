@@ -129,8 +129,8 @@ var food_consumptionInitialData = [
     
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
 		var countryD = req.params.country;
-		var yearD = parseInt(req.params.year);
-		dbFood.remove({$and: [{ country: countryD }, { year: yearD }] }, {}, (err, numFoodConsumptionRemoved)=>{
+		var yearD = req.params.year;
+		dbFood.remove({ country: countryD, year: yearD }, {}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 			res.sendStatus(500);
