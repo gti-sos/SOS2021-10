@@ -81,6 +81,28 @@ var food_consumptionInitialData = [
         
         res.send("Datos cargados");
     });
+	 
+	 app.get(BASE_API_PATH+"?caloryperpersonAbove=1000", (req, res)=>{
+		
+	    db.find({caloryperperson: {$gte: 1000} }, (err,foodConsumption)=>{
+			if(err){
+				console.error("ERROR accessing DB in GET");
+				res.sendStatus(500);
+			}else{
+				if(foodConsumption.length==0){
+					res.sendStatus(404);
+				}
+				else{
+					var foodConsumptionToSend = foodConsumption.map((d)=>{
+				return {country: d.country, year: d.year, foodtype: d.foodtype, caloryperperson: d.caloryperperson, gramperperson: d.gramperperson, 				dailygram: d.dailygram, dailycalory: d.dailycaly};
+				});
+				res.send(JSON.stringify(obesityToSend,null,2));
+				}
+			}
+		
+		});
+    });
+
     
 
 	//OBTIENE UN RECURSO
