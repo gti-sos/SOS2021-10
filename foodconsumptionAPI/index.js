@@ -82,11 +82,7 @@ var food_consumptionInitialData = [
 		 /*food_consumption = food_consumption.filter( (c)=>{
             return (c.country == country || c.year == year || c.foodtype == foodtype || c.caloryperperson == caloryperperson || c.gramperperson == gramperperson || c.dailygram == dailygram || c.dailycalory == dailycalory);
         });*/
-	 res.send(JSON.stringify(food_consumption,null,2));
-	 res.send("Intentando cosas");
 	
-	
-	});*/
     
     /*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
         for(var i=0; i<food_consumption.length; i++){
