@@ -56,7 +56,8 @@ var food_consumptionInitialData = [
 
 
  module.exports.register = (app) => {
-
+	
+	//OBTIENE TODO EL ARRAY
     app.get(BASE_API_PATH, (req,res)=>{
 		dbFood.find({}, (err, foodConsumption)=>{
 		if(err){
@@ -74,6 +75,7 @@ var food_consumptionInitialData = [
         
     });
     
+	//LOAD INITIAL DATA
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
 		dbFood.insert(food_consumptionInitialData);
         
@@ -81,7 +83,7 @@ var food_consumptionInitialData = [
     });
     
 
-	
+	//OBTIENE UN RECURSO
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
@@ -104,7 +106,7 @@ var food_consumptionInitialData = [
 		});
     });
 
-
+	//SUBE UN RECURSO
     app.post(BASE_API_PATH, (req,res)=>{
         var newfood_consumption =req.body;
         console.log(`Nuevo objeto en food_consumption: <${JSON.stringify(newfood_consumption,null,2)}>`);
@@ -128,6 +130,7 @@ var food_consumptionInitialData = [
         
     });
     
+	 //BORRAR RECURSO
     app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
@@ -149,14 +152,14 @@ var food_consumptionInitialData = [
     });
     
     
-    
+    //ACTUALIZA RECURSO
     app.put(BASE_API_PATH+"/:country/:year",(req,res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
 		var update = req.body;
 		dbFood.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year, foodtype: update.foodtype, caloryperperson: 			update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {}, 						function(err, updateFood) {
 				if (err) {
-					console.error("ERROR deleting DB contacts in DELETE: "+err);
+					console.error("ERROR updating DB contacts in DELETE: "+err);
 				}else{
 					res.sendStatus(200);
 				}
@@ -164,16 +167,19 @@ var food_consumptionInitialData = [
 			});	
 	});
 		
-    
+    //ERROR AL POST EN UN RECURSO
     app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
     
         res.sendStatus(405);
     });
-    
+	 
+    //ERROR AL ACTUALIZAR UN ARRAY
     app.put(BASE_API_PATH, (req,res)=>{
     
         res.sendStatus(405);
     });
+	 
+	//BORRAR TODO
     app.delete(BASE_API_PATH, (req,res)=>{
         dbFood.remove({}, {multi:true}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
