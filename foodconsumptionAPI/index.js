@@ -53,7 +53,7 @@ var food_consumptionInitialData = [
         res.send("Datos cargados");
     });
     
-    app.get(BASE_API_PATH+"/:country", (req, res)=>{
+   /* app.get(BASE_API_PATH+"/:country", (req, res)=>{
         var filtrado = []
         for(var i=0; i<food_consumption.length; i++){
             if(food_consumption[i].country==req.params.country){
@@ -62,8 +62,8 @@ var food_consumptionInitialData = [
         }
         res.send(JSON.stringify(filtrado,null,2));
         
-    });
-	app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
+    });*/
+	/*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
 	 	var country = req.params.country;
 		var year = req.params.year;
 		var foodtype = req.params.foodtype;
@@ -86,7 +86,7 @@ var food_consumptionInitialData = [
 	 res.send("Intentando cosas");
 	
 	
-	});
+	});*/
     
     /*app.get(BASE_API_PATH+"/:country/:year/:foodtype/:caloryperperson/:gramperperson/:dailygram/:dailycalory", (req, res)=>{
         for(var i=0; i<food_consumption.length; i++){
@@ -104,6 +104,24 @@ var food_consumptionInitialData = [
         //res.sendStatus(200);
     });*/
     
+	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
+	   var countryD = req.params.country;
+		var yearD = parseInt(req.params.year);
+	   db.find({ country: countryD , year: yearD }, (err,foodConsumption)=>{
+		if(err){
+			console.error("ERROR accessing BB in GET");
+			res.sendStatus(500);
+		}else{
+			var foodConsumptionToSend = foodConsumption.map((d)=>{
+			return {country: d.country, year: d.year, foodtype: d.foodtype, caloryperperson: d.caloryperperson, gramperperson: d.gramperperson, 				dailygram: d.dailygram, dailycalory: d.dailycaly};
+			});
+			res.send(JSON.stringify(obesityToSend,null,2));
+		}
+		
+	});
+    });
+
+
     app.post(BASE_API_PATH, (req,res)=>{
         var newfood_consumption =req.body;
         console.log(`Nuevo objeto en food_consumption: <${JSON.stringify(newfood_consumption,null,2)}>`);
@@ -151,7 +169,7 @@ var food_consumptionInitialData = [
     
     app.put(BASE_API_PATH+"/:country/:year",(req,res)=>{
 		var countryD = req.params.country;
-		var yearD = req.params.year;
+		var yearD = parseInt(req.params.year);
 		var update = req.body;
 		dbFood.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year, foodtype: update.foodtype, caloryperperson: 			update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {}, 						function(err, updateFood) {
 				if (err) {
@@ -174,7 +192,7 @@ var food_consumptionInitialData = [
         res.sendStatus(405);
     });
     app.delete(BASE_API_PATH, (req,res)=>{
-        dbFood.remove({}, {}, (err, numFoodConsumptionRemoved)=>{
+        dbFood.remove({}, {multi:true}, (err, numFoodConsumptionRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 		}else{

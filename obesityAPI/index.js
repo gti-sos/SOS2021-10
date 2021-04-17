@@ -27,7 +27,7 @@ var obesityInitialData = [
 		db.find({}, (err,obesityInDB)=>{
 		if(err){
 			console.error("ERROR accessing BB in GET");
-			res.sendStatus(500);
+			res.sendStatus(500);//???
 		}else{
 			var obesityToSend = obesityInDB.map((d)=>{
 			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
@@ -43,43 +43,26 @@ var obesityInitialData = [
         db.insert(obesityInitialData);
         
         res.send("Datos cargados");
+		res.sendStatus(200);
     });
     
-  /*  app.get(BASE_API_PATH+"/:country", (req, res)=>{
-		var filtrado =[]
-        for(var i=0; i<obesity.length; i++){
-            if(obesity[i].country==req.params.country){
-                filtrado.push(obesity[i]);
-            }
-
-        }
-		if(filtrado.length>0){
-		res.send(JSON.stringify(filtrado, null,2));
-		}
-
-		else{
-            console.log("Not Found");
-              res.sendStatus(404);
-        }
-
-    });
-	 */
+ 
     
    app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
-	   var filtrado =[]
-        for(var i=0; i<obesity.length; i++){
-            if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
-                filtrado.push(obesity[i]);
-            }
-        }
-        if(filtrado.length>0){
-		res.send(JSON.stringify(filtrado, null,2));
+	   var countryD = req.params.country;
+		var yearD = parseInt(req.params.year);
+	   db.find({ country: countryD , year: yearD }, (err,obesityInDB)=>{
+		if(err){
+			console.error("ERROR accessing BB in GET");
+			res.sendStatus(500);
+		}else{
+			var obesityToSend = obesityInDB.map((d)=>{
+			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
+			});
+			res.send(JSON.stringify(obesityToSend,null,2));
 		}
-
-		else{
-            console.log("Not Found");
-              res.sendStatus(404);
-        }
+		
+	});
     });
     
     app.post(BASE_API_PATH, (req,res)=>{
@@ -127,13 +110,17 @@ var obesityInitialData = [
     
     
     app.put(BASE_API_PATH+"/:country/:year",(req,res)=>{
-        for(var i=0; i<obesity.length; i++){
-            if(obesity[i].country==req.params.country&&obesity[i].year==req.params.year){
-                obesity[i]=req.body;
-            }
-        }
-        console.log("Updated Data");
-        res.sendStatus(200);
+        var countryD = req.params.country;
+		var yearD =  parseInt(req.params.year);
+		var update = req.body;
+		db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year,  man_percent: update.man_percent, woman_percent: update.woman_percent, total_population: update.total_population}}, {},(err, updateObesity) => {
+				if (err) {
+					console.error("ERROR deleting DB contacts in DELETE: "+err);
+				}else{
+					res.sendStatus(200);
+				}
+			
+			});
     });
     
     app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
@@ -146,12 +133,18 @@ var obesityInitialData = [
         res.sendStatus(405);
     });
     app.delete(BASE_API_PATH, (req,res)=>{
-        while(obesity.length>0){
-            obesity.pop();
-            
-        }
-        console.log("Deleted Data");
-        res.sendStatus(200);
+        db.remove({}, {multi:true}, (err, numObesityRemoved)=>{
+		if (err){
+			console.error("ERROR deleting DB contacts in DELETE: "+err);
+		}else{
+			if(numObesityRemoved==0){
+				res.sendStatus(404);
+			}else{
+				res.sendStatus(200);
+			}
+		}
+			
+	});
     });
 
 
