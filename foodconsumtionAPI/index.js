@@ -1,9 +1,7 @@
+
 var BASE_API_PATH = "/api/v1/foodconsumption-stats";
 var Datastore = require("nedb");
-
 var dbFood = new Datastore();
-
-
 var food_consumptionInitialData = [
 	{
 		"country": "China",
@@ -41,7 +39,6 @@ var food_consumptionInitialData = [
 		"dailygram": 2368,
 		"dailycalory": 3073
 	},
-
 	{
 		"country": "United_States",
 		"year": 2007,
@@ -54,9 +51,9 @@ var food_consumptionInitialData = [
 ];
 
 
-
  module.exports.register = (app) => {
-	
+
+
 	//OBTIENE TODO EL ARRAY
     app.get(BASE_API_PATH, (req,res)=>{
 		dbFood.find({}, (err, foodConsumption)=>{
@@ -72,15 +69,16 @@ var food_consumptionInitialData = [
 			res.send(JSON.stringify(foodConsumptionToSend, null, 2));
 		}
 	} );
-        
+
     });
-    
+
 	//LOAD INITIAL DATA
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
 		dbFood.insert(food_consumptionInitialData);
-        
+
         res.send("Datos cargados");
     });
+<<<<<<< HEAD:foodconsumptionAPI/index.js
 	 
 	 app.get(BASE_API_PATH+"?caloryperpersonAbove=1000", (req, res)=>{
 		
@@ -104,12 +102,16 @@ var food_consumptionInitialData = [
     });
 
     
+=======
+
+
+>>>>>>> 62b27cc2676fe99fa186f17847ece3e660a2cc61:foodconsumtionAPI/index.js
 
 	//OBTIENE UN RECURSO
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
-	    db.find({ country: countryD , year: yearD }, (err,foodConsumption)=>{
+        db.find({ country: countryD , year: yearD }, (err,foodConsumption)=>{
 			if(err){
 				console.error("ERROR accessing DB in GET");
 				res.sendStatus(500);
@@ -127,8 +129,7 @@ var food_consumptionInitialData = [
 		
 		});
     });
-
-	//SUBE UN RECURSO
+    //SUBE UN RECURSO
     app.post(BASE_API_PATH, (req,res)=>{
         var newfood_consumption =req.body;
         console.log(`Nuevo objeto en food_consumption: <${JSON.stringify(newfood_consumption,null,2)}>`);
@@ -149,32 +150,30 @@ var food_consumptionInitialData = [
 			}
 		}
 	});
-        
+
     });
-    
-	 //BORRAR RECURSO
-    app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
-		var countryD = req.params.country;
-		var yearD = parseInt(req.params.year);
-		dbFood.remove({$and:[{ country: countryD}, {year: yearD }]}, {}, (err, numFoodConsumptionRemoved)=>{
-		if (err){
-			console.error("ERROR deleting DB contacts in DELETE: "+err);
-			res.sendStatus(500);
-		}else{
-			console.log(yearD);
-			console.log(countryD);
-			if(numFoodConsumptionRemoved==0){
-				res.sendStatus(404);
-			}else{
-				res.sendStatus(200);
-			}
-		}
-	});
-        
-    });
-    
-    
-    //ACTUALIZA RECURSO
+
+    	 //BORRAR RECURSO
+         app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
+            var countryD = req.params.country;
+            var yearD = parseInt(req.params.year);
+            dbFood.remove({$and:[{ country: countryD}, {year: yearD }]}, {}, (err, numFoodConsumptionRemoved)=>{
+            if (err){
+                console.error("ERROR deleting DB contacts in DELETE: "+err);
+                res.sendStatus(500);
+            }else{
+                console.log(yearD);
+                console.log(countryD);
+                if(numFoodConsumptionRemoved==0){
+                    res.sendStatus(404);
+                }else{
+                    res.sendStatus(200);
+                }
+            }
+        });
+            
+        });
+           //ACTUALIZA RECURSO
     app.put(BASE_API_PATH+"/:country/:year",(req,res)=>{
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
@@ -185,37 +184,33 @@ var food_consumptionInitialData = [
 				}else{
 					res.sendStatus(200);
 				}
-			
+
 			});	
 	});
-		
-    //ERROR AL POST EN UN RECURSO
-    app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
-    
+      //ERROR AL POST EN UN RECURSO
+      app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
+
         res.sendStatus(405);
     });
-	 
+
+
     //ERROR AL ACTUALIZAR UN ARRAY
     app.put(BASE_API_PATH, (req,res)=>{
-    
+
         res.sendStatus(405);
     });
-	 
-	//BORRAR TODO
-    app.delete(BASE_API_PATH, (req,res)=>{
-        dbFood.remove({}, {multi:true}, (err, numFoodConsumptionRemoved)=>{
-		if (err){
-			console.error("ERROR deleting DB contacts in DELETE: "+err);
-		}else{
-			if(numFoodConsumptionRemoved==0){
-				res.sendStatus(404);
-			}else{
-				res.sendStatus(200);
-			}
-		}
-	});
-    });
-
-
-
- };
+//BORRAR TODO
+app.delete(BASE_API_PATH, (req,res)=>{
+    dbFood.remove({}, {multi:true}, (err, numFoodConsumptionRemoved)=>{
+    if (err){
+        console.error("ERROR deleting DB contacts in DELETE: "+err);
+    }else{
+        if(numFoodConsumptionRemoved==0){
+            res.sendStatus(404);
+        }else{
+            res.sendStatus(200);
+        }
+    }
+});
+});
+};
