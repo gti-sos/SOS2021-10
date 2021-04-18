@@ -159,7 +159,7 @@ var sanityInitialData = [
     });
     app.delete(BASE_API_PATH, (req,res)=>{
         while(sanity.length>0){
-            sanity.pop();
+            db.pop();
             
         }
         console.log("Deleted Data");
