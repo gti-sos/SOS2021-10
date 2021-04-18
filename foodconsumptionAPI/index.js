@@ -78,7 +78,7 @@ var food_consumptionInitialData = [
 
         res.send("Datos cargados");
     });
-<<<<<<< HEAD:foodconsumptionAPI/index.js
+
 	 
 	 app.get(BASE_API_PATH+"?caloryperpersonAbove=1000", (req, res)=>{
 		
@@ -102,10 +102,6 @@ var food_consumptionInitialData = [
     });
 
     
-=======
-
-
->>>>>>> 62b27cc2676fe99fa186f17847ece3e660a2cc61:foodconsumtionAPI/index.js
 
 	//OBTIENE UN RECURSO
 	app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{

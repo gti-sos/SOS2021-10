@@ -17,25 +17,64 @@ var obesityInitialData = [
 		"man_percent": 29.1,
 		"woman_percent": 31.5,
 		"total_population": 300608000
+	},
+	{	
+		"country": "Spain",
+		"year": 2008,
+		"man_percent": 20.8,
+		"woman_percent": 21,
+		"total_population": 46069000
+	},
+	{	
+		"country": "Germany",
+		"year": 2010,
+		"man_percent": 21.1,
+		"woman_percent": 18.6,
+		"total_population": 80827000
+	},
+	{	
+		"country": "India",
+		"year": 2009,
+		"man_percent": 1.7,
+		"woman_percent": 3.6,
+		"total_population": 1217725952
 	}
 ];
 
  module.exports.register = (app) => {
 
     app.get(BASE_API_PATH, (req,res)=>{
-	
-		db.find({}, (err,obesityInDB)=>{
-		if(err){
-			console.error("ERROR accessing BB in GET");
-			res.sendStatus(500);//???
-		}else{
-			var obesityToSend = obesityInDB.map((d)=>{
-			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
-			});
-			res.send(JSON.stringify(obesityToSend,null,2));
-		}
+		var dbquery = {};
+        let offset = 0;
+        let limit = Number.MAX_SAFE_INTEGER;
 		
-	});
+		//PAGINACIÓN
+        if (req.query.offset) {
+            offset = parseInt(req.query.offset);
+            delete req.query.offset;
+        }
+        if (req.query.limit) {
+            limit = parseInt(req.query.limit);
+            delete req.query.limit;
+        }
+		
+		//BUSQUEDA
+		if(req.query.country) dbquery["country"]= req.query.country;
+		if(req.query.year) dbquery["year"] = parseInt(req.query.year);
+		if(req.query.man_percent) dbquery["man_percent"] = parseFloat(req.query.man_percent);
+		if(req.query.woman_percent) dbquery["woman_percent"] = parseFloat(req.query.woman_percent);
+		if(req.query.total_population) dbquery["total_population"] = parseInt(req.query.total_population);	
+		
+		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, obesity) =>{
+
+			obesity.forEach((t)=>{
+				delete t._id
+			});
+
+			res.send(JSON.stringify(obesity,null,2));
+			//console.log("Data sent: " + JSON.stringify(tourism,null,2));
+			console.log("Recursos mostrados");
+		});
     
  });
     
@@ -47,7 +86,7 @@ var obesityInitialData = [
     });
     
  
-    
+    /*
    app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
 	   var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
@@ -69,7 +108,31 @@ var obesityInitialData = [
 		
 	});
     });
-    
+    */
+	 
+	 app.get(BASE_API_PATH+"/:country/:year", (req, res)=>{
+	   var countryD = req.params.country;
+		var yearD = parseInt(req.params.year);
+	   db.find({ country: countryD , year: yearD }, (err,obesityInDB)=>{
+		if(err){
+			console.error("ERROR accessing BB in GET");
+			res.sendStatus(500);
+		}else{
+			if(obesityInDB.length==0){
+				res.sendStatus(404);
+			}else{
+				var obesityToSend = obesityInDB.map((d)=>{
+			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
+			});
+			res.status(200).send(JSON.stringify(obesityToSend,null,2));
+			}
+			
+		}
+		
+	});
+    });
+	
+	 
     app.post(BASE_API_PATH, (req,res)=>{
         var newobesity =req.body;
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
