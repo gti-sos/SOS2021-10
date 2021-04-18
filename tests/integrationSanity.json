@@ -83,7 +83,7 @@
 			"response": []
 		},
 		{
-			"name": "sanity-stats 2",
+			"name": "sanity-stats 5",
 			"event": [
 				{
 					"listen": "test",
@@ -94,7 +94,7 @@
 							"});\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -171,7 +171,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats/prueba/2000",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats?country=prueba&year=2000",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -181,9 +181,17 @@
 					"path": [
 						"api",
 						"v1",
-						"sanity-stats",
-						"prueba",
-						"2000"
+						"sanity-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "prueba"
+						},
+						{
+							"key": "year",
+							"value": "2000"
+						}
 					]
 				}
 			},
@@ -271,7 +279,7 @@
 							"});\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
 							"});"
 						],
 						"type": "text/javascript"
