@@ -158,10 +158,7 @@ var sanityInitialData = [
         res.sendStatus(405);
     });
     app.delete(BASE_API_PATH, (req,res)=>{
-        while(sanity.length>0){
-            db.pop();
-            
-        }
+        db.remove({},{multi:true});
         console.log("Deleted Data");
         res.sendStatus(200);
     });
