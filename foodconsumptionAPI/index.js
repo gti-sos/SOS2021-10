@@ -197,9 +197,6 @@ var food_consumptionInitialData = [
             }else{
                 
                 if(numFoodConsumptionRemoved==0){
-					console.log(countryD);
-					console.log(yearD);
-					console.log(foodtypeD);
                     res.sendStatus(404);
                 }else{
                     res.sendStatus(200);
