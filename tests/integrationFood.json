@@ -7,11 +7,41 @@
 	"item": [
 		{
 			"name": "get conjunto vacio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The set is empty\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\": \"Spain\",\r\n    \"year\": 2015,\r\n\t\"foodtype\": \"Grain\",\r\n\t\"caloryperperson\": 234567890,\r\n\t\"gramperperson\": 1234567894,\r\n\t\"dailygram\": 2345,\r\n\t\"dailycalory\": 2356\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/info/foodconsumption-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -19,7 +49,8 @@
 						"com"
 					],
 					"path": [
-						"info",
+						"api",
+						"v1",
 						"foodconsumption-stats"
 					]
 				}
@@ -72,10 +103,9 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -97,6 +127,101 @@
 						"api",
 						"v1",
 						"foodconsumption-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get datos con paginación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(3)});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?limit=3&offset=1",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get datos diferentes filtros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?foodtype=Grain&caloryperpersonAbove=800",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats"
+					],
+					"query": [
+						{
+							"key": "foodtype",
+							"value": "Grain"
+						},
+						{
+							"key": "caloryperpersonAbove",
+							"value": "800"
+						}
 					]
 				}
 			},
@@ -149,6 +274,98 @@
 			"response": []
 		},
 		{
+			"name": "post dato ya creado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2015,\r\n\"foodtype\": \"Meat\",\r\n\"caloryperperson\": 659,\r\n\"gramperperson\": 385,\r\n\"dailygram\": 2678,\r\n\"dailycalory\": 3234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post dato valores erroneos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Japan\",\r\n\"year\": 2015,\r\n\"foodtype\": \"Meat\",\r\n\"caloryperperson\": 659,\r\n\"gramperperson\": 385,\r\n\"dailygram\": 2678,\r\n\"number\": 2678,\r\n\"dailycalory\": 3234\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get España",
 			"event": [
 				{
@@ -157,6 +374,18 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"\"country\": \"Spain\",\r",
+							"\"year\": 2015,\r",
+							"\"foodtype\": \"Meat\",\r",
+							"\"caloryperperson\": 659,\r",
+							"\"gramperperson\": 385,\r",
+							"\"dailygram\": 2678,\r",
+							"\"dailycalory\": 3234\r",
+							"});\r",
 							"});\r",
 							""
 						],
@@ -168,7 +397,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Spain/2015",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=Spain&year=2015&foodtype=Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -178,9 +407,21 @@
 					"path": [
 						"api",
 						"v1",
-						"foodconsumption-stats",
-						"Spain",
-						"2015"
+						"foodconsumption-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "foodtype",
+							"value": "Meat"
+						}
 					]
 				}
 			},
@@ -207,7 +448,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Spain/2015",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Spain/2015/Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -219,27 +460,64 @@
 						"v1",
 						"foodconsumption-stats",
 						"Spain",
-						"2015"
+						"2015",
+						"Meat"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "get conjunto datos sin españa",
+			"name": "delete dato no existente",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(404);\r",
 							"});\r",
 							"\r",
-							"pm.test(\"Your test name\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
-							"});"
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Portugal/2015/Grain",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats",
+						"Portugal",
+						"2015",
+						"Grain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dato españa no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -249,7 +527,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=Spain&year=2015&foodtype=Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -260,6 +538,20 @@
 						"api",
 						"v1",
 						"foodconsumption-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2015"
+						},
+						{
+							"key": "foodtype",
+							"value": "Meat"
+						}
 					]
 				}
 			},
@@ -294,7 +586,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011/Grain",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -306,7 +598,104 @@
 						"v1",
 						"foodconsumption-stats",
 						"China",
-						"2011"
+						"2011",
+						"Grain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put China cambiando valor no valido error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Chinaaaa\",\r\n\"year\": 2011,\r\n\"foodtype\": \"Grain\",\r\n\"caloryperperson\": 539,\r\n\"gramperperson\": 265,\r\n\"dailygram\": 23456789,\r\n\"dailycalory\": 987654\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011/Grain",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats",
+						"China",
+						"2011",
+						"Grain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put China valores erroneos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"China\",\r\n\"year\": 2011,\r\n\"foodtype\": \"Grain\",\r\n\"caloryperperson\": 539,\r\n\"gramperperson\": 265,\r\n\"number\": 23456789,\r\n\"dailycalory\": 987654\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011/Grain",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"foodconsumption-stats",
+						"China",
+						"2011",
+						"Grain"
 					]
 				}
 			},
@@ -322,10 +711,17 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"\r",
 							"pm.test(\"Your test name\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"\"country\": \"China\",\r",
+							"\"year\": 2011,\r",
+							"\"foodtype\": \"Grain\",\r",
+							"\"caloryperperson\": 539,\r",
+							"\"gramperperson\": 265,\r",
+							"\"dailygram\": 23456789,\r",
+							"\"dailycalory\": 987654\r",
+							"});\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -336,7 +732,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=China&year=2011&foodtype=Grain",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -347,6 +743,20 @@
 						"api",
 						"v1",
 						"foodconsumption-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "China"
+						},
+						{
+							"key": "year",
+							"value": "2011"
+						},
+						{
+							"key": "foodtype",
+							"value": "Grain"
+						}
 					]
 				}
 			},
@@ -372,7 +782,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011/Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -384,7 +794,8 @@
 						"v1",
 						"foodconsumption-stats",
 						"China",
-						"2011"
+						"2011",
+						"Meat"
 					]
 				}
 			},
