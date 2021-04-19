@@ -172,7 +172,7 @@ var food_consumptionInitialData = [
 			console.log(Object.keys(newfood_consumption));
 			if(food_consumption.length==0){
 			
-				if(!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory | Object.keys(newfood_consumption)!=7){
+				if((!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory) || Object.keys(newfood_consumption).length!=7 ){
 					res.sendStatus(400);
 					
 					
