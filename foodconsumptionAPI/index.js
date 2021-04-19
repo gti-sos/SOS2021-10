@@ -172,7 +172,7 @@ var food_consumptionInitialData = [
 			console.log(Object.keys(newfood_consumption));
 			if(food_consumption.length==0){
 			
-				if(!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory){
+				if(!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory | Object.keys(newfood_consumption)!=7){
 					res.sendStatus(400);
 					
 					
@@ -226,7 +226,7 @@ var food_consumptionInitialData = [
 			else{
 				if((req.body.country!=countryD|req.body.year!=yearD|req.body.foodtype!=foodtypeD)){
 					res.sendStatus(409);
-				}else if(Object.keys(update).length != 7){
+				}else if(!update.country|!update.year|!update.foodtype|!update.caloryperperson|!update.gramperperson|!update.dailygram|!update.dailycalory |Object.keys(update).length != 7){
 					res.sendStatus(400);
 				}else{
 					dbFood.update({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, {$set: update}, {},function(err, updateFood) {
