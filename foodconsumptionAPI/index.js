@@ -102,12 +102,12 @@ var food_consumptionInitialData = [
 			i++
 		} 
 		
-        if(req.query.gramperperson){
-			dbquery["gramperperson"] = parseInt(req.query.gramperperson);
+        if(req.query.gramperpersonAbove){
+			dbquery["gramperperson"] = {$gte:parseInt(req.query.gramperpersonAbove)};
 			i++
 		} 
-		if(req.query.dailygram){
-			dbquery["dailygram"] = parseInt(req.query.dailygram);
+		if(req.query.dailygramAbove){
+			dbquery["dailygram"] = {$gte:parseInt(req.query.dailygramAbove)};
 			i++
 		} 
         if(req.query.dailycaloryAbove){
