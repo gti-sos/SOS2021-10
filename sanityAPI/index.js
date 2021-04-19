@@ -124,7 +124,7 @@ var sanityInitialData = [
 				res.sendStatus(400);
 			}else{
 				console.log("Los datos que se desean insertar son correctos");
-				db.insert(newTourism);
+				db.insert(newsanity);
 				res.sendStatus(201);
 			}
          });
