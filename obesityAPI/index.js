@@ -80,9 +80,14 @@ var obesityInitialData = [
 					obesity.forEach((f)=>{
                 delete f._id
             });
-				
-					res.status(200).send(JSON.stringify(obesity,null,2));
+				if(obesity.length==1){
+						res.status(200).send(JSON.stringify(obesity[0],null,2));
 					console.log("Recursos mostrados");
+					}
+					else{
+						res.send(JSON.stringify(obesity,null,2));
+					}
+					
 				}
 			}
 			
@@ -254,7 +259,7 @@ var obesityInitialData = [
 				console.error("ERROR obesity-stats not found");
 				res.sendStatus(404);
 			}else{
-				res.sendStatus(200);
+				res.status(200).send("Successfully removed");
 			}
 		}
 			
