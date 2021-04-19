@@ -138,16 +138,26 @@ var obesityInitialData = [
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
         db.find({country: newobesity.country, year: newobesity.year, man_percent: newobesity.man_percent, woman_percent: newobesity.woman_percent, 			total_population: newobesity.total_population}, (err, obesityInDB)=>{
 		if(err){
-			console.error("ERROR accessing 	DB in GET");
+			console.error("ERROR accessing 	DB in POST");
 			res.sendStatus(500);
 		}
 		else{
 			if(obesityInDB.length==0){
-				console.log("Inserting new contact in DB: "+ JSON.stringify(newobesity, null,2));
-				db.insert(newobesity);
-				res.sendStatus(201); //CREATED
-			}
-			else{
+				if (!newobesity.country
+                        || !newobesity.year
+                        || !newobesity.man_percent
+                        || !newobesity.woman_percent
+                        || !newobesity.total_population
+                        || Object.keys(newobesity).length != 5) {
+
+                        res.sendStatus(400);
+                    } else {
+                        console.log("Inserting new contact in DB: "+ JSON.stringify(newobesity, null,2));
+						db.insert(newobesity);
+						res.sendStatus(201); //CREATED
+                    }
+				
+			}else{
 				console.log();
 				res.sendStatus(409); //CONFLICT
 			}
@@ -164,11 +174,12 @@ var obesityInitialData = [
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
 			res.sendStatus(500);
 		}else{
-			console.log(yearD);
-			console.log(countryD);
+			
 			if(numObesityRemoved==0){
+				console.error("No data found");
 				res.sendStatus(404);
 			}else{
+				console.log(`stat with country: <${countryD}> and year: <${yearD}> deleted`);
 				res.sendStatus(200);
 			}
 		}
@@ -181,14 +192,34 @@ var obesityInitialData = [
         var countryD = req.params.country;
 		var yearD =  parseInt(req.params.year);
 		var update = req.body;
+		if (!update.country
+            || !update.year
+            || !update.man_percent
+            || !update.woman_percent
+            || !update.total_population
+            || update.country != countryD
+            || update.year != yearD
+            || Object.keys(update).length != 5) {
+
+            console.log("Invalid field update")
+            res.sendStatus(409);
+        } else {
 		db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year,  man_percent: update.man_percent, woman_percent: update.woman_percent, total_population: update.total_population}}, {},(err, updateObesity) => {
 				if (err) {
-					res.sendStatus(400);
+					console.error("ERROR accesing DB in PUT");
+					res.sendStatus(500);
 				}else{
-					res.sendStatus(201);
+					if (updateObesity == 0) {
+                        console.error("No data found");
+                        res.sendStatus(404);
+                    } else {
+                        console.log("Updated fields")
+                        res.sendStatus(200);
+                    }
 				}
 			
 			});
+		}
     });
     
     app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
@@ -204,8 +235,10 @@ var obesityInitialData = [
         db.remove({}, {multi:true}, (err, numObesityRemoved)=>{
 		if (err){
 			console.error("ERROR deleting DB contacts in DELETE: "+err);
+			res.sendStatus(500);
 		}else{
 			if(numObesityRemoved==0){
+				console.error("ERROR obesity-stats not found");
 				res.sendStatus(404);
 			}else{
 				res.sendStatus(200);
