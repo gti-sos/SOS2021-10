@@ -43,7 +43,7 @@ var sanityInitialData = [
         db.remove({},{multi:true});
         db.insert(sanityInitialData);
         
-        res.send("Datos cargados");
+        console.log("Datos cargados");
         res.sendStatus(200);
 
     });
@@ -53,6 +53,7 @@ var sanityInitialData = [
 		var dbquery = {};
         let offset = 0;
         let limit = Number.MAX_SAFE_INTEGER;
+        var i=0;
 		
 		//PAGINACIÓN
         if (req.query.offset) {
@@ -65,11 +66,14 @@ var sanityInitialData = [
         }
 		
 		//BUSQUEDA
-		if(req.query.country) dbquery["country"]= req.query.country;
-		if(req.query.year) dbquery["year"] = parseInt(req.query.year);
-		if(req.query.health_expenditure_in_percentage) dbquery["health_expenditure_in_percentage"] = parseFloat(req.query.health_expenditure_in_percentage);
-		if(req.query.doctor_per_1000_habitant) dbquery["doctor_per_1000_habitant"] = parseFloat(req.query.doctor_per_1000_habitant);
-		if(req.query.hospital_bed) dbquery["hospital_bed"] = parseFloat(req.query.hospital_bed);	
+		if(req.query.country){ dbquery["country"]= req.query.country;i++}
+		if(req.query.year){ dbquery["year"] = parseInt(req.query.year);i++}
+		if(req.query.health_expenditure_in_percentage){ dbquery["health_expenditure_in_percentage"] = parseFloat(req.query.health_expenditure_in_percentage);i++}
+		if(req.query.doctor_per_1000_habitant){ dbquery["doctor_per_1000_habitant"] = parseFloat(req.query.doctor_per_1000_habitant);i++}
+		if(req.query.hospital_bed){ dbquery["hospital_bed"] = parseFloat(req.query.hospital_bed);i++}
+		if(req.query.bedAbove){ dbquery["hospital_bed"] = {$gte: parseFloat(req.query.bedAbove)};i++}
+		if(req.query.doctorAbove){ dbquery["doctor_per_1000_habitant"] = {$gte: parseFloat(req.query.doctorAbove)};i++}
+		if(req.query.healthAbove){ dbquery["health_expenditure_in_percentage"] = {$gte: parseFloat(req.query.healthAbove)};i++}
 		
 		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, sanity) =>{
 
@@ -77,7 +81,22 @@ var sanityInitialData = [
 				delete t._id
 			});
 
-			res.send(JSON.stringify(sanity,null,2));
+			if(error){
+				res.sendStatus(500);
+			}else{
+				if(sanity.length==0){
+					if(i==0){
+						res.send(JSON.stringify(sanity,null,2));
+					}else{
+						console.log();
+						res.sendStatus(404);
+					}
+				}
+				else{
+					res.send(JSON.stringify(sanity,null,2));
+				}
+			}
+           
 			//console.log("Data sent: " + JSON.stringify(tourism,null,2));
 			console.log("Recursos mostrados");
 		});
@@ -86,22 +105,20 @@ var sanityInitialData = [
      app.post(BASE_API_PATH, (req,res)=>{
          var newsanity =req.body;
          console.log(`Nuevo objeto en obesity: <${JSON.stringify(newsanity,null,2)}>`);
-         db.find({country: newsanity.country, year: newsanity.year, health_expenditure_in_percentage: newsanity.health_expenditure_in_percentage, doctor_per_1000_habitant: newsanity.doctor_per_1000_habitant,hospital_bed: newsanity.hospital_bed}, (err, sanityInDB)=>{
-         if(err){
-             console.error("ERROR accessing DB in POST");
-             res.sendStatus(500);
-         }
-         else{
-             if(sanityInDB.length==0){
-                 console.log("Inserting new contact in DB: "+ JSON.stringify(newsanity, null,2));
-                 db.insert(newsanity);
-                 res.sendStatus(201); //CREATED
-             }
-             else{
-                 console.log();
-                 res.sendStatus(409); //CONFLICT
-             }
-         }
+         db.find({country: newsanity.country, year: newsanity.year}, (err, sanityInDB)=>{
+            if(sanityInDB.length != 0){	//Si tourism es distinto de 0 es que ya existe algun recurso con esa provincia y año
+				console.log("409. El objeto ya existe");
+				res.sendStatus(409);
+			}else if(!newsanity.country || !newsanity.year || !newsanity.health_expenditure_in_percentage || !newsanity.doctor_per_1000_habitant 
+					  || !newsanity.hospital_bed || Object.keys(newsanity).length != 5){
+				
+				console.log("El número de campos no es 5");
+				res.sendStatus(400);
+			}else{
+				console.log("Los datos que se desean insertar son correctos");
+				db.insert(newTourism);
+				res.sendStatus(201);
+			}
          });
         
      });
@@ -125,13 +142,13 @@ var sanityInitialData = [
      
      
      
-    app.put(BASE_API_PATH+":country/:year", (req, res) =>{
+    app.put(BASE_API_PATH+"/:country/:year", (req, res) =>{
 
-		var country = req.params.country;
-		var year = parseInt(req.params.year);
+		var countryD = req.params.country;
+		var yearD = parseInt(req.params.year);
 		var updateSanity = req.body;
 		
-		db.find({country:country, year: year},(error,sanity)=>{
+		db.find({country:countryD, year: yearD},(error,sanity)=>{
 			console.log(sanity);
 			if(sanity.length == 0){
 				console.log("Error 404, recurso no encontrado.");
@@ -141,11 +158,11 @@ var sanityInitialData = [
 				
 					console.log("PUT recurso encontrado. Se intenta actualizar con campos no validos 400");
 					res.sendStatus(400);
-			}else if(updateSanity.country != country || updateSanity.year != year){
+			}else if(updateSanity.country != countryD || updateSanity.year != yearD){
 					console.log("PUT recurso encontrado. Se intenta actualizar el identificador 409");
 					res.sendStatus(409);
 			}else{
-				db.update({country:country, year: year},{$set: updateSanity});
+				db.update({country:countryD, year: yearD},{$set: updateSanity});
 				console.log("PUT realizado con exito.")
 				res.sendStatus(200);
 			}
