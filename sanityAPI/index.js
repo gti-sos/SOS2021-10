@@ -93,14 +93,14 @@ var sanityInitialData = [
 						res.sendStatus(404);
 					}
 				}
-				
+				else{
 					if(sanity.length==1){
 						res.send(JSON.stringify(sanity[0],null,2));
 					}
 					else{
 						res.send(JSON.stringify(sanity,null,2));
 					}
-					
+                }	
 				
 					
 				}
