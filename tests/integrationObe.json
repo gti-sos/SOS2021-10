@@ -6,15 +6,60 @@
 	},
 	"item": [
 		{
-			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"name": "DEL all Copy",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"ERROR obesity-stats not found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
 							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -41,7 +86,7 @@
 			"response": []
 		},
 		{
-			"name": "/info/obesity-stats/loadinitialdata",
+			"name": "LoadInitialData",
 			"event": [
 				{
 					"listen": "test",
@@ -77,15 +122,56 @@
 			"response": []
 		},
 		{
-			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"name": "GET 200",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
-							"    pm.response.to.have.status(201);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Length data is 5\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(5);\r",
 							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST 409",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Conflicted POST request\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -96,7 +182,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 54654\r\n}",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2008,\r\n\"man_percent\": 20.8,\r\n\"woman_percent\": 21,\r\n\"total_population\": 46069000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,7 +207,97 @@
 			"response": []
 		},
 		{
-			"name": "/info/obesity-stats/China/2011",
+			"name": "POST 400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid field update\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2111,\r\n\"man_percent\": 20.8,\r\n\"woman_percent\": 21\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Prueba",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man_percent\": 4.2,\r\n\"woman_percent\": 5.2,\r\n\"total_population\": 54654\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spain 2008",
 			"event": [
 				{
 					"listen": "test",
@@ -129,7 +305,10 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -139,7 +318,52 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats?country=Spain&year=2008",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2008"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not Found 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"No data found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Pruebaaaa/2011111",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -150,15 +374,15 @@
 						"api",
 						"v1",
 						"obesity-stats",
-						"China",
-						"2011"
+						"Pruebaaaa",
+						"2011111"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/info/obesity-stats/China/2011",
+			"name": "DEL 200",
 			"event": [
 				{
 					"listen": "test",
@@ -195,7 +419,7 @@
 			"response": []
 		},
 		{
-			"name": "/info/obesity-stats/Prueba/2011",
+			"name": "PUT 409",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -210,7 +434,117 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Invalid field update\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spaaaaaaaaaaain\",\r\n\"year\": 2008,\r\n\"man_percent\": 4.2,\r\n\"woman_percent\": 5.2,\r\n\"total_population\": 66666666\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"Spain",
+						"2008"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT 404",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"No data found\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"Spaaaaaain\",\r\n\"year\": 201111111,\r\n\"man_percent\": 4.2,\r\n\"woman_percent\": 5.2,\r\n\"total_population\": 66666666\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spaaaaaain/201111111",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"obesity-stats",
+						"Spaaaaaain",
+						"201111111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT 200",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Updated fields\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
@@ -223,7 +557,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"Prueba\",\r\n\"year\": 2011,\r\n\"man-percent\": 4.2,\r\n\"woman-percent\": 5.2,\r\n\"total-population\": 66666666\r\n}",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2008,\r\n\"man_percent\": 4.2,\r\n\"woman_percent\": 5.2,\r\n\"total_population\": 66666666\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -231,7 +565,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Prueba/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -242,23 +576,24 @@
 						"api",
 						"v1",
 						"obesity-stats",
-						"Prueba",
-						"2011"
+						"Spain",
+						"2008"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "/info/obesity-stats/China/2011",
+			"name": "POST Error",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 201\", function () {\r",
+							"pm.test(\"Failed POST request\", function () {\r",
 							"    pm.response.to.have.status(405);\r",
-							"});"
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -296,13 +631,13 @@
 			"response": []
 		},
 		{
-			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"name": "PUT Error",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Status code is 405\", function () {\r",
 							"    pm.response.to.have.status(405);\r",
 							"});"
 						],
@@ -340,13 +675,13 @@
 			"response": []
 		},
 		{
-			"name": "http://sos2021-10.herokuapp.com/info/obesity-stats",
+			"name": "DEL all",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"Successfully removed\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
