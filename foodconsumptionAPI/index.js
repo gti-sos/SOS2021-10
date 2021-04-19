@@ -162,13 +162,15 @@ var food_consumptionInitialData = [
 			res.sendStatus(500);
 		}
 		else{
+			console.log(Object.keys(newfood_consumption));
 			if(food_consumption.length==0){
-				if(!(req.body.country&req.body.year&req.body.foodtype&req.body.caloryperperson&req.body.gramperperson&req.body.dailygram&req.body.dailycalory)){
+			
+				if(!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory){
 					res.sendStatus(400);
 					
 					
 				}else{
-					console.log("Inserting new contact in DB: "+ JSON.stringify(newfood_consumption, null,2));
+					console.log("Inserting new food_consumption in DB: "+ JSON.stringify(newfood_consumption, null,2));
 					dbFood.insert(newfood_consumption);
 					res.sendStatus(201); //CREATED
 				}
@@ -187,14 +189,17 @@ var food_consumptionInitialData = [
          app.delete(BASE_API_PATH+"/:country/:year/:foodtype", (req,res)=>{
             var countryD = req.params.country;
             var yearD = parseInt(req.params.year);
-			 var foodtypeD = req.params.foodtypeD;
-            dbFood.remove({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, {}, (err, numFoodConsumptionRemoved)=>{
+			 var foodtypeD = req.params.foodtype;
+            dbFood.remove({$and:[{ country: countryD}, {year: yearD }, { foodtype: foodtypeD }]}, {}, (err, numFoodConsumptionRemoved)=>{
             if (err){
-                console.error("ERROR deleting DB contacts in DELETE: "+err);
+                console.error("ERROR deleting DB food_consumption in DELETE: "+err);
                 res.sendStatus(500);
             }else{
                 
                 if(numFoodConsumptionRemoved==0){
+					console.log(countryD);
+					console.log(yearD);
+					console.log(foodtypeD);
                     res.sendStatus(404);
                 }else{
                     res.sendStatus(200);
@@ -211,7 +216,7 @@ var food_consumptionInitialData = [
 		var update = req.body;
 		dbFood.update({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, {$set: {country: countryD, year: yearD, foodtype: foodtypeD, caloryperperson:	update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {},function(err, updateFood) {
 				if (err) {
-					console.error("ERROR updating DB contacts in DELETE: "+err);
+					console.error("ERROR updating DB food_consumption in PUT: "+err);
 				}else{
 					if((req.body.country!=countryD|req.body.year!=yearD|req.body.foodtype!=foodtypeD)||(Object.keys(update).length != 7)){
 						res.sendStatus(400);
@@ -239,7 +244,7 @@ var food_consumptionInitialData = [
 app.delete(BASE_API_PATH, (req,res)=>{
     dbFood.remove({}, {multi:true}, (err, numFoodConsumptionRemoved)=>{
     if (err){
-        console.error("ERROR deleting DB contacts in DELETE: "+err);
+        console.error("ERROR deleting DB food_consumption in DELETE: "+err);
     }else{
         if(numFoodConsumptionRemoved==0){
             res.sendStatus(404);
