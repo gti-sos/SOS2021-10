@@ -218,7 +218,7 @@ var food_consumptionInitialData = [
 		var yearD = parseInt(req.params.year);
 		var foodtypeD = req.params.foodtype;
 		var update = req.body;
-		dbFood.update({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, {$set: {country: countryD, year: yearD, foodtype: foodtypeD, caloryperperson:	update.caloryperperson, gramperperson: update.gramperperson, dailygram: update.dailygram, dailycalory: update.dailycaly}}, {},function(err, updateFood) {
+		dbFood.update({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, {$set: update}, {},function(err, updateFood) {
 				if (err) {
 					console.error("ERROR updating DB food_consumption in PUT: "+err);
 				}else{
