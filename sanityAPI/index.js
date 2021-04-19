@@ -187,9 +187,20 @@ var sanityInitialData = [
         res.sendStatus(405);
     });
     app.delete(BASE_API_PATH, (req,res)=>{
-        db.remove({},{multi:true});
-        console.log("Deleted Data");
-        res.sendStatus(200);
+        db.remove({}, {multi:true}, (err, sanity)=>{
+		if (err){
+			console.error("ERROR deleting DB contacts in DELETE: "+err);
+			res.sendStatus(500);
+		}else{
+			if(sanity==0){
+				console.error("ERROR obesity-stats not found");
+				res.sendStatus(404);
+			}else{
+				res.status(200).send("Successfully removed");
+			}
+		}
+			
+	});
     });
 
 
