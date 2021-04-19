@@ -81,7 +81,7 @@ var obesityInitialData = [
                 delete f._id
             });
 				
-					res.send(JSON.stringify(obesity,null,2));
+					res.status(200).send(JSON.stringify(obesity,null,2));
 					console.log("Recursos mostrados");
 				}
 			}

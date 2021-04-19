@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+=======
+{"country":"China","year":2011,"man_percent":4.2,"woman_percent":5.2,"total_population":1376498048,"_id":"93qWv8yTFXtAFT49"}
+{"country":"United States","year":2007,"man_percent":29.1,"woman_percent":31.5,"total_population":300608000,"_id":"M5XfwWCpTmhWG2HL"}
+{"country":"Spain","year":2008,"man_percent":20.8,"woman_percent":21,"total_population":46069000,"_id":"31PPeIrJpm81Wq7H"}
+{"country":"Germany","year":2010,"man_percent":21.1,"woman_percent":18.6,"total_population":80827000,"_id":"7ltRaU1xNG56nrWM"}
+{"country":"India","year":2009,"man_percent":1.7,"woman_percent":3.6,"total_population":1217725952,"_id":"5UhC92xxFXCS4jAo"}
+{"country":"Prueba","year":2011,"man_percent":4.2,"woman_percent":5.2,"total_population":54654,"_id":"ogjaXgUJYMO4xFb9"}
+{"$$deleted":true,"_id":"93qWv8yTFXtAFT49"}
+{"country":"Spain","year":2008,"man_percent":4.2,"woman_percent":5.2,"total_population":66666666,"_id":"31PPeIrJpm81Wq7H"}
+{"$$deleted":true,"_id":"31PPeIrJpm81Wq7H"}
+{"$$deleted":true,"_id":"5UhC92xxFXCS4jAo"}
+{"$$deleted":true,"_id":"7ltRaU1xNG56nrWM"}
+{"$$deleted":true,"_id":"M5XfwWCpTmhWG2HL"}
+{"$$deleted":true,"_id":"ogjaXgUJYMO4xFb9"}
+{"country":"China","year":2011,"man_percent":4.2,"woman_percent":5.2,"total_population":1376498048,"_id":"ldgZuNATFCSpe4p6"}
+{"country":"United States","year":2007,"man_percent":29.1,"woman_percent":31.5,"total_population":300608000,"_id":"F1SjaYgfE159JuIl"}
+{"country":"Spain","year":2008,"man_percent":20.8,"woman_percent":21,"total_population":46069000,"_id":"6CDEuz048ivMrPSK"}
+{"country":"Germany","year":2010,"man_percent":21.1,"woman_percent":18.6,"total_population":80827000,"_id":"NcM1mAJ73BgBkxsF"}
+{"country":"India","year":2009,"man_percent":1.7,"woman_percent":3.6,"total_population":1217725952,"_id":"3i8moqQdInf5dN2C"}
+>>>>>>> 6c63893d6243c795684a19d291c5db5f820d77f9
