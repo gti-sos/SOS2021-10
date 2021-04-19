@@ -1,7 +1,9 @@
 var BASE_API_PATH = "/api/v1/obesity-stats";
 var Datastore = require("nedb");
-var db=new Datastore();
 
+var path = require('path');
+var datafile = path.join(__dirname, 'obesity-stats.db');
+var db = new Datastore({ filename: datafile, autoload: true});
 var obesity = [];
 var obesityInitialData = [
 	{	
@@ -66,14 +68,25 @@ var obesityInitialData = [
 		if(req.query.total_population) dbquery["total_population"] = parseInt(req.query.total_population);	
 		
 		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, obesity) =>{
-
-			obesity.forEach((t)=>{
-				delete t._id
-			});
-
-			res.send(JSON.stringify(obesity,null,2));
-			//console.log("Data sent: " + JSON.stringify(tourism,null,2));
-			console.log("Recursos mostrados");
+			if(error){
+				res.sendStatus(500);
+			}else{
+				if(obesity.length==0){
+						
+						console.log();
+						res.sendStatus(404);
+				}
+				else{
+					obesity.forEach((f)=>{
+                delete f._id
+            });
+				
+					res.send(JSON.stringify(obesity,null,2));
+					console.log("Recursos mostrados");
+				}
+			}
+			
+			
 		});
     
  });
@@ -81,8 +94,8 @@ var obesityInitialData = [
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
         db.insert(obesityInitialData);
         
-        res.send("Datos cargados");
-		res.sendStatus(200);
+        
+		res.status(200).send("Datos cargados");
     });
     
  
