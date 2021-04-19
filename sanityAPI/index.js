@@ -1,9 +1,16 @@
 var BASE_API_PATH = "/api/v1/sanity-stats";
-var Datastore = require("nedb");
-var db=new Datastore();
-const url= require('url');
 
-var sanity = [];
+var datastore = require("nedb");
+const path = require("path");
+const dbFileName = path.join(__dirname,"sanity.db");
+const db = new datastore({
+				filename: dbFileName, 
+				autoload: true,
+					autoload: true,
+				autoload: true,
+				autoload: true
+		});
+
 var sanityInitialData = [
 	{
 		"country": "China","year": 2011,
@@ -31,23 +38,9 @@ var sanityInitialData = [
 
  module.exports.register = (app) => {
 
-    /*app.get(BASE_API_PATH, (req,res)=>{
-	
-		db.find({}, (err,sanityInDB)=>{
-		if(err){
-			console.error("ERROR accessing BB in GET");
-			res.sendStatus(500);//???
-		}else{
-			var sanityToSend = sanityInDB.map((d)=>{
-			return {country: d.country, year: d.year, health_expenditure_in_percentage: d.health_expenditure_in_percentage, doctor_per_1000_habitant: d.doctor_per_1000_habitant, hospital_bed: d.hospital_bed};
-			});
-			res.send(JSON.stringify(sanityToSend,null,2));
-		}});
-		
-	});*/
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
-        
+        db.remove({},{multi:true});
         db.insert(sanityInitialData);
         
         res.send("Datos cargados");
@@ -114,39 +107,50 @@ var sanityInitialData = [
      });
      
      app.delete(BASE_API_PATH+"/:country/:year", (req,res)=>{
-         var countryD = req.params.country;
-         var yearD =  parseInt(req.params.year);
-         db.remove({ $and: [{ country: countryD}, {year: yearD }] }, {}, (err, numSanityRemoved)=>{
-         if (err){
-             console.error("ERROR deleting DB contacts in DELETE: "+err);
-             res.sendStatus(500);
-         }else{
-             console.log(yearD);
-             console.log(countryD);
-             if(numSanityRemoved==0){
-                 res.sendStatus(404);
-             }else{
-                 res.sendStatus(200);
-             }
-         }
-     });
-     });
+
+		var country = req.params.country;
+		var year = parseInt(req.params.year);
+
+		db.find({country:country, year:year},(error, sanity)=>{
+			if(sanity.length==0){
+				console.log("ERROR 404. Recurso no encontrado");
+				res.sendStatus(404);
+			}else{
+				console.log("DELETE de un recurso concreto");
+                res.sendStatus(200);
+                db.remove({country:country, year:year});
+			}
+		})
+	});
      
      
      
-     app.put(BASE_API_PATH+"/:country/:year",(req,res)=>{
-         var countryD = req.params.country;
-         var yearD =  parseInt(req.params.year);
-         var update = req.body;
-         db.update({country: countryD, year: yearD}, {$set: {country: update.country, year: update.year, health_expenditure_in_percentage: update.health_expenditure_in_percentage, doctor_per_1000_habitant: update.doctor_per_1000_habitant,hospital_bed: update.hospital_bed}}, {},(err, updateSanity) => {
-                 if (err) {
-                     console.error("ERROR deleting DB contacts in PUT: "+err);
-                 }else{
-                     res.sendStatus(200);
-                 }
-             
-             });
-     });
+    app.put(BASE_API_PATH+":country/:year", (req, res) =>{
+
+		var country = req.params.country;
+		var year = parseInt(req.params.year);
+		var updateSanity = req.body;
+		
+		db.find({country:country, year: year},(error,sanity)=>{
+			console.log(sanity);
+			if(sanity.length == 0){
+				console.log("Error 404, recurso no encontrado.");
+				res.sendStatus(404);
+			}else if(!updateSanity.country || !updateSanity.year ||!updateSanity.health_expenditure_in_percentage || !updateSanity.doctor_per_1000_habitant
+		  			 || !updateSanity.hospital_bed || Object.keys(updateSanity).length != 5){
+				
+					console.log("PUT recurso encontrado. Se intenta actualizar con campos no validos 400");
+					res.sendStatus(400);
+			}else if(updateSanity.country != country || updateSanity.year != year){
+					console.log("PUT recurso encontrado. Se intenta actualizar el identificador 409");
+					res.sendStatus(409);
+			}else{
+				db.update({country:country, year: year},{$set: updateSanity});
+				console.log("PUT realizado con exito.")
+				res.sendStatus(200);
+			}
+		});
+	});
     
     app.post(BASE_API_PATH+"/:country/:year", (req,res)=>{
     
