@@ -100,7 +100,7 @@ var obesityInitialData = [
         db.insert(obesityInitialData);
         
         
-		res.status(200).send("Datos cargados");
+		res.sendStatus(200);
     });
     
  
@@ -259,7 +259,7 @@ var obesityInitialData = [
 				console.error("ERROR obesity-stats not found");
 				res.sendStatus(404);
 			}else{
-				res.status(200).send("Successfully removed");
+				res.sendStatus(200);
 			}
 		}
 			
