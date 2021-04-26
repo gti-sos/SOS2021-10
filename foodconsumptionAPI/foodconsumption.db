@@ -1,6 +1,8 @@
 {"country":"United_States","year":2007,"foodtype":"Grain","caloryperperson":828,"gramperperson":303,"dailygram":2877,"dailycalory":3771,"_id":"3GQ1FwjafycBAcQ0"}
-{"country":"China","year":2011,"foodtype":"Grain","caloryperperson":1451,"gramperperson":418,"dailygram":2368,"dailycalory":3073,"_id":"8PYC5y47Lq9QGpfS"}
 {"country":"China","year":2011,"foodtype":"Meat","caloryperperson":539,"gramperperson":265,"dailygram":2368,"dailycalory":3073,"_id":"GYCs9YaOoyFjPS9c"}
 {"country":"Germany","year":2010,"foodtype":"Produce","caloryperperson":279,"gramperperson":625,"dailygram":2594,"dailycalory":3501,"_id":"P7SKhNJCUcHllrO3"}
 {"country":"Spain","year":2011,"foodtype":"Sugar&Fat","caloryperperson":955,"gramperperson":132,"dailygram":2559,"dailycalory":3192,"_id":"sABkeEtXF8406E7W"}
-{"$$deleted":true,"_id":"8PYC5y47Lq9QGpfS"}
+{"$$deleted":true,"_id":"3GQ1FwjafycBAcQ0"}
+{"$$deleted":true,"_id":"GYCs9YaOoyFjPS9c"}
+{"$$deleted":true,"_id":"P7SKhNJCUcHllrO3"}
+{"$$deleted":true,"_id":"sABkeEtXF8406E7W"}
