@@ -29,7 +29,7 @@
 		<strong>SOS2021-10</strong>
 	</h1>
 	<h2>
-		Integrantes
+		Integrantes:
 	</h2>
 	<ul>
 		<Breadcrumb class="peque">
