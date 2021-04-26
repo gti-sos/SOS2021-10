@@ -1,4 +1,18 @@
 <script>
+	import TableFood from './TableFood.svelte';
+	import {
+    Button,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader
+  } from 'sveltestrap';
+  let open = false;
+  const toggle = () =>{
+  	
+  	(open = !open);
+  } 
+	
 </script>
 
 <main>
@@ -44,7 +58,21 @@
 		<ul>
 	
 			<li>Obesity-stats: <a href="obesity.html">Obesity_Front-end</a></li>
-			<li>FoodConsumption-stats: <a href="foodconsumption.svelte">Food_Front-end</a></li>
+			<li>FoodConsumption-stats:
+			<p>
+			  <Button outline color="warning" on:click={toggle}>Open</Button>
+			  <Modal isOpen={open} {toggle} size= 'lg'>
+				<ModalHeader {toggle}>Estadísticas de consumo de comida</ModalHeader>
+				<ModalBody>
+					<TableFood/>
+				</ModalBody>
+				<ModalFooter>
+				  <Button color="secondary" on:click={toggle}>Close</Button>
+				</ModalFooter>
+			  </Modal>
+			</p>
+			
+			</li>
 			<li>Sanity-stats: <a href="sanity.html">Sanity_Front-end</a></li>
 		</ul>
 		
@@ -58,6 +86,9 @@
 			<li>FoodConsumption-stats: <a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></li>
 			<li>Sanity-stats: <a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></li>
 		</ul>
+		
+		
+	
 
 </main>
 
