@@ -6,7 +6,9 @@
     	Modal,
     	ModalBody,
    		ModalFooter,
-   		 ModalHeader
+   		ModalHeader,
+		Breadcrumb,
+		BreadcrumbItem
   	} from 'sveltestrap';
   let open = false;
   let openob = false;
@@ -30,16 +32,26 @@
 		Integrantes
 	</h2>
 	<ul>
-		<li>Antonio José Díaz González (https://github.com/AntonioJoseDiaz)</li>
-		<li>Almudena González López de Letona (https://github.com/almgonlop)</li>
-		<li>Alicia Pérez Bolaños (https://github.com/aliperbol)</li>
+		<Breadcrumb class="peque">
+  			<BreadcrumbItem active>Antonio José Díaz González</BreadcrumbItem>
+			<BreadcrumbItem active>https://github.com/AntonioJoseDiaz</BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem active>Almudena González López de Letona</BreadcrumbItem>
+			<BreadcrumbItem active>https://github.com/almgonlop</BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem active>Alicia Pérez Bolaños</BreadcrumbItem>
+			<BreadcrumbItem active>https://github.com/aliperbol</BreadcrumbItem>
+		</Breadcrumb>
+		
 			
 	</ul>
 	<h2>
 		Descripción del proyecto:
 	</h2>
 	<p>
-		Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la obesidad, el consumo de distintos tipos de comida y la sanidad en el mundo.
+		Nuestras fuentes de información estan orientadas a analizar la relación que existe entre la obesidad, el consumo de distintos tipos de comida y la sanidad en el mundo.
 	</p>
 	<p>
 		<strong>Repositorio: </strong> [gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
@@ -124,7 +136,10 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
-
+	
+	ul {
+		width: fit-content;
+	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
