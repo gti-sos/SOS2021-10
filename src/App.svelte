@@ -1,18 +1,24 @@
 <script>
 	import TableFood from './TableFood.svelte';
+	import ObesitySv from './ObesitySv.svelte';
 	import {
-    Button,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader
-  } from 'sveltestrap';
+    	Button,
+    	Modal,
+    	ModalBody,
+   		ModalFooter,
+   		 ModalHeader
+  	} from 'sveltestrap';
   let open = false;
+  let openob = false;
   const toggle = () =>{
   	
   	(open = !open);
   } 
-	
+  
+  const toggleob = () =>{
+  	
+  	(openob = !openob);
+  } 
 </script>
 
 <main>
@@ -57,7 +63,20 @@
 		
 		<ul>
 	
-			<li>Obesity-stats: <a href="obesity.html">Obesity_Front-end</a></li>
+			<li>Obesity-stats: 
+				<p>
+			  		<Button outline color="warning" on:click={toggleob}>Open</Button>
+			  		<Modal isOpen={openob} {toggleob} size= 'lg'>
+						<ModalHeader {toggleob}>Estadísticas de obesidad</ModalHeader>
+						<ModalBody>
+							<ObesitySv/>
+						</ModalBody>
+						<ModalFooter>
+				  			<Button color="secondary" on:click={toggleob}>Close</Button>
+						</ModalFooter>
+			  		</Modal>
+				</p>
+			</li>
 			<li>FoodConsumption-stats:
 			<p>
 			  <Button outline color="warning" on:click={toggle}>Open</Button>
@@ -88,7 +107,6 @@
 		</ul>
 		
 		
-	
 
 </main>
 
