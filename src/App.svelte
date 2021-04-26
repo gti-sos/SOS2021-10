@@ -22,19 +22,30 @@
 		Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la obesidad, el consumo de distintos tipos de comida y la sanidad en el mundo.
 	</p>
 	<p>
-		<strong>Repository:</strong>[gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
+		<strong>Repository: </strong> [gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
 	</p>
 	<p>
-		<strong>URL:</strong>http://sos2021-10.herokuapp.com 
+		<strong>URL: </strong> http://sos2021-10.herokuapp.com 
 	</p>
 	<p>
-		<strong>APIs:</strong>
+		<strong>APIs: </strong>
 	</p>
 	
 		<ul>
 			<li><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">sanity-stats</a> (developed by Antonio José Díaz González)</li>
 			<li><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">obesity-stats</a> (developed by Almudena González López de Letona)</li>
 			<li><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">foodconsumption-stats</a> (developed by Alicia Pérez Bolaños)</li>
+		</ul>
+		
+		<p>
+		<strong>Front-end Svelte:</strong>
+	</p>
+		
+		<ul>
+	
+			<li>Obesity-stats: <a href="obesity.html">Obesity_Front-end</a></li>
+			<li>FoodConsumption-stats: <a href="foodconsumption.svelte">Food_Front-end</a></li>
+			<li>Sanity-stats: <a href="sanity.html">Sanity_Front-end</a></li>
 		</ul>
 		
 	<p>
@@ -57,14 +68,12 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
-
 	h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
 	}
-
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
