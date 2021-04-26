@@ -64,9 +64,19 @@
 	</p>
 	
 		<ul>
-			<li><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">sanity-stats</a> (developed by Antonio José Díaz González)</li>
-			<li><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">obesity-stats</a> (developed by Almudena González López de Letona)</li>
-			<li><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">foodconsumption-stats</a> (developed by Alicia Pérez Bolaños)</li>
+			<Breadcrumb class="peque">
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Sanity-stats</a></BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
+			</Breadcrumb>
+			<Breadcrumb>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Obesity-stats</a></BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
+			</Breadcrumb>
+			<Breadcrumb>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Foodconsumption-stats</a></BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
+			</Breadcrumb>
+			
 		</ul>
 		
 		<p>
@@ -112,10 +122,19 @@
 	</p>
 		
 		<ul>
-	
-			<li>Obesity-stats: <a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></li>
-			<li>FoodConsumption-stats: <a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></li>
-			<li>Sanity-stats: <a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></li>
+			<Breadcrumb class="peque">
+				<BreadcrumbItem active>Obesity-stats </BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></BreadcrumbItem>
+			</Breadcrumb>
+			<Breadcrumb class="peque">
+				<BreadcrumbItem active>FoodConsumption-stats </BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></BreadcrumbItem>
+			</Breadcrumb>
+			<Breadcrumb class="peque">
+				<BreadcrumbItem active>Sanity-stats </BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
+			</Breadcrumb>
+			
 		</ul>
 		
 		
