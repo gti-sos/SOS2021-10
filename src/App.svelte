@@ -27,7 +27,7 @@
 		<strong>SOS2021-10</strong>
 	</h1>
 	<h2>
-		Team
+		Integrantes
 	</h2>
 	<ul>
 		<li>Antonio José Díaz González (https://github.com/AntonioJoseDiaz)</li>
@@ -36,13 +36,13 @@
 			
 	</ul>
 	<h2>
-		Project description:
+		Descripción del proyecto:
 	</h2>
 	<p>
 		Nuestras fuentes de información esta orientadas a analizar la relación que existe entre la obesidad, el consumo de distintos tipos de comida y la sanidad en el mundo.
 	</p>
 	<p>
-		<strong>Repository: </strong> [gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
+		<strong>Repositorio: </strong> [gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
 	</p>
 	<p>
 		<strong>URL: </strong> http://sos2021-10.herokuapp.com 
@@ -96,7 +96,7 @@
 		</ul>
 		
 	<p>
-		<strong>Postman's Documentation:</strong>
+		<strong>Documentación en Postman:</strong>
 	</p>
 		
 		<ul>
