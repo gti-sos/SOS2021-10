@@ -131,7 +131,7 @@
   				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></BreadcrumbItem>
 			</Breadcrumb>
 			<Breadcrumb class="peque">
-				<BreadcrumbItem active>Estaditicas de Sanidad </BreadcrumbItem>
+				<BreadcrumbItem active>Estaditicas de Sanidad</BreadcrumbItem>
   				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
 			</Breadcrumb>
 			
