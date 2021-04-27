@@ -43,11 +43,11 @@
 	<Table bordered>
 		<thead>
 			<tr>
-				<td>Country</td>
-				<td>Year</td>
-				<td>Man_percent</td>
-				<td>Woman_percent</td>
-				<td>Total_population</td>
+				<td>Pais</td>
+				<td>Año</td>
+				<td>Porcentaje de hombres</td>
+				<td>Porcentaje de mujer</td>
+				<td>Población total</td>
 			</tr>
 		</thead>
 		<tbody>
