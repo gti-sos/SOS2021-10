@@ -87,28 +87,28 @@
 	
 			<li>Estaditicas de Obesidad: 
 				<p>
-			  		<Button outline color="warning" on:click={toggleob}>Open</Button>
+			  		<Button outline color="warning" on:click={toggleob}>Abrir</Button>
 			  		<Modal isOpen={openob} {toggleob} size= 'lg'>
 						<ModalHeader {toggleob}>Estadísticas de obesidad</ModalHeader>
 						<ModalBody>
 							<ObesitySv/>
 						</ModalBody>
 						<ModalFooter>
-				  			<Button color="secondary" on:click={toggleob}>Close</Button>
+				  			<Button color="secondary" on:click={toggleob}>Cerrar</Button>
 						</ModalFooter>
 			  		</Modal>
 				</p>
 			</li>
 			<li>Estaditicas del Consumo de Comida:
 			<p>
-			  <Button outline color="warning" on:click={toggle}>Open</Button>
+			  <Button outline color="warning" on:click={toggle}>Abrir</Button>
 			  <Modal isOpen={open} {toggle} size= 'lg'>
 				<ModalHeader {toggle}>Estadísticas de consumo de comida</ModalHeader>
 				<ModalBody>
 					<TableFood/>
 				</ModalBody>
 				<ModalFooter>
-				  <Button color="secondary" on:click={toggle}>Close</Button>
+				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
 			  </Modal>
 			</p>
