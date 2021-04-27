@@ -65,15 +65,15 @@
 	
 		<ul>
 			<Breadcrumb class="peque">
-  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Sanity-stats</a></BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad</a></BreadcrumbItem>
 				<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
 			</Breadcrumb>
 			<Breadcrumb>
-  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Obesity-stats</a></BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Estaditicas de Obesidad</a></BreadcrumbItem>
 				<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
 			</Breadcrumb>
 			<Breadcrumb>
-  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Foodconsumption-stats</a></BreadcrumbItem>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Estaditicas del Consumo de Comida</a></BreadcrumbItem>
 				<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
 			</Breadcrumb>
 			
@@ -85,7 +85,7 @@
 		
 		<ul>
 	
-			<li>Obesity-stats: 
+			<li>Estaditicas de Obesidad: 
 				<p>
 			  		<Button outline color="warning" on:click={toggleob}>Open</Button>
 			  		<Modal isOpen={openob} {toggleob} size= 'lg'>
@@ -99,7 +99,7 @@
 			  		</Modal>
 				</p>
 			</li>
-			<li>FoodConsumption-stats:
+			<li>Estaditicas del Consumo de Comida:
 			<p>
 			  <Button outline color="warning" on:click={toggle}>Open</Button>
 			  <Modal isOpen={open} {toggle} size= 'lg'>
@@ -114,7 +114,7 @@
 			</p>
 			
 			</li>
-			<li>Sanity-stats: <a href="sanity.html">Sanity_Front-end</a></li>
+			<li>Estaditicas de Sanidad: <a href="sanity.html">Sanity_Front-end</a></li>
 		</ul>
 		
 	<p>
@@ -123,15 +123,15 @@
 		
 		<ul>
 			<Breadcrumb class="peque">
-				<BreadcrumbItem active>Obesity-stats </BreadcrumbItem>
+				<BreadcrumbItem active>Estaditicas de Obesidad </BreadcrumbItem>
   				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></BreadcrumbItem>
 			</Breadcrumb>
 			<Breadcrumb class="peque">
-				<BreadcrumbItem active>FoodConsumption-stats </BreadcrumbItem>
+				<BreadcrumbItem active>Estaditicas del Consumo de Comida </BreadcrumbItem>
   				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></BreadcrumbItem>
 			</Breadcrumb>
 			<Breadcrumb class="peque">
-				<BreadcrumbItem active>Sanity-stats </BreadcrumbItem>
+				<BreadcrumbItem active>Estaditicas de Sanidad </BreadcrumbItem>
   				<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
 			</Breadcrumb>
 			
