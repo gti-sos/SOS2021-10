@@ -1,5 +1,6 @@
 <script>
 
+	
 	import {
 		onMount
 	} from "svelte";
@@ -26,6 +27,7 @@
 </script>
 
 <main>
+	
 	<Table bordered>
 		<thead>
 			<tr>
@@ -56,4 +58,5 @@
 			
 		</tbody>
 	</Table>
+	
 </main>
