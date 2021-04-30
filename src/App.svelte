@@ -1,6 +1,7 @@
 <script>
 	import TableFood from './TableFood.svelte';
 	import ObesitySv from './ObesitySv.svelte';
+	import TableSanity from './SanityAPI.svelte';
 	import {
     	Button,
     	Modal,
@@ -11,18 +12,22 @@
 		BreadcrumbItem
   	} from 'sveltestrap';
   let open = false;
+  let opensa = false;
   let openob = false;
   const toggle = () =>{
   	
   	(open = !open);
+  }  
+  const togglesa = () =>{
+  	
+  	(opensa = !opensa);
   } 
-  
+
   const toggleob = () =>{
   	
   	(openob = !openob);
   } 
 </script>
-
 <main>
 	
 	<h1>
@@ -114,7 +119,21 @@
 			</p>
 			
 			</li>
-			<li>Estaditicas de Sanidad: <a href="sanity.html">Sanity_Front-end</a></li>
+			<li> Estaditicas de Sanidad: 
+				
+				<p>
+					<Button outline color="warning" on:click={togglesa}>Abrir</Button>
+					<Modal isOpen={opensa} {togglesa} size= 'lg'>
+					<ModalHeader {togglesa}>Estaditicas de Sanidad:</ModalHeader>
+					<ModalBody>
+						<TableSanity/>
+					</ModalBody>
+					<ModalFooter>
+						<Button color="secondary" on:click={togglesa}>Cerrar</Button>
+					</ModalFooter>
+					</Modal>
+				</p>
+			</li>
 		</ul>
 		
 	<p>

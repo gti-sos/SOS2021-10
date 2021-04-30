@@ -1,119 +1,81 @@
 <script>
-  import {
-    Nav,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    ModalHeader,
-    NavItem,
-    NavLink,
-    Button,
-    Table,
-    UncontrolledAlert ,
-  } from "sveltestrap";
-  const carga = () => {
-    loadData();
-  };
-  const borra = () => {
-    deleteData();
-  };
-  //API
-  let sanityStats = [];
-  //Functions
-  async function loadData() {
-    console.log("Loading data...");
-    const res = await fetch("api/v1/sanity-stats/loadInitialData").then(
-      function (res) {
-        if (res.ok) {
-          console.log("OK");
-          getStats();
-          error = 0;
-        } else if (res.status == 409) {
-          error = 409;
-          console.log("Conflict");
-        } else {
-          error = 404;
+	import {
+    	Button
+  	} from 'sveltestrap';
+	import {
+		onMount
+	} from "svelte";
+	
+	import Table from "sveltestrap/src/Table.svelte";
+	let sanity = [];
+	
+	
+	async function SanityData() {
+    	console.log("Loading data...");
+   		const res = await fetch("/api/v1/sanity-stats/loadInitialData");
+		
+        if(res.ok){
+			console.log("Ok.");
+			getSanity();
+		}else{
+			console.log("Error");
+		}
+	}
+
+	async function getSanity() {
+    	console.log("Fetching data...");
+   		const res = await fetch("/api/v1/sanity-stats");
+		
+        if(res.ok){
+          console.log("Ok.");
+          const json = await res.json();
+          sanity = json;
+          console.log(`We have ${sanity.length} Sanity.`)
+        }else{
           console.log("Error");
         }
-      }
-    );
-  }
-  async function getStats() {
-    console.log("Fetching data...");
-    const res = await fetch("api/v1/sanity-stats/");
-    if (res.ok) {
-      console.log("Ok");
-      const json = await res.json();
-      sanityStats = json;
-      console.log(`We have received ${sanityStats.length} contacs.`);
-    } else {
-      console.log("Error");
-    }
-  }
-  async function deleteData() {
-    console.log("Deleting data...");
-    const res = await fetch("api/v1/sanity-stats/", {
-      method: "DELETE",
-    }).then(function (res) {
-      if (res.ok) {
-        console.log("OK");
-        sanityStats = [];
-      } else if (res.status = 404) {
-        console.log("ERROR Data not found in database");
-      }
-    });
-  }
-  getStats();
+  	}
+	  async function Delete() {
+    	console.log("Fetching data...");
+   		const res = await fetch("/api/v1/sanity-stats");
+		
+        if(res.ok){
+          console.log("Ok.");
+          const json = await res.json();
+          sanity = json;
+          console.log(`We have ${sanity.length} Sanity.`)
+        }else{
+          console.log("Error");
+        }
+  	}
+	onMount(getSanity);
 </script>
 
 <main>
-  <Nav>
-    <NavItem>
-      <NavLink href="/">Volver</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="#" on:click={carga}>Cargar datos inciales</NavLink>
-      
-    </NavItem>
-    <NavItem>
-      <NavLink href="#" on:click={borra}>Borrar todos los datos</NavLink>
-      
-    </NavItem>
-  </Nav>
-  <h2>Sanity Stats</h2>
-
-  
-<!-- Table -->
-  
-    <Table borderer>
-      <thead>
-        <tr>
-          <th>country </th>
-          <th>year </th>
-          <th>health_expenditure_in_percentage </th>
-          <th>doctor_per_1000_habitant </th>
-          <th>hospital_bed </th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each sanityStats as stat}
-          <tr>
-            <td>{stat.country}</td>
-            <td>{stat.year}</td>
-            <td>{stat.health_expenditure_in_percentage}</td>
-            <td>{stat.doctor_per_1000_habitant}</td>
-            <td>{stat.hospital_bed}</td>
-          </tr>
-        {/each}
-      </tbody><tbody />
-    </Table>
- 
+	<Table bordered>
+		<thead>
+			<tr>
+				<td>Pais</td>
+				<td>Año</td>
+				<td>Porcentaje de gasto en sanidad</td>
+				<td>Doctores por cada 1000 habitantes</td>
+				<td>Camas de hospital</td>
+				<td><Button Button color="secondary" on:click={SanityData}>Cargar Datos Iniciales</Button></td>
+			</tr>
+		</thead>
+		<tbody>
+			{#each sanity as sani}
+				<tr>
+				<td>{sani.country}</td>
+				<td>{sani.year}</td>
+				<td>{sani.health_expenditure_in_percentage}</td>
+				<td>{sani.doctor_per_1000_habitant}</td>
+				<td>{sani.hospital_bed}</td>
+				
+				
+				</tr>
+			{/each}
+			
+		</tbody>
+	</Table>
 </main>
-
-<style>
- 
-  h2 {
-    text-align:center;
-
-  }
-</style>
