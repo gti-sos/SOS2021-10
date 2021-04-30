@@ -1,7 +1,10 @@
 <script>
+	import Router from 'svelte-spa-router';
+	import NotFound from './NotFound.svelte';
 	import TableFood from './foodConsumption/TableFood.svelte';
 	import ObesitySv from './obesity/ObesitySv.svelte';
 	import TableSanity from './sanity/SanityAPI.svelte';
+	import EditFood from './foodConsumption/EditFood.svelte';
 	import {
     	Button,
     	Modal,
@@ -16,17 +19,18 @@
   let openob = false;
   const toggle = () =>{
   	
-  	(open = !open);
-  }  
-  const togglesa = () =>{
-  	
-  	(opensa = !opensa);
-  } 
+		(open = !open);
+	  }  
+	  const togglesa = () =>{
 
-  const toggleob = () =>{
-  	
-  	(openob = !openob);
+		(opensa = !opensa);
+	  } 
+
+	  const toggleob = () =>{
+
+		(openob = !openob);
   } 
+  
 </script>
 <main>
 	
