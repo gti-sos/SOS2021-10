@@ -95,6 +95,7 @@
 			</tr>
 		</thead>
 		<tbody>
+			
 			<tr>
 				<td><input bind:value="{NewSanity.country}"></td>
 				<td><input bind:value={NewSanity.year}></td>
@@ -122,13 +123,14 @@
 </main>
 <style>
 	tr {
-		max-width: 90%;
+		max-width: 90px;
 	}
 	td{
-		max-width: 50%;
+		max-width: 10px;
 	}
+	
 	input{
-		max-width: 90%;
+		max-width: 90px;
 	}
 	
 </style>

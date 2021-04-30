@@ -5186,7 +5186,7 @@ var app = (function () {
     	return block;
     }
 
-    // (104:8) <Button on:click={PostSanity(NewSanity)}>
+    // (105:8) <Button on:click={PostSanity(NewSanity)}>
     function create_default_slot_3$1(ctx) {
     	let t;
 
@@ -5206,14 +5206,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(104:8) <Button on:click={PostSanity(NewSanity)}>",
+    		source: "(105:8) <Button on:click={PostSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (105:8) <Button on:click={PutSanity(NewSanity)}>
+    // (106:8) <Button on:click={PutSanity(NewSanity)}>
     function create_default_slot_2$1(ctx) {
     	let t;
 
@@ -5233,14 +5233,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$1.name,
     		type: "slot",
-    		source: "(105:8) <Button on:click={PutSanity(NewSanity)}>",
+    		source: "(106:8) <Button on:click={PutSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
+    // (115:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
     function create_default_slot_1$1(ctx) {
     	let t;
 
@@ -5260,14 +5260,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(114:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
+    		source: "(115:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (107:3) {#each sanity as sani}
+    // (108:3) {#each sanity as sani}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
@@ -5330,20 +5330,20 @@ var app = (function () {
     			td5 = element("td");
     			create_component(button.$$.fragment);
     			t10 = space();
-    			attr_dev(td0, "class", "svelte-16mrf3g");
-    			add_location(td0, file$1, 108, 4, 3021);
-    			attr_dev(td1, "class", "svelte-16mrf3g");
-    			add_location(td1, file$1, 109, 4, 3050);
-    			attr_dev(td2, "class", "svelte-16mrf3g");
-    			add_location(td2, file$1, 110, 4, 3076);
-    			attr_dev(td3, "class", "svelte-16mrf3g");
-    			add_location(td3, file$1, 111, 4, 3130);
-    			attr_dev(td4, "class", "svelte-16mrf3g");
-    			add_location(td4, file$1, 112, 4, 3176);
-    			attr_dev(td5, "class", "svelte-16mrf3g");
-    			add_location(td5, file$1, 113, 4, 3210);
-    			attr_dev(tr, "class", "svelte-16mrf3g");
-    			add_location(tr, file$1, 107, 4, 3011);
+    			attr_dev(td0, "class", "svelte-84e90k");
+    			add_location(td0, file$1, 109, 4, 3026);
+    			attr_dev(td1, "class", "svelte-84e90k");
+    			add_location(td1, file$1, 110, 4, 3055);
+    			attr_dev(td2, "class", "svelte-84e90k");
+    			add_location(td2, file$1, 111, 4, 3081);
+    			attr_dev(td3, "class", "svelte-84e90k");
+    			add_location(td3, file$1, 112, 4, 3135);
+    			attr_dev(td4, "class", "svelte-84e90k");
+    			add_location(td4, file$1, 113, 4, 3181);
+    			attr_dev(td5, "class", "svelte-84e90k");
+    			add_location(td5, file$1, 114, 4, 3215);
+    			attr_dev(tr, "class", "svelte-84e90k");
+    			add_location(tr, file$1, 108, 4, 3016);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -5401,7 +5401,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(107:3) {#each sanity as sani}",
+    		source: "(108:3) {#each sanity as sani}",
     		ctx
     	});
 
@@ -5564,49 +5564,49 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(td0, "class", "svelte-16mrf3g");
+    			attr_dev(td0, "class", "svelte-84e90k");
     			add_location(td0, file$1, 87, 4, 2166);
-    			attr_dev(td1, "class", "svelte-16mrf3g");
+    			attr_dev(td1, "class", "svelte-84e90k");
     			add_location(td1, file$1, 88, 4, 2185);
-    			attr_dev(td2, "class", "svelte-16mrf3g");
+    			attr_dev(td2, "class", "svelte-84e90k");
     			add_location(td2, file$1, 89, 4, 2203);
-    			attr_dev(td3, "class", "svelte-16mrf3g");
+    			attr_dev(td3, "class", "svelte-84e90k");
     			add_location(td3, file$1, 90, 4, 2248);
-    			attr_dev(td4, "class", "svelte-16mrf3g");
+    			attr_dev(td4, "class", "svelte-84e90k");
     			add_location(td4, file$1, 91, 4, 2296);
-    			attr_dev(td5, "class", "svelte-16mrf3g");
+    			attr_dev(td5, "class", "svelte-84e90k");
     			add_location(td5, file$1, 92, 4, 2328);
-    			attr_dev(td6, "class", "svelte-16mrf3g");
+    			attr_dev(td6, "class", "svelte-84e90k");
     			add_location(td6, file$1, 93, 4, 2405);
-    			attr_dev(tr0, "class", "svelte-16mrf3g");
+    			attr_dev(tr0, "class", "svelte-84e90k");
     			add_location(tr0, file$1, 86, 3, 2156);
     			add_location(thead, file$1, 85, 2, 2144);
-    			attr_dev(input0, "class", "svelte-16mrf3g");
-    			add_location(input0, file$1, 98, 8, 2514);
-    			attr_dev(td7, "class", "svelte-16mrf3g");
-    			add_location(td7, file$1, 98, 4, 2510);
-    			attr_dev(input1, "class", "svelte-16mrf3g");
-    			add_location(input1, file$1, 99, 8, 2569);
-    			attr_dev(td8, "class", "svelte-16mrf3g");
-    			add_location(td8, file$1, 99, 4, 2565);
-    			attr_dev(input2, "class", "svelte-16mrf3g");
-    			add_location(input2, file$1, 100, 8, 2619);
-    			attr_dev(td9, "class", "svelte-16mrf3g");
-    			add_location(td9, file$1, 100, 4, 2615);
-    			attr_dev(input3, "class", "svelte-16mrf3g");
-    			add_location(input3, file$1, 101, 8, 2697);
-    			attr_dev(td10, "class", "svelte-16mrf3g");
-    			add_location(td10, file$1, 101, 4, 2693);
-    			attr_dev(input4, "class", "svelte-16mrf3g");
-    			add_location(input4, file$1, 102, 8, 2767);
-    			attr_dev(td11, "class", "svelte-16mrf3g");
-    			add_location(td11, file$1, 102, 4, 2763);
-    			attr_dev(td12, "class", "svelte-16mrf3g");
-    			add_location(td12, file$1, 103, 4, 2821);
-    			attr_dev(td13, "class", "svelte-16mrf3g");
-    			add_location(td13, file$1, 104, 4, 2896);
-    			attr_dev(tr1, "class", "svelte-16mrf3g");
-    			add_location(tr1, file$1, 97, 3, 2500);
+    			attr_dev(input0, "class", "svelte-84e90k");
+    			add_location(input0, file$1, 99, 8, 2519);
+    			attr_dev(td7, "class", "svelte-84e90k");
+    			add_location(td7, file$1, 99, 4, 2515);
+    			attr_dev(input1, "class", "svelte-84e90k");
+    			add_location(input1, file$1, 100, 8, 2574);
+    			attr_dev(td8, "class", "svelte-84e90k");
+    			add_location(td8, file$1, 100, 4, 2570);
+    			attr_dev(input2, "class", "svelte-84e90k");
+    			add_location(input2, file$1, 101, 8, 2624);
+    			attr_dev(td9, "class", "svelte-84e90k");
+    			add_location(td9, file$1, 101, 4, 2620);
+    			attr_dev(input3, "class", "svelte-84e90k");
+    			add_location(input3, file$1, 102, 8, 2702);
+    			attr_dev(td10, "class", "svelte-84e90k");
+    			add_location(td10, file$1, 102, 4, 2698);
+    			attr_dev(input4, "class", "svelte-84e90k");
+    			add_location(input4, file$1, 103, 8, 2772);
+    			attr_dev(td11, "class", "svelte-84e90k");
+    			add_location(td11, file$1, 103, 4, 2768);
+    			attr_dev(td12, "class", "svelte-84e90k");
+    			add_location(td12, file$1, 104, 4, 2826);
+    			attr_dev(td13, "class", "svelte-84e90k");
+    			add_location(td13, file$1, 105, 4, 2901);
+    			attr_dev(tr1, "class", "svelte-84e90k");
+    			add_location(tr1, file$1, 98, 3, 2505);
     			add_location(tbody, file$1, 96, 2, 2488);
     		},
     		m: function mount(target, anchor) {
