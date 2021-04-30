@@ -4,9 +4,9 @@ var path = require("path");
 
 var bodyParser = require("body-parser");
 
-var food_consumptionAPI =  require("./foodconsumptionAPI");
-var sanityAPI =  require("./sanityAPI");
-var obesityAPI =  require("./obesityAPI");
+var food_consumptionAPI =  require("./src/backend/foodconsumptionAPI");
+var sanityAPI =  require("./src/backend/sanityAPI");
+var obesityAPI =  require("./src/backend/obesityAPI");
 
 var PORT = (process.env.PORT || 10000);
 

@@ -1,0 +1,13 @@
+{"country":"China","year":2011,"health_expenditure_in_percentage":10.61685285,"doctor_per_1000_habitant":1.5,"hospital_bed":3705100,"_id":"KHJTD7EDJcPMYetN"}
+{"country":"United_States","year":2007,"health_expenditure_in_percentage":19.01326713,"doctor_per_1000_habitant":2.41,"hospital_bed":945199,"_id":"SJ6ZoRwkYRgWBX2c"}
+{"country":"Spain","year":2008,"health_expenditure_in_percentage":15.73140496,"doctor_per_1000_habitant":4.67,"hospital_bed":146934,"_id":"yJxegYUROTQH90Qi"}
+{"country":"Germany","year":2010,"health_expenditure_in_percentage":18.14760105,"doctor_per_1000_habitant":3.775,"hospital_bed":674473,"_id":"evchiaPU9A16JH8A"}
+{"country":"India","year":2009,"health_expenditure_in_percentage":4.36884071,"doctor_per_1000_habitant":0.264,"hospital_bed":540328,"_id":"2RHtiY7Rbhr7j4Ue"}
+{"country":"Prueba","year":2011,"health_expenditure_in_percentage":10.61685285,"doctor_per_1000_habitant":1.5,"hospital_bed":3705100,"_id":"4NCJ9dxXyddEjQW7"}
+{"$$deleted":true,"_id":"2RHtiY7Rbhr7j4Ue"}
+{"$$deleted":true,"_id":"4NCJ9dxXyddEjQW7"}
+{"$$deleted":true,"_id":"KHJTD7EDJcPMYetN"}
+{"$$deleted":true,"_id":"SJ6ZoRwkYRgWBX2c"}
+{"$$deleted":true,"_id":"evchiaPU9A16JH8A"}
+{"$$deleted":true,"_id":"yJxegYUROTQH90Qi"}
+{"country":"Prueba","year":2011,"health_expenditure_in_percentage":10.61685285,"doctor_per_1000_habitant":1.5,"hospital_bed":3705100,"_id":"vMhhbD3sI0JKgBRD"}
