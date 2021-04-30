@@ -5128,12 +5128,12 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
+    	child_ctx[13] = list[i];
     	return child_ctx;
     }
 
-    // (80:8) <Button  on:click={SanityData}>
-    function create_default_slot_4$1(ctx) {
+    // (93:8) <Button  on:click={SanityData}>
+    function create_default_slot_5$1(ctx) {
     	let t;
 
     	const block = {
@@ -5150,17 +5150,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_4$1.name,
+    		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(80:8) <Button  on:click={SanityData}>",
+    		source: "(93:8) <Button  on:click={SanityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:8) <Button  on:click={Delete}>
-    function create_default_slot_3$1(ctx) {
+    // (94:8) <Button  on:click={Delete}>
+    function create_default_slot_4$1(ctx) {
     	let t;
 
     	const block = {
@@ -5177,17 +5177,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_3$1.name,
+    		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(81:8) <Button  on:click={Delete}>",
+    		source: "(94:8) <Button  on:click={Delete}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:8) <Button on:click={PostSanity(NewSanity)}>
-    function create_default_slot_2$1(ctx) {
+    // (104:8) <Button on:click={PostSanity(NewSanity)}>
+    function create_default_slot_3$1(ctx) {
     	let t;
 
     	const block = {
@@ -5204,16 +5204,43 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_2$1.name,
+    		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(91:8) <Button on:click={PostSanity(NewSanity)}>",
+    		source: "(104:8) <Button on:click={PostSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
+    // (105:8) <Button on:click={PutSanity(NewSanity)}>
+    function create_default_slot_2$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Modificar Dato");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2$1.name,
+    		type: "slot",
+    		source: "(105:8) <Button on:click={PutSanity(NewSanity)}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (114:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
     function create_default_slot_1$1(ctx) {
     	let t;
 
@@ -5233,34 +5260,34 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(100:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
+    		source: "(114:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:3) {#each sanity as sani}
+    // (107:3) {#each sanity as sani}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*sani*/ ctx[12].country + "";
+    	let t0_value = /*sani*/ ctx[13].country + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*sani*/ ctx[12].year + "";
+    	let t2_value = /*sani*/ ctx[13].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*sani*/ ctx[12].health_expenditure_in_percentage + "";
+    	let t4_value = /*sani*/ ctx[13].health_expenditure_in_percentage + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*sani*/ ctx[12].doctor_per_1000_habitant + "";
+    	let t6_value = /*sani*/ ctx[13].doctor_per_1000_habitant + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*sani*/ ctx[12].hospital_bed + "";
+    	let t8_value = /*sani*/ ctx[13].hospital_bed + "";
     	let t8;
     	let t9;
     	let td5;
@@ -5279,7 +5306,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*DeleteContact*/ ctx[4](/*sani*/ ctx[12].country, /*sani*/ ctx[12].year))) /*DeleteContact*/ ctx[4](/*sani*/ ctx[12].country, /*sani*/ ctx[12].year).apply(this, arguments);
+    		if (is_function(/*DeleteContact*/ ctx[4](/*sani*/ ctx[13].country, /*sani*/ ctx[13].year))) /*DeleteContact*/ ctx[4](/*sani*/ ctx[13].country, /*sani*/ ctx[13].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -5304,19 +5331,19 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t10 = space();
     			attr_dev(td0, "class", "svelte-16mrf3g");
-    			add_location(td0, file$1, 94, 4, 2581);
+    			add_location(td0, file$1, 108, 4, 3021);
     			attr_dev(td1, "class", "svelte-16mrf3g");
-    			add_location(td1, file$1, 95, 4, 2610);
+    			add_location(td1, file$1, 109, 4, 3050);
     			attr_dev(td2, "class", "svelte-16mrf3g");
-    			add_location(td2, file$1, 96, 4, 2636);
+    			add_location(td2, file$1, 110, 4, 3076);
     			attr_dev(td3, "class", "svelte-16mrf3g");
-    			add_location(td3, file$1, 97, 4, 2690);
+    			add_location(td3, file$1, 111, 4, 3130);
     			attr_dev(td4, "class", "svelte-16mrf3g");
-    			add_location(td4, file$1, 98, 4, 2736);
+    			add_location(td4, file$1, 112, 4, 3176);
     			attr_dev(td5, "class", "svelte-16mrf3g");
-    			add_location(td5, file$1, 99, 4, 2770);
+    			add_location(td5, file$1, 113, 4, 3210);
     			attr_dev(tr, "class", "svelte-16mrf3g");
-    			add_location(tr, file$1, 93, 4, 2571);
+    			add_location(tr, file$1, 107, 4, 3011);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -5342,14 +5369,14 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*sanity*/ 1) && t0_value !== (t0_value = /*sani*/ ctx[12].country + "")) set_data_dev(t0, t0_value);
-    			if ((!current || dirty & /*sanity*/ 1) && t2_value !== (t2_value = /*sani*/ ctx[12].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*sanity*/ 1) && t4_value !== (t4_value = /*sani*/ ctx[12].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*sanity*/ 1) && t6_value !== (t6_value = /*sani*/ ctx[12].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*sanity*/ 1) && t8_value !== (t8_value = /*sani*/ ctx[12].hospital_bed + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t0_value !== (t0_value = /*sani*/ ctx[13].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t2_value !== (t2_value = /*sani*/ ctx[13].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t4_value !== (t4_value = /*sani*/ ctx[13].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t6_value !== (t6_value = /*sani*/ ctx[13].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t8_value !== (t8_value = /*sani*/ ctx[13].hospital_bed + "")) set_data_dev(t8, t8_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 65536) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -5374,14 +5401,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(93:3) {#each sanity as sani}",
+    		source: "(107:3) {#each sanity as sani}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:1) <Table bordered>
+    // (85:1) <Table bordered>
     function create_default_slot$1(ctx) {
     	let thead;
     	let tr0;
@@ -5421,13 +5448,16 @@ var app = (function () {
     	let td12;
     	let button2;
     	let t17;
+    	let td13;
+    	let button3;
+    	let t18;
     	let current;
     	let mounted;
     	let dispose;
 
     	button0 = new Button({
     			props: {
-    				$$slots: { default: [create_default_slot_4$1] },
+    				$$slots: { default: [create_default_slot_5$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -5437,7 +5467,7 @@ var app = (function () {
 
     	button1 = new Button({
     			props: {
-    				$$slots: { default: [create_default_slot_3$1] },
+    				$$slots: { default: [create_default_slot_4$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -5447,7 +5477,7 @@ var app = (function () {
 
     	button2 = new Button({
     			props: {
-    				$$slots: { default: [create_default_slot_2$1] },
+    				$$slots: { default: [create_default_slot_3$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -5455,6 +5485,18 @@ var app = (function () {
 
     	button2.$on("click", function () {
     		if (is_function(/*PostSanity*/ ctx[5](/*NewSanity*/ ctx[1]))) /*PostSanity*/ ctx[5](/*NewSanity*/ ctx[1]).apply(this, arguments);
+    	});
+
+    	button3 = new Button({
+    			props: {
+    				$$slots: { default: [create_default_slot_2$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button3.$on("click", function () {
+    		if (is_function(/*PutSanity*/ ctx[6](/*NewSanity*/ ctx[1]))) /*PutSanity*/ ctx[6](/*NewSanity*/ ctx[1]).apply(this, arguments);
     	});
 
     	let each_value = /*sanity*/ ctx[0];
@@ -5514,53 +5556,58 @@ var app = (function () {
     			td12 = element("td");
     			create_component(button2.$$.fragment);
     			t17 = space();
+    			td13 = element("td");
+    			create_component(button3.$$.fragment);
+    			t18 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(td0, "class", "svelte-16mrf3g");
-    			add_location(td0, file$1, 74, 4, 1804);
+    			add_location(td0, file$1, 87, 4, 2166);
     			attr_dev(td1, "class", "svelte-16mrf3g");
-    			add_location(td1, file$1, 75, 4, 1823);
+    			add_location(td1, file$1, 88, 4, 2185);
     			attr_dev(td2, "class", "svelte-16mrf3g");
-    			add_location(td2, file$1, 76, 4, 1841);
+    			add_location(td2, file$1, 89, 4, 2203);
     			attr_dev(td3, "class", "svelte-16mrf3g");
-    			add_location(td3, file$1, 77, 4, 1886);
+    			add_location(td3, file$1, 90, 4, 2248);
     			attr_dev(td4, "class", "svelte-16mrf3g");
-    			add_location(td4, file$1, 78, 4, 1934);
+    			add_location(td4, file$1, 91, 4, 2296);
     			attr_dev(td5, "class", "svelte-16mrf3g");
-    			add_location(td5, file$1, 79, 4, 1966);
+    			add_location(td5, file$1, 92, 4, 2328);
     			attr_dev(td6, "class", "svelte-16mrf3g");
-    			add_location(td6, file$1, 80, 4, 2043);
+    			add_location(td6, file$1, 93, 4, 2405);
     			attr_dev(tr0, "class", "svelte-16mrf3g");
-    			add_location(tr0, file$1, 73, 3, 1794);
-    			add_location(thead, file$1, 72, 2, 1782);
+    			add_location(tr0, file$1, 86, 3, 2156);
+    			add_location(thead, file$1, 85, 2, 2144);
     			attr_dev(input0, "class", "svelte-16mrf3g");
-    			add_location(input0, file$1, 85, 8, 2152);
+    			add_location(input0, file$1, 98, 8, 2514);
     			attr_dev(td7, "class", "svelte-16mrf3g");
-    			add_location(td7, file$1, 85, 4, 2148);
+    			add_location(td7, file$1, 98, 4, 2510);
     			attr_dev(input1, "class", "svelte-16mrf3g");
-    			add_location(input1, file$1, 86, 8, 2207);
+    			add_location(input1, file$1, 99, 8, 2569);
     			attr_dev(td8, "class", "svelte-16mrf3g");
-    			add_location(td8, file$1, 86, 4, 2203);
+    			add_location(td8, file$1, 99, 4, 2565);
     			attr_dev(input2, "class", "svelte-16mrf3g");
-    			add_location(input2, file$1, 87, 8, 2257);
+    			add_location(input2, file$1, 100, 8, 2619);
     			attr_dev(td9, "class", "svelte-16mrf3g");
-    			add_location(td9, file$1, 87, 4, 2253);
+    			add_location(td9, file$1, 100, 4, 2615);
     			attr_dev(input3, "class", "svelte-16mrf3g");
-    			add_location(input3, file$1, 88, 8, 2335);
+    			add_location(input3, file$1, 101, 8, 2697);
     			attr_dev(td10, "class", "svelte-16mrf3g");
-    			add_location(td10, file$1, 88, 4, 2331);
+    			add_location(td10, file$1, 101, 4, 2693);
     			attr_dev(input4, "class", "svelte-16mrf3g");
-    			add_location(input4, file$1, 89, 8, 2405);
+    			add_location(input4, file$1, 102, 8, 2767);
     			attr_dev(td11, "class", "svelte-16mrf3g");
-    			add_location(td11, file$1, 89, 4, 2401);
+    			add_location(td11, file$1, 102, 4, 2763);
     			attr_dev(td12, "class", "svelte-16mrf3g");
-    			add_location(td12, file$1, 90, 4, 2459);
+    			add_location(td12, file$1, 103, 4, 2821);
+    			attr_dev(td13, "class", "svelte-16mrf3g");
+    			add_location(td13, file$1, 104, 4, 2896);
     			attr_dev(tr1, "class", "svelte-16mrf3g");
-    			add_location(tr1, file$1, 84, 3, 2138);
-    			add_location(tbody, file$1, 83, 2, 2126);
+    			add_location(tr1, file$1, 97, 3, 2500);
+    			add_location(tbody, file$1, 96, 2, 2488);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -5605,7 +5652,10 @@ var app = (function () {
     			append_dev(tr1, t16);
     			append_dev(tr1, td12);
     			mount_component(button2, td12, null);
-    			append_dev(tbody, t17);
+    			append_dev(tr1, t17);
+    			append_dev(tr1, td13);
+    			mount_component(button3, td13, null);
+    			append_dev(tbody, t18);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
@@ -5615,11 +5665,11 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[8]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[9]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[10])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[7]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[8]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[9]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[10]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[11])
     				];
 
     				mounted = true;
@@ -5629,14 +5679,14 @@ var app = (function () {
     			ctx = new_ctx;
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 65536) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 65536) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -5664,11 +5714,18 @@ var app = (function () {
 
     			const button2_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 65536) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
+    			const button3_changes = {};
+
+    			if (dirty & /*$$scope*/ 65536) {
+    				button3_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button3.$set(button3_changes);
 
     			if (dirty & /*DeleteContact, sanity*/ 17) {
     				each_value = /*sanity*/ ctx[0];
@@ -5703,6 +5760,7 @@ var app = (function () {
     			transition_in(button0.$$.fragment, local);
     			transition_in(button1.$$.fragment, local);
     			transition_in(button2.$$.fragment, local);
+    			transition_in(button3.$$.fragment, local);
 
     			for (let i = 0; i < each_value.length; i += 1) {
     				transition_in(each_blocks[i]);
@@ -5714,6 +5772,7 @@ var app = (function () {
     			transition_out(button0.$$.fragment, local);
     			transition_out(button1.$$.fragment, local);
     			transition_out(button2.$$.fragment, local);
+    			transition_out(button3.$$.fragment, local);
     			each_blocks = each_blocks.filter(Boolean);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -5729,6 +5788,7 @@ var app = (function () {
     			if (detaching) detach_dev(t11);
     			if (detaching) detach_dev(tbody);
     			destroy_component(button2);
+    			destroy_component(button3);
     			destroy_each(each_blocks, detaching);
     			mounted = false;
     			run_all(dispose);
@@ -5739,7 +5799,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(72:1) <Table bordered>",
+    		source: "(85:1) <Table bordered>",
     		ctx
     	});
 
@@ -5764,7 +5824,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(table.$$.fragment);
-    			add_location(main, file$1, 70, 0, 1753);
+    			add_location(main, file$1, 83, 0, 2115);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5777,7 +5837,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, sanity, NewSanity*/ 32771) {
+    			if (dirty & /*$$scope, sanity, NewSanity*/ 65539) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -5862,6 +5922,8 @@ var app = (function () {
     		await fetch("/api/v1/sanity-stats/" + ContactName + "/" + ContactYear, { method: "Delete" }).then(res => {
     			getSanity();
     		});
+
+    		getSanity();
     	}
 
     	async function PostSanity() {
@@ -5869,6 +5931,18 @@ var app = (function () {
 
     		await fetch("/api/v1/sanity-stats", {
     			method: "POST",
+    			body: JSON.stringify(NewSanity),
+    			headers: { "Content-Type": "application/json" }
+    		}).then(res => {
+    			getSanity();
+    		});
+    	}
+
+    	async function PutSanity() {
+    		console.log("Fetching data...");
+
+    		await fetch("/api/v1/sanity-stats/" + NewSanity.country + "/" + NewSanity.year, {
+    			method: "PUT",
     			body: JSON.stringify(NewSanity),
     			headers: { "Content-Type": "application/json" }
     		}).then(res => {
@@ -5918,7 +5992,8 @@ var app = (function () {
     		getSanity,
     		Delete,
     		DeleteContact,
-    		PostSanity
+    		PostSanity,
+    		PutSanity
     	});
 
     	$$self.$inject_state = $$props => {
@@ -5937,6 +6012,7 @@ var app = (function () {
     		Delete,
     		DeleteContact,
     		PostSanity,
+    		PutSanity,
     		input0_input_handler,
     		input1_input_handler,
     		input2_input_handler,

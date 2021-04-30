@@ -51,12 +51,25 @@
     	console.log("Fetching data...");
    		const res = await fetch("/api/v1/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
 			   getSanity();
-		   })
+		})
+		getSanity();
   	}
-	  async function PostSanity() {
+	async function PostSanity() {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v1/sanity-stats",{
 			   method:"POST", 
+			   body:JSON.stringify(NewSanity),
+			   headers:{
+				   "Content-Type":"application/json"
+			   }
+			}).then( (res)=>{
+			   getSanity();
+		   })
+  	}
+	  async function PutSanity() {
+    	console.log("Fetching data...");
+   		const res = await fetch("/api/v1/sanity-stats/"+NewSanity.country+"/"+NewSanity.year,{
+			   method:"PUT", 
 			   body:JSON.stringify(NewSanity),
 			   headers:{
 				   "Content-Type":"application/json"
@@ -89,6 +102,7 @@
 				<td><input bind:value={NewSanity.doctor_per_1000_habitant}></td>
 				<td><input bind:value={NewSanity.hospital_bed}></td>
 				<td><Button on:click={PostSanity(NewSanity)}>Subir Dato</Button></td>
+				<td><Button on:click={PutSanity(NewSanity)}>Modificar Dato</Button></td>
 			</tr>
 			{#each sanity as sani}
 				<tr>

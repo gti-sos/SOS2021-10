@@ -160,7 +160,13 @@ var sanityInitialData = [
 
 		var countryD = req.params.country;
 		var yearD = parseInt(req.params.year);
-		var updateSanity = req.body;
+		var updateSanity = {
+			"country" :req.body.country,
+			"year": parseInt(req.body.year),
+			"health_expenditure_in_percentage" : parseFloat(req.body.health_expenditure_in_percentage),
+			"doctor_per_1000_habitant" : parseFloat(req.body.doctor_per_1000_habitant),
+			"hospital_bed" : parseFloat(req.body.hospital_bed)
+		};
 		
 		db.find({country:countryD, year: yearD},(error,sanity)=>{
 			console.log(sanity);
