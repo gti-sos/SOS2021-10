@@ -379,7 +379,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT prueba 409 Copy",
+			"name": "PUT prueba 404",
 			"event": [
 				{
 					"listen": "test",
@@ -493,7 +493,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"pruebbbba\",\r\n\"year\": 2001,\r\n\"health_expenditure_in_percentage\": 10.222222,\r\n\"doctor_per_1000_habitant\": 2.2,\r\n\"hospital_bed\": 222222222,\r\n\"aaefef\": 78388\r\n}",
+					"raw": "{\r\n\"country\": \"prueba\",\r\n\"year\": 2000,\r\n\"health_expenditure_in_percentage\": 10.222222,\r\n\"doctor_per_1000_habitant\": 2.2,\r\n\"hospital_bed\": 222222222,\r\n\"aaefef\": 78388\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
