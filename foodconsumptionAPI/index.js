@@ -66,6 +66,28 @@ var food_consumptionInitialData = [
 
 
  module.exports.register = (app) => {
+	 
+	 app.get(BASE_API_PATH+"/:country/:year/:foodtype",(req,res)=>{
+		var countryD = req.params.country;
+		var yearD = parseInt(req.params.year);
+		var foodtypeD = req.params.foodtype;
+		dbFood.find({$and:[{ country: countryD}, {year: yearD }, {foodtype: foodtypeD}]}, (err, foodconsumption)=>{
+			if (err){
+				console.error("ERROR accessing 	DB in GET");
+					res.sendStatus(500);
+			}else{
+				if(foodconsumption.length!=1){
+					res.sendStatus(404);	
+				}else{
+					foodconsumption.forEach((f)=>{
+                		delete f._id
+					});
+					res.send(JSON.stringify(foodconsumption[0],null,2));
+				}
+			}
+		});
+
+    });
 
 
 	//OBTIENE TODO EL ARRAY

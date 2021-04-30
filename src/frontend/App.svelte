@@ -1,7 +1,7 @@
 <script>
-	import TableFood from './TableFood.svelte';
-	import ObesitySv from './ObesitySv.svelte';
-	import TableSanity from './SanityAPI.svelte';
+	import TableFood from './foodConsumption/TableFood.svelte';
+	import ObesitySv from './obesity/ObesitySv.svelte';
+	import TableSanity from './sanity/SanityAPI.svelte';
 	import {
     	Button,
     	Modal,
