@@ -29,7 +29,7 @@ function serve() {
 }
 
 export default {
-	input: 'src/main.js',
+	input: 'src/backend/index.js',
 	output: {
 		sourcemap: true,
 		format: 'iife',
