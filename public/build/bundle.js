@@ -182,6 +182,9 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, false, false, detail);
@@ -5125,12 +5128,12 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[4] = list[i];
+    	child_ctx[12] = list[i];
     	return child_ctx;
     }
 
-    // (63:8) <Button Button color="secondary" on:click={SanityData}>
-    function create_default_slot_1$1(ctx) {
+    // (80:8) <Button  on:click={SanityData}>
+    function create_default_slot_4$1(ctx) {
     	let t;
 
     	const block = {
@@ -5147,38 +5150,137 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$1.name,
+    		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(63:8) <Button Button color=\\\"secondary\\\" on:click={SanityData}>",
+    		source: "(80:8) <Button  on:click={SanityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:3) {#each sanity as sani}
+    // (81:8) <Button  on:click={Delete}>
+    function create_default_slot_3$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Borrar Datos");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3$1.name,
+    		type: "slot",
+    		source: "(81:8) <Button  on:click={Delete}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (91:8) <Button on:click={PostSanity(NewSanity)}>
+    function create_default_slot_2$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Subir Dato");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2$1.name,
+    		type: "slot",
+    		source: "(91:8) <Button on:click={PostSanity(NewSanity)}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (100:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
+    function create_default_slot_1$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Borrar Datos");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$1.name,
+    		type: "slot",
+    		source: "(100:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (93:3) {#each sanity as sani}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*sani*/ ctx[4].country + "";
+    	let t0_value = /*sani*/ ctx[12].country + "";
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = /*sani*/ ctx[4].year + "";
+    	let t2_value = /*sani*/ ctx[12].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*sani*/ ctx[4].health_expenditure_in_percentage + "";
+    	let t4_value = /*sani*/ ctx[12].health_expenditure_in_percentage + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*sani*/ ctx[4].doctor_per_1000_habitant + "";
+    	let t6_value = /*sani*/ ctx[12].doctor_per_1000_habitant + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*sani*/ ctx[4].hospital_bed + "";
+    	let t8_value = /*sani*/ ctx[12].hospital_bed + "";
     	let t8;
     	let t9;
+    	let td5;
+    	let button;
+    	let t10;
+    	let current;
+
+    	button = new Button({
+    			props: {
+    				Button: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot_1$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", function () {
+    		if (is_function(/*DeleteContact*/ ctx[4](/*sani*/ ctx[12].country, /*sani*/ ctx[12].year))) /*DeleteContact*/ ctx[4](/*sani*/ ctx[12].country, /*sani*/ ctx[12].year).apply(this, arguments);
+    	});
 
     	const block = {
     		c: function create() {
@@ -5198,12 +5300,23 @@ var app = (function () {
     			td4 = element("td");
     			t8 = text(t8_value);
     			t9 = space();
-    			add_location(td0, file$1, 68, 4, 1601);
-    			add_location(td1, file$1, 69, 4, 1630);
-    			add_location(td2, file$1, 70, 4, 1656);
-    			add_location(td3, file$1, 71, 4, 1710);
-    			add_location(td4, file$1, 72, 4, 1756);
-    			add_location(tr, file$1, 67, 4, 1591);
+    			td5 = element("td");
+    			create_component(button.$$.fragment);
+    			t10 = space();
+    			attr_dev(td0, "class", "svelte-16mrf3g");
+    			add_location(td0, file$1, 94, 4, 2581);
+    			attr_dev(td1, "class", "svelte-16mrf3g");
+    			add_location(td1, file$1, 95, 4, 2610);
+    			attr_dev(td2, "class", "svelte-16mrf3g");
+    			add_location(td2, file$1, 96, 4, 2636);
+    			attr_dev(td3, "class", "svelte-16mrf3g");
+    			add_location(td3, file$1, 97, 4, 2690);
+    			attr_dev(td4, "class", "svelte-16mrf3g");
+    			add_location(td4, file$1, 98, 4, 2736);
+    			attr_dev(td5, "class", "svelte-16mrf3g");
+    			add_location(td5, file$1, 99, 4, 2770);
+    			attr_dev(tr, "class", "svelte-16mrf3g");
+    			add_location(tr, file$1, 93, 4, 2571);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -5222,16 +5335,38 @@ var app = (function () {
     			append_dev(tr, td4);
     			append_dev(td4, t8);
     			append_dev(tr, t9);
+    			append_dev(tr, td5);
+    			mount_component(button, td5, null);
+    			append_dev(tr, t10);
+    			current = true;
     		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*sanity*/ 1 && t0_value !== (t0_value = /*sani*/ ctx[4].country + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*sanity*/ 1 && t2_value !== (t2_value = /*sani*/ ctx[4].year + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*sanity*/ 1 && t4_value !== (t4_value = /*sani*/ ctx[4].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*sanity*/ 1 && t6_value !== (t6_value = /*sani*/ ctx[4].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
-    			if (dirty & /*sanity*/ 1 && t8_value !== (t8_value = /*sani*/ ctx[4].hospital_bed + "")) set_data_dev(t8, t8_value);
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if ((!current || dirty & /*sanity*/ 1) && t0_value !== (t0_value = /*sani*/ ctx[12].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t2_value !== (t2_value = /*sani*/ ctx[12].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t4_value !== (t4_value = /*sani*/ ctx[12].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t6_value !== (t6_value = /*sani*/ ctx[12].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*sanity*/ 1) && t8_value !== (t8_value = /*sani*/ ctx[12].hospital_bed + "")) set_data_dev(t8, t8_value);
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 32768) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(tr);
+    			destroy_component(button);
     		}
     	};
 
@@ -5239,17 +5374,17 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(67:3) {#each sanity as sani}",
+    		source: "(93:3) {#each sanity as sani}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (55:1) <Table bordered>
+    // (72:1) <Table bordered>
     function create_default_slot$1(ctx) {
     	let thead;
-    	let tr;
+    	let tr0;
     	let td0;
     	let t1;
     	let td1;
@@ -5261,22 +5396,67 @@ var app = (function () {
     	let td4;
     	let t9;
     	let td5;
-    	let button;
+    	let button0;
     	let t10;
+    	let td6;
+    	let button1;
+    	let t11;
     	let tbody;
+    	let tr1;
+    	let td7;
+    	let input0;
+    	let t12;
+    	let td8;
+    	let input1;
+    	let t13;
+    	let td9;
+    	let input2;
+    	let t14;
+    	let td10;
+    	let input3;
+    	let t15;
+    	let td11;
+    	let input4;
+    	let t16;
+    	let td12;
+    	let button2;
+    	let t17;
     	let current;
+    	let mounted;
+    	let dispose;
 
-    	button = new Button({
+    	button0 = new Button({
     			props: {
-    				Button: true,
-    				color: "secondary",
-    				$$slots: { default: [create_default_slot_1$1] },
+    				$$slots: { default: [create_default_slot_4$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button.$on("click", /*SanityData*/ ctx[1]);
+    	button0.$on("click", /*SanityData*/ ctx[2]);
+
+    	button1 = new Button({
+    			props: {
+    				$$slots: { default: [create_default_slot_3$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", /*Delete*/ ctx[3]);
+
+    	button2 = new Button({
+    			props: {
+    				$$slots: { default: [create_default_slot_2$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button2.$on("click", function () {
+    		if (is_function(/*PostSanity*/ ctx[5](/*NewSanity*/ ctx[1]))) /*PostSanity*/ ctx[5](/*NewSanity*/ ctx[1]).apply(this, arguments);
+    	});
+
     	let each_value = /*sanity*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -5285,10 +5465,14 @@ var app = (function () {
     		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
     	}
 
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
     	const block = {
     		c: function create() {
     			thead = element("thead");
-    			tr = element("tr");
+    			tr0 = element("tr");
     			td0 = element("td");
     			td0.textContent = "Pais";
     			t1 = space();
@@ -5305,58 +5489,188 @@ var app = (function () {
     			td4.textContent = "Camas de hospital";
     			t9 = space();
     			td5 = element("td");
-    			create_component(button.$$.fragment);
+    			create_component(button0.$$.fragment);
     			t10 = space();
+    			td6 = element("td");
+    			create_component(button1.$$.fragment);
+    			t11 = space();
     			tbody = element("tbody");
+    			tr1 = element("tr");
+    			td7 = element("td");
+    			input0 = element("input");
+    			t12 = space();
+    			td8 = element("td");
+    			input1 = element("input");
+    			t13 = space();
+    			td9 = element("td");
+    			input2 = element("input");
+    			t14 = space();
+    			td10 = element("td");
+    			input3 = element("input");
+    			t15 = space();
+    			td11 = element("td");
+    			input4 = element("input");
+    			t16 = space();
+    			td12 = element("td");
+    			create_component(button2.$$.fragment);
+    			t17 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			add_location(td0, file$1, 57, 4, 1268);
-    			add_location(td1, file$1, 58, 4, 1287);
-    			add_location(td2, file$1, 59, 4, 1305);
-    			add_location(td3, file$1, 60, 4, 1350);
-    			add_location(td4, file$1, 61, 4, 1398);
-    			add_location(td5, file$1, 62, 4, 1430);
-    			add_location(tr, file$1, 56, 3, 1258);
-    			add_location(thead, file$1, 55, 2, 1246);
-    			add_location(tbody, file$1, 65, 2, 1551);
+    			attr_dev(td0, "class", "svelte-16mrf3g");
+    			add_location(td0, file$1, 74, 4, 1804);
+    			attr_dev(td1, "class", "svelte-16mrf3g");
+    			add_location(td1, file$1, 75, 4, 1823);
+    			attr_dev(td2, "class", "svelte-16mrf3g");
+    			add_location(td2, file$1, 76, 4, 1841);
+    			attr_dev(td3, "class", "svelte-16mrf3g");
+    			add_location(td3, file$1, 77, 4, 1886);
+    			attr_dev(td4, "class", "svelte-16mrf3g");
+    			add_location(td4, file$1, 78, 4, 1934);
+    			attr_dev(td5, "class", "svelte-16mrf3g");
+    			add_location(td5, file$1, 79, 4, 1966);
+    			attr_dev(td6, "class", "svelte-16mrf3g");
+    			add_location(td6, file$1, 80, 4, 2043);
+    			attr_dev(tr0, "class", "svelte-16mrf3g");
+    			add_location(tr0, file$1, 73, 3, 1794);
+    			add_location(thead, file$1, 72, 2, 1782);
+    			attr_dev(input0, "class", "svelte-16mrf3g");
+    			add_location(input0, file$1, 85, 8, 2152);
+    			attr_dev(td7, "class", "svelte-16mrf3g");
+    			add_location(td7, file$1, 85, 4, 2148);
+    			attr_dev(input1, "class", "svelte-16mrf3g");
+    			add_location(input1, file$1, 86, 8, 2207);
+    			attr_dev(td8, "class", "svelte-16mrf3g");
+    			add_location(td8, file$1, 86, 4, 2203);
+    			attr_dev(input2, "class", "svelte-16mrf3g");
+    			add_location(input2, file$1, 87, 8, 2257);
+    			attr_dev(td9, "class", "svelte-16mrf3g");
+    			add_location(td9, file$1, 87, 4, 2253);
+    			attr_dev(input3, "class", "svelte-16mrf3g");
+    			add_location(input3, file$1, 88, 8, 2335);
+    			attr_dev(td10, "class", "svelte-16mrf3g");
+    			add_location(td10, file$1, 88, 4, 2331);
+    			attr_dev(input4, "class", "svelte-16mrf3g");
+    			add_location(input4, file$1, 89, 8, 2405);
+    			attr_dev(td11, "class", "svelte-16mrf3g");
+    			add_location(td11, file$1, 89, 4, 2401);
+    			attr_dev(td12, "class", "svelte-16mrf3g");
+    			add_location(td12, file$1, 90, 4, 2459);
+    			attr_dev(tr1, "class", "svelte-16mrf3g");
+    			add_location(tr1, file$1, 84, 3, 2138);
+    			add_location(tbody, file$1, 83, 2, 2126);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
-    			append_dev(thead, tr);
-    			append_dev(tr, td0);
-    			append_dev(tr, t1);
-    			append_dev(tr, td1);
-    			append_dev(tr, t3);
-    			append_dev(tr, td2);
-    			append_dev(tr, t5);
-    			append_dev(tr, td3);
-    			append_dev(tr, t7);
-    			append_dev(tr, td4);
-    			append_dev(tr, t9);
-    			append_dev(tr, td5);
-    			mount_component(button, td5, null);
-    			insert_dev(target, t10, anchor);
+    			append_dev(thead, tr0);
+    			append_dev(tr0, td0);
+    			append_dev(tr0, t1);
+    			append_dev(tr0, td1);
+    			append_dev(tr0, t3);
+    			append_dev(tr0, td2);
+    			append_dev(tr0, t5);
+    			append_dev(tr0, td3);
+    			append_dev(tr0, t7);
+    			append_dev(tr0, td4);
+    			append_dev(tr0, t9);
+    			append_dev(tr0, td5);
+    			mount_component(button0, td5, null);
+    			append_dev(tr0, t10);
+    			append_dev(tr0, td6);
+    			mount_component(button1, td6, null);
+    			insert_dev(target, t11, anchor);
     			insert_dev(target, tbody, anchor);
+    			append_dev(tbody, tr1);
+    			append_dev(tr1, td7);
+    			append_dev(td7, input0);
+    			set_input_value(input0, /*NewSanity*/ ctx[1].country);
+    			append_dev(tr1, t12);
+    			append_dev(tr1, td8);
+    			append_dev(td8, input1);
+    			set_input_value(input1, /*NewSanity*/ ctx[1].year);
+    			append_dev(tr1, t13);
+    			append_dev(tr1, td9);
+    			append_dev(td9, input2);
+    			set_input_value(input2, /*NewSanity*/ ctx[1].health_expenditure_in_percentage);
+    			append_dev(tr1, t14);
+    			append_dev(tr1, td10);
+    			append_dev(td10, input3);
+    			set_input_value(input3, /*NewSanity*/ ctx[1].doctor_per_1000_habitant);
+    			append_dev(tr1, t15);
+    			append_dev(tr1, td11);
+    			append_dev(td11, input4);
+    			set_input_value(input4, /*NewSanity*/ ctx[1].hospital_bed);
+    			append_dev(tr1, t16);
+    			append_dev(tr1, td12);
+    			mount_component(button2, td12, null);
+    			append_dev(tbody, t17);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
     			}
 
     			current = true;
-    		},
-    		p: function update(ctx, dirty) {
-    			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 128) {
-    				button_changes.$$scope = { dirty, ctx };
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[8]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[9]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[10])
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 32768) {
+    				button0_changes.$$scope = { dirty, ctx };
     			}
 
-    			button.$set(button_changes);
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
 
-    			if (dirty & /*sanity*/ 1) {
+    			if (dirty & /*$$scope*/ 32768) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+
+    			if (dirty & /*NewSanity*/ 2 && input0.value !== /*NewSanity*/ ctx[1].country) {
+    				set_input_value(input0, /*NewSanity*/ ctx[1].country);
+    			}
+
+    			if (dirty & /*NewSanity*/ 2 && input1.value !== /*NewSanity*/ ctx[1].year) {
+    				set_input_value(input1, /*NewSanity*/ ctx[1].year);
+    			}
+
+    			if (dirty & /*NewSanity*/ 2 && input2.value !== /*NewSanity*/ ctx[1].health_expenditure_in_percentage) {
+    				set_input_value(input2, /*NewSanity*/ ctx[1].health_expenditure_in_percentage);
+    			}
+
+    			if (dirty & /*NewSanity*/ 2 && input3.value !== /*NewSanity*/ ctx[1].doctor_per_1000_habitant) {
+    				set_input_value(input3, /*NewSanity*/ ctx[1].doctor_per_1000_habitant);
+    			}
+
+    			if (dirty & /*NewSanity*/ 2 && input4.value !== /*NewSanity*/ ctx[1].hospital_bed) {
+    				set_input_value(input4, /*NewSanity*/ ctx[1].hospital_bed);
+    			}
+
+    			const button2_changes = {};
+
+    			if (dirty & /*$$scope*/ 32768) {
+    				button2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button2.$set(button2_changes);
+
+    			if (dirty & /*DeleteContact, sanity*/ 17) {
     				each_value = /*sanity*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
@@ -5366,35 +5680,58 @@ var app = (function () {
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
     					} else {
     						each_blocks[i] = create_each_block(child_ctx);
     						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(tbody, null);
     					}
     				}
 
-    				for (; i < each_blocks.length; i += 1) {
-    					each_blocks[i].d(1);
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
     				}
 
-    				each_blocks.length = each_value.length;
+    				check_outros();
     			}
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(button.$$.fragment, local);
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			transition_in(button2.$$.fragment, local);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(button.$$.fragment, local);
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			transition_out(button2.$$.fragment, local);
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(thead);
-    			destroy_component(button);
-    			if (detaching) detach_dev(t10);
+    			destroy_component(button0);
+    			destroy_component(button1);
+    			if (detaching) detach_dev(t11);
     			if (detaching) detach_dev(tbody);
+    			destroy_component(button2);
     			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
     		}
     	};
 
@@ -5402,7 +5739,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(55:1) <Table bordered>",
+    		source: "(72:1) <Table bordered>",
     		ctx
     	});
 
@@ -5427,7 +5764,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(table.$$.fragment);
-    			add_location(main, file$1, 53, 0, 1217);
+    			add_location(main, file$1, 70, 0, 1753);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5440,7 +5777,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, sanity*/ 129) {
+    			if (dirty & /*$$scope, sanity, NewSanity*/ 32771) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -5477,6 +5814,14 @@ var app = (function () {
     	validate_slots("SanityAPI", slots, []);
     	let sanity = [];
 
+    	let NewSanity = {
+    		"country": "",
+    		"year": 0,
+    		"health_expenditure_in_percentage": 0,
+    		"doctor_per_1000_habitant": 0,
+    		"hospital_bed": 0
+    	};
+
     	async function SanityData() {
     		console.log("Loading data...");
     		const res = await fetch("/api/v1/sanity-stats/loadInitialData");
@@ -5505,16 +5850,30 @@ var app = (function () {
 
     	async function Delete() {
     		console.log("Fetching data...");
-    		const res = await fetch("/api/v1/sanity-stats");
 
-    		if (res.ok) {
-    			console.log("Ok.");
-    			const json = await res.json();
-    			$$invalidate(0, sanity = json);
-    			console.log(`We have ${sanity.length} Sanity.`);
-    		} else {
-    			console.log("Error");
-    		}
+    		await fetch("/api/v1/sanity-stats", { method: "Delete" }).then(res => {
+    			getSanity();
+    		});
+    	}
+
+    	async function DeleteContact(ContactName, ContactYear) {
+    		console.log("Fetching data...");
+
+    		await fetch("/api/v1/sanity-stats/" + ContactName + "/" + ContactYear, { method: "Delete" }).then(res => {
+    			getSanity();
+    		});
+    	}
+
+    	async function PostSanity() {
+    		console.log("Fetching data...");
+
+    		await fetch("/api/v1/sanity-stats", {
+    			method: "POST",
+    			body: JSON.stringify(NewSanity),
+    			headers: { "Content-Type": "application/json" }
+    		}).then(res => {
+    			getSanity();
+    		});
     	}
 
     	onMount(getSanity);
@@ -5524,25 +5883,66 @@ var app = (function () {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<SanityAPI> was created with unknown prop '${key}'`);
     	});
 
+    	function input0_input_handler() {
+    		NewSanity.country = this.value;
+    		$$invalidate(1, NewSanity);
+    	}
+
+    	function input1_input_handler() {
+    		NewSanity.year = this.value;
+    		$$invalidate(1, NewSanity);
+    	}
+
+    	function input2_input_handler() {
+    		NewSanity.health_expenditure_in_percentage = this.value;
+    		$$invalidate(1, NewSanity);
+    	}
+
+    	function input3_input_handler() {
+    		NewSanity.doctor_per_1000_habitant = this.value;
+    		$$invalidate(1, NewSanity);
+    	}
+
+    	function input4_input_handler() {
+    		NewSanity.hospital_bed = this.value;
+    		$$invalidate(1, NewSanity);
+    	}
+
     	$$self.$capture_state = () => ({
     		Button,
     		onMount,
     		Table,
     		sanity,
+    		NewSanity,
     		SanityData,
     		getSanity,
-    		Delete
+    		Delete,
+    		DeleteContact,
+    		PostSanity
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("sanity" in $$props) $$invalidate(0, sanity = $$props.sanity);
+    		if ("NewSanity" in $$props) $$invalidate(1, NewSanity = $$props.NewSanity);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [sanity, SanityData];
+    	return [
+    		sanity,
+    		NewSanity,
+    		SanityData,
+    		Delete,
+    		DeleteContact,
+    		PostSanity,
+    		input0_input_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler,
+    		input4_input_handler
+    	];
     }
 
     class SanityAPI extends SvelteComponentDev {

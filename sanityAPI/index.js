@@ -111,10 +111,16 @@ var sanityInitialData = [
 	});
      
      app.post(BASE_API_PATH, (req,res)=>{
-         var newsanity =req.body;
-         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newsanity,null,2)}>`);
+        var newsanity ={
+			"country" :req.body.country,
+			"year": parseInt(req.body.year),
+			"health_expenditure_in_percentage" : parseFloat(req.body.health_expenditure_in_percentage),
+			"doctor_per_1000_habitant" : parseFloat(req.body.doctor_per_1000_habitant),
+			"hospital_bed" : parseFloat(req.body.hospital_bed)
+		}
+         console.log(`Nuevo objeto en sanity: <${JSON.stringify(newsanity,null,2)}>`);
          db.find({country: newsanity.country, year: newsanity.year}, (err, sanityInDB)=>{
-            if(sanityInDB.length != 0){	//Si tourism es distinto de 0 es que ya existe algun recurso con esa provincia y año
+            if(sanityInDB.length != 0){	
 				console.log("409. El objeto ya existe");
 				res.sendStatus(409);
 			}else if(!newsanity.country || !newsanity.year || !newsanity.health_expenditure_in_percentage || !newsanity.doctor_per_1000_habitant 
@@ -193,7 +199,7 @@ var sanityInitialData = [
 			res.sendStatus(500);
 		}else{
 			if(sanity==0){
-				console.error("ERROR obesity-stats not found");
+				console.error("ERROR sanity-stats not found");
 				res.sendStatus(404);
 			}else{
 				res.status(200).send("Successfully removed");
