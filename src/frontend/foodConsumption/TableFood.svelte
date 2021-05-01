@@ -39,7 +39,7 @@
 	
 	async function insertFoodconsumption(){
 		console.log("Inserting foodconsumption " + JSON.stringify(newFoodconsumption));
-		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption",
+		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats",
 						{
 							method: "POST",
 							body: JSON.stringify(newFoodconsumption),
@@ -54,7 +54,7 @@
 	}
 	async function deleteContact(country, year, foodtype){
 		console.log("Deleting contact with country " + JSON.stringify(country) + " year "+ JSON.stringify(year) + " and foodtype " + JSON.stringify(foodtype));
-		const res = await fetch(BASE_CONTACT_API_PATH+"/contacts/"+ country+ "/" + year + "/" +foodtype,
+		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats/"+ country+ "/" + year + "/" +foodtype,
 						{
 							method: "DELETE"
 							
