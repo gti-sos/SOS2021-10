@@ -1,0 +1,37 @@
+<script>
+
+	import {
+		
+		Collapse,
+		Navbar,
+		NavbarToggler,
+		NavbarBrand,
+		Nav,
+		NavItem,
+		NavLink
+	} from 'sveltestrap';
+	
+	let isOpen = false;
+  const toggleNav = () => (isOpen = !isOpen);
+  
+</script>
+<main>
+<Navbar style="background-color:#FBE8C5;" light class="fixed-top">
+  <NavbarBrand href="/" class="mr-auto"><strong>SOS2021-10</strong></NavbarBrand>
+  <NavbarToggler on:click={toggleNav} className="mr-2" />
+  <Collapse {isOpen} navbar>
+    <Nav navbar>
+      <NavItem>
+        <NavLink href="#/foodconsumption-stats">Estadísticas de consumo de comida</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="#/HomeObesity">Estadísticas de obesidad</NavLink>
+      </NavItem>
+	  <NavItem>
+        <NavLink href="#/HomeSanity">Estadísticas de sanidad</NavLink>
+      </NavItem>
+    </Nav>
+  </Collapse>
+</Navbar>
+
+</main>
