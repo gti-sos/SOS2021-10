@@ -35,11 +35,13 @@
 	<h5>Estaditicas del Consumo de Comida:</h5>
 			
 			  <Button outline color="warning" on:click={toggle}>Abrir</Button>
-			  <Modal isOpen={open} {toggle} size= 'lg'>
+			  <Modal isOpen={open} {toggle} size="xl">
 				<ModalHeader {toggle}>Estadísticas de consumo de comida</ModalHeader>
-				<ModalBody>
-					<TableFood/>
-				</ModalBody>
+				<div >
+					<ModalBody >
+						<TableFood/>
+					</ModalBody>
+				</div>
 				<ModalFooter>
 				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
@@ -66,4 +68,6 @@
 		
 		margin: 0 auto;
 	}
+	
+	
 </style>
