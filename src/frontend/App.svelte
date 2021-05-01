@@ -5,14 +5,18 @@
 	import ObesitySv from './obesity/ObesitySv.svelte';
 	import TableSanity from './sanity/SanityAPI.svelte';
 	import EditFood from './foodConsumption/EditFood.svelte';
+	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
 	import HomeFood from './foodConsumption/HomeFood.svelte';
+	import HomeObesity from './obesity/HomeObesity.svelte';
 	
 	
 	const routes = {
 		"/": Landing,
+		"/info": Info,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year/:foodtype": EditFood,
+		"/obesity-stats": HomeObesity,
 		"*": NotFound
 	}
 	

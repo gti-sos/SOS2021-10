@@ -5,8 +5,17 @@
 	} from "svelte";
 	
 	import Table from "sveltestrap/src/Table.svelte";
-	let obesity = [];
+	import Button from "sveltestrap/src/Button.svelte";
 	
+	let obesity = [];
+	let newObesity = {
+		country: "",
+		year: "",
+		man_percent: "",
+		woman_percent: "",
+		total_population: ""
+		
+	};
 	
 	async function ObesityData() {
     	console.log("Loading data...");
@@ -34,6 +43,10 @@
 		}
   	}
 
+	async function insertObesity() {
+    	console.log("Inserting contact "+ JSON.stringify(newObesity));
+   		
+	}	
 	
 	onMount(getObesity);
 	
@@ -41,16 +54,27 @@
 
 <main>
 	<Table bordered>
+	
 		<thead>
+		
 			<tr>
-				<td>Pais</td>
-				<td>Año</td>
-				<td>Porcentaje de hombres</td>
-				<td>Porcentaje de mujer</td>
-				<td>Población total</td>
+				<th>Pais</th>
+				<th>Año</th>
+				<th>Porcentaje de hombres</th>
+				<th>Porcentaje de mujer</th>
+				<th>Población total</th>
+				<th>Acción</th>
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td><input bind:value="{newObesity.country}"></td>
+				<td><input bind:value="{newObesity.year}"></td>
+				<td><input bind:value="{newObesity.man_percent}"></td>
+				<td><input bind:value="{newObesity.woman_percent}"></td>
+				<td><input bind:value="{newObesity.total_population}"></td>
+				<td><Button on:click={insertObesity}>Insertar</Button></td>
+			</tr>
 			{#each obesity as obe}
 				<tr>
 				<td>{obe.country}</td>
@@ -58,11 +82,21 @@
 				<td>{obe.man_percent}</td>
 				<td>{obe.woman_percent}</td>
 				<td>{obe.total_population}</td>
-				
+				<td></td>
 				
 				</tr>
 			{/each}
 			
 		</tbody>
+	
 	</Table>
 </main>
+
+
+<style>
+	Table {
+		
+		overflow: hidden;
+		
+	}
+</style>

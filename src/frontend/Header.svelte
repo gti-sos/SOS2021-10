@@ -25,10 +25,10 @@
         <NavLink href="#/foodconsumption-stats">Estadísticas de consumo de comida</NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="#/HomeObesity">Estadísticas de obesidad</NavLink>
+        <NavLink href="#/obesity-stats">Estadísticas de obesidad</NavLink>
       </NavItem>
 	  <NavItem>
-        <NavLink href="#/HomeSanity">Estadísticas de sanidad</NavLink>
+        <NavLink href="#/sanity-stats">Estadísticas de sanidad</NavLink>
       </NavItem>
     </Nav>
   </Collapse>
