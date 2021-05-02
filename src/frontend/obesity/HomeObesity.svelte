@@ -35,7 +35,7 @@
 	<h5>Estaditicas de Obesidad:</h5>
 	
 		<Button outline color="warning" on:click={toggleob}>Abrir</Button>
-		<Modal isOpen={openob} {toggleob} size= 'lg'>
+		<Modal isOpen={openob} {toggleob} size= 'xl'>
 			<ModalHeader {toggleob}>Estadísticas de obesidad</ModalHeader>
 			<ModalBody>
 				<ObesitySv/>
