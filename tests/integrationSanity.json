@@ -7,6 +7,39 @@
 	},
 	"item": [
 		{
+			"name": "delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/sanity-stats",
+					"protocol": "http",
+					"host": [
+						"sos2021-10",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sanity-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "sanity-stats",
 			"event": [
 				{
