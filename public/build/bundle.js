@@ -14505,7 +14505,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$1 = "src/frontend/sanity/JustOneSanity.svelte";
 
-    // (30:1) <Table bordered>
+    // (37:1) <Table bordered>
     function create_default_slot(ctx) {
     	let thead;
     	let tr0;
@@ -14577,6 +14577,7 @@ var app = (function () {
     			td9 = element("td");
     			t18 = text(t18_value);
     			attr_dev(td0, "class", "svelte-lohyvn");
+<<<<<<< HEAD
     			add_location(td0, file$1, 32, 4, 726);
     			attr_dev(td1, "class", "svelte-lohyvn");
     			add_location(td1, file$1, 33, 4, 744);
@@ -14602,6 +14603,33 @@ var app = (function () {
     			attr_dev(tr1, "class", "svelte-lohyvn");
     			add_location(tr1, file$1, 40, 3, 912);
     			add_location(tbody, file$1, 39, 2, 901);
+=======
+    			add_location(td0, file$1, 39, 4, 882);
+    			attr_dev(td1, "class", "svelte-lohyvn");
+    			add_location(td1, file$1, 40, 4, 901);
+    			attr_dev(td2, "class", "svelte-lohyvn");
+    			add_location(td2, file$1, 41, 4, 919);
+    			attr_dev(td3, "class", "svelte-lohyvn");
+    			add_location(td3, file$1, 42, 4, 964);
+    			attr_dev(td4, "class", "svelte-lohyvn");
+    			add_location(td4, file$1, 43, 4, 1012);
+    			attr_dev(tr0, "class", "svelte-lohyvn");
+    			add_location(tr0, file$1, 38, 3, 872);
+    			add_location(thead, file$1, 37, 2, 860);
+    			attr_dev(td5, "class", "svelte-lohyvn");
+    			add_location(td5, file$1, 48, 3, 1085);
+    			attr_dev(td6, "class", "svelte-lohyvn");
+    			add_location(td6, file$1, 49, 3, 1115);
+    			attr_dev(td7, "class", "svelte-lohyvn");
+    			add_location(td7, file$1, 50, 3, 1142);
+    			attr_dev(td8, "class", "svelte-lohyvn");
+    			add_location(td8, file$1, 51, 3, 1197);
+    			attr_dev(td9, "class", "svelte-lohyvn");
+    			add_location(td9, file$1, 52, 3, 1244);
+    			attr_dev(tr1, "class", "svelte-lohyvn");
+    			add_location(tr1, file$1, 47, 3, 1076);
+    			add_location(tbody, file$1, 46, 2, 1064);
+>>>>>>> 33e06ac27d1e4a9fdcb5cd33b381a37a8d079a5a
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -14651,7 +14679,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(30:1) <Table bordered>",
+    		source: "(37:1) <Table bordered>",
     		ctx
     	});
 
@@ -14660,8 +14688,14 @@ var app = (function () {
 
     function create_fragment$1(ctx) {
     	let main;
+    	let header;
+    	let t0;
+    	let br0;
+    	let br1;
+    	let t1;
     	let table;
     	let current;
+    	header = new Header({ $$inline: true });
 
     	table = new Table({
     			props: {
@@ -14675,21 +14709,37 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			main = element("main");
+    			create_component(header.$$.fragment);
+    			t0 = space();
+    			br0 = element("br");
+    			br1 = element("br");
+    			t1 = space();
     			create_component(table.$$.fragment);
+<<<<<<< HEAD
     			add_location(main, file$1, 28, 0, 679);
+=======
+    			add_location(br0, file$1, 34, 4, 827);
+    			add_location(br1, file$1, 34, 8, 831);
+    			add_location(main, file$1, 32, 0, 800);
+>>>>>>> 33e06ac27d1e4a9fdcb5cd33b381a37a8d079a5a
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
+    			mount_component(header, main, null);
+    			append_dev(main, t0);
+    			append_dev(main, br0);
+    			append_dev(main, br1);
+    			append_dev(main, t1);
     			mount_component(table, main, null);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, sanity*/ 5) {
+    			if (dirty & /*$$scope, sanity*/ 65) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14697,15 +14747,18 @@ var app = (function () {
     		},
     		i: function intro(local) {
     			if (current) return;
+    			transition_in(header.$$.fragment, local);
     			transition_in(table.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
+    			transition_out(header.$$.fragment, local);
     			transition_out(table.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
+    			destroy_component(header);
     			destroy_component(table);
     		}
     	};
@@ -14725,19 +14778,24 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("JustOneSanity", slots, []);
     	let sanity = {};
+    	const url = window.location.hash;
+    	console.log(url);
+    	const param = url.split("/");
+    	console.log(param);
+    	const country = param[2];
+    	const year = parseInt(param[3]);
+    	console.log(country);
+    	console.log(year);
 
     	async function getSanity() {
     		console.log("Fetching data...");
-    		const country = window.location.country;
-    		const year = window.location.year;
-    		const res = await fetch("/api/v1/sanity-stats/" + country + "/" + year);
+    		const res = await fetch("/api/v1/sanity-stats?country=" + country + "&year=" + year);
     		console.log(res);
 
     		if (res.ok) {
     			console.log("Ok.");
     			const json = await res.json();
-    			$$invalidate(0, sanity = json[0]);
-    			console.log(`We have ${sanity.length} Sanity.`);
+    			$$invalidate(0, sanity = json);
     		} else {
     			console.log("Error");
     		}
@@ -14755,6 +14813,10 @@ var app = (function () {
     		onMount,
     		Table,
     		sanity,
+    		url,
+    		param,
+    		country,
+    		year,
     		getSanity
     	});
 
