@@ -15,7 +15,7 @@
     export let params = {};
     let obesity = {};
 	let upCountry = "XXXX";
-	let upYear = 1999;
+	let upYear = 12345;
 	let upMan_percent = 999.9;
 	let upWoman_percent = 999.9;
 	let upTotal_population = 999;
@@ -34,12 +34,13 @@
             const json = await res.json();
             obesity = json;
 			
-			upCountry = obesity.country;
-	 		upYear = parseInt(obesity.year);
-			upMan_percent = parseFloat(obesity.man_percent);
-	 		upWoman_percent = parseFloat(obesity.woman_percent);
-	 		upTotal_population = parseFloat(obesity.total_population);
+			upCountry = obesity[0].country;
+	 		upYear = parseInt(obesity[0].year);
+			upMan_percent = parseFloat(obesity[0].man_percent);
+	 		upWoman_percent = parseFloat(obesity[0].woman_percent);
+	 		upTotal_population = parseFloat(obesity[0].total_population);
 			
+			console.log(JSON.stringify(obesity));
             console.log("Received data.");
         } else {
             errorMsg = res.status + ": " + res.statusText;
@@ -50,13 +51,15 @@
 
     async function updateObesity() {
 
-        console.log("Updating data..." + JSON.stringify(params.country) + JSON.stringify(params.year));
-
+        console.log("Updating data..." + JSON.stringify(params.country) + ", " + JSON.stringify(params.year));
+		let year = parseInt(params.year);
+		
+		
         const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/" + params.country +"/" + params.year, {
             method: "PUT",
             body: JSON.stringify({
                	country: params.country,
-          		year: parseInt(params.year),
+          		year: year,
           		man_percent: parseFloat(upMan_percent),
           		woman_percent: parseFloat(upWoman_percent),
           		total_population: parseInt(upTotal_population),
@@ -69,7 +72,6 @@
         });
     }
 	
-	onMount(getObesity);
 	
 </script>
 <main>
@@ -100,9 +102,7 @@
     {#if errorMsg}
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
-    {#if okMsg}
- 	<p style="color: green">{okMsg}</p>
-  	{/if}
+    <Button outline color="secondary" on:click="{pop}">Volver</Button>
 </main>
 
 <style>

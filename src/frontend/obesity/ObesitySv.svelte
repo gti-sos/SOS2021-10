@@ -13,7 +13,7 @@
 		year: "",
 		man_percent: "",
 		woman_percent: "",
-		total_population: ""
+		total_population: "",
 		
 	};
 	
@@ -25,12 +25,6 @@
 						getObesity();
 						})
 		
-        if(res.ok){
-			console.log("Ok.");
-			getObesity();
-		}else{
-			console.log("Error");
-		}
   	}
 	
 	async function getObesity() {
@@ -70,8 +64,7 @@
 							{
 								method: "DELETE"
 								
-							}
-							).then( (res) => {
+							}).then( function (res) {
 								getObesity();
 							})
 	}
@@ -82,7 +75,7 @@
 		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats",{
 								method: "DELETE"
 								
-							}).then( (res) => {
+							}).then( function (res) {
 								getObesity();
 							})
 	}
@@ -120,8 +113,8 @@
 			</tr>
 			{#each obesity as obe}
 				<tr>
+				<td><a href="#/obesity-stats/{obe.country}/{obe.year}">{obe.country}</td>
 				
-				<td>{obe.country}</td>
 				<td>{obe.year}</td>
 				<td>{obe.man_percent}</td>
 				<td>{obe.woman_percent}</td>
