@@ -157,7 +157,7 @@ var food_consumptionInitialData = [
                 delete f._id
             		});
 					if(foodconsumption.length==1){
-						res.send(JSON.stringify(foodconsumption[0],null,2));
+						res.send(JSON.stringify(foodconsumption,null,2));
 					}
 					else{
 						res.send(JSON.stringify(foodconsumption,null,2));
