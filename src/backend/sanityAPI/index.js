@@ -173,8 +173,8 @@ var sanityInitialData = [
 			if(sanity.length == 0){
 				console.log("Error 404, recurso no encontrado.");
 				res.sendStatus(404);
-			}else if(!updateSanity.country | !updateSanity.year | !updateSanity.health_expenditure_in_percentage | !updateSanity.doctor_per_1000_habitant
-		  			 | !updateSanity.hospital_bed | Object.keys(req.body).length != 5){
+			}else if(!updateSanity.country || !updateSanity.year || !updateSanity.health_expenditure_in_percentage || !updateSanity.doctor_per_1000_habitant
+		  			 || !updateSanity.hospital_bed || Object.keys(req.body).length != 5){
 				
 					console.log("PUT recurso encontrado. Se intenta actualizar con campos no validos 400");
 					res.sendStatus(400);
