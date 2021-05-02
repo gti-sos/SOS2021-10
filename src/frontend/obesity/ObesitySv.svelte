@@ -5,12 +5,23 @@
 	} from "svelte";
 	
 	import Table from "sveltestrap/src/Table.svelte";
-	let obesity = [];
+	import Button from "sveltestrap/src/Button.svelte";
 	
+	let obesity = [];
+	let newObesity = {
+		country: "",
+		year: "",
+		man_percent: "",
+		woman_percent: "",
+		total_population: ""
+		
+	};
+	
+	const BASE_CONTACT_API_PATH = "/api/v1";
 	
 	async function ObesityData() {
     	console.log("Loading data...");
-   		const res = await fetch("/api/v1/obesity-stats/loadInitialData");
+   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/loadInitialData");
 		
         if(res.ok){
 			console.log("Ok.");
@@ -22,7 +33,7 @@
 	
 	async function getObesity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/obesity-stats/");
+   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/");
 		
         if(res.ok){
 			console.log("Ok.");
@@ -34,6 +45,34 @@
 		}
   	}
 
+	async function insertObesity() {
+    	console.log("Inserting data "+ JSON.stringify(newObesity));
+   		
+		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats",
+							{
+								method: "POST",
+								body: JSON.stringify(newObesity),
+								headers:{
+									"Content-Type": "application/json"
+								}
+							}
+		).then((res) => {
+			getObesity();
+		});
+	}	
+	
+	async function deleteObesity(country, year) {
+    	console.log("Deleting data with name ${country} and date ${year}");
+   		
+		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/"+country+"/"+year,
+							{
+								method: "DELETE"
+								
+							}
+		).then((res) => {
+			getObesity();
+		});
+	}
 	
 	onMount(getObesity);
 	
@@ -41,28 +80,57 @@
 
 <main>
 	<Table bordered>
+	
 		<thead>
+		
 			<tr>
-				<td>Pais</td>
-				<td>Año</td>
-				<td>Porcentaje de hombres</td>
-				<td>Porcentaje de mujer</td>
-				<td>Población total</td>
+				<th>Pais</th>
+				<th>Año</th>
+				<th>Porcentaje de hombres</th>
+				<th>Porcentaje de mujer</th>
+				<th>Población total</th>
+				<th>Acción</th>
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td><input bind:value="{newObesity.country}"></td>
+				<td><input type=number bind:value="{newObesity.year}"></td>
+				<td><input type=number bind:value="{newObesity.man_percent}"></td>
+				<td><input type=number bind:value="{newObesity.woman_percent}"></td>
+				<td><input type=number bind:value="{newObesity.total_population}"></td>
+				<td><Button on:click={insertObesity}>Insertar</Button></td>
+			</tr>
 			{#each obesity as obe}
 				<tr>
+				
 				<td>{obe.country}</td>
 				<td>{obe.year}</td>
 				<td>{obe.man_percent}</td>
 				<td>{obe.woman_percent}</td>
 				<td>{obe.total_population}</td>
+				<td><Button on:click={deleteObesity(obe.country,obe.year)}>Borrar</Button></td>
 				
 				
 				</tr>
 			{/each}
 			
 		</tbody>
+	
 	</Table>
 </main>
+
+
+<style>
+	td	{
+		width: 10px;
+	}
+	tr {
+		max-width: 120px;
+		overflow: auto;
+	}
+	input	{
+		max-width: 120px;
+	}	
+	
+</style>
