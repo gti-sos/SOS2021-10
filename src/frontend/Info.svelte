@@ -75,10 +75,10 @@
 		Nuestras fuentes de información estan orientadas a analizar la relación que existe entre la obesidad, el consumo de distintos tipos de comida y la sanidad en el mundo.
 	</p>
 	<p>
-		<strong>Repositorio: </strong> [gti-sos/SOS2021-10](https://github.com/gti-sos/SOS2021-10) 
+		<strong>Repositorio: </strong> <a href="https://github.com/gti-sos/SOS2021-10">https://github.com/gti-sos/SOS2021-10</a> 
 	</p>
 	<p>
-		<strong>URL: </strong> http://sos2021-10.herokuapp.com 
+		<strong>URL: </strong><a href="http://sos2021-10.herokuapp.com">http://sos2021-10.herokuapp.com</a> 
 	</p>
 	<p>
 		<strong>APIs: </strong>
@@ -112,7 +112,6 @@
 			  		<Modal isOpen={openob} {toggleob} size= 'lg'>
 						<ModalHeader {toggleob}>Estadísticas de obesidad</ModalHeader>
 						<ModalBody>
-							<ObesitySv/>
 						</ModalBody>
 						<ModalFooter>
 				  			<Button color="secondary" on:click={toggleob}>Cerrar</Button>
@@ -126,7 +125,6 @@
 			  <Modal isOpen={open} {toggle} size= 'lg'>
 				<ModalHeader {toggle}>Estadísticas de consumo de comida</ModalHeader>
 				<ModalBody>
-					<TableFood/>
 				</ModalBody>
 				<ModalFooter>
 				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
@@ -142,7 +140,6 @@
 					<Modal isOpen={opensa} {togglesa} size= 'lg'>
 					<ModalHeader {togglesa}>Estaditicas de Sanidad:</ModalHeader>
 					<ModalBody>
-						<TableSanity/>
 					</ModalBody>
 					<ModalFooter>
 						<Button color="secondary" on:click={togglesa}>Cerrar</Button>

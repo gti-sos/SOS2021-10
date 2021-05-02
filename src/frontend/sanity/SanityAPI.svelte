@@ -1,4 +1,5 @@
 <script>
+	import Header from '../Header.svelte';
 	import {
     	Button
   	} from 'sveltestrap';
@@ -82,32 +83,34 @@
 </script>
 
 <main>
-	<Table bordered>
+	<Table responsive>
 		<thead>
+			<tr>
+				<td><Button  on:click={SanityData}>Cargar Datos</Button></td>
+				<td><Button  on:click={Delete}>Borrar Datos</Button></td>
+			</tr>
 			<tr>
 				<td>Pais</td>
 				<td>Año</td>
 				<td>Porcentaje de gasto en sanidad</td>
 				<td>Doctores por cada 1000 habitantes</td>
 				<td>Camas de hospital</td>
-				<td><Button  on:click={SanityData}>Cargar Datos Iniciales</Button></td>
-				<td><Button  on:click={Delete}>Borrar Datos</Button></td>
 			</tr>
 		</thead>
 		<tbody>
 			
 			<tr>
 				<td><input bind:value="{NewSanity.country}"></td>
-				<td><input bind:value={NewSanity.year}></td>
-				<td><input bind:value={NewSanity.health_expenditure_in_percentage}></td>
-				<td><input bind:value={NewSanity.doctor_per_1000_habitant}></td>
-				<td><input bind:value={NewSanity.hospital_bed}></td>
+				<td><input type=number bind:value={NewSanity.year}></td>
+				<td><input type=number bind:value={NewSanity.health_expenditure_in_percentage}></td>
+				<td><input type=number bind:value={NewSanity.doctor_per_1000_habitant}></td>
+				<td><input type=number bind:value={NewSanity.hospital_bed}></td>
 				<td><Button on:click={PostSanity(NewSanity)}>Subir Dato</Button></td>
 				<td><Button on:click={PutSanity(NewSanity)}>Modificar Dato</Button></td>
 			</tr>
 			{#each sanity as sani}
 				<tr>
-				<td>{sani.country}</td>
+				<td><a href="#/sanity-stats/{sani.country}/{sani.year}">{sani.country}</td>
 				<td>{sani.year}</td>
 				<td>{sani.health_expenditure_in_percentage}</td>
 				<td>{sani.doctor_per_1000_habitant}</td>

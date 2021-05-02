@@ -3,12 +3,13 @@
 	import NotFound from './NotFound.svelte';
 	
 	import ObesitySv from './obesity/ObesitySv.svelte';
-	import TableSanity from './sanity/SanityAPI.svelte';
+	import HomeSanity from './sanity/HomeSanity.svelte';
 	import EditFood from './foodConsumption/EditFood.svelte';
 	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import HomeObesity from './obesity/HomeObesity.svelte';
+	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	
 	
 	const routes = {
@@ -17,6 +18,8 @@
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year/:foodtype": EditFood,
 		"/obesity-stats": HomeObesity,
+		"/sanity-stats": HomeSanity,
+		"/sanity-stats/:country/:year": JustOneSanity,
 		"*": NotFound
 	}
 	
