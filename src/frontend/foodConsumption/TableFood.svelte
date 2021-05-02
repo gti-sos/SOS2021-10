@@ -10,15 +10,15 @@
 	
 	import Button from "sveltestrap/src/Button.svelte";
 	
-
+	
 	let newFoodconsumption= {
 		country:"",
-		year:"",
+		year:0,
 		"foodtype": "",
-		"caloryperperson": "",
-		"gramperperson": "",
-		"dailygram": "",
-		"dailycalory": ""
+		"caloryperperson":0,
+		"gramperperson":0,
+		"dailygram": 0,
+		"dailycalory": 0
 	}
 	
 	var BASE_CONTACT_API_PATH= "/api/v1";
@@ -31,7 +31,23 @@
 			console.log("Ok.");
 			const json = await res.json();
 			foodconsumption = json;
-			console.log('We have ${foodconsumption.length} foodconsumption.');
+			console.log(`We have ${foodconsumption.length} foodconsumption.`);
+		}else{
+			console.log("Error!");
+		}
+	}
+	
+	async function loadInitialData(){
+		console.log("Fetching foodconsumption...");
+		const res = await fetch("/api/v1/foodconsumption-stats/loadInitialData").then( (res)=> {
+						getFoodconsumption();
+						})
+		
+		if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			foodconsumption = json;
+			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 		}else{
 			console.log("Error!");
 		}
@@ -65,14 +81,33 @@
 		
 	}
 	
+	async function deleteTodo(){
+		
+		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats",
+						{
+							method: "DELETE"
+							
+						}).then( (res)=> {
+						getFoodconsumption();
+						
+						})
+		
+	}
+	
 	onMount(getFoodconsumption);
 	
 </script>
 
 <main>
 	
+	
 		<Table responsive>
 			<thead>
+				<tr>
+					<td><Button on:click={loadInitialData}>Cargar datos</Button></td>
+					<td><Button on:click={deleteTodo}>Borrar datos</Button></td>
+					
+				</tr>
 				<tr>
 					<td>País</td>
 					<td>Año</td>
@@ -88,26 +123,26 @@
 
 				<tr>
 					<td><input bind:value="{newFoodconsumption.country}"></td>
-					<td><input bind:value="{newFoodconsumption.year}"></td>
+					<td><input type=number bind:value="{newFoodconsumption.year}"></td>
 					<td><input bind:value="{newFoodconsumption.foodtype}"></td>
-					<td><input bind:value="{newFoodconsumption.caloryperperson}"></td>
-					<td><input bind:value="{newFoodconsumption.gramperperson}"></td>
-					<td><input bind:value="{newFoodconsumption.dailygram}"></td>
-					<td><input bind:value="{newFoodconsumption.dailycalory}"></td>
-					<td><Button on:click={insertFoodconsumption}>Insert</Button></td>
+					<td><input type=number bind:value="{newFoodconsumption.caloryperperson}"></td>
+					<td><input type=number bind:value="{newFoodconsumption.gramperperson}"></td>
+					<td><input type=number bind:value="{newFoodconsumption.dailygram}"></td>
+					<td><input type=number bind:value="{newFoodconsumption.dailycalory}"></td>
+					<td><Button on:click={insertFoodconsumption}>Añadir</Button></td>
 
 				</tr>
 				{#each foodconsumption as datafood}
 					<tr>
 
-					<td><a href="#/contacts/{datafood.country}/{datafood.year}/{datafood.foodtype}">{datafood.country}</td>
+					<td><a href="#/foodconsumption-stats/{datafood.country}/{datafood.year}/{datafood.foodtype}">{datafood.country}</td>
 					<td>{datafood.year}</td>
 					<td>{datafood.foodtype}</td>
 					<td>{datafood.caloryperperson}</td>
 					<td>{datafood.gramperperson}</td>
 					<td>{datafood.dailygram}</td>
 					<td>{datafood.dailycalory}</td>
-					<td><Button on:click={deleteContact(datafood.country,datafood.year, datafood.foodtype )}>Delete</Button></td>
+					<td><Button on:click={deleteContact(datafood.country,datafood.year, datafood.foodtype )}>Borrar</Button></td>
 
 					</tr>
 				{/each}

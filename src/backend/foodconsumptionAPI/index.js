@@ -76,7 +76,7 @@ var food_consumptionInitialData = [
 				console.error("ERROR accessing 	DB in GET");
 					res.sendStatus(500);
 			}else{
-				if(foodconsumption.length!=1){
+				if(foodconsumption.length==0){
 					res.sendStatus(404);	
 				}else{
 					foodconsumption.forEach((f)=>{
@@ -185,7 +185,7 @@ var food_consumptionInitialData = [
     app.post(BASE_API_PATH, (req,res)=>{
         var newfood_consumption =req.body;
        
-        dbFood.find({$and: [{country: newfood_consumption.country}, {year: newfood_consumption.year}, {foodtype: newfood_consumption.foodtype}]}, (err, food_consumption)=>{
+        dbFood.find({$and: [{country: newfood_consumption.country}, {year: parseInt(newfood_consumption.year)}, {foodtype: newfood_consumption.foodtype}]}, (err, food_consumption)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in GET");
 			res.sendStatus(500);
@@ -227,6 +227,7 @@ var food_consumptionInitialData = [
                 
                 if(numFoodConsumptionRemoved==0){
                     res.sendStatus(404);
+					
                 }else{
                     res.sendStatus(200);
                 }

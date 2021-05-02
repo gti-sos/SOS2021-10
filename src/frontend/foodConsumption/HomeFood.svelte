@@ -37,11 +37,11 @@
 			  <Button outline color="warning" on:click={toggle}>Abrir</Button>
 			  <Modal isOpen={open} {toggle} size="xl">
 				<ModalHeader {toggle}>Estadísticas de consumo de comida</ModalHeader>
-				<div >
-					<ModalBody >
+				
+					<ModalBody>
 						<TableFood/>
 					</ModalBody>
-				</div>
+				
 				<ModalFooter>
 				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
