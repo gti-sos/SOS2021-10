@@ -14,7 +14,7 @@ var obesityInitialData = [
 		"total_population": 1376498048
 	},
 	{	
-		"country": "United States",
+		"country": "United_States",
 		"year": 2007,
 		"man_percent": 29.1,
 		"woman_percent": 31.5,
