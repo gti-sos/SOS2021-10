@@ -74,14 +74,14 @@ var obesityInitialData = [
 				if(obesity.length==0){
 						
 						console.log();
-						res.sendStatus(404);
+						res.send(JSON.stringify(obesity,null,2));
 				}
 				else{
 					obesity.forEach((f)=>{
                 delete f._id
             });
 				if(obesity.length==1){
-						res.status(200).send(JSON.stringify(obesity[0],null,2));
+						res.status(200).send(JSON.stringify(obesity,null,2));
 					console.log("Recursos mostrados");
 					}
 					else{

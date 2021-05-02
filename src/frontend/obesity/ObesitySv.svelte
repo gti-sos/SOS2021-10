@@ -13,7 +13,7 @@
 		year: "",
 		man_percent: "",
 		woman_percent: "",
-		total_population: ""
+		total_population: "",
 		
 	};
 	
@@ -21,25 +21,21 @@
 	
 	async function ObesityData() {
     	console.log("Loading data...");
-   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/loadInitialData");
+   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/loadInitialData").then( (res)=> {
+						getObesity();
+						})
 		
-        if(res.ok){
-			console.log("Ok.");
-			getObesity();
-		}else{
-			console.log("Error");
-		}
   	}
 	
 	async function getObesity() {
     	console.log("Fetching data...");
-   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/");
+   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats");
 		
         if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
 			obesity = json;
-			console.log(`We have ${obesity.length} obesity.`)
+			console.log(`We have ${obesity.length} obesity.`);
 		}else{
 			console.log("Error");
 		}
@@ -62,16 +58,26 @@
 	}	
 	
 	async function deleteObesity(country, year) {
-    	console.log("Deleting data with name ${country} and date ${year}");
+    	console.log(`Deleting data with name ${country} and date ${year}`);
    		
 		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/"+country+"/"+year,
 							{
 								method: "DELETE"
 								
-							}
-		).then((res) => {
-			getObesity();
-		});
+							}).then( function (res) {
+								getObesity();
+							})
+	}
+	
+	async function deleteAll(country, year) {
+    	console.log("Deleting all data");
+   		
+		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats",{
+								method: "DELETE"
+								
+							}).then( function (res) {
+								getObesity();
+							})
 	}
 	
 	onMount(getObesity);
@@ -79,10 +85,14 @@
 </script>
 
 <main>
-	<Table bordered>
+	<Table responsive>
 	
 		<thead>
-		
+			<tr>
+				<td><Button on:click={ObesityData}>Cargar datos</Button></td>
+				<td><Button on:click={deleteAll}>Borrar datos</Button></td>
+					
+			</tr>
 			<tr>
 				<th>Pais</th>
 				<th>Año</th>
@@ -103,8 +113,8 @@
 			</tr>
 			{#each obesity as obe}
 				<tr>
+				<td><a href="#/obesity-stats/{obe.country}/{obe.year}">{obe.country}</td>
 				
-				<td>{obe.country}</td>
 				<td>{obe.year}</td>
 				<td>{obe.man_percent}</td>
 				<td>{obe.woman_percent}</td>
