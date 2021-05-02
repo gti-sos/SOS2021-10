@@ -38,14 +38,7 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
-	h1 {
-		color: #ff3e00;
-		
-	}
 	
-	ul {
-		width: fit-content;
-	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;

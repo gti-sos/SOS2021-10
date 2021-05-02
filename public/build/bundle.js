@@ -14577,59 +14577,31 @@ var app = (function () {
     			td9 = element("td");
     			t18 = text(t18_value);
     			attr_dev(td0, "class", "svelte-lohyvn");
-<<<<<<< HEAD
-    			add_location(td0, file$1, 32, 4, 726);
+    			add_location(td0, file$1, 39, 4, 843);
     			attr_dev(td1, "class", "svelte-lohyvn");
-    			add_location(td1, file$1, 33, 4, 744);
+    			add_location(td1, file$1, 40, 4, 861);
     			attr_dev(td2, "class", "svelte-lohyvn");
-    			add_location(td2, file$1, 34, 4, 761);
+    			add_location(td2, file$1, 41, 4, 878);
     			attr_dev(td3, "class", "svelte-lohyvn");
-    			add_location(td3, file$1, 35, 4, 805);
+    			add_location(td3, file$1, 42, 4, 922);
     			attr_dev(td4, "class", "svelte-lohyvn");
-    			add_location(td4, file$1, 36, 4, 852);
+    			add_location(td4, file$1, 43, 4, 969);
     			attr_dev(tr0, "class", "svelte-lohyvn");
-    			add_location(tr0, file$1, 31, 3, 717);
-    			add_location(thead, file$1, 30, 2, 706);
+    			add_location(tr0, file$1, 38, 3, 834);
+    			add_location(thead, file$1, 37, 2, 823);
     			attr_dev(td5, "class", "svelte-lohyvn");
-    			add_location(td5, file$1, 41, 3, 920);
+    			add_location(td5, file$1, 48, 3, 1037);
     			attr_dev(td6, "class", "svelte-lohyvn");
-    			add_location(td6, file$1, 42, 3, 949);
+    			add_location(td6, file$1, 49, 3, 1066);
     			attr_dev(td7, "class", "svelte-lohyvn");
-    			add_location(td7, file$1, 43, 3, 975);
+    			add_location(td7, file$1, 50, 3, 1092);
     			attr_dev(td8, "class", "svelte-lohyvn");
-    			add_location(td8, file$1, 44, 3, 1029);
+    			add_location(td8, file$1, 51, 3, 1146);
     			attr_dev(td9, "class", "svelte-lohyvn");
-    			add_location(td9, file$1, 45, 3, 1075);
+    			add_location(td9, file$1, 52, 3, 1192);
     			attr_dev(tr1, "class", "svelte-lohyvn");
-    			add_location(tr1, file$1, 40, 3, 912);
-    			add_location(tbody, file$1, 39, 2, 901);
-=======
-    			add_location(td0, file$1, 39, 4, 882);
-    			attr_dev(td1, "class", "svelte-lohyvn");
-    			add_location(td1, file$1, 40, 4, 901);
-    			attr_dev(td2, "class", "svelte-lohyvn");
-    			add_location(td2, file$1, 41, 4, 919);
-    			attr_dev(td3, "class", "svelte-lohyvn");
-    			add_location(td3, file$1, 42, 4, 964);
-    			attr_dev(td4, "class", "svelte-lohyvn");
-    			add_location(td4, file$1, 43, 4, 1012);
-    			attr_dev(tr0, "class", "svelte-lohyvn");
-    			add_location(tr0, file$1, 38, 3, 872);
-    			add_location(thead, file$1, 37, 2, 860);
-    			attr_dev(td5, "class", "svelte-lohyvn");
-    			add_location(td5, file$1, 48, 3, 1085);
-    			attr_dev(td6, "class", "svelte-lohyvn");
-    			add_location(td6, file$1, 49, 3, 1115);
-    			attr_dev(td7, "class", "svelte-lohyvn");
-    			add_location(td7, file$1, 50, 3, 1142);
-    			attr_dev(td8, "class", "svelte-lohyvn");
-    			add_location(td8, file$1, 51, 3, 1197);
-    			attr_dev(td9, "class", "svelte-lohyvn");
-    			add_location(td9, file$1, 52, 3, 1244);
-    			attr_dev(tr1, "class", "svelte-lohyvn");
-    			add_location(tr1, file$1, 47, 3, 1076);
-    			add_location(tbody, file$1, 46, 2, 1064);
->>>>>>> 33e06ac27d1e4a9fdcb5cd33b381a37a8d079a5a
+    			add_location(tr1, file$1, 47, 3, 1029);
+    			add_location(tbody, file$1, 46, 2, 1018);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -14715,13 +14687,9 @@ var app = (function () {
     			br1 = element("br");
     			t1 = space();
     			create_component(table.$$.fragment);
-<<<<<<< HEAD
-    			add_location(main, file$1, 28, 0, 679);
-=======
-    			add_location(br0, file$1, 34, 4, 827);
-    			add_location(br1, file$1, 34, 8, 831);
-    			add_location(main, file$1, 32, 0, 800);
->>>>>>> 33e06ac27d1e4a9fdcb5cd33b381a37a8d079a5a
+    			add_location(br0, file$1, 34, 4, 793);
+    			add_location(br1, file$1, 34, 8, 797);
+    			add_location(main, file$1, 32, 0, 768);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14862,7 +14830,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(router.$$.fragment);
-    			attr_dev(main, "class", "svelte-1hu9tze");
+    			attr_dev(main, "class", "svelte-d68sj9");
     			add_location(main, file, 28, 0, 818);
     		},
     		l: function claim(nodes) {
