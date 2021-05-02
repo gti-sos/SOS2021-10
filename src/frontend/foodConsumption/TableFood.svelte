@@ -14,11 +14,11 @@
 	let newFoodconsumption= {
 		country:"",
 		year:0,
-		"foodtype": "",
-		"caloryperperson":0,
-		"gramperperson":0,
-		"dailygram": 0,
-		"dailycalory": 0
+		foodtype: "",
+		caloryperperson:0,
+		gramperperson:0,
+		dailygram: 0,
+		dailycalory: 0
 	}
 	
 	var BASE_CONTACT_API_PATH= "/api/v1";
@@ -30,8 +30,9 @@
 		if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
-			foodconsumption = json;
+			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
+			console.log(JSON.stringify(foodconsumption));
 		}else{
 			console.log("Error!");
 		}
@@ -43,14 +44,6 @@
 						getFoodconsumption();
 						})
 		
-		if(res.ok){
-			console.log("Ok.");
-			const json = await res.json();
-			foodconsumption = json;
-			console.log(`We have ${foodconsumption.length} foodconsumption.`);
-		}else{
-			console.log("Error!");
-		}
 	}
 	
 	async function insertFoodconsumption(){
@@ -68,8 +61,8 @@
 						})
 		
 	}
-	async function deleteContact(country, year, foodtype){
-		console.log("Deleting contact with country " + JSON.stringify(country) + " year "+ JSON.stringify(year) + " and foodtype " + JSON.stringify(foodtype));
+	async function deleteFood(country, year, foodtype){
+		console.log("Deleting foodconsumption with country " + JSON.stringify(country) + " year "+ JSON.stringify(year) + " and foodtype " + JSON.stringify(foodtype));
 		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats/"+ country+ "/" + year + "/" +foodtype,
 						{
 							method: "DELETE"
@@ -142,7 +135,7 @@
 					<td>{datafood.gramperperson}</td>
 					<td>{datafood.dailygram}</td>
 					<td>{datafood.dailycalory}</td>
-					<td><Button on:click={deleteContact(datafood.country,datafood.year, datafood.foodtype )}>Borrar</Button></td>
+					<td><Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>Borrar</Button></td>
 
 					</tr>
 				{/each}
