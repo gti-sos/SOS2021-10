@@ -89,6 +89,7 @@
             </thead>
 			
             <tbody>
+			
                 <tr>
                     <td>{upCountry}</td>
 					<td>{upYear}</td>
