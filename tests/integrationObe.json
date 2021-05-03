@@ -50,16 +50,16 @@
 			"response": []
 		},
 		{
-			"name": "404",
+			"name": "Array vacio",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 404\", function () {\r",
-							"    pm.response.to.have.status(404);\r",
-							"});\r",
-							""
+							"pm.test(\"Length data is 5\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -307,18 +307,34 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql({\r",
+							"\"country\": \"Spain\",\r",
+							"\"year\": 2008,\r",
+							"\"man_percent\": 20.8,\r",
+							"\"woman_percent\": 21,\r",
+							"\"total_population\": 46069000\r",
+							"});\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats?country=Spain&year=2008",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -328,17 +344,9 @@
 					"path": [
 						"api",
 						"v1",
-						"obesity-stats"
-					],
-					"query": [
-						{
-							"key": "country",
-							"value": "Spain"
-						},
-						{
-							"key": "year",
-							"value": "2008"
-						}
+						"obesity-stats",
+						"Spain",
+						"2008"
 					]
 				}
 			},

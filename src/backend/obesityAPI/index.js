@@ -142,7 +142,7 @@ var obesityInitialData = [
 				var obesityToSend = obesityInDB.map((d)=>{
 			return {country: d.country, year: d.year, man_percent: d.man_percent, woman_percent: d.woman_percent, total_population: d.total_population};
 			});
-			res.status(200).send(JSON.stringify(obesityToSend,null,2));
+			res.status(200).send(JSON.stringify(obesityToSend[0],null,2));
 			}
 			
 		}
