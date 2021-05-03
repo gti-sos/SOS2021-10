@@ -16,7 +16,7 @@
   
 </script>
 <main>
-<Navbar style="background-color:#FBE8C5;" light class="fixed-top">
+<Navbar style="background-color:#24355C;" dark class="fixed-top">
   <NavbarBrand href="/" class="mr-auto"><strong>SOS2021-10</strong></NavbarBrand>
   <NavbarToggler on:click={toggleNav} className="mr-2" />
   <Collapse {isOpen} navbar>

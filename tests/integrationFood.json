@@ -397,7 +397,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=Spain&year=2015&foodtype=Meat",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Spain/2015/Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -407,21 +407,10 @@
 					"path": [
 						"api",
 						"v1",
-						"foodconsumption-stats"
-					],
-					"query": [
-						{
-							"key": "country",
-							"value": "Spain"
-						},
-						{
-							"key": "year",
-							"value": "2015"
-						},
-						{
-							"key": "foodtype",
-							"value": "Meat"
-						}
+						"foodconsumption-stats",
+						"Spain",
+						"2015",
+						"Meat"
 					]
 				}
 			},
@@ -527,7 +516,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=Spain&year=2015&foodtype=Meat",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/Spain/2015/Meat",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -537,21 +526,10 @@
 					"path": [
 						"api",
 						"v1",
-						"foodconsumption-stats"
-					],
-					"query": [
-						{
-							"key": "country",
-							"value": "Spain"
-						},
-						{
-							"key": "year",
-							"value": "2015"
-						},
-						{
-							"key": "foodtype",
-							"value": "Meat"
-						}
+						"foodconsumption-stats",
+						"Spain",
+						"2015",
+						"Meat"
 					]
 				}
 			},
@@ -732,7 +710,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats?country=China&year=2011&foodtype=Grain",
+					"raw": "http://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats/China/2011/Grain",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -742,21 +720,10 @@
 					"path": [
 						"api",
 						"v1",
-						"foodconsumption-stats"
-					],
-					"query": [
-						{
-							"key": "country",
-							"value": "China"
-						},
-						{
-							"key": "year",
-							"value": "2011"
-						},
-						{
-							"key": "foodtype",
-							"value": "Grain"
-						}
+						"foodconsumption-stats",
+						"China",
+						"2011",
+						"Grain"
 					]
 				}
 			},
