@@ -94,16 +94,9 @@ var sanityInitialData = [
 					}
 				}
 				else{
-					if(sanity.length==1){
-						res.send(JSON.stringify(sanity[0],null,2));
-					}
-					else{
-						res.send(JSON.stringify(sanity,null,2));
-					}
-                }	
-				
-					
-				}
+					res.send(JSON.stringify(sanity,null,2));
+                }		
+			}
 			
 			//console.log("Data sent: " + JSON.stringify(tourism,null,2));
 			console.log("Recursos mostrados");

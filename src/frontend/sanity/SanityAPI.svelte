@@ -125,15 +125,14 @@
 	</Table>
 </main>
 <style>
+	td	{
+		max-width: 20px;
+	}
 	tr {
-		max-width: 90px;
+		max-width: 120px;
 	}
-	td{
-		max-width: 10px;
-	}
-	
-	input{
-		max-width: 90px;
+	input	{
+		max-width: 120px;
 	}
 	
 </style>
