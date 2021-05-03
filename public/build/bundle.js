@@ -15811,28 +15811,28 @@ var app = (function () {
     			t18 = space();
     			td5 = element("td");
     			create_component(button.$$.fragment);
-    			add_location(th0, file$2, 81, 20, 2340);
-    			add_location(th1, file$2, 82, 5, 2359);
-    			add_location(th2, file$2, 83, 5, 2377);
-    			add_location(th3, file$2, 84, 5, 2413);
-    			add_location(th4, file$2, 85, 5, 2447);
-    			add_location(th5, file$2, 86, 5, 2477);
-    			add_location(tr0, file$2, 80, 16, 2315);
-    			add_location(thead, file$2, 79, 12, 2291);
-    			add_location(td0, file$2, 91, 20, 2597);
-    			add_location(td1, file$2, 92, 5, 2623);
+    			add_location(th0, file$2, 81, 20, 2325);
+    			add_location(th1, file$2, 82, 5, 2344);
+    			add_location(th2, file$2, 83, 5, 2362);
+    			add_location(th3, file$2, 84, 5, 2398);
+    			add_location(th4, file$2, 85, 5, 2432);
+    			add_location(th5, file$2, 86, 5, 2462);
+    			add_location(tr0, file$2, 80, 16, 2300);
+    			add_location(thead, file$2, 79, 12, 2276);
+    			add_location(td0, file$2, 91, 20, 2582);
+    			add_location(td1, file$2, 92, 5, 2608);
     			attr_dev(input0, "type", "number");
-    			add_location(input0, file$2, 93, 24, 2665);
-    			add_location(td2, file$2, 93, 20, 2661);
+    			add_location(input0, file$2, 93, 24, 2650);
+    			add_location(td2, file$2, 93, 20, 2646);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$2, 94, 9, 2728);
-    			add_location(td3, file$2, 94, 5, 2724);
+    			add_location(input1, file$2, 94, 9, 2713);
+    			add_location(td3, file$2, 94, 5, 2709);
     			attr_dev(input2, "type", "number");
-    			add_location(input2, file$2, 95, 9, 2793);
-    			add_location(td4, file$2, 95, 5, 2789);
-    			add_location(td5, file$2, 96, 5, 2857);
-    			add_location(tr1, file$2, 90, 16, 2572);
-    			add_location(tbody, file$2, 89, 12, 2548);
+    			add_location(input2, file$2, 95, 9, 2778);
+    			add_location(td4, file$2, 95, 5, 2774);
+    			add_location(td5, file$2, 96, 5, 2842);
+    			add_location(tr1, file$2, 90, 16, 2557);
+    			add_location(tbody, file$2, 89, 12, 2533);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -15949,7 +15949,7 @@ var app = (function () {
     			t0 = text("ERROR: ");
     			t1 = text(/*errorMsg*/ ctx[6]);
     			set_style(p, "color", "red");
-    			add_location(p, file$2, 102, 8, 3023);
+    			add_location(p, file$2, 102, 8, 3008);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -16057,11 +16057,11 @@ var app = (function () {
     			if (if_block) if_block.c();
     			t5 = space();
     			create_component(button.$$.fragment);
-    			add_location(strong0, file$2, 77, 22, 2185);
-    			add_location(strong1, file$2, 77, 55, 2218);
-    			add_location(h3, file$2, 77, 4, 2167);
+    			add_location(strong0, file$2, 77, 22, 2170);
+    			add_location(strong1, file$2, 77, 55, 2203);
+    			add_location(h3, file$2, 77, 4, 2152);
     			attr_dev(main, "class", "svelte-qkkln6");
-    			add_location(main, file$2, 76, 0, 2156);
+    			add_location(main, file$2, 76, 0, 2141);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -16168,11 +16168,11 @@ var app = (function () {
     			console.log("Ok:");
     			const json = await res.json();
     			obesity = json;
-    			$$invalidate(1, upCountry = obesity[0].country);
-    			$$invalidate(2, upYear = parseInt(obesity[0].year));
-    			$$invalidate(3, upMan_percent = parseFloat(obesity[0].man_percent));
-    			$$invalidate(4, upWoman_percent = parseFloat(obesity[0].woman_percent));
-    			$$invalidate(5, upTotal_population = parseFloat(obesity[0].total_population));
+    			$$invalidate(1, upCountry = obesity.country);
+    			$$invalidate(2, upYear = parseInt(obesity.year));
+    			$$invalidate(3, upMan_percent = parseFloat(obesity.man_percent));
+    			$$invalidate(4, upWoman_percent = parseFloat(obesity.woman_percent));
+    			$$invalidate(5, upTotal_population = parseFloat(obesity.total_population));
     			console.log(JSON.stringify(obesity));
     			console.log("Received data.");
     		} else {

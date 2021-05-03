@@ -34,11 +34,11 @@
             const json = await res.json();
             obesity = json;
 			
-			upCountry = obesity[0].country;
-	 		upYear = parseInt(obesity[0].year);
-			upMan_percent = parseFloat(obesity[0].man_percent);
-	 		upWoman_percent = parseFloat(obesity[0].woman_percent);
-	 		upTotal_population = parseFloat(obesity[0].total_population);
+			upCountry = obesity.country;
+	 		upYear = parseInt(obesity.year);
+			upMan_percent = parseFloat(obesity.man_percent);
+	 		upWoman_percent = parseFloat(obesity.woman_percent);
+	 		upTotal_population = parseFloat(obesity.total_population);
 			
 			console.log(JSON.stringify(obesity));
             console.log("Received data.");
