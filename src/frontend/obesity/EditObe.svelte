@@ -87,6 +87,7 @@
 					<th>Acción</th>
                 </tr>
             </thead>
+			
             <tbody>
                 <tr>
                     <td>{upCountry}</td>
