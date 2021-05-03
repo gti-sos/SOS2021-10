@@ -80,7 +80,47 @@
 	<p>
 		<strong>URL: </strong><a href="http://sos2021-10.herokuapp.com">http://sos2021-10.herokuapp.com</a> 
 	</p>
+	<h2>
+		APIs desarrolladas:
+	</h2>
+	<ul>
+		<Breadcrumb class="peque">
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
+			
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Estaditicas de Obesidad</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Estaditicas del Consumo de Comida</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
+		</Breadcrumb>
+		
+			
+	</ul>
 	
+	<h2>
+		Documentación en Postman:
+	</h2>
+	<ul>
+		<Breadcrumb class="peque">
+  			<BreadcrumbItem active>Estaditicas de Sanidad</BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
+			
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem active>Estaditicas de Obesidad </BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem active>Estaditicas del Consumo de Comida </BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></BreadcrumbItem>
+			</Breadcrumb>
+		
+			
+	</ul>
 
 </main>
 
