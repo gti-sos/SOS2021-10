@@ -9,7 +9,8 @@
 	let foodconsumption = [];
 	
 	import Button from "sveltestrap/src/Button.svelte";
-	
+	import Alert from 'sveltestrap/src/Alert.svelte';
+	let visible = false;
 	
 	let newFoodconsumption= {
 		country:"",
@@ -33,8 +34,13 @@
 			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 			console.log(JSON.stringify(foodconsumption));
-		}else{
+		}
+		
+		else{
+			
+		
 			console.log("Error!");
+			
 		}
 	}
 	
@@ -57,7 +63,11 @@
 							}
 						}).then( (res)=> {
 						getFoodconsumption();
-						
+						if(res.status === 400){
+							console.log("TAS EQUIVOCAO");
+							visible = true;
+						}
+		
 						})
 		
 	}
@@ -68,10 +78,11 @@
 							method: "DELETE"
 							
 						}).then( (res)=> {
+						
 						getFoodconsumption();
 						
 						})
-		
+						
 	}
 	
 	async function deleteTodo(){
@@ -93,7 +104,13 @@
 
 <main>
 	
-	
+		<Alert
+			color="danger"
+			isOpen={visible}
+			toggle={() => (visible = false)}>
+			
+			Error en los campos al añadir un dato.
+		</Alert>
 		<Table responsive>
 			<thead>
 				<tr>
