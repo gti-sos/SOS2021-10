@@ -154,7 +154,7 @@ return regex.test(t);
 					if(i==0){
 						res.send(JSON.stringify(foodconsumption,null,2));
 					}else{
-						console.log();
+						
 						res.sendStatus(404);
 					}
 				}
@@ -197,7 +197,7 @@ return regex.test(t);
 			res.sendStatus(500);
 		}
 		else{
-			console.log(Object.keys(newfood_consumption));
+			
 			if(food_consumption.length==0){
 			
 				if((!newfood_consumption.country|!newfood_consumption.year|!newfood_consumption.foodtype|!newfood_consumption.caloryperperson|!newfood_consumption.gramperperson|!newfood_consumption.dailygram|!newfood_consumption.dailycalory) || Object.keys(newfood_consumption).length!=7 || hasNumbers(newfood_consumption.country) || hasNumbers(newfood_consumption.foodtype)){
@@ -213,7 +213,7 @@ return regex.test(t);
 			}
 			
 			else{
-				console.log();
+			
 				res.sendStatus(409); //CONFLICT
 			}
 		}

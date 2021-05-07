@@ -118,7 +118,7 @@
 			isOpen={visible}
 			>
 			
-			No se encuentra este dato.
+			Este dato no existe.
 		</Alert>
 
     <Button outline color="secondary" on:click="{pop}">Back</Button>

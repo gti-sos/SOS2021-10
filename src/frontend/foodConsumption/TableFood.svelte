@@ -1,15 +1,24 @@
 <script>
-
+	const placement = 'right';
 	
 	import {
 		onMount
 	} from "svelte";
+	
+	let open = false;
+	
+	const toggle = () =>{
+		(open = !open);
+	}  
 	
 	import Table from "sveltestrap/src/Table.svelte";
 	let foodconsumption = [];
 	
 	import Button from "sveltestrap/src/Button.svelte";
 	import Alert from 'sveltestrap/src/Alert.svelte';
+	import Popover from 'sveltestrap/src/Popover.svelte';
+	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
+	
 	let visible = false;
 	
 	let newFoodconsumption= {
@@ -111,11 +120,39 @@
 			
 			Error en los campos al añadir un dato.
 		</Alert>
+		<div class="mt-3" style="position: absolute; right:80px;">
+    					<Button id={`btn-${placement}`}>Buscar</Button>
+   						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+							<ul>
+								<li><p>País</p><input bind:value="{newFoodconsumption.country}"></li>
+								<li><p>Año</p><input type=number bind:value="{newFoodconsumption.year}"></li>
+								<li>
+									<FormGroup>
+										<Label for="exampleCustomSelect">Tipo de comida</Label>
+										<CustomInput type="select" id="exampleCustomSelect" name="customSelect">
+										  <option value="">Selecciona</option>
+										  <option>Carne</option>
+										  <option>Huevos y lácteos</option>
+										  <option>Producido</option>
+										  <option>Cereales</option>
+										  <option>Grasas y azúcares</option>
+										</CustomInput>
+									</FormGroup>
+							    </li>
+								<li><p>Calorías por persona</p><input type=number bind:value="{newFoodconsumption.caloryperperson}"></li>
+								<li><p>Gramos por persona</p><input type=number bind:value="{newFoodconsumption.gramperperson}"></li>
+								<li><p>Gramos diarios</p><input type=number bind:value="{newFoodconsumption.dailygram}"></li>
+								<li><p>Calorías diarias</p><input type=number bind:value="{newFoodconsumption.dailycalory}"></li>
+								<li><Button on:click={insertFoodconsumption}>Añadir</Button></li>
+							</ul>
+    					</Popover>
+  					</div>
 		<Table responsive>
 			<thead>
 				<tr>
 					<td><Button on:click={loadInitialData}>Cargar datos</Button></td>
 					<td><Button on:click={deleteTodo}>Borrar datos</Button></td>
+					
 					
 				</tr>
 				<tr>
