@@ -8,17 +8,30 @@
     } from "svelte-spa-router";
 
 
+	import Alert from "sveltestrap/src/Alert.svelte";
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
+	
+	const colors= [
+   	 	'primary',
+   		'secondary',
+   		 'success',
+   		 'danger',
+   		 'warning',
+   		 'info',
+   		 'light',
+   		 'dark'
+ 	];
+	let visible = false;
 
 	const BASE_CONTACT_API_PATH = "/api/v1";
     export let params = {};
     let obesity = {};
 	let upCountry = "XXXX";
 	let upYear = 12345;
-	let upMan_percent = 999.9;
-	let upWoman_percent = 999.9;
-	let upTotal_population = 999;
+	let upMan_percent = 123.4;
+	let upWoman_percent = 123.4;
+	let upTotal_population = 12345;
     let errorMsg = "";
  	let okMsg = "";
 
@@ -43,8 +56,14 @@
 			console.log(JSON.stringify(obesity));
             console.log("Received data.");
         } else {
-            errorMsg = res.status + ": " + res.statusText;
-            console.log("ERROR!" + errorMsg);
+			if(res-status === 404){
+            	errorMsg = `No existe dato con pais: ${obesity.country} y fecha: ${obesity.year}`;
+            	console.log("ERROR!" + errorMsg);
+			} else if (res.status === 500) {
+        		errorMsg = "No se han podido acceder a la base de datos";
+      		}
+			
+      		console.log("ERROR!" + errorMsg);
         }
     }
 
@@ -68,7 +87,21 @@
                 "Content-Type": "application/json"
             }
         }).then(function (res) {
-            getObesity();
+			if(res.ok){
+				console.log("Ok.");
+				getObesity();
+				okMsg = "Actualización correcta";
+				errorMsg ="";
+				
+			}else{
+				if(res.status === 404){
+					errorMsg ="El dato solicitado no existe";
+				}
+			}
+			
+			getObesity();
+			console.log("ERROR!" + errorMsg);
+            
         });
     }
 	
@@ -99,12 +132,19 @@
 					<td><Button on:click={updateObesity}>Actualizar</Button></td>
                     
                 </tr>
-        </tbody>
+        	</tbody>
         </Table>
-    {#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
-    <Button outline color="secondary" on:click="{pop}">Volver</Button>
+		<div>
+		
+			{#if errorMsg}
+				<p style="color: #9d1c24">ERROR: {errorMsg}</p>
+   			{/if}
+			{#if okMsg}
+				<p style="color: #155724">{okMsg}</p>
+   		 	{/if}
+		
+		<Button outline color="secondary" on:click="{pop}">Volver</Button>
+		<div>
 </main>
 
 <style>
