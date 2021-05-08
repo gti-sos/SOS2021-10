@@ -3,10 +3,11 @@
 	import {
 		onMount
 	} from "svelte";
-	
+	import Alert from 'sveltestrap/src/Alert.svelte';
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
-	
+	let errorMsg = "";
+	let okMsg = "";
 	let obesity = [];
 	let newObesity = {
 		country: "",
@@ -16,6 +17,12 @@
 		total_population: "",
 		
 	};
+	let visible = false;
+	let visibleOk = false;
+	
+	
+	
+	
 	
 	const BASE_CONTACT_API_PATH = "/api/v1";
 	
@@ -53,7 +60,22 @@
 								}
 							}
 		).then((res) => {
-			getObesity();
+			
+			if(res.ok){
+				getObesity();
+				okMsg = "El dato se introdujo correctamente";
+				visibleOk=true;
+				visible=false;
+			}else if(res.status === 409){
+                errorMsg = "Ya existe ese dato";
+				visibleOk=false;
+				visible=true;
+			}else if(res.status === 400){
+				errorMsg = "Campo mal introducido";
+				visibleOk=false;
+				visible=true;
+			}
+            
 		});
 	}	
 	
@@ -93,6 +115,18 @@
 				<td><Button on:click={deleteAll}>Borrar datos</Button></td>
 					
 			</tr>
+			<div>
+				<Alert color="danger" isOpen={visible} toggle={() => (visible = false)}>
+					{#if errorMsg}
+						<p>ERROR: {errorMsg}</p>
+   					{/if}
+				</Alert>
+				<Alert color="success" isOpen={visibleOk} toggle={() => (visibleOk = false)}>
+					{#if okMsg}
+						<p>Correcto: {okMsg}</p>
+   		 			{/if}
+				</Alert>
+			</div>
 			<tr>
 				<th>Pais</th>
 				<th>Año</th>
