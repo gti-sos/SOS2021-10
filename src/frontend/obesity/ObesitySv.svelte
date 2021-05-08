@@ -7,6 +7,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 	let errorMsg = "";
+	let okMsg = "";
 	let obesity = [];
 	let newObesity = {
 		country: "",
@@ -17,6 +18,12 @@
 		
 	};
 	let visible = false;
+	let visibleOk = false;
+	
+	
+	
+	
+	
 	const BASE_CONTACT_API_PATH = "/api/v1";
 	
 	async function ObesityData() {
@@ -56,11 +63,17 @@
 			
 			if(res.ok){
 				getObesity();
-				errorMsg = "El dato se introdujo correctamente";
+				okMsg = "El dato se introdujo correctamente";
+				visibleOk=true;
+				visible=false;
 			}else if(res.status === 409){
                 errorMsg = "Ya existe ese dato";
+				visibleOk=false;
+				visible=true;
 			}else if(res.status === 400){
 				errorMsg = "Campo mal introducido";
+				visibleOk=false;
+				visible=true;
 			}
             
 		});
@@ -103,9 +116,16 @@
 					
 			</tr>
 			<div>
-				{#if errorMsg}
-				<p style="color: #9d1c24">ERROR: {errorMsg}</p>
-   				{/if}
+				<Alert color="danger" isOpen={visible} toggle={() => (visible = false)}>
+					{#if errorMsg}
+						<p>ERROR: {errorMsg}</p>
+   					{/if}
+				</Alert>
+				<Alert color="success" isOpen={visibleOk} toggle={() => (visibleOk = false)}>
+					{#if okMsg}
+						<p>Correcto: {okMsg}</p>
+   		 			{/if}
+				</Alert>
 			</div>
 			<tr>
 				<th>Pais</th>

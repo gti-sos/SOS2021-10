@@ -52,6 +52,37 @@
 			
 		}
 	}
+	let filterFoodconsumption= {
+		country:"",
+		year:0,
+		foodtype: "",
+		caloryperperson:0,
+		gramperperson:0,
+		dailygram: 0,
+		dailycalory: 0
+	}
+	
+	
+	async function getFiltro(){
+		let dbquery= {};
+		console.log("Fetching foodconsumption...");
+		const res = await fetch("/api/v1/foodconsumption-stats");
+		
+		if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			foodconsumption= json ;
+			console.log(`We have ${foodconsumption.length} foodconsumption.`);
+			console.log(JSON.stringify(foodconsumption));
+		}
+		
+		else{
+			
+		
+			console.log("Error!");
+			
+		}
+	}
 	
 	async function loadInitialData(){
 		console.log("Fetching foodconsumption...");
@@ -123,28 +154,51 @@
 		<div class="mt-3" style="position: absolute; right:80px;">
     					<Button id={`btn-${placement}`}>Buscar</Button>
    						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
-							<ul>
-								<li><p>País</p><input bind:value="{newFoodconsumption.country}"></li>
-								<li><p>Año</p><input type=number bind:value="{newFoodconsumption.year}"></li>
-								<li>
+							<Form>
+  								<FormGroup>
+   						 
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroPais"
+        						label="País" ><input bind:value="{filterFoodconsumption.country}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroAnyo"
+        						label="Año" ><input type=number bind:value="{filterFoodconsumption.year}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroComida"
+        						label="Tipo de comida" >
 									<FormGroup>
-										<Label for="exampleCustomSelect">Tipo de comida</Label>
 										<CustomInput type="select" id="exampleCustomSelect" name="customSelect">
-										  <option value="">Selecciona</option>
-										  <option>Carne</option>
+										  <option value="">Carne</option>
 										  <option>Huevos y lácteos</option>
 										  <option>Producido</option>
 										  <option>Cereales</option>
 										  <option>Grasas y azúcares</option>
 										</CustomInput>
 									</FormGroup>
-							    </li>
-								<li><p>Calorías por persona</p><input type=number bind:value="{newFoodconsumption.caloryperperson}"></li>
-								<li><p>Gramos por persona</p><input type=number bind:value="{newFoodconsumption.gramperperson}"></li>
-								<li><p>Gramos diarios</p><input type=number bind:value="{newFoodconsumption.dailygram}"></li>
-								<li><p>Calorías diarias</p><input type=number bind:value="{newFoodconsumption.dailycalory}"></li>
-								<li><Button on:click={insertFoodconsumption}>Añadir</Button></li>
-							</ul>
+							    </CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroCalPer"
+        						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroGramPer"
+        						label="Gramos por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.gramperperson}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroGramDia"
+        						label="Gramos diarios mayor que" ><input type=number bind:value="{filterFoodconsumption.dailygram}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroCalDia"
+        						label="Calorías diarias mayor que" ><input type=number bind:value="{newFoodconsumption.dailycalory}"></CustomInput>
+								<br>
+								<Button on:click={getFiltro}>Filtrar</Button>
+								</FormGroup>
+							</Form>
     					</Popover>
   					</div>
 		<Table responsive>
