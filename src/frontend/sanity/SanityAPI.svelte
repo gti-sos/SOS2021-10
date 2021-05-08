@@ -12,8 +12,7 @@
 	import Alert from 'sveltestrap/src/Alert.svelte';
 	import Popover from 'sveltestrap/src/Popover.svelte';
 	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
-import Sanityfilter from './Sanityfilter.svelte';
-import { get } from 'svelte/store';
+
 	
 	let visible = false;
 
@@ -31,7 +30,6 @@ import { get } from 'svelte/store';
 	}
 
 	async function getFiltro(){
-		let dbquery= {};
 		console.log("Fetching foodconsumption...");
 		console.log(filterSanity);
 		const res = await fetch("/api/v2/sanity-stats/statistics?from="+filterSanity.from+"&to="+filterSanity.to);
