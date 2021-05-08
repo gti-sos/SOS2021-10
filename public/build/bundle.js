@@ -1120,7 +1120,7 @@ var app = (function () {
     }
 
     // (202:0) {#if componentParams}
-    function create_if_block$c(ctx) {
+    function create_if_block$d(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -1208,7 +1208,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$c.name,
+    		id: create_if_block$d.name,
     		type: "if",
     		source: "(202:0) {#if componentParams}",
     		ctx
@@ -1222,7 +1222,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$c, create_else_block$9];
+    	const if_block_creators = [create_if_block$d, create_else_block$9];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -2020,7 +2020,7 @@ var app = (function () {
     const file$y = "node_modules/sveltestrap/src/Alert.svelte";
 
     // (22:0) {#if isOpen}
-    function create_if_block$b(ctx) {
+    function create_if_block$c(ctx) {
     	let div;
     	let t;
     	let current_block_type_index;
@@ -2136,7 +2136,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$b.name,
+    		id: create_if_block$c.name,
     		type: "if",
     		source: "(22:0) {#if isOpen}",
     		ctx
@@ -2296,7 +2296,7 @@ var app = (function () {
     function create_fragment$y(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[2] && create_if_block$b(ctx);
+    	let if_block = /*isOpen*/ ctx[2] && create_if_block$c(ctx);
 
     	const block = {
     		c: function create() {
@@ -2320,7 +2320,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$b(ctx);
+    					if_block = create_if_block$c(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -2609,7 +2609,7 @@ var app = (function () {
     }
 
     // (15:4) {#if children}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let t;
 
     	const block = {
@@ -2631,7 +2631,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(15:4) {#if children}",
     		ctx
@@ -2646,7 +2646,7 @@ var app = (function () {
     	let current_block_type_index;
     	let if_block;
     	let current;
-    	const if_block_creators = [create_if_block$a, create_else_block$7];
+    	const if_block_creators = [create_if_block$b, create_else_block$7];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -2916,7 +2916,7 @@ var app = (function () {
     }
 
     // (17:2) {#if children}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let t;
 
     	const block = {
@@ -2938,7 +2938,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(17:2) {#if children}",
     		ctx
@@ -2953,7 +2953,7 @@ var app = (function () {
     	let if_block;
     	let li_aria_current_value;
     	let current;
-    	const if_block_creators = [create_if_block$9, create_else_block$6];
+    	const if_block_creators = [create_if_block$a, create_else_block$6];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -3238,7 +3238,7 @@ var app = (function () {
     }
 
     // (33:0) {#if href}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let a;
     	let current_block_type_index;
     	let if_block;
@@ -3346,7 +3346,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(33:0) {#if href}",
     		ctx
@@ -3636,7 +3636,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$8, create_else_block_1];
+    	const if_block_creators = [create_if_block$9, create_else_block_1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -3972,7 +3972,7 @@ var app = (function () {
     const file$u = "node_modules/sveltestrap/src/Collapse.svelte";
 
     // (57:0) {#if isOpen}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let div;
     	let div_style_value;
     	let div_transition;
@@ -4112,7 +4112,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(57:0) {#if isOpen}",
     		ctx
@@ -4127,7 +4127,7 @@ var app = (function () {
     	let mounted;
     	let dispose;
     	add_render_callback(/*onwindowresize*/ ctx[19]);
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$7(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$8(ctx);
 
     	const block = {
     		c: function create() {
@@ -4156,7 +4156,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$7(ctx);
+    					if_block = create_if_block$8(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -4878,7 +4878,7 @@ var app = (function () {
     }
 
     // (48:0) {#if type === 'select'}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let select;
     	let current;
     	let mounted;
@@ -4973,7 +4973,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(48:0) {#if type === 'select'}",
     		ctx
@@ -4989,7 +4989,7 @@ var app = (function () {
     	let current;
 
     	const if_block_creators = [
-    		create_if_block$6,
+    		create_if_block$7,
     		create_if_block_1$4,
     		create_if_block_2$1,
     		create_if_block_3,
@@ -5723,7 +5723,7 @@ var app = (function () {
     }
 
     // (21:0) {#if tag === 'fieldset'}
-    function create_if_block$5(ctx) {
+    function create_if_block$6(ctx) {
     	let fieldset;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[9].default;
@@ -5780,7 +5780,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block$6.name,
     		type: "if",
     		source: "(21:0) {#if tag === 'fieldset'}",
     		ctx
@@ -5794,7 +5794,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$5, create_else_block$3];
+    	const if_block_creators = [create_if_block$6, create_else_block$3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -6341,7 +6341,7 @@ var app = (function () {
     const get_external_slot_context = ctx => ({});
 
     // (217:0) {#if _isMounted}
-    function create_if_block$4(ctx) {
+    function create_if_block$5(ctx) {
     	let div;
     	let current;
     	let if_block = /*isOpen*/ ctx[1] && create_if_block_1$3(ctx);
@@ -6417,7 +6417,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$4.name,
+    		id: create_if_block$5.name,
     		type: "if",
     		source: "(217:0) {#if _isMounted}",
     		ctx
@@ -6670,7 +6670,7 @@ var app = (function () {
     function create_fragment$p(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*_isMounted*/ ctx[11] && create_if_block$4(ctx);
+    	let if_block = /*_isMounted*/ ctx[11] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -6694,7 +6694,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$4(ctx);
+    					if_block = create_if_block$5(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -7700,7 +7700,7 @@ var app = (function () {
     }
 
     // (26:4) {#if typeof toggle === 'function'}
-    function create_if_block$3(ctx) {
+    function create_if_block$4(ctx) {
     	let button;
     	let span;
     	let t;
@@ -7756,7 +7756,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block$4.name,
     		type: "if",
     		source: "(26:4) {#if typeof toggle === 'function'}",
     		ctx
@@ -7768,7 +7768,7 @@ var app = (function () {
     // (25:21)      
     function fallback_block$2(ctx) {
     	let if_block_anchor;
-    	let if_block = typeof /*toggle*/ ctx[0] === "function" && create_if_block$3(ctx);
+    	let if_block = typeof /*toggle*/ ctx[0] === "function" && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -7784,7 +7784,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$3(ctx);
+    					if_block = create_if_block$4(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -11037,7 +11037,7 @@ var app = (function () {
     const get_title_slot_context = ctx => ({});
 
     // (103:0) {#if isOpen}
-    function create_if_block$2(ctx) {
+    function create_if_block$3(ctx) {
     	let div2;
     	let div0;
     	let t0;
@@ -11179,7 +11179,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$3.name,
     		type: "if",
     		source: "(103:0) {#if isOpen}",
     		ctx
@@ -11302,7 +11302,7 @@ var app = (function () {
     function create_fragment$f(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$2(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -11326,7 +11326,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$2(ctx);
+    					if_block = create_if_block$3(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -11733,7 +11733,7 @@ var app = (function () {
     }
 
     // (29:0) {#if responsive}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let div;
     	let table;
     	let current;
@@ -11799,7 +11799,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(29:0) {#if responsive}",
     		ctx
@@ -11813,7 +11813,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$1, create_else_block];
+    	const if_block_creators = [create_if_block$2, create_else_block];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -12833,11 +12833,11 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[12] = list[i];
+    	child_ctx[14] = list[i];
     	return child_ctx;
     }
 
-    // (92:8) <Button on:click={ObesityData}>
+    // (101:8) <Button on:click={ObesityData}>
     function create_default_slot_4$6(ctx) {
     	let t;
 
@@ -12857,14 +12857,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$6.name,
     		type: "slot",
-    		source: "(92:8) <Button on:click={ObesityData}>",
+    		source: "(101:8) <Button on:click={ObesityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:8) <Button on:click={deleteAll}>
+    // (102:8) <Button on:click={deleteAll}>
     function create_default_slot_3$7(ctx) {
     	let t;
 
@@ -12884,14 +12884,52 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$7.name,
     		type: "slot",
-    		source: "(93:8) <Button on:click={deleteAll}>",
+    		source: "(102:8) <Button on:click={deleteAll}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (112:8) <Button on:click={insertObesity}>
+    // (106:4) {#if errorMsg}
+    function create_if_block$1(ctx) {
+    	let p;
+    	let t0;
+    	let t1;
+
+    	const block = {
+    		c: function create() {
+    			p = element("p");
+    			t0 = text("ERROR: ");
+    			t1 = text(/*errorMsg*/ ctx[0]);
+    			set_style(p, "color", "#9d1c24");
+    			add_location(p, file$b, 106, 4, 2439);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t0);
+    			append_dev(p, t1);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*errorMsg*/ 1) set_data_dev(t1, /*errorMsg*/ ctx[0]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(p);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(106:4) {#if errorMsg}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (126:8) <Button on:click={insertObesity}>
     function create_default_slot_2$8(ctx) {
     	let t;
 
@@ -12911,14 +12949,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$8.name,
     		type: "slot",
-    		source: "(112:8) <Button on:click={insertObesity}>",
+    		source: "(126:8) <Button on:click={insertObesity}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (122:8) <Button on:click={deleteObesity(obe.country,obe.year)}>
+    // (136:8) <Button on:click={deleteObesity(obe.country,obe.year)}>
     function create_default_slot_1$8(ctx) {
     	let t;
 
@@ -12938,36 +12976,36 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(122:8) <Button on:click={deleteObesity(obe.country,obe.year)}>",
+    		source: "(136:8) <Button on:click={deleteObesity(obe.country,obe.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:3) {#each obesity as obe}
+    // (128:3) {#each obesity as obe}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*obe*/ ctx[12].country + "";
+    	let t0_value = /*obe*/ ctx[14].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*obe*/ ctx[12].year + "";
+    	let t2_value = /*obe*/ ctx[14].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*obe*/ ctx[12].man_percent + "";
+    	let t4_value = /*obe*/ ctx[14].man_percent + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*obe*/ ctx[12].woman_percent + "";
+    	let t6_value = /*obe*/ ctx[14].woman_percent + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*obe*/ ctx[12].total_population + "";
+    	let t8_value = /*obe*/ ctx[14].total_population + "";
     	let t8;
     	let t9;
     	let td5;
@@ -12984,7 +13022,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteObesity*/ ctx[4](/*obe*/ ctx[12].country, /*obe*/ ctx[12].year))) /*deleteObesity*/ ctx[4](/*obe*/ ctx[12].country, /*obe*/ ctx[12].year).apply(this, arguments);
+    		if (is_function(/*deleteObesity*/ ctx[5](/*obe*/ ctx[14].country, /*obe*/ ctx[14].year))) /*deleteObesity*/ ctx[5](/*obe*/ ctx[14].country, /*obe*/ ctx[14].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -13009,22 +13047,22 @@ var app = (function () {
     			td5 = element("td");
     			create_component(button.$$.fragment);
     			t10 = space();
-    			attr_dev(a, "href", a_href_value = "#/obesity-stats/" + /*obe*/ ctx[12].country + "/" + /*obe*/ ctx[12].year);
-    			add_location(a, file$b, 115, 8, 2727);
+    			attr_dev(a, "href", a_href_value = "#/obesity-stats/" + /*obe*/ ctx[14].country + "/" + /*obe*/ ctx[14].year);
+    			add_location(a, file$b, 129, 8, 3163);
     			attr_dev(td0, "class", "svelte-1h2kj47");
-    			add_location(td0, file$b, 115, 4, 2723);
+    			add_location(td0, file$b, 129, 4, 3159);
     			attr_dev(td1, "class", "svelte-1h2kj47");
-    			add_location(td1, file$b, 117, 4, 2806);
+    			add_location(td1, file$b, 131, 4, 3242);
     			attr_dev(td2, "class", "svelte-1h2kj47");
-    			add_location(td2, file$b, 118, 4, 2830);
+    			add_location(td2, file$b, 132, 4, 3266);
     			attr_dev(td3, "class", "svelte-1h2kj47");
-    			add_location(td3, file$b, 119, 4, 2861);
+    			add_location(td3, file$b, 133, 4, 3297);
     			attr_dev(td4, "class", "svelte-1h2kj47");
-    			add_location(td4, file$b, 120, 4, 2894);
+    			add_location(td4, file$b, 134, 4, 3330);
     			attr_dev(td5, "class", "svelte-1h2kj47");
-    			add_location(td5, file$b, 121, 4, 2930);
+    			add_location(td5, file$b, 135, 4, 3366);
     			attr_dev(tr, "class", "svelte-1h2kj47");
-    			add_location(tr, file$b, 114, 4, 2714);
+    			add_location(tr, file$b, 128, 4, 3150);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -13051,19 +13089,19 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*obesity*/ 1) && t0_value !== (t0_value = /*obe*/ ctx[12].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*obesity*/ 2) && t0_value !== (t0_value = /*obe*/ ctx[14].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*obesity*/ 1 && a_href_value !== (a_href_value = "#/obesity-stats/" + /*obe*/ ctx[12].country + "/" + /*obe*/ ctx[12].year)) {
+    			if (!current || dirty & /*obesity*/ 2 && a_href_value !== (a_href_value = "#/obesity-stats/" + /*obe*/ ctx[14].country + "/" + /*obe*/ ctx[14].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty & /*obesity*/ 1) && t2_value !== (t2_value = /*obe*/ ctx[12].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*obesity*/ 1) && t4_value !== (t4_value = /*obe*/ ctx[12].man_percent + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*obesity*/ 1) && t6_value !== (t6_value = /*obe*/ ctx[12].woman_percent + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*obesity*/ 1) && t8_value !== (t8_value = /*obe*/ ctx[12].total_population + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*obesity*/ 2) && t2_value !== (t2_value = /*obe*/ ctx[14].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*obesity*/ 2) && t4_value !== (t4_value = /*obe*/ ctx[14].man_percent + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*obesity*/ 2) && t6_value !== (t6_value = /*obe*/ ctx[14].woman_percent + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*obesity*/ 2) && t8_value !== (t8_value = /*obe*/ ctx[14].total_population + "")) set_data_dev(t8, t8_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 131072) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13088,14 +13126,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(114:3) {#each obesity as obe}",
+    		source: "(128:3) {#each obesity as obe}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:1) <Table responsive>
+    // (97:1) <Table responsive>
     function create_default_slot$9(ctx) {
     	let thead;
     	let tr0;
@@ -13105,39 +13143,41 @@ var app = (function () {
     	let td1;
     	let button1;
     	let t1;
+    	let div;
+    	let t2;
     	let tr1;
     	let th0;
-    	let t3;
+    	let t4;
     	let th1;
-    	let t5;
+    	let t6;
     	let th2;
-    	let t7;
+    	let t8;
     	let th3;
-    	let t9;
+    	let t10;
     	let th4;
-    	let t11;
+    	let t12;
     	let th5;
-    	let t13;
+    	let t14;
     	let tbody;
     	let tr2;
     	let td2;
     	let input0;
-    	let t14;
+    	let t15;
     	let td3;
     	let input1;
-    	let t15;
+    	let t16;
     	let td4;
     	let input2;
-    	let t16;
+    	let t17;
     	let td5;
     	let input3;
-    	let t17;
+    	let t18;
     	let td6;
     	let input4;
-    	let t18;
+    	let t19;
     	let td7;
     	let button2;
-    	let t19;
+    	let t20;
     	let current;
     	let mounted;
     	let dispose;
@@ -13150,7 +13190,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button0.$on("click", /*ObesityData*/ ctx[2]);
+    	button0.$on("click", /*ObesityData*/ ctx[3]);
 
     	button1 = new Button({
     			props: {
@@ -13160,7 +13200,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button1.$on("click", /*deleteAll*/ ctx[5]);
+    	button1.$on("click", /*deleteAll*/ ctx[6]);
+    	let if_block = /*errorMsg*/ ctx[0] && create_if_block$1(ctx);
 
     	button2 = new Button({
     			props: {
@@ -13170,8 +13211,8 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button2.$on("click", /*insertObesity*/ ctx[3]);
-    	let each_value = /*obesity*/ ctx[0];
+    	button2.$on("click", /*insertObesity*/ ctx[4]);
+    	let each_value = /*obesity*/ ctx[1];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -13193,94 +13234,98 @@ var app = (function () {
     			td1 = element("td");
     			create_component(button1.$$.fragment);
     			t1 = space();
+    			div = element("div");
+    			if (if_block) if_block.c();
+    			t2 = space();
     			tr1 = element("tr");
     			th0 = element("th");
     			th0.textContent = "Pais";
-    			t3 = space();
+    			t4 = space();
     			th1 = element("th");
     			th1.textContent = "Año";
-    			t5 = space();
+    			t6 = space();
     			th2 = element("th");
     			th2.textContent = "Porcentaje de hombres";
-    			t7 = space();
+    			t8 = space();
     			th3 = element("th");
     			th3.textContent = "Porcentaje de mujer";
-    			t9 = space();
+    			t10 = space();
     			th4 = element("th");
     			th4.textContent = "Población total";
-    			t11 = space();
+    			t12 = space();
     			th5 = element("th");
     			th5.textContent = "Acción";
-    			t13 = space();
+    			t14 = space();
     			tbody = element("tbody");
     			tr2 = element("tr");
     			td2 = element("td");
     			input0 = element("input");
-    			t14 = space();
+    			t15 = space();
     			td3 = element("td");
     			input1 = element("input");
-    			t15 = space();
+    			t16 = space();
     			td4 = element("td");
     			input2 = element("input");
-    			t16 = space();
+    			t17 = space();
     			td5 = element("td");
     			input3 = element("input");
-    			t17 = space();
+    			t18 = space();
     			td6 = element("td");
     			input4 = element("input");
-    			t18 = space();
+    			t19 = space();
     			td7 = element("td");
     			create_component(button2.$$.fragment);
-    			t19 = space();
+    			t20 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
     			attr_dev(td0, "class", "svelte-1h2kj47");
-    			add_location(td0, file$b, 91, 4, 1933);
+    			add_location(td0, file$b, 100, 4, 2266);
     			attr_dev(td1, "class", "svelte-1h2kj47");
-    			add_location(td1, file$b, 92, 4, 1999);
+    			add_location(td1, file$b, 101, 4, 2332);
     			attr_dev(tr0, "class", "svelte-1h2kj47");
-    			add_location(tr0, file$b, 90, 3, 1924);
-    			add_location(th0, file$b, 96, 4, 2086);
-    			add_location(th1, file$b, 97, 4, 2104);
-    			add_location(th2, file$b, 98, 4, 2121);
-    			add_location(th3, file$b, 99, 4, 2156);
-    			add_location(th4, file$b, 100, 4, 2189);
-    			add_location(th5, file$b, 101, 4, 2218);
+    			add_location(tr0, file$b, 99, 3, 2257);
+    			add_location(div, file$b, 104, 3, 2410);
+    			add_location(th0, file$b, 110, 4, 2522);
+    			add_location(th1, file$b, 111, 4, 2540);
+    			add_location(th2, file$b, 112, 4, 2557);
+    			add_location(th3, file$b, 113, 4, 2592);
+    			add_location(th4, file$b, 114, 4, 2625);
+    			add_location(th5, file$b, 115, 4, 2654);
     			attr_dev(tr1, "class", "svelte-1h2kj47");
-    			add_location(tr1, file$b, 95, 3, 2077);
-    			add_location(thead, file$b, 89, 2, 1913);
+    			add_location(tr1, file$b, 109, 3, 2513);
+    			add_location(thead, file$b, 98, 2, 2246);
     			attr_dev(input0, "class", "svelte-1h2kj47");
-    			add_location(input0, file$b, 106, 8, 2280);
+    			add_location(input0, file$b, 120, 8, 2716);
     			attr_dev(td2, "class", "svelte-1h2kj47");
-    			add_location(td2, file$b, 106, 4, 2276);
+    			add_location(td2, file$b, 120, 4, 2712);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-1h2kj47");
-    			add_location(input1, file$b, 107, 8, 2335);
+    			add_location(input1, file$b, 121, 8, 2771);
     			attr_dev(td3, "class", "svelte-1h2kj47");
-    			add_location(td3, file$b, 107, 4, 2331);
+    			add_location(td3, file$b, 121, 4, 2767);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "class", "svelte-1h2kj47");
-    			add_location(input2, file$b, 108, 8, 2399);
+    			add_location(input2, file$b, 122, 8, 2835);
     			attr_dev(td4, "class", "svelte-1h2kj47");
-    			add_location(td4, file$b, 108, 4, 2395);
+    			add_location(td4, file$b, 122, 4, 2831);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-1h2kj47");
-    			add_location(input3, file$b, 109, 8, 2470);
+    			add_location(input3, file$b, 123, 8, 2906);
     			attr_dev(td5, "class", "svelte-1h2kj47");
-    			add_location(td5, file$b, 109, 4, 2466);
+    			add_location(td5, file$b, 123, 4, 2902);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-1h2kj47");
-    			add_location(input4, file$b, 110, 8, 2543);
+    			add_location(input4, file$b, 124, 8, 2979);
     			attr_dev(td6, "class", "svelte-1h2kj47");
-    			add_location(td6, file$b, 110, 4, 2539);
+    			add_location(td6, file$b, 124, 4, 2975);
     			attr_dev(td7, "class", "svelte-1h2kj47");
-    			add_location(td7, file$b, 111, 4, 2615);
+    			add_location(td7, file$b, 125, 4, 3051);
     			attr_dev(tr2, "class", "svelte-1h2kj47");
-    			add_location(tr2, file$b, 105, 3, 2267);
-    			add_location(tbody, file$b, 104, 2, 2256);
+    			add_location(tr2, file$b, 119, 3, 2703);
+    			add_location(tbody, file$b, 118, 2, 2692);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -13291,44 +13336,47 @@ var app = (function () {
     			append_dev(tr0, td1);
     			mount_component(button1, td1, null);
     			append_dev(thead, t1);
+    			append_dev(thead, div);
+    			if (if_block) if_block.m(div, null);
+    			append_dev(thead, t2);
     			append_dev(thead, tr1);
     			append_dev(tr1, th0);
-    			append_dev(tr1, t3);
+    			append_dev(tr1, t4);
     			append_dev(tr1, th1);
-    			append_dev(tr1, t5);
+    			append_dev(tr1, t6);
     			append_dev(tr1, th2);
-    			append_dev(tr1, t7);
+    			append_dev(tr1, t8);
     			append_dev(tr1, th3);
-    			append_dev(tr1, t9);
+    			append_dev(tr1, t10);
     			append_dev(tr1, th4);
-    			append_dev(tr1, t11);
+    			append_dev(tr1, t12);
     			append_dev(tr1, th5);
-    			insert_dev(target, t13, anchor);
+    			insert_dev(target, t14, anchor);
     			insert_dev(target, tbody, anchor);
     			append_dev(tbody, tr2);
     			append_dev(tr2, td2);
     			append_dev(td2, input0);
-    			set_input_value(input0, /*newObesity*/ ctx[1].country);
-    			append_dev(tr2, t14);
+    			set_input_value(input0, /*newObesity*/ ctx[2].country);
+    			append_dev(tr2, t15);
     			append_dev(tr2, td3);
     			append_dev(td3, input1);
-    			set_input_value(input1, /*newObesity*/ ctx[1].year);
-    			append_dev(tr2, t15);
+    			set_input_value(input1, /*newObesity*/ ctx[2].year);
+    			append_dev(tr2, t16);
     			append_dev(tr2, td4);
     			append_dev(td4, input2);
-    			set_input_value(input2, /*newObesity*/ ctx[1].man_percent);
-    			append_dev(tr2, t16);
+    			set_input_value(input2, /*newObesity*/ ctx[2].man_percent);
+    			append_dev(tr2, t17);
     			append_dev(tr2, td5);
     			append_dev(td5, input3);
-    			set_input_value(input3, /*newObesity*/ ctx[1].woman_percent);
-    			append_dev(tr2, t17);
+    			set_input_value(input3, /*newObesity*/ ctx[2].woman_percent);
+    			append_dev(tr2, t18);
     			append_dev(tr2, td6);
     			append_dev(td6, input4);
-    			set_input_value(input4, /*newObesity*/ ctx[1].total_population);
-    			append_dev(tr2, t18);
+    			set_input_value(input4, /*newObesity*/ ctx[2].total_population);
+    			append_dev(tr2, t19);
     			append_dev(tr2, td7);
     			mount_component(button2, td7, null);
-    			append_dev(tbody, t19);
+    			append_dev(tbody, t20);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].m(tbody, null);
@@ -13338,11 +13386,11 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[8]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[9]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[10])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[7]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[8]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[9]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[10]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[11])
     				];
 
     				mounted = true;
@@ -13351,49 +13399,62 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 131072) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 131072) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
     			button1.$set(button1_changes);
 
-    			if (dirty & /*newObesity*/ 2 && input0.value !== /*newObesity*/ ctx[1].country) {
-    				set_input_value(input0, /*newObesity*/ ctx[1].country);
+    			if (/*errorMsg*/ ctx[0]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
     			}
 
-    			if (dirty & /*newObesity*/ 2 && to_number(input1.value) !== /*newObesity*/ ctx[1].year) {
-    				set_input_value(input1, /*newObesity*/ ctx[1].year);
+    			if (dirty & /*newObesity*/ 4 && input0.value !== /*newObesity*/ ctx[2].country) {
+    				set_input_value(input0, /*newObesity*/ ctx[2].country);
     			}
 
-    			if (dirty & /*newObesity*/ 2 && to_number(input2.value) !== /*newObesity*/ ctx[1].man_percent) {
-    				set_input_value(input2, /*newObesity*/ ctx[1].man_percent);
+    			if (dirty & /*newObesity*/ 4 && to_number(input1.value) !== /*newObesity*/ ctx[2].year) {
+    				set_input_value(input1, /*newObesity*/ ctx[2].year);
     			}
 
-    			if (dirty & /*newObesity*/ 2 && to_number(input3.value) !== /*newObesity*/ ctx[1].woman_percent) {
-    				set_input_value(input3, /*newObesity*/ ctx[1].woman_percent);
+    			if (dirty & /*newObesity*/ 4 && to_number(input2.value) !== /*newObesity*/ ctx[2].man_percent) {
+    				set_input_value(input2, /*newObesity*/ ctx[2].man_percent);
     			}
 
-    			if (dirty & /*newObesity*/ 2 && to_number(input4.value) !== /*newObesity*/ ctx[1].total_population) {
-    				set_input_value(input4, /*newObesity*/ ctx[1].total_population);
+    			if (dirty & /*newObesity*/ 4 && to_number(input3.value) !== /*newObesity*/ ctx[2].woman_percent) {
+    				set_input_value(input3, /*newObesity*/ ctx[2].woman_percent);
+    			}
+
+    			if (dirty & /*newObesity*/ 4 && to_number(input4.value) !== /*newObesity*/ ctx[2].total_population) {
+    				set_input_value(input4, /*newObesity*/ ctx[2].total_population);
     			}
 
     			const button2_changes = {};
 
-    			if (dirty & /*$$scope*/ 32768) {
+    			if (dirty & /*$$scope*/ 131072) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
 
-    			if (dirty & /*deleteObesity, obesity*/ 17) {
-    				each_value = /*obesity*/ ctx[0];
+    			if (dirty & /*deleteObesity, obesity*/ 34) {
+    				each_value = /*obesity*/ ctx[1];
     				validate_each_argument(each_value);
     				let i;
 
@@ -13448,7 +13509,8 @@ var app = (function () {
     			if (detaching) detach_dev(thead);
     			destroy_component(button0);
     			destroy_component(button1);
-    			if (detaching) detach_dev(t13);
+    			if (if_block) if_block.d();
+    			if (detaching) detach_dev(t14);
     			if (detaching) detach_dev(tbody);
     			destroy_component(button2);
     			destroy_each(each_blocks, detaching);
@@ -13461,7 +13523,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(88:1) <Table responsive>",
+    		source: "(97:1) <Table responsive>",
     		ctx
     	});
 
@@ -13486,7 +13548,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(table.$$.fragment);
-    			add_location(main, file$b, 86, 0, 1882);
+    			add_location(main, file$b, 95, 0, 2215);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13499,7 +13561,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, obesity, newObesity*/ 32771) {
+    			if (dirty & /*$$scope, obesity, newObesity, errorMsg*/ 131079) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13536,6 +13598,7 @@ var app = (function () {
     function instance$b($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ObesitySv", slots, []);
+    	let errorMsg = "";
     	let obesity = [];
 
     	let newObesity = {
@@ -13545,6 +13608,8 @@ var app = (function () {
     		woman_percent: "",
     		total_population: ""
     	};
+
+    	let visible = false;
 
     	async function ObesityData() {
     		console.log("Loading data...");
@@ -13561,7 +13626,7 @@ var app = (function () {
     		if (res.ok) {
     			console.log("Ok.");
     			const json = await res.json();
-    			$$invalidate(0, obesity = json);
+    			$$invalidate(1, obesity = json);
     			console.log(`We have ${obesity.length} obesity.`);
     		} else {
     			console.log("Error");
@@ -13576,7 +13641,14 @@ var app = (function () {
     			body: JSON.stringify(newObesity),
     			headers: { "Content-Type": "application/json" }
     		}).then(res => {
-    			getObesity();
+    			if (res.ok) {
+    				getObesity();
+    				$$invalidate(0, errorMsg = "El dato se introdujo correctamente");
+    			} else if (res.status === 409) {
+    				$$invalidate(0, errorMsg = "Ya existe ese dato");
+    			} else if (res.status === 400) {
+    				$$invalidate(0, errorMsg = "Campo mal introducido");
+    			}
     		});
     	}
 
@@ -13605,35 +13677,38 @@ var app = (function () {
 
     	function input0_input_handler() {
     		newObesity.country = this.value;
-    		$$invalidate(1, newObesity);
+    		$$invalidate(2, newObesity);
     	}
 
     	function input1_input_handler() {
     		newObesity.year = to_number(this.value);
-    		$$invalidate(1, newObesity);
+    		$$invalidate(2, newObesity);
     	}
 
     	function input2_input_handler() {
     		newObesity.man_percent = to_number(this.value);
-    		$$invalidate(1, newObesity);
+    		$$invalidate(2, newObesity);
     	}
 
     	function input3_input_handler() {
     		newObesity.woman_percent = to_number(this.value);
-    		$$invalidate(1, newObesity);
+    		$$invalidate(2, newObesity);
     	}
 
     	function input4_input_handler() {
     		newObesity.total_population = to_number(this.value);
-    		$$invalidate(1, newObesity);
+    		$$invalidate(2, newObesity);
     	}
 
     	$$self.$capture_state = () => ({
     		onMount,
+    		Alert,
     		Table,
     		Button,
+    		errorMsg,
     		obesity,
     		newObesity,
+    		visible,
     		BASE_CONTACT_API_PATH: BASE_CONTACT_API_PATH$1,
     		ObesityData,
     		getObesity,
@@ -13643,8 +13718,10 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("obesity" in $$props) $$invalidate(0, obesity = $$props.obesity);
-    		if ("newObesity" in $$props) $$invalidate(1, newObesity = $$props.newObesity);
+    		if ("errorMsg" in $$props) $$invalidate(0, errorMsg = $$props.errorMsg);
+    		if ("obesity" in $$props) $$invalidate(1, obesity = $$props.obesity);
+    		if ("newObesity" in $$props) $$invalidate(2, newObesity = $$props.newObesity);
+    		if ("visible" in $$props) visible = $$props.visible;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -13652,6 +13729,7 @@ var app = (function () {
     	}
 
     	return [
+    		errorMsg,
     		obesity,
     		newObesity,
     		ObesityData,

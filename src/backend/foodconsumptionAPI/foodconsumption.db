@@ -3,3 +3,5 @@
 {"country":"Spain","year":2011,"foodtype":"Sugar&Fat","caloryperperson":955,"gramperperson":132,"dailygram":2559,"dailycalory":3192,"_id":"grBHKtbHB8IFORhU"}
 {"country":"United_States","year":2007,"foodtype":"Grain","caloryperperson":828,"gramperperson":303,"dailygram":2877,"dailycalory":3771,"_id":"hJ4VKCIxKyDnPXy7"}
 {"country":"China","year":2011,"foodtype":"Grain","caloryperperson":1451,"gramperperson":418,"dailygram":2368,"dailycalory":3073,"_id":"s5XCDuonRWokS0es"}
+{"country":"ññ","year":1,"foodtype":"ññ","caloryperperson":1,"gramperperson":1,"dailygram":1,"dailycalory":1,"_id":"cVx2f3gbxqe7vgTe"}
+{"$$deleted":true,"_id":"cVx2f3gbxqe7vgTe"}

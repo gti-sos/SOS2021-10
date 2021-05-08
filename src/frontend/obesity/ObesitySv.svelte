@@ -3,10 +3,10 @@
 	import {
 		onMount
 	} from "svelte";
-	
+	import Alert from 'sveltestrap/src/Alert.svelte';
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
-	
+	let errorMsg = "";
 	let obesity = [];
 	let newObesity = {
 		country: "",
@@ -16,7 +16,7 @@
 		total_population: "",
 		
 	};
-	
+	let visible = false;
 	const BASE_CONTACT_API_PATH = "/api/v1";
 	
 	async function ObesityData() {
@@ -53,7 +53,16 @@
 								}
 							}
 		).then((res) => {
-			getObesity();
+			
+			if(res.ok){
+				getObesity();
+				errorMsg = "El dato se introdujo correctamente";
+			}else if(res.status === 409){
+                errorMsg = "Ya existe ese dato";
+			}else if(res.status === 400){
+				errorMsg = "Campo mal introducido";
+			}
+            
 		});
 	}	
 	
@@ -93,6 +102,11 @@
 				<td><Button on:click={deleteAll}>Borrar datos</Button></td>
 					
 			</tr>
+			<div>
+				{#if errorMsg}
+				<p style="color: #9d1c24">ERROR: {errorMsg}</p>
+   				{/if}
+			</div>
 			<tr>
 				<th>Pais</th>
 				<th>Año</th>
