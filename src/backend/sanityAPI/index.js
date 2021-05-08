@@ -40,7 +40,9 @@ var sanityInitialData = [
 
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
-        db.remove({},{multi:true});
+		for(var i=0;i<sanityInitialData.length;i++){
+			db.remove({"country":sanityInitialData[i].country},{multi:true});
+		}
         db.insert(sanityInitialData);
         
         console.log("Datos cargados");
@@ -75,6 +77,12 @@ var sanityInitialData = [
 		if(req.query.doctorAbove){ dbquery["doctor_per_1000_habitant"] = {$gte: parseFloat(req.query.doctorAbove)};i++}
 		if(req.query.healthAbove){ dbquery["health_expenditure_in_percentage"] = {$gte: parseFloat(req.query.healthAbove)};i++}
 		
+		if(req.query.from && req.query.to){ dbquery["year"] = $and[ {$gte: parseInt(req.query.from)}, {$lte: parseInt(req.query.to)} ];i++}
+		else{
+			if(req.query.from){ dbquery["year"] = {$gte: parseInt(req.query.from)};i++}
+			if(req.query.to){ dbquery["year"] = {$lte: parseInt(req.query.to)};i++}
+		}
+		
 		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, sanity) =>{
 
 			sanity.forEach((t)=>{
@@ -98,7 +106,6 @@ var sanityInitialData = [
                 }		
 			}
 			
-			//console.log("Data sent: " + JSON.stringify(tourism,null,2));
 			console.log("Recursos mostrados");
 		});
 	});
