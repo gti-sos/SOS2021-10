@@ -15,7 +15,7 @@
 
 	
 	let visible = false;
-
+	let mensaje="";
 	let sanity = [];
 	let NewSanity={
 		"country" :"",
@@ -25,14 +25,21 @@
 		"hospital_bed" : 0.0
 	}
 	let filterSanity= {
-		from:0,
-		to:0
+		country:"",
+		fromyear:0,
+		toyear:0,
+		fromhealth:0,
+		tohealth:0,
+		fromdoctor:0,
+		todoctor:0,
+		frombed:0,
+		tobed:0
 	}
 
 	async function getFiltro(){
 		console.log("Fetching foodconsumption...");
 		console.log(filterSanity);
-		const res = await fetch("/api/v2/sanity-stats/statistics?from="+filterSanity.from+"&to="+filterSanity.to);
+		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -72,19 +79,36 @@
         }else{
           console.log("Error");
         }
+		if(res.status == 404){
+			mensaje="No hemos encontrado ese dato, sorry";
+			visible = true;
+		}
+		if(res.status == 500){
+			mensaje="Ups, el server petó, intentalo de nuevo en unos segundos";
+			visible = true;
+		}
   	}
 	async function Delete() {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v2/sanity-stats",{method:"Delete"}).then( (res)=>{
+			if(res.status == 404){
+				console.log("No hemos encontrado ese dato, sorry");
+				visible = true;
+			}
 			   getSanity();
 		   })
+		   
   	}
 	async function DeleteContact(ContactName,ContactYear) {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v2/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
+			if(res.status == 404){
+				mensaje="No hemos encontrado ese dato, sorry";
+			visible = true;
+		}
 			   getSanity();
 		})
-		getSanity();
+		
   	}
 	async function PostSanity() {
     	console.log("Fetching data...");
@@ -95,8 +119,18 @@
 				   "Content-Type":"application/json"
 			   }
 			}).then( (res)=>{
+				if(res.status == 400){
+					mensaje="Campos mal definidos";
+				visible = true;
+			}
+			if(res.status == 409){
+				mensaje="Intestas modificar otro dato CUIDAO";
+				visible = true;
+			}
 			   getSanity();
 		   })
+		  
+			
   	}
 	  async function PutSanity() {
     	console.log("Fetching data...");
@@ -107,35 +141,75 @@
 				   "Content-Type":"application/json"
 			   }
 			}).then( (res)=>{
+				if(res.status == 400){
+					mensaje="Campos mal definidos";
+				visible = true;
+			}
+			if(res.status == 409){
+				mensaje="Intestas modificar otro dato CUIDAO";
+				visible = true;
+			}
+			if(res.status == 404){
+				mensaje="No hemos encontrado ese dato, sorry";
+				visible = true;
+			}
 			   getSanity();
 		   })
+		   
   	}
 	onMount(getSanity);
 </script>
 
 <main>
 
-	<Alert
+		<Alert
 			color="danger"
 			isOpen={visible}
 			toggle={() => (visible = false)}>
 			
-			Error en los campos al añadir un dato.
+			{mensaje}
 		</Alert>
 		<div class="mt-3" style="position: absolute; right:80px;">
-    					<Button id={`btn-${placement}`}>Buscar</Button>
+    					<Button id={`btn-${placement}`}>Filtrar</Button>
    						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
 							<Form>
   								<FormGroup>
-   						 
+
 								<CustomInput
         						type="checkbox"
-       							 id="filtrodesde"
-        						label="Desde" ><input type=number bind:value="{filterSanity.from}"></CustomInput>
+       							 id="pais"
+        						label="País" ><input bind:value="{filterSanity.country}"></CustomInput>
+
 								<CustomInput
         						type="checkbox"
-       							 id="filtrohasta"
-        						label="Hasta" ><input type=number bind:value="{filterSanity.to}"></CustomInput>
+       							 id="filtrodesdeaño"
+        						label="Año desde" ><input type=number bind:value="{filterSanity.fromyear}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastaaño"
+        						label="Año hasta" ><input type=number bind:value="{filterSanity.toyear}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrodesdesanidad"
+        						label="Costes sanidad desde" ><input type=number bind:value="{filterSanity.fromhealth}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastasanidad"
+        						label="Costes sanidad hasta" ><input type=number bind:value="{filterSanity.tohealth}"></CustomInput><CustomInput
+        						type="checkbox"
+       							 id="filtrodesdemedicos"
+        						label="Médicos desde" ><input type=number bind:value="{filterSanity.fromdoctor}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastamedicos"
+        						label="Médicos hasta" ><input type=number bind:value="{filterSanity.todoctor}"></CustomInput><CustomInput
+        						type="checkbox"
+       							 id="filtrodesdecamas"
+        						label="Camas desde" ><input type=number bind:value="{filterSanity.frombed}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastacamas"
+        						label="Camas hasta" ><input type=number bind:value="{filterSanity.tobed}"></CustomInput>
 								<br>
 								<Button on:click={getFiltro}>Filtrar</Button>
 								</FormGroup>
@@ -149,7 +223,7 @@
 	<Table responsive>
 		<thead>
 			<tr>
-				<td><Button  on:click={SanityData}>Cargar Datos</Button></td>
+				<td><Button  on:click={SanityData}>Cargar Datos Iniciales</Button></td>
 				<td><Button  on:click={Delete}>Borrar Datos</Button></td>
 			</tr>
 			<tr>

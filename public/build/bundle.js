@@ -13949,23 +13949,322 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[19] = list[i];
+    	child_ctx[27] = list[i];
     	return child_ctx;
     }
 
-    // (118:1) <Alert     color="danger"     isOpen={visible}     toggle={() => (visible = false)}>
-    function create_default_slot_13$2(ctx) {
+    // (165:2) <Alert     color="danger"     isOpen={visible}     toggle={() => (visible = false)}>
+    function create_default_slot_20$1(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Error en los campos al añadir un dato.");
+    			t = text(/*mensaje*/ ctx[1]);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*mensaje*/ 2) set_data_dev(t, /*mensaje*/ ctx[1]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_20$1.name,
+    		type: "slot",
+    		source: "(165:2) <Alert     color=\\\"danger\\\"     isOpen={visible}     toggle={() => (visible = false)}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (173:9) <Button id={`btn-${placement}`}>
+    function create_default_slot_19$2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Filtrar");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_19$2.name,
+    		type: "slot",
+    		source: "(173:9) <Button id={`btn-${placement}`}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (178:8) <CustomInput                type="checkbox"                 id="pais"                label="País" >
+    function create_default_slot_18$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 180, 28, 4695);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].country);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[12]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && input.value !== /*filterSanity*/ ctx[4].country) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].country);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_18$2.name,
+    		type: "slot",
+    		source: "(178:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"pais\\\"                label=\\\"País\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (183:8) <CustomInput                type="checkbox"                 id="filtrodesdeaño"                label="Año desde" >
+    function create_default_slot_17$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 185, 33, 4878);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].fromyear);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_1*/ ctx[13]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].fromyear) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].fromyear);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_17$2.name,
+    		type: "slot",
+    		source: "(183:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdeaño\\\"                label=\\\"Año desde\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (187:8) <CustomInput                type="checkbox"                 id="filtrohastaaño"                label="Año hasta" >
+    function create_default_slot_16$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 189, 33, 5072);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].toyear);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_2*/ ctx[14]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].toyear) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].toyear);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_16$2.name,
+    		type: "slot",
+    		source: "(187:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastaaño\\\"                label=\\\"Año hasta\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (191:8) <CustomInput                type="checkbox"                 id="filtrodesdesanidad"                label="Costes sanidad desde" >
+    function create_default_slot_15$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 193, 44, 5279);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].fromhealth);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_3*/ ctx[15]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].fromhealth) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].fromhealth);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_15$2.name,
+    		type: "slot",
+    		source: "(191:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdesanidad\\\"                label=\\\"Costes sanidad desde\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (195:8) <CustomInput                type="checkbox"                 id="filtrohastasanidad"                label="Costes sanidad hasta" >
+    function create_default_slot_14$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 197, 44, 5490);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].tohealth);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_4*/ ctx[16]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].tohealth) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].tohealth);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_14$2.name,
+    		type: "slot",
+    		source: "(195:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastasanidad\\\"                label=\\\"Costes sanidad hasta\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (198:114) <CustomInput                type="checkbox"                 id="filtrodesdemedicos"                label="Médicos desde" >
+    function create_default_slot_13$2(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 200, 37, 5682);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].fromdoctor);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_5*/ ctx[17]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].fromdoctor) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].fromdoctor);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -13973,26 +14272,44 @@ var app = (function () {
     		block,
     		id: create_default_slot_13$2.name,
     		type: "slot",
-    		source: "(118:1) <Alert     color=\\\"danger\\\"     isOpen={visible}     toggle={() => (visible = false)}>",
+    		source: "(198:114) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdemedicos\\\"                label=\\\"Médicos desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (126:9) <Button id={`btn-${placement}`}>
+    // (202:8) <CustomInput                type="checkbox"                 id="filtrohastamedicos"                label="Médicos hasta" >
     function create_default_slot_12$2(ctx) {
-    	let t;
+    	let input;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
-    			t = text("Buscar");
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$b, 204, 37, 5886);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterSanity*/ ctx[4].todoctor);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_6*/ ctx[18]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].todoctor) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].todoctor);
+    			}
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -14000,14 +14317,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12$2.name,
     		type: "slot",
-    		source: "(126:9) <Button id={`btn-${placement}`}>",
+    		source: "(202:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastamedicos\\\"                label=\\\"Médicos hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (131:8) <CustomInput                type="checkbox"                 id="filtrodesde"                label="Desde" >
+    // (205:107) <CustomInput                type="checkbox"                 id="filtrodesdecamas"                label="Camas desde" >
     function create_default_slot_11$5(ctx) {
     	let input;
     	let mounted;
@@ -14018,20 +14335,20 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 133, 29, 3395);
+    			add_location(input, file$b, 207, 35, 6074);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterSanity*/ ctx[3].from);
+    			set_input_value(input, /*filterSanity*/ ctx[4].frombed);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[11]);
+    				dispose = listen_dev(input, "input", /*input_input_handler_7*/ ctx[19]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterSanity*/ 8 && to_number(input.value) !== /*filterSanity*/ ctx[3].from) {
-    				set_input_value(input, /*filterSanity*/ ctx[3].from);
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].frombed) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].frombed);
     			}
     		},
     		d: function destroy(detaching) {
@@ -14045,14 +14362,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11$5.name,
     		type: "slot",
-    		source: "(131:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesde\\\"                label=\\\"Desde\\\" >",
+    		source: "(205:107) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdecamas\\\"                label=\\\"Camas desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (135:8) <CustomInput                type="checkbox"                 id="filtrohasta"                label="Hasta" >
+    // (209:8) <CustomInput                type="checkbox"                 id="filtrohastacamas"                label="Camas hasta" >
     function create_default_slot_10$5(ctx) {
     	let input;
     	let mounted;
@@ -14063,20 +14380,20 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 137, 29, 3578);
+    			add_location(input, file$b, 211, 35, 6271);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterSanity*/ ctx[3].to);
+    			set_input_value(input, /*filterSanity*/ ctx[4].tobed);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_1*/ ctx[12]);
+    				dispose = listen_dev(input, "input", /*input_input_handler_8*/ ctx[20]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterSanity*/ 8 && to_number(input.value) !== /*filterSanity*/ ctx[3].to) {
-    				set_input_value(input, /*filterSanity*/ ctx[3].to);
+    			if (dirty & /*filterSanity*/ 16 && to_number(input.value) !== /*filterSanity*/ ctx[4].tobed) {
+    				set_input_value(input, /*filterSanity*/ ctx[4].tobed);
     			}
     		},
     		d: function destroy(detaching) {
@@ -14090,14 +14407,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10$5.name,
     		type: "slot",
-    		source: "(135:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohasta\\\"                label=\\\"Hasta\\\" >",
+    		source: "(209:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastacamas\\\"                label=\\\"Camas hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (140:8) <Button on:click={getFiltro}>
+    // (214:8) <Button on:click={getFiltro}>
     function create_default_slot_9$5(ctx) {
     	let t;
 
@@ -14117,30 +14434,42 @@ var app = (function () {
     		block,
     		id: create_default_slot_9$5.name,
     		type: "slot",
-    		source: "(140:8) <Button on:click={getFiltro}>",
+    		source: "(214:8) <Button on:click={getFiltro}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (129:10) <FormGroup>
+    // (176:10) <FormGroup>
     function create_default_slot_8$5(ctx) {
     	let custominput0;
     	let t0;
     	let custominput1;
     	let t1;
-    	let br;
+    	let custominput2;
     	let t2;
+    	let custominput3;
+    	let t3;
+    	let custominput4;
+    	let custominput5;
+    	let t4;
+    	let custominput6;
+    	let custominput7;
+    	let t5;
+    	let custominput8;
+    	let t6;
+    	let br;
+    	let t7;
     	let button;
     	let current;
 
     	custominput0 = new CustomInput({
     			props: {
     				type: "checkbox",
-    				id: "filtrodesde",
-    				label: "Desde",
-    				$$slots: { default: [create_default_slot_11$5] },
+    				id: "pais",
+    				label: "País",
+    				$$slots: { default: [create_default_slot_18$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -14149,8 +14478,85 @@ var app = (function () {
     	custominput1 = new CustomInput({
     			props: {
     				type: "checkbox",
-    				id: "filtrohasta",
-    				label: "Hasta",
+    				id: "filtrodesdeaño",
+    				label: "Año desde",
+    				$$slots: { default: [create_default_slot_17$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput2 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrohastaaño",
+    				label: "Año hasta",
+    				$$slots: { default: [create_default_slot_16$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput3 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrodesdesanidad",
+    				label: "Costes sanidad desde",
+    				$$slots: { default: [create_default_slot_15$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput4 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrohastasanidad",
+    				label: "Costes sanidad hasta",
+    				$$slots: { default: [create_default_slot_14$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput5 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrodesdemedicos",
+    				label: "Médicos desde",
+    				$$slots: { default: [create_default_slot_13$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput6 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrohastamedicos",
+    				label: "Médicos hasta",
+    				$$slots: { default: [create_default_slot_12$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput7 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrodesdecamas",
+    				label: "Camas desde",
+    				$$slots: { default: [create_default_slot_11$5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	custominput8 = new CustomInput({
+    			props: {
+    				type: "checkbox",
+    				id: "filtrohastacamas",
+    				label: "Camas hasta",
     				$$slots: { default: [create_default_slot_10$5] },
     				$$scope: { ctx }
     			},
@@ -14165,7 +14571,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button.$on("click", /*getFiltro*/ ctx[4]);
+    	button.$on("click", /*getFiltro*/ ctx[5]);
 
     	const block = {
     		c: function create() {
@@ -14173,39 +14579,112 @@ var app = (function () {
     			t0 = space();
     			create_component(custominput1.$$.fragment);
     			t1 = space();
-    			br = element("br");
+    			create_component(custominput2.$$.fragment);
     			t2 = space();
+    			create_component(custominput3.$$.fragment);
+    			t3 = space();
+    			create_component(custominput4.$$.fragment);
+    			create_component(custominput5.$$.fragment);
+    			t4 = space();
+    			create_component(custominput6.$$.fragment);
+    			create_component(custominput7.$$.fragment);
+    			t5 = space();
+    			create_component(custominput8.$$.fragment);
+    			t6 = space();
+    			br = element("br");
+    			t7 = space();
     			create_component(button.$$.fragment);
-    			add_location(br, file$b, 138, 8, 3652);
+    			add_location(br, file$b, 212, 8, 6348);
     		},
     		m: function mount(target, anchor) {
     			mount_component(custominput0, target, anchor);
     			insert_dev(target, t0, anchor);
     			mount_component(custominput1, target, anchor);
     			insert_dev(target, t1, anchor);
-    			insert_dev(target, br, anchor);
+    			mount_component(custominput2, target, anchor);
     			insert_dev(target, t2, anchor);
+    			mount_component(custominput3, target, anchor);
+    			insert_dev(target, t3, anchor);
+    			mount_component(custominput4, target, anchor);
+    			mount_component(custominput5, target, anchor);
+    			insert_dev(target, t4, anchor);
+    			mount_component(custominput6, target, anchor);
+    			mount_component(custominput7, target, anchor);
+    			insert_dev(target, t5, anchor);
+    			mount_component(custominput8, target, anchor);
+    			insert_dev(target, t6, anchor);
+    			insert_dev(target, br, anchor);
+    			insert_dev(target, t7, anchor);
     			mount_component(button, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
     			const custominput0_changes = {};
 
-    			if (dirty & /*$$scope, filterSanity*/ 4194312) {
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
     				custominput0_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput0.$set(custominput0_changes);
     			const custominput1_changes = {};
 
-    			if (dirty & /*$$scope, filterSanity*/ 4194312) {
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
     				custominput1_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput1.$set(custominput1_changes);
+    			const custominput2_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput2.$set(custominput2_changes);
+    			const custominput3_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput3_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput3.$set(custominput3_changes);
+    			const custominput4_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput4_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput4.$set(custominput4_changes);
+    			const custominput5_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput5_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput5.$set(custominput5_changes);
+    			const custominput6_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput6_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput6.$set(custominput6_changes);
+    			const custominput7_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput7_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput7.$set(custominput7_changes);
+    			const custominput8_changes = {};
+
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
+    				custominput8_changes.$$scope = { dirty, ctx };
+    			}
+
+    			custominput8.$set(custominput8_changes);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14215,12 +14694,26 @@ var app = (function () {
     			if (current) return;
     			transition_in(custominput0.$$.fragment, local);
     			transition_in(custominput1.$$.fragment, local);
+    			transition_in(custominput2.$$.fragment, local);
+    			transition_in(custominput3.$$.fragment, local);
+    			transition_in(custominput4.$$.fragment, local);
+    			transition_in(custominput5.$$.fragment, local);
+    			transition_in(custominput6.$$.fragment, local);
+    			transition_in(custominput7.$$.fragment, local);
+    			transition_in(custominput8.$$.fragment, local);
     			transition_in(button.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(custominput0.$$.fragment, local);
     			transition_out(custominput1.$$.fragment, local);
+    			transition_out(custominput2.$$.fragment, local);
+    			transition_out(custominput3.$$.fragment, local);
+    			transition_out(custominput4.$$.fragment, local);
+    			transition_out(custominput5.$$.fragment, local);
+    			transition_out(custominput6.$$.fragment, local);
+    			transition_out(custominput7.$$.fragment, local);
+    			transition_out(custominput8.$$.fragment, local);
     			transition_out(button.$$.fragment, local);
     			current = false;
     		},
@@ -14229,8 +14722,20 @@ var app = (function () {
     			if (detaching) detach_dev(t0);
     			destroy_component(custominput1, detaching);
     			if (detaching) detach_dev(t1);
-    			if (detaching) detach_dev(br);
+    			destroy_component(custominput2, detaching);
     			if (detaching) detach_dev(t2);
+    			destroy_component(custominput3, detaching);
+    			if (detaching) detach_dev(t3);
+    			destroy_component(custominput4, detaching);
+    			destroy_component(custominput5, detaching);
+    			if (detaching) detach_dev(t4);
+    			destroy_component(custominput6, detaching);
+    			destroy_component(custominput7, detaching);
+    			if (detaching) detach_dev(t5);
+    			destroy_component(custominput8, detaching);
+    			if (detaching) detach_dev(t6);
+    			if (detaching) detach_dev(br);
+    			if (detaching) detach_dev(t7);
     			destroy_component(button, detaching);
     		}
     	};
@@ -14239,14 +14744,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8$5.name,
     		type: "slot",
-    		source: "(129:10) <FormGroup>",
+    		source: "(176:10) <FormGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (128:7) <Form>
+    // (175:7) <Form>
     function create_default_slot_7$5(ctx) {
     	let formgroup;
     	let current;
@@ -14270,7 +14775,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty & /*$$scope, filterSanity*/ 4194312) {
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14294,14 +14799,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$5.name,
     		type: "slot",
-    		source: "(128:7) <Form>",
+    		source: "(175:7) <Form>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (127:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+    // (174:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
     function create_default_slot_6$5(ctx) {
     	let form;
     	let current;
@@ -14325,7 +14830,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const form_changes = {};
 
-    			if (dirty & /*$$scope, filterSanity*/ 4194312) {
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
     				form_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14349,20 +14854,20 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$5.name,
     		type: "slot",
-    		source: "(127:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
+    		source: "(174:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:8) <Button  on:click={SanityData}>
+    // (226:8) <Button  on:click={SanityData}>
     function create_default_slot_5$5(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Cargar Datos");
+    			t = text("Cargar Datos Iniciales");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
@@ -14376,14 +14881,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$5.name,
     		type: "slot",
-    		source: "(152:8) <Button  on:click={SanityData}>",
+    		source: "(226:8) <Button  on:click={SanityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (153:8) <Button  on:click={Delete}>
+    // (227:8) <Button  on:click={Delete}>
     function create_default_slot_4$5(ctx) {
     	let t;
 
@@ -14403,14 +14908,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$5.name,
     		type: "slot",
-    		source: "(153:8) <Button  on:click={Delete}>",
+    		source: "(227:8) <Button  on:click={Delete}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (171:8) <Button on:click={PostSanity(NewSanity)}>
+    // (245:8) <Button on:click={PostSanity(NewSanity)}>
     function create_default_slot_3$6(ctx) {
     	let t;
 
@@ -14430,14 +14935,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$6.name,
     		type: "slot",
-    		source: "(171:8) <Button on:click={PostSanity(NewSanity)}>",
+    		source: "(245:8) <Button on:click={PostSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (172:8) <Button on:click={PutSanity(NewSanity)}>
+    // (246:8) <Button on:click={PutSanity(NewSanity)}>
     function create_default_slot_2$7(ctx) {
     	let t;
 
@@ -14457,14 +14962,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$7.name,
     		type: "slot",
-    		source: "(172:8) <Button on:click={PutSanity(NewSanity)}>",
+    		source: "(246:8) <Button on:click={PutSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (181:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
+    // (255:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
     function create_default_slot_1$7(ctx) {
     	let t;
 
@@ -14484,36 +14989,36 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$7.name,
     		type: "slot",
-    		source: "(181:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
+    		source: "(255:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (174:3) {#each sanity as sani}
+    // (248:3) {#each sanity as sani}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*sani*/ ctx[19].country + "";
+    	let t0_value = /*sani*/ ctx[27].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*sani*/ ctx[19].year + "";
+    	let t2_value = /*sani*/ ctx[27].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*sani*/ ctx[19].health_expenditure_in_percentage + "";
+    	let t4_value = /*sani*/ ctx[27].health_expenditure_in_percentage + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*sani*/ ctx[19].doctor_per_1000_habitant + "";
+    	let t6_value = /*sani*/ ctx[27].doctor_per_1000_habitant + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*sani*/ ctx[19].hospital_bed + "";
+    	let t8_value = /*sani*/ ctx[27].hospital_bed + "";
     	let t8;
     	let t9;
     	let td5;
@@ -14532,7 +15037,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*DeleteContact*/ ctx[7](/*sani*/ ctx[19].country, /*sani*/ ctx[19].year))) /*DeleteContact*/ ctx[7](/*sani*/ ctx[19].country, /*sani*/ ctx[19].year).apply(this, arguments);
+    		if (is_function(/*DeleteContact*/ ctx[8](/*sani*/ ctx[27].country, /*sani*/ ctx[27].year))) /*DeleteContact*/ ctx[8](/*sani*/ ctx[27].country, /*sani*/ ctx[27].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -14557,22 +15062,22 @@ var app = (function () {
     			td5 = element("td");
     			create_component(button.$$.fragment);
     			t10 = space();
-    			attr_dev(a, "href", a_href_value = "#/sanity-stats/" + /*sani*/ ctx[19].country + "/" + /*sani*/ ctx[19].year);
-    			add_location(a, file$b, 175, 8, 4761);
+    			attr_dev(a, "href", a_href_value = "#/sanity-stats/" + /*sani*/ ctx[27].country + "/" + /*sani*/ ctx[27].year);
+    			add_location(a, file$b, 249, 8, 7467);
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 175, 4, 4757);
+    			add_location(td0, file$b, 249, 4, 7463);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 176, 4, 4838);
+    			add_location(td1, file$b, 250, 4, 7544);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 177, 4, 4864);
+    			add_location(td2, file$b, 251, 4, 7570);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 178, 4, 4918);
+    			add_location(td3, file$b, 252, 4, 7624);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 179, 4, 4964);
+    			add_location(td4, file$b, 253, 4, 7670);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 180, 4, 4998);
+    			add_location(td5, file$b, 254, 4, 7704);
     			attr_dev(tr, "class", "svelte-ycj1m8");
-    			add_location(tr, file$b, 174, 4, 4747);
+    			add_location(tr, file$b, 248, 4, 7453);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -14599,19 +15104,19 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*sanity*/ 2) && t0_value !== (t0_value = /*sani*/ ctx[19].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty & /*sanity*/ 4) && t0_value !== (t0_value = /*sani*/ ctx[27].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*sanity*/ 2 && a_href_value !== (a_href_value = "#/sanity-stats/" + /*sani*/ ctx[19].country + "/" + /*sani*/ ctx[19].year)) {
+    			if (!current || dirty & /*sanity*/ 4 && a_href_value !== (a_href_value = "#/sanity-stats/" + /*sani*/ ctx[27].country + "/" + /*sani*/ ctx[27].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty & /*sanity*/ 2) && t2_value !== (t2_value = /*sani*/ ctx[19].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*sanity*/ 2) && t4_value !== (t4_value = /*sani*/ ctx[19].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*sanity*/ 2) && t6_value !== (t6_value = /*sani*/ ctx[19].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*sanity*/ 2) && t8_value !== (t8_value = /*sani*/ ctx[19].hospital_bed + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty & /*sanity*/ 4) && t2_value !== (t2_value = /*sani*/ ctx[27].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty & /*sanity*/ 4) && t4_value !== (t4_value = /*sani*/ ctx[27].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty & /*sanity*/ 4) && t6_value !== (t6_value = /*sani*/ ctx[27].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty & /*sanity*/ 4) && t8_value !== (t8_value = /*sani*/ ctx[27].hospital_bed + "")) set_data_dev(t8, t8_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -14636,14 +15141,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(174:3) {#each sanity as sani}",
+    		source: "(248:3) {#each sanity as sani}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (149:1) <Table responsive>
+    // (223:1) <Table responsive>
     function create_default_slot$9(ctx) {
     	let thead;
     	let tr0;
@@ -14699,7 +15204,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button0.$on("click", /*SanityData*/ ctx[5]);
+    	button0.$on("click", /*SanityData*/ ctx[6]);
 
     	button1 = new Button({
     			props: {
@@ -14709,7 +15214,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button1.$on("click", /*Delete*/ ctx[6]);
+    	button1.$on("click", /*Delete*/ ctx[7]);
 
     	button2 = new Button({
     			props: {
@@ -14720,7 +15225,7 @@ var app = (function () {
     		});
 
     	button2.$on("click", function () {
-    		if (is_function(/*PostSanity*/ ctx[8](/*NewSanity*/ ctx[2]))) /*PostSanity*/ ctx[8](/*NewSanity*/ ctx[2]).apply(this, arguments);
+    		if (is_function(/*PostSanity*/ ctx[9](/*NewSanity*/ ctx[3]))) /*PostSanity*/ ctx[9](/*NewSanity*/ ctx[3]).apply(this, arguments);
     	});
 
     	button3 = new Button({
@@ -14732,10 +15237,10 @@ var app = (function () {
     		});
 
     	button3.$on("click", function () {
-    		if (is_function(/*PutSanity*/ ctx[9](/*NewSanity*/ ctx[2]))) /*PutSanity*/ ctx[9](/*NewSanity*/ ctx[2]).apply(this, arguments);
+    		if (is_function(/*PutSanity*/ ctx[10](/*NewSanity*/ ctx[3]))) /*PutSanity*/ ctx[10](/*NewSanity*/ ctx[3]).apply(this, arguments);
     	});
 
-    	let each_value = /*sanity*/ ctx[1];
+    	let each_value = /*sanity*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -14802,55 +15307,55 @@ var app = (function () {
     			}
 
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 151, 4, 3840);
+    			add_location(td0, file$b, 225, 4, 6536);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 152, 4, 3907);
+    			add_location(td1, file$b, 226, 4, 6613);
     			attr_dev(tr0, "class", "svelte-ycj1m8");
-    			add_location(tr0, file$b, 150, 3, 3830);
+    			add_location(tr0, file$b, 224, 3, 6526);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 155, 4, 3989);
+    			add_location(td2, file$b, 229, 4, 6695);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 156, 4, 4008);
+    			add_location(td3, file$b, 230, 4, 6714);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 157, 4, 4026);
+    			add_location(td4, file$b, 231, 4, 6732);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 158, 4, 4071);
+    			add_location(td5, file$b, 232, 4, 6777);
     			attr_dev(td6, "class", "svelte-ycj1m8");
-    			add_location(td6, file$b, 159, 4, 4119);
+    			add_location(td6, file$b, 233, 4, 6825);
     			attr_dev(tr1, "class", "svelte-ycj1m8");
-    			add_location(tr1, file$b, 154, 3, 3979);
-    			add_location(thead, file$b, 149, 2, 3818);
+    			add_location(tr1, file$b, 228, 3, 6685);
+    			add_location(thead, file$b, 223, 2, 6514);
     			attr_dev(input0, "class", "svelte-ycj1m8");
-    			add_location(input0, file$b, 165, 8, 4202);
+    			add_location(input0, file$b, 239, 8, 6908);
     			attr_dev(td7, "class", "svelte-ycj1m8");
-    			add_location(td7, file$b, 165, 4, 4198);
+    			add_location(td7, file$b, 239, 4, 6904);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-ycj1m8");
-    			add_location(input1, file$b, 166, 8, 4257);
+    			add_location(input1, file$b, 240, 8, 6963);
     			attr_dev(td8, "class", "svelte-ycj1m8");
-    			add_location(td8, file$b, 166, 4, 4253);
+    			add_location(td8, file$b, 240, 4, 6959);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "class", "svelte-ycj1m8");
-    			add_location(input2, file$b, 167, 8, 4319);
+    			add_location(input2, file$b, 241, 8, 7025);
     			attr_dev(td9, "class", "svelte-ycj1m8");
-    			add_location(td9, file$b, 167, 4, 4315);
+    			add_location(td9, file$b, 241, 4, 7021);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-ycj1m8");
-    			add_location(input3, file$b, 168, 8, 4409);
+    			add_location(input3, file$b, 242, 8, 7115);
     			attr_dev(td10, "class", "svelte-ycj1m8");
-    			add_location(td10, file$b, 168, 4, 4405);
+    			add_location(td10, file$b, 242, 4, 7111);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-ycj1m8");
-    			add_location(input4, file$b, 169, 8, 4491);
+    			add_location(input4, file$b, 243, 8, 7197);
     			attr_dev(td11, "class", "svelte-ycj1m8");
-    			add_location(td11, file$b, 169, 4, 4487);
+    			add_location(td11, file$b, 243, 4, 7193);
     			attr_dev(td12, "class", "svelte-ycj1m8");
-    			add_location(td12, file$b, 170, 4, 4557);
+    			add_location(td12, file$b, 244, 4, 7263);
     			attr_dev(td13, "class", "svelte-ycj1m8");
-    			add_location(td13, file$b, 171, 4, 4632);
+    			add_location(td13, file$b, 245, 4, 7338);
     			attr_dev(tr2, "class", "svelte-ycj1m8");
-    			add_location(tr2, file$b, 164, 3, 4188);
-    			add_location(tbody, file$b, 162, 2, 4171);
+    			add_location(tr2, file$b, 238, 3, 6894);
+    			add_location(tbody, file$b, 236, 2, 6877);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -14876,23 +15381,23 @@ var app = (function () {
     			append_dev(tbody, tr2);
     			append_dev(tr2, td7);
     			append_dev(td7, input0);
-    			set_input_value(input0, /*NewSanity*/ ctx[2].country);
+    			set_input_value(input0, /*NewSanity*/ ctx[3].country);
     			append_dev(tr2, t12);
     			append_dev(tr2, td8);
     			append_dev(td8, input1);
-    			set_input_value(input1, /*NewSanity*/ ctx[2].year);
+    			set_input_value(input1, /*NewSanity*/ ctx[3].year);
     			append_dev(tr2, t13);
     			append_dev(tr2, td9);
     			append_dev(td9, input2);
-    			set_input_value(input2, /*NewSanity*/ ctx[2].health_expenditure_in_percentage);
+    			set_input_value(input2, /*NewSanity*/ ctx[3].health_expenditure_in_percentage);
     			append_dev(tr2, t14);
     			append_dev(tr2, td10);
     			append_dev(td10, input3);
-    			set_input_value(input3, /*NewSanity*/ ctx[2].doctor_per_1000_habitant);
+    			set_input_value(input3, /*NewSanity*/ ctx[3].doctor_per_1000_habitant);
     			append_dev(tr2, t15);
     			append_dev(tr2, td11);
     			append_dev(td11, input4);
-    			set_input_value(input4, /*NewSanity*/ ctx[2].hospital_bed);
+    			set_input_value(input4, /*NewSanity*/ ctx[3].hospital_bed);
     			append_dev(tr2, t16);
     			append_dev(tr2, td12);
     			mount_component(button2, td12, null);
@@ -14909,11 +15414,11 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[13]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[14]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[15]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[16]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[17])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[21]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[22]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[23]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[24]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[25])
     				];
 
     				mounted = true;
@@ -14923,56 +15428,56 @@ var app = (function () {
     			ctx = new_ctx;
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
     			button1.$set(button1_changes);
 
-    			if (dirty & /*NewSanity*/ 4 && input0.value !== /*NewSanity*/ ctx[2].country) {
-    				set_input_value(input0, /*NewSanity*/ ctx[2].country);
+    			if (dirty & /*NewSanity*/ 8 && input0.value !== /*NewSanity*/ ctx[3].country) {
+    				set_input_value(input0, /*NewSanity*/ ctx[3].country);
     			}
 
-    			if (dirty & /*NewSanity*/ 4 && to_number(input1.value) !== /*NewSanity*/ ctx[2].year) {
-    				set_input_value(input1, /*NewSanity*/ ctx[2].year);
+    			if (dirty & /*NewSanity*/ 8 && to_number(input1.value) !== /*NewSanity*/ ctx[3].year) {
+    				set_input_value(input1, /*NewSanity*/ ctx[3].year);
     			}
 
-    			if (dirty & /*NewSanity*/ 4 && to_number(input2.value) !== /*NewSanity*/ ctx[2].health_expenditure_in_percentage) {
-    				set_input_value(input2, /*NewSanity*/ ctx[2].health_expenditure_in_percentage);
+    			if (dirty & /*NewSanity*/ 8 && to_number(input2.value) !== /*NewSanity*/ ctx[3].health_expenditure_in_percentage) {
+    				set_input_value(input2, /*NewSanity*/ ctx[3].health_expenditure_in_percentage);
     			}
 
-    			if (dirty & /*NewSanity*/ 4 && to_number(input3.value) !== /*NewSanity*/ ctx[2].doctor_per_1000_habitant) {
-    				set_input_value(input3, /*NewSanity*/ ctx[2].doctor_per_1000_habitant);
+    			if (dirty & /*NewSanity*/ 8 && to_number(input3.value) !== /*NewSanity*/ ctx[3].doctor_per_1000_habitant) {
+    				set_input_value(input3, /*NewSanity*/ ctx[3].doctor_per_1000_habitant);
     			}
 
-    			if (dirty & /*NewSanity*/ 4 && to_number(input4.value) !== /*NewSanity*/ ctx[2].hospital_bed) {
-    				set_input_value(input4, /*NewSanity*/ ctx[2].hospital_bed);
+    			if (dirty & /*NewSanity*/ 8 && to_number(input4.value) !== /*NewSanity*/ ctx[3].hospital_bed) {
+    				set_input_value(input4, /*NewSanity*/ ctx[3].hospital_bed);
     			}
 
     			const button2_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
     			const button3_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button3_changes.$$scope = { dirty, ctx };
     			}
 
     			button3.$set(button3_changes);
 
-    			if (dirty & /*DeleteContact, sanity*/ 130) {
-    				each_value = /*sanity*/ ctx[1];
+    			if (dirty & /*DeleteContact, sanity*/ 260) {
+    				each_value = /*sanity*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -15043,7 +15548,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(149:1) <Table responsive>",
+    		source: "(223:1) <Table responsive>",
     		ctx
     	});
 
@@ -15066,8 +15571,8 @@ var app = (function () {
     			props: {
     				color: "danger",
     				isOpen: /*visible*/ ctx[0],
-    				toggle: /*func*/ ctx[10],
-    				$$slots: { default: [create_default_slot_13$2] },
+    				toggle: /*func*/ ctx[11],
+    				$$slots: { default: [create_default_slot_20$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -15076,7 +15581,7 @@ var app = (function () {
     	button = new Button({
     			props: {
     				id: `btn-${placement$1}`,
-    				$$slots: { default: [create_default_slot_12$2] },
+    				$$slots: { default: [create_default_slot_19$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -15116,8 +15621,8 @@ var app = (function () {
     			attr_dev(div, "class", "mt-3");
     			set_style(div, "position", "absolute");
     			set_style(div, "right", "80px");
-    			add_location(div, file$b, 124, 2, 3022);
-    			add_location(main, file$b, 115, 0, 2863);
+    			add_location(div, file$b, 171, 2, 4339);
+    			add_location(main, file$b, 162, 0, 4208);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15137,30 +15642,30 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const alert_changes = {};
     			if (dirty & /*visible*/ 1) alert_changes.isOpen = /*visible*/ ctx[0];
-    			if (dirty & /*visible*/ 1) alert_changes.toggle = /*func*/ ctx[10];
+    			if (dirty & /*visible*/ 1) alert_changes.toggle = /*func*/ ctx[11];
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope, mensaje*/ 1073741826) {
     				alert_changes.$$scope = { dirty, ctx };
     			}
 
     			alert.$set(alert_changes);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 1073741824) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
     			button.$set(button_changes);
     			const popover_changes = {};
 
-    			if (dirty & /*$$scope, filterSanity*/ 4194312) {
+    			if (dirty & /*$$scope, filterSanity*/ 1073741840) {
     				popover_changes.$$scope = { dirty, ctx };
     			}
 
     			popover.$set(popover_changes);
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, sanity, NewSanity*/ 4194310) {
+    			if (dirty & /*$$scope, sanity, NewSanity*/ 1073741836) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15207,6 +15712,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("SanityAPI", slots, []);
     	let visible = false;
+    	let mensaje = "";
     	let sanity = [];
 
     	let NewSanity = {
@@ -15217,17 +15723,27 @@ var app = (function () {
     		"hospital_bed": 0
     	};
 
-    	let filterSanity = { from: 0, to: 0 };
+    	let filterSanity = {
+    		country: "",
+    		fromyear: 0,
+    		toyear: 0,
+    		fromhealth: 0,
+    		tohealth: 0,
+    		fromdoctor: 0,
+    		todoctor: 0,
+    		frombed: 0,
+    		tobed: 0
+    	};
 
     	async function getFiltro() {
     		console.log("Fetching foodconsumption...");
     		console.log(filterSanity);
-    		const res = await fetch("/api/v2/sanity-stats/statistics?from=" + filterSanity.from + "&to=" + filterSanity.to);
+    		const res = await fetch("/api/v2/sanity-stats/statistics?country=" + filterSanity.country + "&fromyear=" + filterSanity.fromyear + "&toyear=" + filterSanity.toyear + "&fromhealth=" + filterSanity.fromhealth + "&tohealth=" + filterSanity.tohealth + "&fromdoctor=" + filterSanity.fromdoctor + "&todoctor=" + filterSanity.todoctor + "&frombed=" + filterSanity.frombed + "&tobed=" + filterSanity.tobed);
 
     		if (res.ok) {
     			console.log("Ok.");
     			const json = await res.json();
-    			$$invalidate(1, sanity = json);
+    			$$invalidate(2, sanity = json);
     			console.log(`We have ${sanity.length} sanity.`);
     			console.log(JSON.stringify(sanity));
     		} else {
@@ -15254,10 +15770,20 @@ var app = (function () {
     		if (res.ok) {
     			console.log("Ok.");
     			const json = await res.json();
-    			$$invalidate(1, sanity = json);
+    			$$invalidate(2, sanity = json);
     			console.log(`We have ${sanity.length} Sanity.`);
     		} else {
     			console.log("Error");
+    		}
+
+    		if (res.status == 404) {
+    			$$invalidate(1, mensaje = "No hemos encontrado ese dato, sorry");
+    			$$invalidate(0, visible = true);
+    		}
+
+    		if (res.status == 500) {
+    			$$invalidate(1, mensaje = "Ups, el server petó, intentalo de nuevo en unos segundos");
+    			$$invalidate(0, visible = true);
     		}
     	}
 
@@ -15265,6 +15791,11 @@ var app = (function () {
     		console.log("Fetching data...");
 
     		await fetch("/api/v2/sanity-stats", { method: "Delete" }).then(res => {
+    			if (res.status == 404) {
+    				console.log("No hemos encontrado ese dato, sorry");
+    				$$invalidate(0, visible = true);
+    			}
+
     			getSanity();
     		});
     	}
@@ -15273,10 +15804,13 @@ var app = (function () {
     		console.log("Fetching data...");
 
     		await fetch("/api/v2/sanity-stats/" + ContactName + "/" + ContactYear, { method: "Delete" }).then(res => {
+    			if (res.status == 404) {
+    				$$invalidate(1, mensaje = "No hemos encontrado ese dato, sorry");
+    				$$invalidate(0, visible = true);
+    			}
+
     			getSanity();
     		});
-
-    		getSanity();
     	}
 
     	async function PostSanity() {
@@ -15287,6 +15821,16 @@ var app = (function () {
     			body: JSON.stringify(NewSanity),
     			headers: { "Content-Type": "application/json" }
     		}).then(res => {
+    			if (res.status == 400) {
+    				$$invalidate(1, mensaje = "Campos mal definidos");
+    				$$invalidate(0, visible = true);
+    			}
+
+    			if (res.status == 409) {
+    				$$invalidate(1, mensaje = "Intestas modificar otro dato CUIDAO");
+    				$$invalidate(0, visible = true);
+    			}
+
     			getSanity();
     		});
     	}
@@ -15299,6 +15843,21 @@ var app = (function () {
     			body: JSON.stringify(NewSanity),
     			headers: { "Content-Type": "application/json" }
     		}).then(res => {
+    			if (res.status == 400) {
+    				$$invalidate(1, mensaje = "Campos mal definidos");
+    				$$invalidate(0, visible = true);
+    			}
+
+    			if (res.status == 409) {
+    				$$invalidate(1, mensaje = "Intestas modificar otro dato CUIDAO");
+    				$$invalidate(0, visible = true);
+    			}
+
+    			if (res.status == 404) {
+    				$$invalidate(1, mensaje = "No hemos encontrado ese dato, sorry");
+    				$$invalidate(0, visible = true);
+    			}
+
     			getSanity();
     		});
     	}
@@ -15313,38 +15872,73 @@ var app = (function () {
     	const func = () => $$invalidate(0, visible = false);
 
     	function input_input_handler() {
-    		filterSanity.from = to_number(this.value);
-    		$$invalidate(3, filterSanity);
+    		filterSanity.country = this.value;
+    		$$invalidate(4, filterSanity);
     	}
 
     	function input_input_handler_1() {
-    		filterSanity.to = to_number(this.value);
-    		$$invalidate(3, filterSanity);
+    		filterSanity.fromyear = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_2() {
+    		filterSanity.toyear = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_3() {
+    		filterSanity.fromhealth = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_4() {
+    		filterSanity.tohealth = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_5() {
+    		filterSanity.fromdoctor = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_6() {
+    		filterSanity.todoctor = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_7() {
+    		filterSanity.frombed = to_number(this.value);
+    		$$invalidate(4, filterSanity);
+    	}
+
+    	function input_input_handler_8() {
+    		filterSanity.tobed = to_number(this.value);
+    		$$invalidate(4, filterSanity);
     	}
 
     	function input0_input_handler() {
     		NewSanity.country = this.value;
-    		$$invalidate(2, NewSanity);
+    		$$invalidate(3, NewSanity);
     	}
 
     	function input1_input_handler() {
     		NewSanity.year = to_number(this.value);
-    		$$invalidate(2, NewSanity);
+    		$$invalidate(3, NewSanity);
     	}
 
     	function input2_input_handler() {
     		NewSanity.health_expenditure_in_percentage = to_number(this.value);
-    		$$invalidate(2, NewSanity);
+    		$$invalidate(3, NewSanity);
     	}
 
     	function input3_input_handler() {
     		NewSanity.doctor_per_1000_habitant = to_number(this.value);
-    		$$invalidate(2, NewSanity);
+    		$$invalidate(3, NewSanity);
     	}
 
     	function input4_input_handler() {
     		NewSanity.hospital_bed = to_number(this.value);
-    		$$invalidate(2, NewSanity);
+    		$$invalidate(3, NewSanity);
     	}
 
     	$$self.$capture_state = () => ({
@@ -15359,6 +15953,7 @@ var app = (function () {
     		FormGroup,
     		Label,
     		visible,
+    		mensaje,
     		sanity,
     		NewSanity,
     		filterSanity,
@@ -15373,9 +15968,10 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("visible" in $$props) $$invalidate(0, visible = $$props.visible);
-    		if ("sanity" in $$props) $$invalidate(1, sanity = $$props.sanity);
-    		if ("NewSanity" in $$props) $$invalidate(2, NewSanity = $$props.NewSanity);
-    		if ("filterSanity" in $$props) $$invalidate(3, filterSanity = $$props.filterSanity);
+    		if ("mensaje" in $$props) $$invalidate(1, mensaje = $$props.mensaje);
+    		if ("sanity" in $$props) $$invalidate(2, sanity = $$props.sanity);
+    		if ("NewSanity" in $$props) $$invalidate(3, NewSanity = $$props.NewSanity);
+    		if ("filterSanity" in $$props) $$invalidate(4, filterSanity = $$props.filterSanity);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -15384,6 +15980,7 @@ var app = (function () {
 
     	return [
     		visible,
+    		mensaje,
     		sanity,
     		NewSanity,
     		filterSanity,
@@ -15396,6 +15993,13 @@ var app = (function () {
     		func,
     		input_input_handler,
     		input_input_handler_1,
+    		input_input_handler_2,
+    		input_input_handler_3,
+    		input_input_handler_4,
+    		input_input_handler_5,
+    		input_input_handler_6,
+    		input_input_handler_7,
+    		input_input_handler_8,
     		input0_input_handler,
     		input1_input_handler,
     		input2_input_handler,
@@ -23861,7 +24465,7 @@ var app = (function () {
     			main = element("main");
     			create_component(router.$$.fragment);
     			attr_dev(main, "class", "svelte-d68sj9");
-    			add_location(main, file, 32, 0, 1042);
+    			add_location(main, file, 32, 0, 1044);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -23911,7 +24515,7 @@ var app = (function () {
     		"/obesity-stats/:country/:year": EditObe,
     		"/sanity-stats": HomeSanity,
     		"/sanity-stats/:country/:year": JustOneSanity,
-    		"/sanity-stats/statistics/from/:in/to/:t": FromTo,
+    		//	"/sanity-stats/statistics/from/:in/to/:t": FromTo,
     		"*": NotFound
     	};
 

@@ -123,16 +123,48 @@ var sanityInitialData = [
             offset = parseInt(req.query.offset);
             delete req.query.offset;
         }
-        if (req.query.limit) {
-            limit = parseInt(req.query.limit);
+        if (req.query.country=="") {
             delete req.query.limit;
         }
-		
+		if (req.query.fromyear==0) {
+            delete req.query.fromyear;
+        }if (req.query.toyear==0) {
+            delete req.query.toyear;
+        }
+		if (req.query.fromhealth==0) {
+            delete req.query.fromhealth;
+        }if (req.query.tohealth==0) {
+            delete req.query.tohealth;
+        }
+		if (req.query.fromdoctor==0) {
+            delete req.query.fromdoctor;
+        }if (req.query.todoctor==0) {
+            delete req.query.todoctor;
+        }
+		if (req.query.frombed==0) {
+            delete req.query.frombed;
+        }if (req.query.tobed==0) {
+            delete req.query.tobed;
+        }
 		//BUSQUEDA
-		if(req.query.from && req.query.to){ dbquery["year"]= {$gte: parseInt(req.query.from), $lte: parseInt(req.query.to)};i++}
-		else if(req.query.from){ dbquery["year"]= {$gte: parseInt(req.query.from)};i++}
-		else if(req.query.to){ dbquery["year"] = {$lte: parseInt(req.query.to)};i++}
+		console.log(req.query);
+		if(req.query.country){ dbquery["country"]= req.query.country;i++}
+
+		if(req.query.fromyear && req.query.toyear){ dbquery["year"]= {$gte: parseInt(req.query.fromyear), $lte: parseInt(req.query.toyear)};i++}
+		else if(req.query.fromyear){ dbquery["year"]= {$gte: parseInt(req.query.fromyear)};i++}
+		else if(req.query.toyear){ dbquery["year"] = {$lte: parseInt(req.query.toyear)};i++}
 		
+		if(req.query.fromhealth && req.query.tohealth){ dbquery["health_expenditure_in_percentage"]= {$gte: parseInt(req.query.fromhealth), $lte: parseInt(req.query.tohealth)};i++}
+		else if(req.query.fromhealth){ dbquery["health_expenditure_in_percentage"]= {$gte: parseInt(req.query.fromhealth)};i++}
+		else if(req.query.tohealth){ dbquery["health_expenditure_in_percentage"] = {$lte: parseInt(req.query.tohealth)};i++}
+		
+		if(req.query.fromdoctor && req.query.todoctor){ dbquery["doctor_per_1000_habitant"]= {$gte: parseInt(req.query.fromdoctor), $lte: parseInt(req.query.todoctor)};i++}
+		else if(req.query.fromdoctor){ dbquery["doctor_per_1000_habitant"]= {$gte: parseInt(req.query.fromdoctor)};i++}
+		else if(req.query.todoctor){ dbquery["doctor_per_1000_habitant"] = {$lte: parseInt(req.query.todoctor)};i++}
+		
+		if(req.query.frombed && req.query.tobed){ dbquery["hospital_bed"]= {$gte: parseInt(req.query.frombed), $lte: parseInt(req.query.tobed)};i++}
+		else if(req.query.frombed){ dbquery["hospital_bed"]= {$gte: parseInt(req.query.frombed)};i++}
+		else if(req.query.tobed){ dbquery["hospital_bed"] = {$lte: parseInt(req.query.tobed)};i++}
 		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, sanity) =>{
 
 			sanity.forEach((t)=>{

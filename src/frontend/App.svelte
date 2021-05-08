@@ -23,7 +23,7 @@
 		"/obesity-stats/:country/:year": EditObe,
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
-		"/sanity-stats/statistics/from/:in/to/:t": FromTo,
+	//	"/sanity-stats/statistics/from/:in/to/:t": FromTo,
 		"*": NotFound
 	}
 	
