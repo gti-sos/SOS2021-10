@@ -13,6 +13,7 @@
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	
 	
+	
 	const routes = {
 		"/": Landing,
 		"/info": Info,

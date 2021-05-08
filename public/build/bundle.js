@@ -1120,7 +1120,7 @@ var app = (function () {
     }
 
     // (202:0) {#if componentParams}
-    function create_if_block$c(ctx) {
+    function create_if_block$d(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -1208,7 +1208,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$c.name,
+    		id: create_if_block$d.name,
     		type: "if",
     		source: "(202:0) {#if componentParams}",
     		ctx
@@ -1222,7 +1222,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$c, create_else_block$9];
+    	const if_block_creators = [create_if_block$d, create_else_block$9];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -2020,7 +2020,7 @@ var app = (function () {
     const file$y = "node_modules/sveltestrap/src/Alert.svelte";
 
     // (22:0) {#if isOpen}
-    function create_if_block$b(ctx) {
+    function create_if_block$c(ctx) {
     	let div;
     	let t;
     	let current_block_type_index;
@@ -2136,7 +2136,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$b.name,
+    		id: create_if_block$c.name,
     		type: "if",
     		source: "(22:0) {#if isOpen}",
     		ctx
@@ -2296,7 +2296,7 @@ var app = (function () {
     function create_fragment$y(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[2] && create_if_block$b(ctx);
+    	let if_block = /*isOpen*/ ctx[2] && create_if_block$c(ctx);
 
     	const block = {
     		c: function create() {
@@ -2320,7 +2320,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$b(ctx);
+    					if_block = create_if_block$c(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -2609,7 +2609,7 @@ var app = (function () {
     }
 
     // (15:4) {#if children}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let t;
 
     	const block = {
@@ -2631,7 +2631,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(15:4) {#if children}",
     		ctx
@@ -2646,7 +2646,7 @@ var app = (function () {
     	let current_block_type_index;
     	let if_block;
     	let current;
-    	const if_block_creators = [create_if_block$a, create_else_block$7];
+    	const if_block_creators = [create_if_block$b, create_else_block$7];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -2916,7 +2916,7 @@ var app = (function () {
     }
 
     // (17:2) {#if children}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let t;
 
     	const block = {
@@ -2938,7 +2938,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(17:2) {#if children}",
     		ctx
@@ -2953,7 +2953,7 @@ var app = (function () {
     	let if_block;
     	let li_aria_current_value;
     	let current;
-    	const if_block_creators = [create_if_block$9, create_else_block$6];
+    	const if_block_creators = [create_if_block$a, create_else_block$6];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -3238,7 +3238,7 @@ var app = (function () {
     }
 
     // (33:0) {#if href}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let a;
     	let current_block_type_index;
     	let if_block;
@@ -3346,7 +3346,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block: block_1,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(33:0) {#if href}",
     		ctx
@@ -3636,7 +3636,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$8, create_else_block_1];
+    	const if_block_creators = [create_if_block$9, create_else_block_1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -3972,7 +3972,7 @@ var app = (function () {
     const file$u = "node_modules/sveltestrap/src/Collapse.svelte";
 
     // (57:0) {#if isOpen}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let div;
     	let div_style_value;
     	let div_transition;
@@ -4112,7 +4112,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(57:0) {#if isOpen}",
     		ctx
@@ -4127,7 +4127,7 @@ var app = (function () {
     	let mounted;
     	let dispose;
     	add_render_callback(/*onwindowresize*/ ctx[19]);
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$7(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$8(ctx);
 
     	const block = {
     		c: function create() {
@@ -4156,7 +4156,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$7(ctx);
+    					if_block = create_if_block$8(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -4878,7 +4878,7 @@ var app = (function () {
     }
 
     // (48:0) {#if type === 'select'}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let select;
     	let current;
     	let mounted;
@@ -4973,7 +4973,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(48:0) {#if type === 'select'}",
     		ctx
@@ -4989,7 +4989,7 @@ var app = (function () {
     	let current;
 
     	const if_block_creators = [
-    		create_if_block$6,
+    		create_if_block$7,
     		create_if_block_1$4,
     		create_if_block_2$1,
     		create_if_block_3,
@@ -5723,7 +5723,7 @@ var app = (function () {
     }
 
     // (21:0) {#if tag === 'fieldset'}
-    function create_if_block$5(ctx) {
+    function create_if_block$6(ctx) {
     	let fieldset;
     	let current;
     	const default_slot_template = /*#slots*/ ctx[9].default;
@@ -5780,7 +5780,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block$6.name,
     		type: "if",
     		source: "(21:0) {#if tag === 'fieldset'}",
     		ctx
@@ -5794,7 +5794,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$5, create_else_block$3];
+    	const if_block_creators = [create_if_block$6, create_else_block$3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -6341,7 +6341,7 @@ var app = (function () {
     const get_external_slot_context = ctx => ({});
 
     // (217:0) {#if _isMounted}
-    function create_if_block$4(ctx) {
+    function create_if_block$5(ctx) {
     	let div;
     	let current;
     	let if_block = /*isOpen*/ ctx[1] && create_if_block_1$3(ctx);
@@ -6417,7 +6417,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$4.name,
+    		id: create_if_block$5.name,
     		type: "if",
     		source: "(217:0) {#if _isMounted}",
     		ctx
@@ -6670,7 +6670,7 @@ var app = (function () {
     function create_fragment$p(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*_isMounted*/ ctx[11] && create_if_block$4(ctx);
+    	let if_block = /*_isMounted*/ ctx[11] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -6694,7 +6694,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$4(ctx);
+    					if_block = create_if_block$5(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -7700,7 +7700,7 @@ var app = (function () {
     }
 
     // (26:4) {#if typeof toggle === 'function'}
-    function create_if_block$3(ctx) {
+    function create_if_block$4(ctx) {
     	let button;
     	let span;
     	let t;
@@ -7756,7 +7756,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$3.name,
+    		id: create_if_block$4.name,
     		type: "if",
     		source: "(26:4) {#if typeof toggle === 'function'}",
     		ctx
@@ -7768,7 +7768,7 @@ var app = (function () {
     // (25:21)      
     function fallback_block$2(ctx) {
     	let if_block_anchor;
-    	let if_block = typeof /*toggle*/ ctx[0] === "function" && create_if_block$3(ctx);
+    	let if_block = typeof /*toggle*/ ctx[0] === "function" && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -7784,7 +7784,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$3(ctx);
+    					if_block = create_if_block$4(ctx);
     					if_block.c();
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
     				}
@@ -11037,7 +11037,7 @@ var app = (function () {
     const get_title_slot_context = ctx => ({});
 
     // (103:0) {#if isOpen}
-    function create_if_block$2(ctx) {
+    function create_if_block$3(ctx) {
     	let div2;
     	let div0;
     	let t0;
@@ -11179,7 +11179,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$2.name,
+    		id: create_if_block$3.name,
     		type: "if",
     		source: "(103:0) {#if isOpen}",
     		ctx
@@ -11302,7 +11302,7 @@ var app = (function () {
     function create_fragment$f(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*isOpen*/ ctx[0] && create_if_block$2(ctx);
+    	let if_block = /*isOpen*/ ctx[0] && create_if_block$3(ctx);
 
     	const block = {
     		c: function create() {
@@ -11326,7 +11326,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$2(ctx);
+    					if_block = create_if_block$3(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -11733,7 +11733,7 @@ var app = (function () {
     }
 
     // (29:0) {#if responsive}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let div;
     	let table;
     	let current;
@@ -11799,7 +11799,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(29:0) {#if responsive}",
     		ctx
@@ -11813,7 +11813,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$1, create_else_block];
+    	const if_block_creators = [create_if_block$2, create_else_block];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -16404,7 +16404,7 @@ var app = (function () {
     }
 
     // (65:5) <BreadcrumbItem active>
-    function create_default_slot_20(ctx) {
+    function create_default_slot_20$1(ctx) {
     	let t;
 
     	const block = {
@@ -16421,7 +16421,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_20.name,
+    		id: create_default_slot_20$1.name,
     		type: "slot",
     		source: "(65:5) <BreadcrumbItem active>",
     		ctx
@@ -16470,7 +16470,7 @@ var app = (function () {
     	breadcrumbitem0 = new BreadcrumbItem({
     			props: {
     				active: true,
-    				$$slots: { default: [create_default_slot_20] },
+    				$$slots: { default: [create_default_slot_20$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -17957,39 +17957,92 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[27] = list[i];
+    	child_ctx[29] = list[i];
     	return child_ctx;
     }
 
-    // (147:2) <Alert    color="danger"    isOpen={visible}    toggle={() => (visible = false)}>
-    function create_default_slot_19(ctx) {
+    // (221:3) {#if errorMsg}
+    function create_if_block$1(ctx) {
+    	let p;
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Error en los campos al añadir un dato.");
+    			p = element("p");
+    			t = text(/*errorMsg*/ ctx[2]);
+    			set_style(p, "color", "#063257 ");
+    			add_location(p, file$5, 221, 16, 5975);
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*errorMsg*/ 4) set_data_dev(t, /*errorMsg*/ ctx[2]);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(p);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_19.name,
-    		type: "slot",
-    		source: "(147:2) <Alert    color=\\\"danger\\\"    isOpen={visible}    toggle={() => (visible = false)}>",
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(221:3) {#if errorMsg}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (155:9) <Button id={`btn-${placement}`}>
-    function create_default_slot_18(ctx) {
+    // (217:2) <Alert    color={color}    isOpen={visible}    toggle={() => (visible = false)}>
+    function create_default_slot_20(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*errorMsg*/ ctx[2] && create_if_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*errorMsg*/ ctx[2]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_20.name,
+    		type: "slot",
+    		source: "(217:2) <Alert    color={color}    isOpen={visible}    toggle={() => (visible = false)}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (228:9) <Button id={`btn-${placement}`}>
+    function create_default_slot_19(ctx) {
     	let t;
 
     	const block = {
@@ -18006,17 +18059,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_18.name,
+    		id: create_default_slot_19.name,
     		type: "slot",
-    		source: "(155:9) <Button id={`btn-${placement}`}>",
+    		source: "(228:9) <Button id={`btn-${placement}`}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (160:8) <CustomInput               type="checkbox"                id="filtroPais"               label="País" >
-    function create_default_slot_17(ctx) {
+    // (233:8) <CustomInput               type="checkbox"                id="filtroPais"               label="País" >
+    function create_default_slot_18(ctx) {
     	let input;
     	let mounted;
     	let dispose;
@@ -18025,20 +18078,65 @@ var app = (function () {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 162, 28, 3644);
+    			add_location(input, file$5, 235, 28, 6414);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterFoodconsumption*/ ctx[3].country);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].country);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[10]);
+    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[13]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterFoodconsumption*/ 8 && input.value !== /*filterFoodconsumption*/ ctx[3].country) {
-    				set_input_value(input, /*filterFoodconsumption*/ ctx[3].country);
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && input.value !== /*filterFoodconsumption*/ ctx[5].country) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].country);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_18.name,
+    		type: "slot",
+    		source: "(233:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroPais\\\"               label=\\\"País\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (237:8) <CustomInput               type="checkbox"                id="filtroAnyo"               label="Año" >
+    function create_default_slot_17(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$5, 239, 27, 6590);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].year);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_1*/ ctx[14]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[5].year) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].year);
     			}
     		},
     		d: function destroy(detaching) {
@@ -18052,60 +18150,15 @@ var app = (function () {
     		block,
     		id: create_default_slot_17.name,
     		type: "slot",
-    		source: "(160:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroPais\\\"               label=\\\"País\\\" >",
+    		source: "(237:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroAnyo\\\"               label=\\\"Año\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (164:8) <CustomInput               type="checkbox"                id="filtroAnyo"               label="Año" >
+    // (246:10) <CustomInput type="select" id="myselect">
     function create_default_slot_16(ctx) {
-    	let input;
-    	let mounted;
-    	let dispose;
-
-    	const block = {
-    		c: function create() {
-    			input = element("input");
-    			attr_dev(input, "type", "number");
-    			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 166, 27, 3820);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterFoodconsumption*/ ctx[3].year);
-
-    			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_1*/ ctx[11]);
-    				mounted = true;
-    			}
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*filterFoodconsumption*/ 8 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[3].year) {
-    				set_input_value(input, /*filterFoodconsumption*/ ctx[3].year);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(input);
-    			mounted = false;
-    			dispose();
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_16.name,
-    		type: "slot",
-    		source: "(164:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroAnyo\\\"               label=\\\"Año\\\" >",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (173:10) <CustomInput type="select" id="exampleCustomSelect" name="customSelect">
-    function create_default_slot_15(ctx) {
     	let option0;
     	let t1;
     	let option1;
@@ -18132,21 +18185,21 @@ var app = (function () {
     			t7 = space();
     			option4 = element("option");
     			option4.textContent = "Grasas y azúcares";
-    			option0.__value = "";
+    			option0.__value = "Meat";
     			option0.value = option0.__value;
-    			add_location(option0, file$5, 173, 12, 4135);
-    			option1.__value = "Huevos y lácteos";
+    			add_location(option0, file$5, 246, 12, 6874);
+    			option1.__value = "DairyAndEggs";
     			option1.value = option1.__value;
-    			add_location(option1, file$5, 174, 12, 4179);
-    			option2.__value = "Producido";
+    			add_location(option1, file$5, 247, 12, 6922);
+    			option2.__value = "Produce";
     			option2.value = option2.__value;
-    			add_location(option2, file$5, 175, 12, 4225);
-    			option3.__value = "Cereales";
+    			add_location(option2, file$5, 248, 12, 6989);
+    			option3.__value = "Grain";
     			option3.value = option3.__value;
-    			add_location(option3, file$5, 176, 12, 4264);
-    			option4.__value = "Grasas y azúcares";
+    			add_location(option3, file$5, 249, 12, 7044);
+    			option4.__value = "SugarAndFat";
     			option4.value = option4.__value;
-    			add_location(option4, file$5, 177, 12, 4302);
+    			add_location(option4, file$5, 250, 12, 7096);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -18174,26 +18227,25 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_15.name,
+    		id: create_default_slot_16.name,
     		type: "slot",
-    		source: "(173:10) <CustomInput type=\\\"select\\\" id=\\\"exampleCustomSelect\\\" name=\\\"customSelect\\\">",
+    		source: "(246:10) <CustomInput type=\\\"select\\\" id=\\\"myselect\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (172:9) <FormGroup>
-    function create_default_slot_14(ctx) {
+    // (245:9) <FormGroup>
+    function create_default_slot_15(ctx) {
     	let custominput;
     	let current;
 
     	custominput = new CustomInput({
     			props: {
     				type: "select",
-    				id: "exampleCustomSelect",
-    				name: "customSelect",
-    				$$slots: { default: [create_default_slot_15] },
+    				id: "myselect",
+    				$$slots: { default: [create_default_slot_16] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18210,7 +18262,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const custominput_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				custominput_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18232,23 +18284,23 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_14.name,
+    		id: create_default_slot_15.name,
     		type: "slot",
-    		source: "(172:9) <FormGroup>",
+    		source: "(245:9) <FormGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (168:8) <CustomInput               type="checkbox"                id="filtroComida"               label="Tipo de comida" >
-    function create_default_slot_13(ctx) {
+    // (241:8) <CustomInput               type="checkbox"                id="filtroComida"               label="Tipo de comida" >
+    function create_default_slot_14(ctx) {
     	let formgroup;
     	let current;
 
     	formgroup = new FormGroup({
     			props: {
-    				$$slots: { default: [create_default_slot_14] },
+    				$$slots: { default: [create_default_slot_15] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18265,7 +18317,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18287,16 +18339,61 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_13.name,
+    		id: create_default_slot_14.name,
     		type: "slot",
-    		source: "(168:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroComida\\\"               label=\\\"Tipo de comida\\\" >",
+    		source: "(241:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroComida\\\"               label=\\\"Tipo de comida\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (182:8) <CustomInput               type="checkbox"                id="filtroCalPer"               label="Calorías por persona mayor que" >
+    // (255:8) <CustomInput               type="checkbox"                id="filtroCalPer"               label="Calorías por persona mayor que" >
+    function create_default_slot_13(ctx) {
+    	let input;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			input = element("input");
+    			attr_dev(input, "type", "number");
+    			attr_dev(input, "class", "svelte-ycj1m8");
+    			add_location(input, file$5, 257, 54, 7362);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, input, anchor);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].caloryperperson);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler_2*/ ctx[15]);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[5].caloryperperson) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].caloryperperson);
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_13.name,
+    		type: "slot",
+    		source: "(255:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroCalPer\\\"               label=\\\"Calorías por persona mayor que\\\" >",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (259:8) <CustomInput               type="checkbox"                id="filtroGramPer"               label="Gramos por persona mayor que" >
     function create_default_slot_12(ctx) {
     	let input;
     	let mounted;
@@ -18307,20 +18404,20 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 184, 54, 4548);
+    			add_location(input, file$5, 261, 52, 7586);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterFoodconsumption*/ ctx[3].caloryperperson);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].gramperperson);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_2*/ ctx[12]);
+    				dispose = listen_dev(input, "input", /*input_input_handler_3*/ ctx[16]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterFoodconsumption*/ 8 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[3].caloryperperson) {
-    				set_input_value(input, /*filterFoodconsumption*/ ctx[3].caloryperperson);
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[5].gramperperson) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].gramperperson);
     			}
     		},
     		d: function destroy(detaching) {
@@ -18334,14 +18431,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(182:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroCalPer\\\"               label=\\\"Calorías por persona mayor que\\\" >",
+    		source: "(259:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroGramPer\\\"               label=\\\"Gramos por persona mayor que\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (186:8) <CustomInput               type="checkbox"                id="filtroGramPer"               label="Gramos por persona mayor que" >
+    // (263:8) <CustomInput               type="checkbox"                id="filtroGramDia"               label="Gramos diarios mayor que" >
     function create_default_slot_11$2(ctx) {
     	let input;
     	let mounted;
@@ -18352,20 +18449,20 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 188, 52, 4772);
+    			add_location(input, file$5, 265, 48, 7804);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterFoodconsumption*/ ctx[3].gramperperson);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].dailygram);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_3*/ ctx[13]);
+    				dispose = listen_dev(input, "input", /*input_input_handler_4*/ ctx[17]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterFoodconsumption*/ 8 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[3].gramperperson) {
-    				set_input_value(input, /*filterFoodconsumption*/ ctx[3].gramperperson);
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[5].dailygram) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].dailygram);
     			}
     		},
     		d: function destroy(detaching) {
@@ -18379,14 +18476,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11$2.name,
     		type: "slot",
-    		source: "(186:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroGramPer\\\"               label=\\\"Gramos por persona mayor que\\\" >",
+    		source: "(263:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroGramDia\\\"               label=\\\"Gramos diarios mayor que\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (190:8) <CustomInput               type="checkbox"                id="filtroGramDia"               label="Gramos diarios mayor que" >
+    // (267:8) <CustomInput               type="checkbox"                id="filtroCalDia"               label="Calorías diarias mayor que" >
     function create_default_slot_10$2(ctx) {
     	let input;
     	let mounted;
@@ -18397,20 +18494,20 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 192, 48, 4990);
+    			add_location(input, file$5, 269, 50, 8019);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
-    			set_input_value(input, /*filterFoodconsumption*/ ctx[3].dailygram);
+    			set_input_value(input, /*filterFoodconsumption*/ ctx[5].dailycalory);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_4*/ ctx[14]);
+    				dispose = listen_dev(input, "input", /*input_input_handler_5*/ ctx[18]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*filterFoodconsumption*/ 8 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[3].dailygram) {
-    				set_input_value(input, /*filterFoodconsumption*/ ctx[3].dailygram);
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 && to_number(input.value) !== /*filterFoodconsumption*/ ctx[5].dailycalory) {
+    				set_input_value(input, /*filterFoodconsumption*/ ctx[5].dailycalory);
     			}
     		},
     		d: function destroy(detaching) {
@@ -18424,60 +18521,15 @@ var app = (function () {
     		block,
     		id: create_default_slot_10$2.name,
     		type: "slot",
-    		source: "(190:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroGramDia\\\"               label=\\\"Gramos diarios mayor que\\\" >",
+    		source: "(267:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroCalDia\\\"               label=\\\"Calorías diarias mayor que\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (194:8) <CustomInput               type="checkbox"                id="filtroCalDia"               label="Calorías diarias mayor que" >
+    // (272:8) <Button on:click={getFiltro}>
     function create_default_slot_9$2(ctx) {
-    	let input;
-    	let mounted;
-    	let dispose;
-
-    	const block = {
-    		c: function create() {
-    			input = element("input");
-    			attr_dev(input, "type", "number");
-    			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$5, 196, 50, 5205);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, input, anchor);
-    			set_input_value(input, /*newFoodconsumption*/ ctx[2].dailycalory);
-
-    			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler_5*/ ctx[15]);
-    				mounted = true;
-    			}
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input.value) !== /*newFoodconsumption*/ ctx[2].dailycalory) {
-    				set_input_value(input, /*newFoodconsumption*/ ctx[2].dailycalory);
-    			}
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(input);
-    			mounted = false;
-    			dispose();
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_9$2.name,
-    		type: "slot",
-    		source: "(194:8) <CustomInput               type=\\\"checkbox\\\"                id=\\\"filtroCalDia\\\"               label=\\\"Calorías diarias mayor que\\\" >",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (199:8) <Button on:click={getFiltro}>
-    function create_default_slot_8$2(ctx) {
     	let t;
 
     	const block = {
@@ -18494,16 +18546,43 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_8$2.name,
+    		id: create_default_slot_9$2.name,
     		type: "slot",
-    		source: "(199:8) <Button on:click={getFiltro}>",
+    		source: "(272:8) <Button on:click={getFiltro}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (158:10) <FormGroup>
+    // (273:8) <Button outline color="secondary" on:click="{getFoodconsumption}">
+    function create_default_slot_8$2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Atrás");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_8$2.name,
+    		type: "slot",
+    		source: "(273:8) <Button outline color=\\\"secondary\\\" on:click=\\\"{getFoodconsumption}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (231:10) <FormGroup>
     function create_default_slot_7$2(ctx) {
     	let custominput0;
     	let t0;
@@ -18521,7 +18600,9 @@ var app = (function () {
     	let t6;
     	let br;
     	let t7;
-    	let button;
+    	let button0;
+    	let t8;
+    	let button1;
     	let current;
 
     	custominput0 = new CustomInput({
@@ -18529,7 +18610,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroPais",
     				label: "País",
-    				$$slots: { default: [create_default_slot_17] },
+    				$$slots: { default: [create_default_slot_18] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18540,7 +18621,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroAnyo",
     				label: "Año",
-    				$$slots: { default: [create_default_slot_16] },
+    				$$slots: { default: [create_default_slot_17] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18551,7 +18632,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroComida",
     				label: "Tipo de comida",
-    				$$slots: { default: [create_default_slot_13] },
+    				$$slots: { default: [create_default_slot_14] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18562,7 +18643,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroCalPer",
     				label: "Calorías por persona mayor que",
-    				$$slots: { default: [create_default_slot_12] },
+    				$$slots: { default: [create_default_slot_13] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18573,7 +18654,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroGramPer",
     				label: "Gramos por persona mayor que",
-    				$$slots: { default: [create_default_slot_11$2] },
+    				$$slots: { default: [create_default_slot_12] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18584,7 +18665,7 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroGramDia",
     				label: "Gramos diarios mayor que",
-    				$$slots: { default: [create_default_slot_10$2] },
+    				$$slots: { default: [create_default_slot_11$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -18595,21 +18676,33 @@ var app = (function () {
     				type: "checkbox",
     				id: "filtroCalDia",
     				label: "Calorías diarias mayor que",
+    				$$slots: { default: [create_default_slot_10$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button0 = new Button({
+    			props: {
     				$$slots: { default: [create_default_slot_9$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button = new Button({
+    	button0.$on("click", /*getFiltro*/ ctx[7]);
+
+    	button1 = new Button({
     			props: {
+    				outline: true,
+    				color: "secondary",
     				$$slots: { default: [create_default_slot_8$2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button.$on("click", /*getFiltro*/ ctx[4]);
+    	button1.$on("click", /*getFoodconsumption*/ ctx[6]);
 
     	const block = {
     		c: function create() {
@@ -18629,8 +18722,10 @@ var app = (function () {
     			t6 = space();
     			br = element("br");
     			t7 = space();
-    			create_component(button.$$.fragment);
-    			add_location(br, file$5, 197, 8, 5293);
+    			create_component(button0.$$.fragment);
+    			t8 = space();
+    			create_component(button1.$$.fragment);
+    			add_location(br, file$5, 270, 8, 8110);
     		},
     		m: function mount(target, anchor) {
     			mount_component(custominput0, target, anchor);
@@ -18649,66 +18744,75 @@ var app = (function () {
     			insert_dev(target, t6, anchor);
     			insert_dev(target, br, anchor);
     			insert_dev(target, t7, anchor);
-    			mount_component(button, target, anchor);
+    			mount_component(button0, target, anchor);
+    			insert_dev(target, t8, anchor);
+    			mount_component(button1, target, anchor);
     			current = true;
     		},
     		p: function update(ctx, dirty) {
     			const custominput0_changes = {};
 
-    			if (dirty & /*$$scope, filterFoodconsumption*/ 1073741832) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput0_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput0.$set(custominput0_changes);
     			const custominput1_changes = {};
 
-    			if (dirty & /*$$scope, filterFoodconsumption*/ 1073741832) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput1_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput1.$set(custominput1_changes);
     			const custominput2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				custominput2_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput2.$set(custominput2_changes);
     			const custominput3_changes = {};
 
-    			if (dirty & /*$$scope, filterFoodconsumption*/ 1073741832) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput3_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput3.$set(custominput3_changes);
     			const custominput4_changes = {};
 
-    			if (dirty & /*$$scope, filterFoodconsumption*/ 1073741832) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput4_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput4.$set(custominput4_changes);
     			const custominput5_changes = {};
 
-    			if (dirty & /*$$scope, filterFoodconsumption*/ 1073741832) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput5_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput5.$set(custominput5_changes);
     			const custominput6_changes = {};
 
-    			if (dirty & /*$$scope, newFoodconsumption*/ 1073741828) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				custominput6_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput6.$set(custominput6_changes);
-    			const button_changes = {};
+    			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
-    				button_changes.$$scope = { dirty, ctx };
+    			if (dirty[1] & /*$$scope*/ 2) {
+    				button0_changes.$$scope = { dirty, ctx };
     			}
 
-    			button.$set(button_changes);
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 2) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -18719,7 +18823,8 @@ var app = (function () {
     			transition_in(custominput4.$$.fragment, local);
     			transition_in(custominput5.$$.fragment, local);
     			transition_in(custominput6.$$.fragment, local);
-    			transition_in(button.$$.fragment, local);
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
@@ -18730,7 +18835,8 @@ var app = (function () {
     			transition_out(custominput4.$$.fragment, local);
     			transition_out(custominput5.$$.fragment, local);
     			transition_out(custominput6.$$.fragment, local);
-    			transition_out(button.$$.fragment, local);
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -18750,7 +18856,9 @@ var app = (function () {
     			if (detaching) detach_dev(t6);
     			if (detaching) detach_dev(br);
     			if (detaching) detach_dev(t7);
-    			destroy_component(button, detaching);
+    			destroy_component(button0, detaching);
+    			if (detaching) detach_dev(t8);
+    			destroy_component(button1, detaching);
     		}
     	};
 
@@ -18758,14 +18866,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$2.name,
     		type: "slot",
-    		source: "(158:10) <FormGroup>",
+    		source: "(231:10) <FormGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (157:7) <Form>
+    // (230:7) <Form>
     function create_default_slot_6$2(ctx) {
     	let formgroup;
     	let current;
@@ -18789,7 +18897,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty & /*$$scope, newFoodconsumption, filterFoodconsumption*/ 1073741836) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18813,14 +18921,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$2.name,
     		type: "slot",
-    		source: "(157:7) <Form>",
+    		source: "(230:7) <Form>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+    // (229:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
     function create_default_slot_5$2(ctx) {
     	let form;
     	let current;
@@ -18844,7 +18952,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const form_changes = {};
 
-    			if (dirty & /*$$scope, newFoodconsumption, filterFoodconsumption*/ 1073741836) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				form_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18868,14 +18976,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$2.name,
     		type: "slot",
-    		source: "(156:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
+    		source: "(229:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (207:9) <Button on:click={loadInitialData}>
+    // (281:9) <Button on:click={loadInitialData}>
     function create_default_slot_4$2(ctx) {
     	let t;
 
@@ -18895,14 +19003,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$2.name,
     		type: "slot",
-    		source: "(207:9) <Button on:click={loadInitialData}>",
+    		source: "(281:9) <Button on:click={loadInitialData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (208:9) <Button on:click={deleteTodo}>
+    // (282:9) <Button on:click={deleteTodo}>
     function create_default_slot_3$2(ctx) {
     	let t;
 
@@ -18922,14 +19030,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$2.name,
     		type: "slot",
-    		source: "(208:9) <Button on:click={deleteTodo}>",
+    		source: "(282:9) <Button on:click={deleteTodo}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (233:9) <Button on:click={insertFoodconsumption}>
+    // (307:9) <Button on:click={insertFoodconsumption}>
     function create_default_slot_2$3(ctx) {
     	let t;
 
@@ -18949,14 +19057,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$3.name,
     		type: "slot",
-    		source: "(233:9) <Button on:click={insertFoodconsumption}>",
+    		source: "(307:9) <Button on:click={insertFoodconsumption}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (246:9) <Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>
+    // (320:9) <Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>
     function create_default_slot_1$3(ctx) {
     	let t;
 
@@ -18976,44 +19084,44 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$3.name,
     		type: "slot",
-    		source: "(246:9) <Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>",
+    		source: "(320:9) <Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (236:4) {#each foodconsumption as datafood}
+    // (310:4) {#each foodconsumption as datafood}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*datafood*/ ctx[27].country + "";
+    	let t0_value = /*datafood*/ ctx[29].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*datafood*/ ctx[27].year + "";
+    	let t2_value = /*datafood*/ ctx[29].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*datafood*/ ctx[27].foodtype + "";
+    	let t4_value = /*datafood*/ ctx[29].foodtype + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*datafood*/ ctx[27].caloryperperson + "";
+    	let t6_value = /*datafood*/ ctx[29].caloryperperson + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*datafood*/ ctx[27].gramperperson + "";
+    	let t8_value = /*datafood*/ ctx[29].gramperperson + "";
     	let t8;
     	let t9;
     	let td5;
-    	let t10_value = /*datafood*/ ctx[27].dailygram + "";
+    	let t10_value = /*datafood*/ ctx[29].dailygram + "";
     	let t10;
     	let t11;
     	let td6;
-    	let t12_value = /*datafood*/ ctx[27].dailycalory + "";
+    	let t12_value = /*datafood*/ ctx[29].dailycalory + "";
     	let t12;
     	let t13;
     	let td7;
@@ -19030,7 +19138,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteFood*/ ctx[7](/*datafood*/ ctx[27].country, /*datafood*/ ctx[27].year, /*datafood*/ ctx[27].foodtype))) /*deleteFood*/ ctx[7](/*datafood*/ ctx[27].country, /*datafood*/ ctx[27].year, /*datafood*/ ctx[27].foodtype).apply(this, arguments);
+    		if (is_function(/*deleteFood*/ ctx[10](/*datafood*/ ctx[29].country, /*datafood*/ ctx[29].year, /*datafood*/ ctx[29].foodtype))) /*deleteFood*/ ctx[10](/*datafood*/ ctx[29].country, /*datafood*/ ctx[29].year, /*datafood*/ ctx[29].foodtype).apply(this, arguments);
     	});
 
     	const block = {
@@ -19061,26 +19169,26 @@ var app = (function () {
     			td7 = element("td");
     			create_component(button.$$.fragment);
     			t14 = space();
-    			attr_dev(a, "href", a_href_value = "#/foodconsumption-stats/" + /*datafood*/ ctx[27].country + "/" + /*datafood*/ ctx[27].year + "/" + /*datafood*/ ctx[27].foodtype);
-    			add_location(a, file$5, 238, 9, 6537);
+    			attr_dev(a, "href", a_href_value = "#/foodconsumption-stats/" + /*datafood*/ ctx[29].country + "/" + /*datafood*/ ctx[29].year + "/" + /*datafood*/ ctx[29].foodtype);
+    			add_location(a, file$5, 312, 9, 9443);
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$5, 238, 5, 6533);
+    			add_location(td0, file$5, 312, 5, 9439);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$5, 239, 5, 6655);
+    			add_location(td1, file$5, 313, 5, 9561);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$5, 240, 5, 6685);
+    			add_location(td2, file$5, 314, 5, 9591);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$5, 241, 5, 6719);
+    			add_location(td3, file$5, 315, 5, 9625);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$5, 242, 5, 6760);
+    			add_location(td4, file$5, 316, 5, 9666);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$5, 243, 5, 6799);
+    			add_location(td5, file$5, 317, 5, 9705);
     			attr_dev(td6, "class", "svelte-ycj1m8");
-    			add_location(td6, file$5, 244, 5, 6834);
+    			add_location(td6, file$5, 318, 5, 9740);
     			attr_dev(td7, "class", "svelte-ycj1m8");
-    			add_location(td7, file$5, 245, 5, 6871);
+    			add_location(td7, file$5, 319, 5, 9777);
     			attr_dev(tr, "class", "svelte-ycj1m8");
-    			add_location(tr, file$5, 236, 5, 6522);
+    			add_location(tr, file$5, 310, 5, 9428);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -19113,21 +19221,21 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t0_value !== (t0_value = /*datafood*/ ctx[27].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t0_value !== (t0_value = /*datafood*/ ctx[29].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*foodconsumption*/ 1 && a_href_value !== (a_href_value = "#/foodconsumption-stats/" + /*datafood*/ ctx[27].country + "/" + /*datafood*/ ctx[27].year + "/" + /*datafood*/ ctx[27].foodtype)) {
+    			if (!current || dirty[0] & /*foodconsumption*/ 1 && a_href_value !== (a_href_value = "#/foodconsumption-stats/" + /*datafood*/ ctx[29].country + "/" + /*datafood*/ ctx[29].year + "/" + /*datafood*/ ctx[29].foodtype)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t2_value !== (t2_value = /*datafood*/ ctx[27].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t4_value !== (t4_value = /*datafood*/ ctx[27].foodtype + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t6_value !== (t6_value = /*datafood*/ ctx[27].caloryperperson + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t8_value !== (t8_value = /*datafood*/ ctx[27].gramperperson + "")) set_data_dev(t8, t8_value);
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t10_value !== (t10_value = /*datafood*/ ctx[27].dailygram + "")) set_data_dev(t10, t10_value);
-    			if ((!current || dirty & /*foodconsumption*/ 1) && t12_value !== (t12_value = /*datafood*/ ctx[27].dailycalory + "")) set_data_dev(t12, t12_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t2_value !== (t2_value = /*datafood*/ ctx[29].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t4_value !== (t4_value = /*datafood*/ ctx[29].foodtype + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t6_value !== (t6_value = /*datafood*/ ctx[29].caloryperperson + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t8_value !== (t8_value = /*datafood*/ ctx[29].gramperperson + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t10_value !== (t10_value = /*datafood*/ ctx[29].dailygram + "")) set_data_dev(t10, t10_value);
+    			if ((!current || dirty[0] & /*foodconsumption*/ 1) && t12_value !== (t12_value = /*datafood*/ ctx[29].dailycalory + "")) set_data_dev(t12, t12_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19152,14 +19260,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(236:4) {#each foodconsumption as datafood}",
+    		source: "(310:4) {#each foodconsumption as datafood}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:2) <Table responsive>
+    // (278:2) <Table responsive>
     function create_default_slot$4(ctx) {
     	let thead;
     	let tr0;
@@ -19222,7 +19330,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button0.$on("click", /*loadInitialData*/ ctx[5]);
+    	button0.$on("click", /*loadInitialData*/ ctx[8]);
 
     	button1 = new Button({
     			props: {
@@ -19232,7 +19340,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button1.$on("click", /*deleteTodo*/ ctx[8]);
+    	button1.$on("click", /*deleteTodo*/ ctx[11]);
 
     	button2 = new Button({
     			props: {
@@ -19242,7 +19350,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button2.$on("click", /*insertFoodconsumption*/ ctx[6]);
+    	button2.$on("click", /*insertFoodconsumption*/ ctx[9]);
     	let each_value = /*foodconsumption*/ ctx[0];
     	validate_each_argument(each_value);
     	let each_blocks = [];
@@ -19319,66 +19427,66 @@ var app = (function () {
     			}
 
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$5, 206, 5, 5468);
+    			add_location(td0, file$5, 280, 5, 8374);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$5, 207, 5, 5539);
+    			add_location(td1, file$5, 281, 5, 8445);
     			attr_dev(tr0, "class", "svelte-ycj1m8");
-    			add_location(tr0, file$5, 205, 4, 5458);
+    			add_location(tr0, file$5, 279, 4, 8364);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$5, 212, 5, 5636);
+    			add_location(td2, file$5, 286, 5, 8542);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$5, 213, 5, 5655);
+    			add_location(td3, file$5, 287, 5, 8561);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$5, 214, 5, 5673);
+    			add_location(td4, file$5, 288, 5, 8579);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$5, 215, 5, 5702);
+    			add_location(td5, file$5, 289, 5, 8608);
     			attr_dev(td6, "class", "svelte-ycj1m8");
-    			add_location(td6, file$5, 216, 5, 5737);
+    			add_location(td6, file$5, 290, 5, 8643);
     			attr_dev(td7, "class", "svelte-ycj1m8");
-    			add_location(td7, file$5, 217, 5, 5770);
+    			add_location(td7, file$5, 291, 5, 8676);
     			attr_dev(td8, "class", "svelte-ycj1m8");
-    			add_location(td8, file$5, 218, 5, 5799);
+    			add_location(td8, file$5, 292, 5, 8705);
     			attr_dev(tr1, "class", "svelte-ycj1m8");
-    			add_location(tr1, file$5, 211, 4, 5626);
-    			add_location(thead, file$5, 204, 3, 5446);
+    			add_location(tr1, file$5, 285, 4, 8532);
+    			add_location(thead, file$5, 278, 3, 8352);
     			attr_dev(input0, "class", "svelte-ycj1m8");
-    			add_location(input0, file$5, 225, 9, 5878);
+    			add_location(input0, file$5, 299, 9, 8784);
     			attr_dev(td9, "class", "svelte-ycj1m8");
-    			add_location(td9, file$5, 225, 5, 5874);
+    			add_location(td9, file$5, 299, 5, 8780);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-ycj1m8");
-    			add_location(input1, file$5, 226, 9, 5942);
+    			add_location(input1, file$5, 300, 9, 8848);
     			attr_dev(td10, "class", "svelte-ycj1m8");
-    			add_location(td10, file$5, 226, 5, 5938);
+    			add_location(td10, file$5, 300, 5, 8844);
     			attr_dev(input2, "class", "svelte-ycj1m8");
-    			add_location(input2, file$5, 227, 9, 6015);
+    			add_location(input2, file$5, 301, 9, 8921);
     			attr_dev(td11, "class", "svelte-ycj1m8");
-    			add_location(td11, file$5, 227, 5, 6011);
+    			add_location(td11, file$5, 301, 5, 8917);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-ycj1m8");
-    			add_location(input3, file$5, 228, 9, 6080);
+    			add_location(input3, file$5, 302, 9, 8986);
     			attr_dev(td12, "class", "svelte-ycj1m8");
-    			add_location(td12, file$5, 228, 5, 6076);
+    			add_location(td12, file$5, 302, 5, 8982);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-ycj1m8");
-    			add_location(input4, file$5, 229, 9, 6164);
+    			add_location(input4, file$5, 303, 9, 9070);
     			attr_dev(td13, "class", "svelte-ycj1m8");
-    			add_location(td13, file$5, 229, 5, 6160);
+    			add_location(td13, file$5, 303, 5, 9066);
     			attr_dev(input5, "type", "number");
     			attr_dev(input5, "class", "svelte-ycj1m8");
-    			add_location(input5, file$5, 230, 9, 6246);
+    			add_location(input5, file$5, 304, 9, 9152);
     			attr_dev(td14, "class", "svelte-ycj1m8");
-    			add_location(td14, file$5, 230, 5, 6242);
+    			add_location(td14, file$5, 304, 5, 9148);
     			attr_dev(input6, "type", "number");
     			attr_dev(input6, "class", "svelte-ycj1m8");
-    			add_location(input6, file$5, 231, 9, 6324);
+    			add_location(input6, file$5, 305, 9, 9230);
     			attr_dev(td15, "class", "svelte-ycj1m8");
-    			add_location(td15, file$5, 231, 5, 6320);
+    			add_location(td15, file$5, 305, 5, 9226);
     			attr_dev(td16, "class", "svelte-ycj1m8");
-    			add_location(td16, file$5, 232, 5, 6400);
+    			add_location(td16, file$5, 306, 5, 9306);
     			attr_dev(tr2, "class", "svelte-ycj1m8");
-    			add_location(tr2, file$5, 224, 4, 5864);
-    			add_location(tbody, file$5, 222, 3, 5851);
+    			add_location(tr2, file$5, 298, 4, 8770);
+    			add_location(tbody, file$5, 296, 3, 8757);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -19408,31 +19516,31 @@ var app = (function () {
     			append_dev(tbody, tr2);
     			append_dev(tr2, td9);
     			append_dev(td9, input0);
-    			set_input_value(input0, /*newFoodconsumption*/ ctx[2].country);
+    			set_input_value(input0, /*newFoodconsumption*/ ctx[4].country);
     			append_dev(tr2, t16);
     			append_dev(tr2, td10);
     			append_dev(td10, input1);
-    			set_input_value(input1, /*newFoodconsumption*/ ctx[2].year);
+    			set_input_value(input1, /*newFoodconsumption*/ ctx[4].year);
     			append_dev(tr2, t17);
     			append_dev(tr2, td11);
     			append_dev(td11, input2);
-    			set_input_value(input2, /*newFoodconsumption*/ ctx[2].foodtype);
+    			set_input_value(input2, /*newFoodconsumption*/ ctx[4].foodtype);
     			append_dev(tr2, t18);
     			append_dev(tr2, td12);
     			append_dev(td12, input3);
-    			set_input_value(input3, /*newFoodconsumption*/ ctx[2].caloryperperson);
+    			set_input_value(input3, /*newFoodconsumption*/ ctx[4].caloryperperson);
     			append_dev(tr2, t19);
     			append_dev(tr2, td13);
     			append_dev(td13, input4);
-    			set_input_value(input4, /*newFoodconsumption*/ ctx[2].gramperperson);
+    			set_input_value(input4, /*newFoodconsumption*/ ctx[4].gramperperson);
     			append_dev(tr2, t20);
     			append_dev(tr2, td14);
     			append_dev(td14, input5);
-    			set_input_value(input5, /*newFoodconsumption*/ ctx[2].dailygram);
+    			set_input_value(input5, /*newFoodconsumption*/ ctx[4].dailygram);
     			append_dev(tr2, t21);
     			append_dev(tr2, td15);
     			append_dev(td15, input6);
-    			set_input_value(input6, /*newFoodconsumption*/ ctx[2].dailycalory);
+    			set_input_value(input6, /*newFoodconsumption*/ ctx[4].dailycalory);
     			append_dev(tr2, t22);
     			append_dev(tr2, td16);
     			mount_component(button2, td16, null);
@@ -19446,13 +19554,13 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[16]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[17]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[18]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[19]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[20]),
-    					listen_dev(input5, "input", /*input5_input_handler*/ ctx[21]),
-    					listen_dev(input6, "input", /*input6_input_handler*/ ctx[22])
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[19]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[20]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[21]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[22]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[23]),
+    					listen_dev(input5, "input", /*input5_input_handler*/ ctx[24]),
+    					listen_dev(input6, "input", /*input6_input_handler*/ ctx[25])
     				];
 
     				mounted = true;
@@ -19461,56 +19569,56 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
     			button1.$set(button1_changes);
 
-    			if (dirty & /*newFoodconsumption*/ 4 && input0.value !== /*newFoodconsumption*/ ctx[2].country) {
-    				set_input_value(input0, /*newFoodconsumption*/ ctx[2].country);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && input0.value !== /*newFoodconsumption*/ ctx[4].country) {
+    				set_input_value(input0, /*newFoodconsumption*/ ctx[4].country);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input1.value) !== /*newFoodconsumption*/ ctx[2].year) {
-    				set_input_value(input1, /*newFoodconsumption*/ ctx[2].year);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && to_number(input1.value) !== /*newFoodconsumption*/ ctx[4].year) {
+    				set_input_value(input1, /*newFoodconsumption*/ ctx[4].year);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && input2.value !== /*newFoodconsumption*/ ctx[2].foodtype) {
-    				set_input_value(input2, /*newFoodconsumption*/ ctx[2].foodtype);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && input2.value !== /*newFoodconsumption*/ ctx[4].foodtype) {
+    				set_input_value(input2, /*newFoodconsumption*/ ctx[4].foodtype);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input3.value) !== /*newFoodconsumption*/ ctx[2].caloryperperson) {
-    				set_input_value(input3, /*newFoodconsumption*/ ctx[2].caloryperperson);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && to_number(input3.value) !== /*newFoodconsumption*/ ctx[4].caloryperperson) {
+    				set_input_value(input3, /*newFoodconsumption*/ ctx[4].caloryperperson);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input4.value) !== /*newFoodconsumption*/ ctx[2].gramperperson) {
-    				set_input_value(input4, /*newFoodconsumption*/ ctx[2].gramperperson);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && to_number(input4.value) !== /*newFoodconsumption*/ ctx[4].gramperperson) {
+    				set_input_value(input4, /*newFoodconsumption*/ ctx[4].gramperperson);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input5.value) !== /*newFoodconsumption*/ ctx[2].dailygram) {
-    				set_input_value(input5, /*newFoodconsumption*/ ctx[2].dailygram);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && to_number(input5.value) !== /*newFoodconsumption*/ ctx[4].dailygram) {
+    				set_input_value(input5, /*newFoodconsumption*/ ctx[4].dailygram);
     			}
 
-    			if (dirty & /*newFoodconsumption*/ 4 && to_number(input6.value) !== /*newFoodconsumption*/ ctx[2].dailycalory) {
-    				set_input_value(input6, /*newFoodconsumption*/ ctx[2].dailycalory);
+    			if (dirty[0] & /*newFoodconsumption*/ 16 && to_number(input6.value) !== /*newFoodconsumption*/ ctx[4].dailycalory) {
+    				set_input_value(input6, /*newFoodconsumption*/ ctx[4].dailycalory);
     			}
 
     			const button2_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
 
-    			if (dirty & /*deleteFood, foodconsumption*/ 129) {
+    			if (dirty[0] & /*deleteFood, foodconsumption*/ 1025) {
     				each_value = /*foodconsumption*/ ctx[0];
     				validate_each_argument(each_value);
     				let i;
@@ -19579,7 +19687,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$4.name,
     		type: "slot",
-    		source: "(204:2) <Table responsive>",
+    		source: "(278:2) <Table responsive>",
     		ctx
     	});
 
@@ -19600,10 +19708,10 @@ var app = (function () {
 
     	alert = new Alert({
     			props: {
-    				color: "danger",
+    				color: /*color*/ ctx[3],
     				isOpen: /*visible*/ ctx[1],
-    				toggle: /*func*/ ctx[9],
-    				$$slots: { default: [create_default_slot_19] },
+    				toggle: /*func*/ ctx[12],
+    				$$slots: { default: [create_default_slot_20] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -19612,7 +19720,7 @@ var app = (function () {
     	button = new Button({
     			props: {
     				id: `btn-${placement}`,
-    				$$slots: { default: [create_default_slot_18] },
+    				$$slots: { default: [create_default_slot_19] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -19652,8 +19760,8 @@ var app = (function () {
     			attr_dev(div, "class", "mt-3");
     			set_style(div, "position", "absolute");
     			set_style(div, "right", "80px");
-    			add_location(div, file$5, 153, 2, 3282);
-    			add_location(main, file$5, 144, 0, 3130);
+    			add_location(div, file$5, 226, 2, 6052);
+    			add_location(main, file$5, 214, 0, 5849);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -19670,33 +19778,34 @@ var app = (function () {
     			mount_component(table, main, null);
     			current = true;
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(ctx, dirty) {
     			const alert_changes = {};
-    			if (dirty & /*visible*/ 2) alert_changes.isOpen = /*visible*/ ctx[1];
-    			if (dirty & /*visible*/ 2) alert_changes.toggle = /*func*/ ctx[9];
+    			if (dirty[0] & /*color*/ 8) alert_changes.color = /*color*/ ctx[3];
+    			if (dirty[0] & /*visible*/ 2) alert_changes.isOpen = /*visible*/ ctx[1];
+    			if (dirty[0] & /*visible*/ 2) alert_changes.toggle = /*func*/ ctx[12];
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[0] & /*errorMsg*/ 4 | dirty[1] & /*$$scope*/ 2) {
     				alert_changes.$$scope = { dirty, ctx };
     			}
 
     			alert.$set(alert_changes);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 1073741824) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
     			button.$set(button_changes);
     			const popover_changes = {};
 
-    			if (dirty & /*$$scope, newFoodconsumption, filterFoodconsumption*/ 1073741836) {
+    			if (dirty[0] & /*filterFoodconsumption*/ 32 | dirty[1] & /*$$scope*/ 2) {
     				popover_changes.$$scope = { dirty, ctx };
     			}
 
     			popover.$set(popover_changes);
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, foodconsumption, newFoodconsumption*/ 1073741829) {
+    			if (dirty[0] & /*foodconsumption, newFoodconsumption*/ 17 | dirty[1] & /*$$scope*/ 2) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -19750,6 +19859,8 @@ var app = (function () {
 
     	let foodconsumption = [];
     	let visible = false;
+    	let errorMsg = "";
+    	let color = "";
 
     	let newFoodconsumption = {
     		country: "",
@@ -19789,8 +19900,63 @@ var app = (function () {
     	};
 
     	async function getFiltro() {
-    		console.log("Fetching foodconsumption...");
-    		const res = await fetch("/api/v1/foodconsumption-stats");
+    		let dbquery = "?";
+    		var e = document.getElementById("myselect");
+    		var tipocomida = e.options[e.selectedIndex].value;
+
+    		if (document.getElementById("filtroPais").checked) {
+    			dbquery += `country=${filterFoodconsumption.country}`;
+
+    			if (document.getElementById("filtroAnyo").checked || document.getElementById("filtroComida").checked || document.getElementById("filtroCalPer").checked || document.getElementById("filtroGramPer").checked || document.getElementById("filtroGramDia").checked || document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroAnyo").checked) {
+    			dbquery += `year=${filterFoodconsumption.year}`;
+
+    			if (document.getElementById("filtroComida").checked || document.getElementById("filtroCalPer").checked || document.getElementById("filtroGramPer").checked || document.getElementById("filtroGramDia").checked || document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroComida").checked) {
+    			dbquery += `footype=${tipocomida}`;
+
+    			if (document.getElementById("filtroCalPer").checked || document.getElementById("filtroGramPer").checked || document.getElementById("filtroGramDia").checked || document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroCalPer").checked) {
+    			dbquery += `caloryperpersonAbove=${filterFoodconsumption.caloryperperson}`;
+
+    			if (document.getElementById("filtroGramPer").checked || document.getElementById("filtroGramDia").checked || document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroGramPer").checked) {
+    			dbquery += `gramperpersonAbove=${filterFoodconsumption.gramperperson}`;
+
+    			if (document.getElementById("filtroGramDia").checked || document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroGramDia").checked) {
+    			dbquery += `dailygramAbove=${filterFoodconsumption.dailygram}`;
+
+    			if (document.getElementById("filtroCalDia").checked) {
+    				dbquery += `&`;
+    			}
+    		}
+
+    		if (document.getElementById("filtroCalDia").checked) {
+    			dbquery += `dailycaloryAbove=${filterFoodconsumption.dailycalory}`;
+    		}
+
+    		const res = await fetch("/api/v1/foodconsumption-stats" + dbquery);
 
     		if (res.ok) {
     			console.log("Ok.");
@@ -19822,8 +19988,17 @@ var app = (function () {
     			getFoodconsumption();
 
     			if (res.status === 400) {
-    				console.log("TAS EQUIVOCAO");
+    				$$invalidate(2, errorMsg = "ERROR: Algunos campos en el dato están mal formados.");
     				$$invalidate(1, visible = true);
+    				$$invalidate(3, color = "danger");
+    			} else if (res.status === 409) {
+    				$$invalidate(2, errorMsg = "Este dato ya existe.");
+    				$$invalidate(1, visible = true);
+    				$$invalidate(3, color = "danger");
+    			} else if (res.ok) {
+    				$$invalidate(2, errorMsg = "ERROR: El dato ha sido añadido correctamente.");
+    				$$invalidate(1, visible = true);
+    				$$invalidate(3, color = "success");
     			}
     		});
     	}
@@ -19853,70 +20028,71 @@ var app = (function () {
 
     	function input_input_handler() {
     		filterFoodconsumption.country = this.value;
-    		$$invalidate(3, filterFoodconsumption);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input_input_handler_1() {
     		filterFoodconsumption.year = to_number(this.value);
-    		$$invalidate(3, filterFoodconsumption);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input_input_handler_2() {
     		filterFoodconsumption.caloryperperson = to_number(this.value);
-    		$$invalidate(3, filterFoodconsumption);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input_input_handler_3() {
     		filterFoodconsumption.gramperperson = to_number(this.value);
-    		$$invalidate(3, filterFoodconsumption);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input_input_handler_4() {
     		filterFoodconsumption.dailygram = to_number(this.value);
-    		$$invalidate(3, filterFoodconsumption);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input_input_handler_5() {
-    		newFoodconsumption.dailycalory = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		filterFoodconsumption.dailycalory = to_number(this.value);
+    		$$invalidate(5, filterFoodconsumption);
     	}
 
     	function input0_input_handler() {
     		newFoodconsumption.country = this.value;
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input1_input_handler() {
     		newFoodconsumption.year = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input2_input_handler() {
     		newFoodconsumption.foodtype = this.value;
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input3_input_handler() {
     		newFoodconsumption.caloryperperson = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input4_input_handler() {
     		newFoodconsumption.gramperperson = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input5_input_handler() {
     		newFoodconsumption.dailygram = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	function input6_input_handler() {
     		newFoodconsumption.dailycalory = to_number(this.value);
-    		$$invalidate(2, newFoodconsumption);
+    		$$invalidate(4, newFoodconsumption);
     	}
 
     	$$self.$capture_state = () => ({
+    		pop,
     		placement,
     		onMount,
     		open,
@@ -19931,6 +20107,8 @@ var app = (function () {
     		FormGroup,
     		Label,
     		visible,
+    		errorMsg,
+    		color,
     		newFoodconsumption,
     		BASE_CONTACT_API_PATH,
     		getFoodconsumption,
@@ -19946,9 +20124,11 @@ var app = (function () {
     		if ("open" in $$props) open = $$props.open;
     		if ("foodconsumption" in $$props) $$invalidate(0, foodconsumption = $$props.foodconsumption);
     		if ("visible" in $$props) $$invalidate(1, visible = $$props.visible);
-    		if ("newFoodconsumption" in $$props) $$invalidate(2, newFoodconsumption = $$props.newFoodconsumption);
+    		if ("errorMsg" in $$props) $$invalidate(2, errorMsg = $$props.errorMsg);
+    		if ("color" in $$props) $$invalidate(3, color = $$props.color);
+    		if ("newFoodconsumption" in $$props) $$invalidate(4, newFoodconsumption = $$props.newFoodconsumption);
     		if ("BASE_CONTACT_API_PATH" in $$props) BASE_CONTACT_API_PATH = $$props.BASE_CONTACT_API_PATH;
-    		if ("filterFoodconsumption" in $$props) $$invalidate(3, filterFoodconsumption = $$props.filterFoodconsumption);
+    		if ("filterFoodconsumption" in $$props) $$invalidate(5, filterFoodconsumption = $$props.filterFoodconsumption);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -19958,8 +20138,11 @@ var app = (function () {
     	return [
     		foodconsumption,
     		visible,
+    		errorMsg,
+    		color,
     		newFoodconsumption,
     		filterFoodconsumption,
+    		getFoodconsumption,
     		getFiltro,
     		loadInitialData,
     		insertFoodconsumption,
@@ -19985,7 +20168,7 @@ var app = (function () {
     class TableFood extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -22669,7 +22852,7 @@ var app = (function () {
     			main = element("main");
     			create_component(router.$$.fragment);
     			attr_dev(main, "class", "svelte-d68sj9");
-    			add_location(main, file, 30, 0, 911);
+    			add_location(main, file, 31, 0, 913);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
