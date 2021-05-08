@@ -18372,10 +18372,14 @@ var app = (function () {
     			t = text("Estaditicas de Sanidad");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, p, anchor);
+    			append_dev(p, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*errorMsg*/ 4) set_data_dev(t, /*errorMsg*/ ctx[2]);
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
+    			if (detaching) detach_dev(p);
     		}
     	};
 
@@ -22208,7 +22212,7 @@ var app = (function () {
     class HomeFood extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -24465,7 +24469,9 @@ var app = (function () {
     			main = element("main");
     			create_component(router.$$.fragment);
     			attr_dev(main, "class", "svelte-d68sj9");
-    			add_location(main, file, 32, 0, 1044);
+	add_location(main, file, 31, 0, 913);
+
+    			add_location(main, file, 32, 0, 1042);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

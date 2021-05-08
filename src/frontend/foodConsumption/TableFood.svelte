@@ -1,4 +1,8 @@
 <script>
+
+    import {
+        pop
+    } from "svelte-spa-router";
 	const placement = 'right';
 	
 	import {
@@ -20,6 +24,8 @@
 	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
 	
 	let visible = false;
+	let errorMsg ="";
+	let color="";
 	
 	let newFoodconsumption= {
 		country:"",
@@ -64,9 +70,57 @@
 	
 	
 	async function getFiltro(){
-		let dbquery= {};
-		console.log("Fetching foodconsumption...");
-		const res = await fetch("/api/v1/foodconsumption-stats");
+		let dbquery= "?";
+		var e = document.getElementById("myselect");
+		var tipocomida = e.options[e.selectedIndex].value;
+		
+		
+		if (document.getElementById('filtroPais').checked){
+            dbquery += `country=${filterFoodconsumption.country}`;
+			if(document.getElementById('filtroAnyo').checked || document.getElementById('filtroComida').checked || document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+			dbquery +=`&`;
+			}
+		}
+		
+		if (document.getElementById('filtroAnyo').checked) {
+            dbquery += `year=${filterFoodconsumption.year}`;
+			if(document.getElementById('filtroComida').checked || document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+				dbquery +=`&`;
+			}
+			
+		}
+		if (document.getElementById('filtroComida').checked) {
+            dbquery += `footype=${tipocomida}`;
+			if( document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+				dbquery +=`&`;
+			}
+			
+		}
+		if (document.getElementById('filtroCalPer').checked) {
+            dbquery += `caloryperpersonAbove=${filterFoodconsumption.caloryperperson}`;
+			if(document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+				dbquery +=`&`;
+			}
+			
+		}
+		if (document.getElementById('filtroGramPer').checked) {
+            dbquery += `gramperpersonAbove=${filterFoodconsumption.gramperperson}`;
+			if(document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+				dbquery +=`&`;
+			}
+			
+		}
+		if (document.getElementById('filtroGramDia').checked) {
+            dbquery += `dailygramAbove=${filterFoodconsumption.dailygram}`;
+			if(document.getElementById('filtroCalDia').checked){
+				dbquery +=`&`;
+			}
+		}
+		if (document.getElementById('filtroCalDia').checked) {
+            dbquery += `dailycaloryAbove=${filterFoodconsumption.dailycalory}`
+			
+		}
+		const res = await fetch("/api/v1/foodconsumption-stats" + dbquery);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -81,6 +135,9 @@
 			console.log("Error!");
 			
 		}
+		
+		
+		
 	}
 	
 	async function loadInitialData(){
@@ -103,8 +160,21 @@
 						}).then( (res)=> {
 						getFoodconsumption();
 						if(res.status === 400){
-							console.log("TAS EQUIVOCAO");
+					
+							errorMsg= "ERROR: Algunos campos en el dato están mal formados.";
 							visible = true;
+							color="danger";
+						}
+						else if(res.status ===409){
+						
+							errorMsg= "Este dato ya existe.";
+							visible = true;
+							color="danger";
+						}
+						else if(res.ok){
+							errorMsg= "ERROR: El dato ha sido añadido correctamente.";
+							visible = true;
+							color="success";
 						}
 		
 						})
@@ -144,12 +214,15 @@
 <main>
 	
 		<Alert
-			color="danger"
+			color={color}
 			isOpen={visible}
 			toggle={() => (visible = false)}>
+			{#if errorMsg}
+                <p style="color: #063257 ">{errorMsg}</p>
+        	{/if}
 			
-			Error en los campos al añadir un dato.
 		</Alert>
+		
 		<div class="mt-3" style="position: absolute; right:80px;">
     					<Button id={`btn-${placement}`}>Buscar</Button>
    						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
@@ -169,12 +242,12 @@
        							 id="filtroComida"
         						label="Tipo de comida" >
 									<FormGroup>
-										<CustomInput type="select" id="exampleCustomSelect" name="customSelect">
-										  <option value="">Carne</option>
-										  <option>Huevos y lácteos</option>
-										  <option>Producido</option>
-										  <option>Cereales</option>
-										  <option>Grasas y azúcares</option>
+										<CustomInput type="select" id="myselect">
+										  <option value="Meat">Carne</option>
+										  <option value="DairyAndEggs">Huevos y lácteos</option>
+										  <option value="Produce">Producido</option>
+										  <option value="Grain">Cereales</option>
+										  <option value="SugarAndFat">Grasas y azúcares</option>
 										</CustomInput>
 									</FormGroup>
 							    </CustomInput>
@@ -193,9 +266,10 @@
 								<CustomInput
         						type="checkbox"
        							 id="filtroCalDia"
-        						label="Calorías diarias mayor que" ><input type=number bind:value="{newFoodconsumption.dailycalory}"></CustomInput>
+        						label="Calorías diarias mayor que" ><input type=number bind:value="{filterFoodconsumption.dailycalory}"></CustomInput>
 								<br>
 								<Button on:click={getFiltro}>Filtrar</Button>
+								<Button outline color="secondary" on:click="{getFoodconsumption}">Atrás</Button>
 								</FormGroup>
 							</Form>
     					</Popover>

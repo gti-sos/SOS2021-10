@@ -14,6 +14,7 @@
 	import FromTo from './sanity/FromTo.svelte';
 	
 	
+	
 	const routes = {
 		"/": Landing,
 		"/info": Info,
