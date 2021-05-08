@@ -1,15 +1,25 @@
 <script>
-
+	const placement = 'right';
 	
 	import {
 		onMount
 	} from "svelte";
 	
+	let open = false;
+	
+	const toggle = () =>{
+		(open = !open);
+	}  
+	
 	import Table from "sveltestrap/src/Table.svelte";
 	let foodconsumption = [];
 	
 	import Button from "sveltestrap/src/Button.svelte";
+	import Alert from 'sveltestrap/src/Alert.svelte';
+	import Popover from 'sveltestrap/src/Popover.svelte';
+	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
 	
+	let visible = false;
 	
 	let newFoodconsumption= {
 		country:"",
@@ -33,8 +43,43 @@
 			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 			console.log(JSON.stringify(foodconsumption));
-		}else{
+		}
+		
+		else{
+			
+		
 			console.log("Error!");
+			
+		}
+	}
+	let filterFoodconsumption= {
+		country:"",
+		year:0,
+		foodtype: "",
+		caloryperperson:0,
+		gramperperson:0,
+		dailygram: 0,
+		dailycalory: 0
+	}
+	
+	
+	async function getFiltro(){
+		let dbquery= {};
+		console.log("Fetching foodconsumption...");
+		const res = await fetch("/api/v1/foodconsumption-stats");
+		
+		if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			foodconsumption= json ;
+			console.log(`We have ${foodconsumption.length} foodconsumption.`);
+			console.log(JSON.stringify(foodconsumption));
+		}
+		
+		else{
+		
+			console.log("Error!");
+			
 		}
 	}
 	
@@ -57,7 +102,11 @@
 							}
 						}).then( (res)=> {
 						getFoodconsumption();
-						
+						if(res.status === 400){
+							console.log("TAS EQUIVOCAO");
+							visible = true;
+						}
+		
 						})
 		
 	}
@@ -68,10 +117,11 @@
 							method: "DELETE"
 							
 						}).then( (res)=> {
+						
 						getFoodconsumption();
 						
 						})
-		
+						
 	}
 	
 	async function deleteTodo(){
@@ -93,12 +143,69 @@
 
 <main>
 	
-	
+		<Alert
+			color="danger"
+			isOpen={visible}
+			toggle={() => (visible = false)}>
+			
+			Error en los campos al añadir un dato.
+		</Alert>
+		<div class="mt-3" style="position: absolute; right:80px;">
+    					<Button id={`btn-${placement}`}>Buscar</Button>
+   						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+							<Form>
+  								<FormGroup>
+   						 
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroPais"
+        						label="País" ><input bind:value="{filterFoodconsumption.country}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroAnyo"
+        						label="Año" ><input type=number bind:value="{filterFoodconsumption.year}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroComida"
+        						label="Tipo de comida" >
+									<FormGroup>
+										<CustomInput type="select" id="exampleCustomSelect" name="customSelect">
+										  <option value="">Carne</option>
+										  <option>Huevos y lácteos</option>
+										  <option>Producido</option>
+										  <option>Cereales</option>
+										  <option>Grasas y azúcares</option>
+										</CustomInput>
+									</FormGroup>
+							    </CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroCalPer"
+        						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroGramPer"
+        						label="Gramos por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.gramperperson}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroGramDia"
+        						label="Gramos diarios mayor que" ><input type=number bind:value="{filterFoodconsumption.dailygram}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtroCalDia"
+        						label="Calorías diarias mayor que" ><input type=number bind:value="{newFoodconsumption.dailycalory}"></CustomInput>
+								<br>
+								<Button on:click={getFiltro}>Filtrar</Button>
+								</FormGroup>
+							</Form>
+    					</Popover>
+  					</div>
 		<Table responsive>
 			<thead>
 				<tr>
 					<td><Button on:click={loadInitialData}>Cargar datos</Button></td>
 					<td><Button on:click={deleteTodo}>Borrar datos</Button></td>
+					
 					
 				</tr>
 				<tr>

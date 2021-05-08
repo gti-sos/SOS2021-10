@@ -1,7 +1,8 @@
 <script>
 
 	import Header from '../Header.svelte';
-
+	import Alert from 'sveltestrap/src/Alert.svelte';
+	let visible = false;
 
     import {
         onMount
@@ -45,9 +46,10 @@
 			updatedGramperperson = parseInt(foodconsumption.gramperperson);
 			updatedDailygram = parseInt(foodconsumption.dailygram);
 			updatedDailycalory = parseInt(foodconsumption.dailycalory);
-			
+			visible = false;
             console.log("Received foodconsumption.");
         } else {
+			visible = true;
             errorMsg = res.status + ": " + res.statusText;
             console.log("ERROR!" + errorMsg);
         }
@@ -110,8 +112,14 @@
                 </tr>
         </tbody>
         </Table>
-    {#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
-    {/if}
+ 
+       <Alert
+			color="danger"
+			isOpen={visible}
+			>
+			
+			Este dato no existe.
+		</Alert>
+
     <Button outline color="secondary" on:click="{pop}">Back</Button>
 </main>

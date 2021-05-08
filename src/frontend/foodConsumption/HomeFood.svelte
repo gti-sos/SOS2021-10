@@ -8,7 +8,7 @@
 		ModalFooter,
 		ModalHeader,
 		Breadcrumb,
-		BreadcrumbItem,
+		BreadcrumbItem
 	} from 'sveltestrap';
 	
 	let open = false;
