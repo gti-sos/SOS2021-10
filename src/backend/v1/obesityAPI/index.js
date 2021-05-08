@@ -43,6 +43,10 @@ var obesityInitialData = [
 	}
 ];
 
+function hasNumbers(t){
+	var regex = /\d/g;
+	return regex.test(t);
+}
  module.exports.register = (app) => {
 
     app.get(BASE_API_PATH, (req,res)=>{
@@ -166,7 +170,8 @@ var obesityInitialData = [
                         || !newobesity.man_percent
                         || !newobesity.woman_percent
                         || !newobesity.total_population
-                        || Object.keys(newobesity).length != 5) {
+                        || Object.keys(newobesity).length != 5
+						|| hasNumbers(newobesity.country)){
 
                         res.sendStatus(400);
                     } else {

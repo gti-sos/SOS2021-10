@@ -11,6 +11,7 @@
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
+	import FromTo from './sanity/FromTo.svelte';
 	
 	
 	
@@ -23,6 +24,7 @@
 		"/obesity-stats/:country/:year": EditObe,
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
+		"/sanity-stats/statistics/from/:in/to/:t": FromTo,
 		"*": NotFound
 	}
 	

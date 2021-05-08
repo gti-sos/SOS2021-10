@@ -21,6 +21,7 @@
 	import Header from '../Header.svelte';
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
+<<<<<<< HEAD
 	import Alert from 'sveltestrap/src/Alert.svelte';
 	
 	onMount(getFoodconsumption);
@@ -167,3 +168,6 @@
 	}
 	
 </style>
+=======
+</script>
+>>>>>>> 69f2c941a15c20149b75f5d1da011266f9810d7c

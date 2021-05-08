@@ -1,5 +1,5 @@
 <script>
-	import Header from '../Header.svelte';
+		const placement = 'right';
 	import {
     	Button
   	} from 'sveltestrap';
@@ -8,6 +8,14 @@
 	} from "svelte";
 	
 	import Table from "sveltestrap/src/Table.svelte";
+
+	import Alert from 'sveltestrap/src/Alert.svelte';
+	import Popover from 'sveltestrap/src/Popover.svelte';
+	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
+
+	
+	let visible = false;
+
 	let sanity = [];
 	let NewSanity={
 		"country" :"",
@@ -16,10 +24,33 @@
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
-	
+	let filterSanity= {
+		from:0,
+		to:0
+	}
+
+	async function getFiltro(){
+		console.log("Fetching foodconsumption...");
+		console.log(filterSanity);
+		const res = await fetch("/api/v2/sanity-stats/statistics?from="+filterSanity.from+"&to="+filterSanity.to);
+		
+		if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			sanity= json ;
+			console.log(`We have ${sanity.length} sanity.`);
+			console.log(JSON.stringify(sanity));
+		}
+		else{
+			console.log("Error!");	
+		}
+	}
+
+
+
 	async function SanityData() {
     	console.log("Loading data...");
-   		const res = await fetch("/api/v1/sanity-stats/loadInitialData");
+   		const res = await fetch("/api/v2/sanity-stats/loadInitialData");
 		
         if(res.ok){
 			console.log("Ok.");
@@ -31,7 +62,7 @@
 
 	async function getSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats");
+   		const res = await fetch("/api/v2/sanity-stats");
 		
         if(res.ok){
           console.log("Ok.");
@@ -44,20 +75,20 @@
   	}
 	async function Delete() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats",{method:"Delete"}).then( (res)=>{
+   		const res = await fetch("/api/v2/sanity-stats",{method:"Delete"}).then( (res)=>{
 			   getSanity();
 		   })
   	}
 	async function DeleteContact(ContactName,ContactYear) {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
+   		const res = await fetch("/api/v2/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
 			   getSanity();
 		})
 		getSanity();
   	}
 	async function PostSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats",{
+   		const res = await fetch("/api/v2/sanity-stats",{
 			   method:"POST", 
 			   body:JSON.stringify(NewSanity),
 			   headers:{
@@ -69,7 +100,7 @@
   	}
 	  async function PutSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats/"+NewSanity.country+"/"+NewSanity.year,{
+   		const res = await fetch("/api/v2/sanity-stats/"+NewSanity.country+"/"+NewSanity.year,{
 			   method:"PUT", 
 			   body:JSON.stringify(NewSanity),
 			   headers:{
@@ -83,6 +114,38 @@
 </script>
 
 <main>
+
+	<Alert
+			color="danger"
+			isOpen={visible}
+			toggle={() => (visible = false)}>
+			
+			Error en los campos al añadir un dato.
+		</Alert>
+		<div class="mt-3" style="position: absolute; right:80px;">
+    					<Button id={`btn-${placement}`}>Buscar</Button>
+   						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+							<Form>
+  								<FormGroup>
+   						 
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrodesde"
+        						label="Desde" ><input type=number bind:value="{filterSanity.from}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohasta"
+        						label="Hasta" ><input type=number bind:value="{filterSanity.to}"></CustomInput>
+								<br>
+								<Button on:click={getFiltro}>Filtrar</Button>
+								</FormGroup>
+							</Form>
+    					</Popover>
+  					</div>
+
+
+
+
 	<Table responsive>
 		<thead>
 			<tr>
