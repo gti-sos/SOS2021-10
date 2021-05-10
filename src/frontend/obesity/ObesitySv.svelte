@@ -3,6 +3,12 @@
 	import {
 		onMount
 	} from "svelte";
+	import App from './App.svelte';
+	const app = new App({
+  		target: document.getElementById('app')
+	});
+
+export default app;
 	import Alert from 'sveltestrap/src/Alert.svelte';
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
@@ -20,7 +26,15 @@
 	let visible = false;
 	let visibleOk = false;
 	
-	
+	let current_page = 1;
+  	let from = 1;
+ 	 let to = 1;
+  	let per_page = 1;
+ 	 let last_page = 1;
+  	let total = 0;
+  	let rows = [];
+
+  	
 	
 	
 	

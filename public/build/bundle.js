@@ -12833,11 +12833,11 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[18] = list[i];
+    	child_ctx[29] = list[i];
     	return child_ctx;
     }
 
-    // (114:8) <Button on:click={ObesityData}>
+    // (125:8) <Button on:click={ObesityData}>
     function create_default_slot_6$5(ctx) {
     	let t;
 
@@ -12857,14 +12857,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$5.name,
     		type: "slot",
-    		source: "(114:8) <Button on:click={ObesityData}>",
+    		source: "(125:8) <Button on:click={ObesityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (115:8) <Button on:click={deleteAll}>
+    // (126:8) <Button on:click={deleteAll}>
     function create_default_slot_5$6(ctx) {
     	let t;
 
@@ -12884,14 +12884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$6.name,
     		type: "slot",
-    		source: "(115:8) <Button on:click={deleteAll}>",
+    		source: "(126:8) <Button on:click={deleteAll}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (120:5) {#if errorMsg}
+    // (131:5) {#if errorMsg}
     function create_if_block_1$1(ctx) {
     	let p;
     	let t0;
@@ -12902,7 +12902,7 @@ var app = (function () {
     			p = element("p");
     			t0 = text("ERROR: ");
     			t1 = text(/*errorMsg*/ ctx[0]);
-    			add_location(p, file$b, 120, 6, 2684);
+    			add_location(p, file$b, 131, 6, 3037);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -12910,7 +12910,7 @@ var app = (function () {
     			append_dev(p, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*errorMsg*/ 1) set_data_dev(t1, /*errorMsg*/ ctx[0]);
+    			if (dirty[0] & /*errorMsg*/ 1) set_data_dev(t1, /*errorMsg*/ ctx[0]);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -12921,14 +12921,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(120:5) {#if errorMsg}",
+    		source: "(131:5) {#if errorMsg}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (119:4) <Alert color="danger" isOpen={visible} toggle={() => (visible = false)}>
+    // (130:4) <Alert color="danger" isOpen={visible} toggle={() => (visible = false)}>
     function create_default_slot_4$6(ctx) {
     	let if_block_anchor;
     	let if_block = /*errorMsg*/ ctx[0] && create_if_block_1$1(ctx);
@@ -12966,14 +12966,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$6.name,
     		type: "slot",
-    		source: "(119:4) <Alert color=\\\"danger\\\" isOpen={visible} toggle={() => (visible = false)}>",
+    		source: "(130:4) <Alert color=\\\"danger\\\" isOpen={visible} toggle={() => (visible = false)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (125:5) {#if okMsg}
+    // (136:5) {#if okMsg}
     function create_if_block$1(ctx) {
     	let p;
     	let t0;
@@ -12984,7 +12984,7 @@ var app = (function () {
     			p = element("p");
     			t0 = text("Correcto: ");
     			t1 = text(/*okMsg*/ ctx[1]);
-    			add_location(p, file$b, 125, 6, 2841);
+    			add_location(p, file$b, 136, 6, 3194);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -12992,7 +12992,7 @@ var app = (function () {
     			append_dev(p, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*okMsg*/ 2) set_data_dev(t1, /*okMsg*/ ctx[1]);
+    			if (dirty[0] & /*okMsg*/ 2) set_data_dev(t1, /*okMsg*/ ctx[1]);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(p);
@@ -13003,14 +13003,14 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(125:5) {#if okMsg}",
+    		source: "(136:5) {#if okMsg}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (124:4) <Alert color="success" isOpen={visibleOk} toggle={() => (visibleOk = false)}>
+    // (135:4) <Alert color="success" isOpen={visibleOk} toggle={() => (visibleOk = false)}>
     function create_default_slot_3$7(ctx) {
     	let if_block_anchor;
     	let if_block = /*okMsg*/ ctx[1] && create_if_block$1(ctx);
@@ -13048,14 +13048,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$7.name,
     		type: "slot",
-    		source: "(124:4) <Alert color=\\\"success\\\" isOpen={visibleOk} toggle={() => (visibleOk = false)}>",
+    		source: "(135:4) <Alert color=\\\"success\\\" isOpen={visibleOk} toggle={() => (visibleOk = false)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:8) <Button on:click={insertObesity}>
+    // (157:8) <Button on:click={insertObesity}>
     function create_default_slot_2$8(ctx) {
     	let t;
 
@@ -13075,14 +13075,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$8.name,
     		type: "slot",
-    		source: "(146:8) <Button on:click={insertObesity}>",
+    		source: "(157:8) <Button on:click={insertObesity}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:8) <Button on:click={deleteObesity(obe.country,obe.year)}>
+    // (167:8) <Button on:click={deleteObesity(obe.country,obe.year)}>
     function create_default_slot_1$8(ctx) {
     	let t;
 
@@ -13102,36 +13102,36 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$8.name,
     		type: "slot",
-    		source: "(156:8) <Button on:click={deleteObesity(obe.country,obe.year)}>",
+    		source: "(167:8) <Button on:click={deleteObesity(obe.country,obe.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:3) {#each obesity as obe}
+    // (159:3) {#each obesity as obe}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*obe*/ ctx[18].country + "";
+    	let t0_value = /*obe*/ ctx[29].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*obe*/ ctx[18].year + "";
+    	let t2_value = /*obe*/ ctx[29].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*obe*/ ctx[18].man_percent + "";
+    	let t4_value = /*obe*/ ctx[29].man_percent + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*obe*/ ctx[18].woman_percent + "";
+    	let t6_value = /*obe*/ ctx[29].woman_percent + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*obe*/ ctx[18].total_population + "";
+    	let t8_value = /*obe*/ ctx[29].total_population + "";
     	let t8;
     	let t9;
     	let td5;
@@ -13148,7 +13148,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteObesity*/ ctx[8](/*obe*/ ctx[18].country, /*obe*/ ctx[18].year))) /*deleteObesity*/ ctx[8](/*obe*/ ctx[18].country, /*obe*/ ctx[18].year).apply(this, arguments);
+    		if (is_function(/*deleteObesity*/ ctx[8](/*obe*/ ctx[29].country, /*obe*/ ctx[29].year))) /*deleteObesity*/ ctx[8](/*obe*/ ctx[29].country, /*obe*/ ctx[29].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -13173,22 +13173,22 @@ var app = (function () {
     			td5 = element("td");
     			create_component(button.$$.fragment);
     			t10 = space();
-    			attr_dev(a, "href", a_href_value = "#/obesity-stats/" + /*obe*/ ctx[18].country + "/" + /*obe*/ ctx[18].year);
-    			add_location(a, file$b, 149, 8, 3557);
+    			attr_dev(a, "href", a_href_value = "#/obesity-stats/" + /*obe*/ ctx[29].country + "/" + /*obe*/ ctx[29].year);
+    			add_location(a, file$b, 160, 8, 3910);
     			attr_dev(td0, "class", "svelte-1h2kj47");
-    			add_location(td0, file$b, 149, 4, 3553);
+    			add_location(td0, file$b, 160, 4, 3906);
     			attr_dev(td1, "class", "svelte-1h2kj47");
-    			add_location(td1, file$b, 151, 4, 3636);
+    			add_location(td1, file$b, 162, 4, 3989);
     			attr_dev(td2, "class", "svelte-1h2kj47");
-    			add_location(td2, file$b, 152, 4, 3660);
+    			add_location(td2, file$b, 163, 4, 4013);
     			attr_dev(td3, "class", "svelte-1h2kj47");
-    			add_location(td3, file$b, 153, 4, 3691);
+    			add_location(td3, file$b, 164, 4, 4044);
     			attr_dev(td4, "class", "svelte-1h2kj47");
-    			add_location(td4, file$b, 154, 4, 3724);
+    			add_location(td4, file$b, 165, 4, 4077);
     			attr_dev(td5, "class", "svelte-1h2kj47");
-    			add_location(td5, file$b, 155, 4, 3760);
+    			add_location(td5, file$b, 166, 4, 4113);
     			attr_dev(tr, "class", "svelte-1h2kj47");
-    			add_location(tr, file$b, 148, 4, 3544);
+    			add_location(tr, file$b, 159, 4, 3897);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -13215,19 +13215,19 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty & /*obesity*/ 4) && t0_value !== (t0_value = /*obe*/ ctx[18].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*obesity*/ 4) && t0_value !== (t0_value = /*obe*/ ctx[29].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty & /*obesity*/ 4 && a_href_value !== (a_href_value = "#/obesity-stats/" + /*obe*/ ctx[18].country + "/" + /*obe*/ ctx[18].year)) {
+    			if (!current || dirty[0] & /*obesity*/ 4 && a_href_value !== (a_href_value = "#/obesity-stats/" + /*obe*/ ctx[29].country + "/" + /*obe*/ ctx[29].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty & /*obesity*/ 4) && t2_value !== (t2_value = /*obe*/ ctx[18].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty & /*obesity*/ 4) && t4_value !== (t4_value = /*obe*/ ctx[18].man_percent + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty & /*obesity*/ 4) && t6_value !== (t6_value = /*obe*/ ctx[18].woman_percent + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty & /*obesity*/ 4) && t8_value !== (t8_value = /*obe*/ ctx[18].total_population + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty[0] & /*obesity*/ 4) && t2_value !== (t2_value = /*obe*/ ctx[29].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty[0] & /*obesity*/ 4) && t4_value !== (t4_value = /*obe*/ ctx[29].man_percent + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*obesity*/ 4) && t6_value !== (t6_value = /*obe*/ ctx[29].woman_percent + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty[0] & /*obesity*/ 4) && t8_value !== (t8_value = /*obe*/ ctx[29].total_population + "")) set_data_dev(t8, t8_value);
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13252,14 +13252,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(148:3) {#each obesity as obe}",
+    		source: "(159:3) {#each obesity as obe}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (110:1) <Table responsive>
+    // (121:1) <Table responsive>
     function create_default_slot$9(ctx) {
     	let thead;
     	let tr0;
@@ -13434,50 +13434,50 @@ var app = (function () {
     			}
 
     			attr_dev(td0, "class", "svelte-1h2kj47");
-    			add_location(td0, file$b, 113, 4, 2431);
+    			add_location(td0, file$b, 124, 4, 2784);
     			attr_dev(td1, "class", "svelte-1h2kj47");
-    			add_location(td1, file$b, 114, 4, 2497);
+    			add_location(td1, file$b, 125, 4, 2850);
     			attr_dev(tr0, "class", "svelte-1h2kj47");
-    			add_location(tr0, file$b, 112, 3, 2422);
-    			add_location(div, file$b, 117, 3, 2575);
-    			add_location(th0, file$b, 130, 4, 2916);
-    			add_location(th1, file$b, 131, 4, 2934);
-    			add_location(th2, file$b, 132, 4, 2951);
-    			add_location(th3, file$b, 133, 4, 2986);
-    			add_location(th4, file$b, 134, 4, 3019);
-    			add_location(th5, file$b, 135, 4, 3048);
+    			add_location(tr0, file$b, 123, 3, 2775);
+    			add_location(div, file$b, 128, 3, 2928);
+    			add_location(th0, file$b, 141, 4, 3269);
+    			add_location(th1, file$b, 142, 4, 3287);
+    			add_location(th2, file$b, 143, 4, 3304);
+    			add_location(th3, file$b, 144, 4, 3339);
+    			add_location(th4, file$b, 145, 4, 3372);
+    			add_location(th5, file$b, 146, 4, 3401);
     			attr_dev(tr1, "class", "svelte-1h2kj47");
-    			add_location(tr1, file$b, 129, 3, 2907);
-    			add_location(thead, file$b, 111, 2, 2411);
+    			add_location(tr1, file$b, 140, 3, 3260);
+    			add_location(thead, file$b, 122, 2, 2764);
     			attr_dev(input0, "class", "svelte-1h2kj47");
-    			add_location(input0, file$b, 140, 8, 3110);
+    			add_location(input0, file$b, 151, 8, 3463);
     			attr_dev(td2, "class", "svelte-1h2kj47");
-    			add_location(td2, file$b, 140, 4, 3106);
+    			add_location(td2, file$b, 151, 4, 3459);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-1h2kj47");
-    			add_location(input1, file$b, 141, 8, 3165);
+    			add_location(input1, file$b, 152, 8, 3518);
     			attr_dev(td3, "class", "svelte-1h2kj47");
-    			add_location(td3, file$b, 141, 4, 3161);
+    			add_location(td3, file$b, 152, 4, 3514);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "class", "svelte-1h2kj47");
-    			add_location(input2, file$b, 142, 8, 3229);
+    			add_location(input2, file$b, 153, 8, 3582);
     			attr_dev(td4, "class", "svelte-1h2kj47");
-    			add_location(td4, file$b, 142, 4, 3225);
+    			add_location(td4, file$b, 153, 4, 3578);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-1h2kj47");
-    			add_location(input3, file$b, 143, 8, 3300);
+    			add_location(input3, file$b, 154, 8, 3653);
     			attr_dev(td5, "class", "svelte-1h2kj47");
-    			add_location(td5, file$b, 143, 4, 3296);
+    			add_location(td5, file$b, 154, 4, 3649);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-1h2kj47");
-    			add_location(input4, file$b, 144, 8, 3373);
+    			add_location(input4, file$b, 155, 8, 3726);
     			attr_dev(td6, "class", "svelte-1h2kj47");
-    			add_location(td6, file$b, 144, 4, 3369);
+    			add_location(td6, file$b, 155, 4, 3722);
     			attr_dev(td7, "class", "svelte-1h2kj47");
-    			add_location(td7, file$b, 145, 4, 3445);
+    			add_location(td7, file$b, 156, 4, 3798);
     			attr_dev(tr2, "class", "svelte-1h2kj47");
-    			add_location(tr2, file$b, 139, 3, 3097);
-    			add_location(tbody, file$b, 138, 2, 3086);
+    			add_location(tr2, file$b, 150, 3, 3450);
+    			add_location(tbody, file$b, 149, 2, 3439);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -13553,66 +13553,66 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
     			button1.$set(button1_changes);
     			const alert0_changes = {};
-    			if (dirty & /*visible*/ 16) alert0_changes.isOpen = /*visible*/ ctx[4];
-    			if (dirty & /*visible*/ 16) alert0_changes.toggle = /*func*/ ctx[10];
+    			if (dirty[0] & /*visible*/ 16) alert0_changes.isOpen = /*visible*/ ctx[4];
+    			if (dirty[0] & /*visible*/ 16) alert0_changes.toggle = /*func*/ ctx[10];
 
-    			if (dirty & /*$$scope, errorMsg*/ 2097153) {
+    			if (dirty[0] & /*errorMsg*/ 1 | dirty[1] & /*$$scope*/ 2) {
     				alert0_changes.$$scope = { dirty, ctx };
     			}
 
     			alert0.$set(alert0_changes);
     			const alert1_changes = {};
-    			if (dirty & /*visibleOk*/ 32) alert1_changes.isOpen = /*visibleOk*/ ctx[5];
-    			if (dirty & /*visibleOk*/ 32) alert1_changes.toggle = /*func_1*/ ctx[11];
+    			if (dirty[0] & /*visibleOk*/ 32) alert1_changes.isOpen = /*visibleOk*/ ctx[5];
+    			if (dirty[0] & /*visibleOk*/ 32) alert1_changes.toggle = /*func_1*/ ctx[11];
 
-    			if (dirty & /*$$scope, okMsg*/ 2097154) {
+    			if (dirty[0] & /*okMsg*/ 2 | dirty[1] & /*$$scope*/ 2) {
     				alert1_changes.$$scope = { dirty, ctx };
     			}
 
     			alert1.$set(alert1_changes);
 
-    			if (dirty & /*newObesity*/ 8 && input0.value !== /*newObesity*/ ctx[3].country) {
+    			if (dirty[0] & /*newObesity*/ 8 && input0.value !== /*newObesity*/ ctx[3].country) {
     				set_input_value(input0, /*newObesity*/ ctx[3].country);
     			}
 
-    			if (dirty & /*newObesity*/ 8 && to_number(input1.value) !== /*newObesity*/ ctx[3].year) {
+    			if (dirty[0] & /*newObesity*/ 8 && to_number(input1.value) !== /*newObesity*/ ctx[3].year) {
     				set_input_value(input1, /*newObesity*/ ctx[3].year);
     			}
 
-    			if (dirty & /*newObesity*/ 8 && to_number(input2.value) !== /*newObesity*/ ctx[3].man_percent) {
+    			if (dirty[0] & /*newObesity*/ 8 && to_number(input2.value) !== /*newObesity*/ ctx[3].man_percent) {
     				set_input_value(input2, /*newObesity*/ ctx[3].man_percent);
     			}
 
-    			if (dirty & /*newObesity*/ 8 && to_number(input3.value) !== /*newObesity*/ ctx[3].woman_percent) {
+    			if (dirty[0] & /*newObesity*/ 8 && to_number(input3.value) !== /*newObesity*/ ctx[3].woman_percent) {
     				set_input_value(input3, /*newObesity*/ ctx[3].woman_percent);
     			}
 
-    			if (dirty & /*newObesity*/ 8 && to_number(input4.value) !== /*newObesity*/ ctx[3].total_population) {
+    			if (dirty[0] & /*newObesity*/ 8 && to_number(input4.value) !== /*newObesity*/ ctx[3].total_population) {
     				set_input_value(input4, /*newObesity*/ ctx[3].total_population);
     			}
 
     			const button2_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty[1] & /*$$scope*/ 2) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
 
-    			if (dirty & /*deleteObesity, obesity*/ 260) {
+    			if (dirty[0] & /*deleteObesity, obesity*/ 260) {
     				each_value = /*obesity*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
@@ -13687,7 +13687,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(110:1) <Table responsive>",
+    		source: "(121:1) <Table responsive>",
     		ctx
     	});
 
@@ -13712,7 +13712,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(table.$$.fragment);
-    			add_location(main, file$b, 108, 0, 2380);
+    			add_location(main, file$b, 119, 0, 2733);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13722,10 +13722,10 @@ var app = (function () {
     			mount_component(table, main, null);
     			current = true;
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(ctx, dirty) {
     			const table_changes = {};
 
-    			if (dirty & /*$$scope, obesity, newObesity, visibleOk, okMsg, visible, errorMsg*/ 2097215) {
+    			if (dirty[0] & /*obesity, newObesity, visibleOk, okMsg, visible, errorMsg*/ 63 | dirty[1] & /*$$scope*/ 2) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -13776,6 +13776,17 @@ var app = (function () {
 
     	let visible = false;
     	let visibleOk = false;
+    	let total = 10;
+    	let per_page = 10;
+    	let urrent_page = 1;
+    	let last_page = 4;
+    	let first_page_url = BASE_CONTACT_API_PATH$1 + "/obesity-stats?page=1";
+    	let next_page_url = BASE_CONTACT_API_PATH$1 + "/obesity-stats?page=2";
+    	let last_page_url = BASE_CONTACT_API_PATH$1 + "/obesity-stats?page=4";
+    	let prev_page_url = null;
+    	let from = 1;
+    	let to = 15;
+    	let data = [];
 
     	async function ObesityData() {
     		console.log("Loading data...");
@@ -13886,6 +13897,17 @@ var app = (function () {
     		newObesity,
     		visible,
     		visibleOk,
+    		total,
+    		per_page,
+    		urrent_page,
+    		last_page,
+    		first_page_url,
+    		next_page_url,
+    		last_page_url,
+    		prev_page_url,
+    		from,
+    		to,
+    		data,
     		BASE_CONTACT_API_PATH: BASE_CONTACT_API_PATH$1,
     		ObesityData,
     		getObesity,
@@ -13901,6 +13923,17 @@ var app = (function () {
     		if ("newObesity" in $$props) $$invalidate(3, newObesity = $$props.newObesity);
     		if ("visible" in $$props) $$invalidate(4, visible = $$props.visible);
     		if ("visibleOk" in $$props) $$invalidate(5, visibleOk = $$props.visibleOk);
+    		if ("total" in $$props) total = $$props.total;
+    		if ("per_page" in $$props) per_page = $$props.per_page;
+    		if ("urrent_page" in $$props) urrent_page = $$props.urrent_page;
+    		if ("last_page" in $$props) last_page = $$props.last_page;
+    		if ("first_page_url" in $$props) first_page_url = $$props.first_page_url;
+    		if ("next_page_url" in $$props) next_page_url = $$props.next_page_url;
+    		if ("last_page_url" in $$props) last_page_url = $$props.last_page_url;
+    		if ("prev_page_url" in $$props) prev_page_url = $$props.prev_page_url;
+    		if ("from" in $$props) from = $$props.from;
+    		if ("to" in $$props) to = $$props.to;
+    		if ("data" in $$props) data = $$props.data;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -13931,7 +13964,7 @@ var app = (function () {
     class ObesitySv extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {});
+    		init(this, options, instance$b, create_fragment$b, safe_not_equal, {}, [-1, -1]);
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
