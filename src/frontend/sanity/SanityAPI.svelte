@@ -47,8 +47,8 @@ let numeroRecursos = 10;
 
 
  function incrementOffset(valor) {
-		offset += valor;
 		currentPage += valor;
+		if(sanity.length<currentPage*numeroRecursos){moreData=false}
 		getSanity();
 	}
 ///////////////////
@@ -286,7 +286,7 @@ let numeroRecursos = 10;
 
 
 		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/rural-tourism-stats" on:click="{() => incrementOffset(-1)}" />
+		  <PaginationLink previous href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" />
 		</PaginationItem>
 		
 		<!-- If we are not in the first page-->

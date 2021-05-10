@@ -14853,7 +14853,7 @@ var app = (function () {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 201, 28, 5283);
+    			add_location(input, file$b, 201, 28, 5327);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14898,7 +14898,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 206, 33, 5466);
+    			add_location(input, file$b, 206, 33, 5510);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14943,7 +14943,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 210, 33, 5660);
+    			add_location(input, file$b, 210, 33, 5704);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14988,7 +14988,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 214, 44, 5867);
+    			add_location(input, file$b, 214, 44, 5911);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15033,7 +15033,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 218, 44, 6078);
+    			add_location(input, file$b, 218, 44, 6122);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15078,7 +15078,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 221, 37, 6270);
+    			add_location(input, file$b, 221, 37, 6314);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15123,7 +15123,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 225, 37, 6474);
+    			add_location(input, file$b, 225, 37, 6518);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15168,7 +15168,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 228, 35, 6662);
+    			add_location(input, file$b, 228, 35, 6706);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15213,7 +15213,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 232, 35, 6859);
+    			add_location(input, file$b, 232, 35, 6903);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15427,7 +15427,7 @@ var app = (function () {
     			br = element("br");
     			t7 = space();
     			create_component(button.$$.fragment);
-    			add_location(br, file$b, 233, 8, 6936);
+    			add_location(br, file$b, 233, 8, 6980);
     		},
     		m: function mount(target, anchor) {
     			mount_component(custominput0, target, anchor);
@@ -15896,21 +15896,21 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t10 = space();
     			attr_dev(a, "href", a_href_value = "#/sanity-stats/" + /*sani*/ ctx[36].country + "/" + /*sani*/ ctx[36].year);
-    			add_location(a, file$b, 270, 8, 8055);
+    			add_location(a, file$b, 270, 8, 8099);
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 270, 4, 8051);
+    			add_location(td0, file$b, 270, 4, 8095);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 271, 4, 8132);
+    			add_location(td1, file$b, 271, 4, 8176);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 272, 4, 8158);
+    			add_location(td2, file$b, 272, 4, 8202);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 273, 4, 8212);
+    			add_location(td3, file$b, 273, 4, 8256);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 274, 4, 8258);
+    			add_location(td4, file$b, 274, 4, 8302);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 275, 4, 8292);
+    			add_location(td5, file$b, 275, 4, 8336);
     			attr_dev(tr, "class", "svelte-ycj1m8");
-    			add_location(tr, file$b, 269, 4, 8041);
+    			add_location(tr, file$b, 269, 4, 8085);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -16140,55 +16140,55 @@ var app = (function () {
     			}
 
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 246, 4, 7124);
+    			add_location(td0, file$b, 246, 4, 7168);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 247, 4, 7201);
+    			add_location(td1, file$b, 247, 4, 7245);
     			attr_dev(tr0, "class", "svelte-ycj1m8");
-    			add_location(tr0, file$b, 245, 3, 7114);
+    			add_location(tr0, file$b, 245, 3, 7158);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 250, 4, 7283);
+    			add_location(td2, file$b, 250, 4, 7327);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 251, 4, 7302);
+    			add_location(td3, file$b, 251, 4, 7346);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 252, 4, 7320);
+    			add_location(td4, file$b, 252, 4, 7364);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 253, 4, 7365);
+    			add_location(td5, file$b, 253, 4, 7409);
     			attr_dev(td6, "class", "svelte-ycj1m8");
-    			add_location(td6, file$b, 254, 4, 7413);
+    			add_location(td6, file$b, 254, 4, 7457);
     			attr_dev(tr1, "class", "svelte-ycj1m8");
-    			add_location(tr1, file$b, 249, 3, 7273);
-    			add_location(thead, file$b, 244, 2, 7102);
+    			add_location(tr1, file$b, 249, 3, 7317);
+    			add_location(thead, file$b, 244, 2, 7146);
     			attr_dev(input0, "class", "svelte-ycj1m8");
-    			add_location(input0, file$b, 260, 8, 7496);
+    			add_location(input0, file$b, 260, 8, 7540);
     			attr_dev(td7, "class", "svelte-ycj1m8");
-    			add_location(td7, file$b, 260, 4, 7492);
+    			add_location(td7, file$b, 260, 4, 7536);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-ycj1m8");
-    			add_location(input1, file$b, 261, 8, 7551);
+    			add_location(input1, file$b, 261, 8, 7595);
     			attr_dev(td8, "class", "svelte-ycj1m8");
-    			add_location(td8, file$b, 261, 4, 7547);
+    			add_location(td8, file$b, 261, 4, 7591);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "class", "svelte-ycj1m8");
-    			add_location(input2, file$b, 262, 8, 7613);
+    			add_location(input2, file$b, 262, 8, 7657);
     			attr_dev(td9, "class", "svelte-ycj1m8");
-    			add_location(td9, file$b, 262, 4, 7609);
+    			add_location(td9, file$b, 262, 4, 7653);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-ycj1m8");
-    			add_location(input3, file$b, 263, 8, 7703);
+    			add_location(input3, file$b, 263, 8, 7747);
     			attr_dev(td10, "class", "svelte-ycj1m8");
-    			add_location(td10, file$b, 263, 4, 7699);
+    			add_location(td10, file$b, 263, 4, 7743);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-ycj1m8");
-    			add_location(input4, file$b, 264, 8, 7785);
+    			add_location(input4, file$b, 264, 8, 7829);
     			attr_dev(td11, "class", "svelte-ycj1m8");
-    			add_location(td11, file$b, 264, 4, 7781);
+    			add_location(td11, file$b, 264, 4, 7825);
     			attr_dev(td12, "class", "svelte-ycj1m8");
-    			add_location(td12, file$b, 265, 4, 7851);
+    			add_location(td12, file$b, 265, 4, 7895);
     			attr_dev(td13, "class", "svelte-ycj1m8");
-    			add_location(td13, file$b, 266, 4, 7926);
+    			add_location(td13, file$b, 266, 4, 7970);
     			attr_dev(tr2, "class", "svelte-ycj1m8");
-    			add_location(tr2, file$b, 259, 3, 7482);
-    			add_location(tbody, file$b, 257, 2, 7465);
+    			add_location(tr2, file$b, 259, 3, 7526);
+    			add_location(tbody, file$b, 257, 2, 7509);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -16394,10 +16394,7 @@ var app = (function () {
     	let current;
 
     	paginationlink = new PaginationLink({
-    			props: {
-    				previous: true,
-    				href: "#/rural-tourism-stats"
-    			},
+    			props: { previous: true, href: "#/sanity-stats" },
     			$$inline: true
     		});
 
@@ -16963,8 +16960,32 @@ var app = (function () {
     			}
 
     			paginationitem1.$set(paginationitem1_changes);
-    			if (/*moreData*/ ctx[6]) if_block1.p(ctx, dirty);
+
+    			if (/*moreData*/ ctx[6]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+
+    					if (dirty[0] & /*moreData*/ 64) {
+    						transition_in(if_block1, 1);
+    					}
+    				} else {
+    					if_block1 = create_if_block$2(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(t3.parentNode, t3);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+
+    				transition_out(if_block1, 1, 1, () => {
+    					if_block1 = null;
+    				});
+
+    				check_outros();
+    			}
+
     			const paginationitem2_changes = {};
+    			if (dirty[0] & /*moreData*/ 64) paginationitem2_changes.class = /*moreData*/ ctx[6] ? "" : "disabled";
 
     			if (dirty[1] & /*$$scope*/ 256) {
     				paginationitem2_changes.$$scope = { dirty, ctx };
@@ -17092,8 +17113,8 @@ var app = (function () {
     			attr_dev(div, "class", "mt-3");
     			set_style(div, "position", "absolute");
     			set_style(div, "right", "80px");
-    			add_location(div, file$b, 192, 2, 4927);
-    			add_location(main, file$b, 183, 0, 4796);
+    			add_location(div, file$b, 192, 2, 4971);
+    			add_location(main, file$b, 183, 0, 4840);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17145,7 +17166,7 @@ var app = (function () {
     			table.$set(table_changes);
     			const pagination_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*moreData, currentPage*/ 96 | dirty[1] & /*$$scope*/ 256) {
     				pagination_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17226,8 +17247,12 @@ var app = (function () {
     	let moreData = true;
 
     	function incrementOffset(valor) {
-    		offset += valor;
     		$$invalidate(5, currentPage += valor);
+
+    		if (sanity.length < currentPage * numeroRecursos) {
+    			$$invalidate(6, moreData = false);
+    		}
+
     		getSanity();
     	}
 
