@@ -27,7 +27,11 @@
 	<Breadcrumb>
   				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Estaditicas de Obesidad</a></BreadcrumbItem>
 				<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
-			</Breadcrumb>
+	</Breadcrumb>
+	<Breadcrumb>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/obesity-stats">Estaditicas de Obesidad v2</a></BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
+	</Breadcrumb>
 			
 	<h2>
 		<strong>Front-end Svelte:</strong>
