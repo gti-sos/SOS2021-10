@@ -45,9 +45,16 @@
 	let moreData = true; 
 	
 	function incrementOffset(valor) {
-		offset += valor;
 		currentPage += valor;
-		getSanity();
+		
+		if(foodconsumption.length===0){
+			moreData=false;
+		}
+		else{
+			moreData=true;
+		}
+		
+		getFoodconsumption();
 	}
 	async function getFoodconsumption(){
 	 	let offset = (currentPage-1)*numeroRecursos;
