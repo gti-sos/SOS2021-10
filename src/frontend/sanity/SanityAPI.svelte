@@ -1,5 +1,6 @@
 <script>
-		const placement = 'right';
+
+	const placement = 'right';
 	import {
     	Button
   	} from 'sveltestrap';
@@ -12,11 +13,12 @@
 	import Alert from 'sveltestrap/src/Alert.svelte';
 	import Popover from 'sveltestrap/src/Popover.svelte';
 	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
-
 	
+	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+
 	let visible = false;
 	let mensaje="";
-	let sanity = [];
+	let sanity= [];
 	let NewSanity={
 		"country" :"",
 		"year": 0,
@@ -35,11 +37,28 @@
 		frombed:0,
 		tobed:0
 	}
+///////////////
+let numeroRecursos = 10;
+	let offset = 0;
+	let currentPage = 1; 
+	let moreData = true; 
 
+
+
+
+ function incrementOffset(valor) {
+		offset += valor;
+		currentPage += valor;
+		getSanity();
+	}
+///////////////////
 	async function getFiltro(){
 		console.log("Fetching foodconsumption...");
 		console.log(filterSanity);
-		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed);
+		
+        let offset = (currentPage-1)*numeroRecursos;
+        let limit = currentPage*numeroRecursos;
+		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"?offset="+offset+"&limit="+limit);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -69,7 +88,9 @@
 
 	async function getSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v2/sanity-stats");
+        let offset = (currentPage-1)*numeroRecursos;
+        let limit = currentPage*numeroRecursos;
+   		const res = await fetch("/api/v2/sanity-stats?offset="+offset+"&limit="+limit);
 		
         if(res.ok){
           console.log("Ok.");
@@ -259,7 +280,37 @@
 			{/each}
 			
 		</tbody>
+		
 	</Table>
+	<Pagination ariaLabel="Cambiar de página">
+
+
+		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/rural-tourism-stats" on:click="{() => incrementOffset(-1)}" />
+		</PaginationItem>
+		
+		<!-- If we are not in the first page-->
+		{#if currentPage != 1}
+		<PaginationItem>
+			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/sanity-stats" >{currentPage}</PaginationLink>
+		</PaginationItem>
+
+		<!-- If there are more elements-->
+		{#if moreData}
+		<PaginationItem >
+			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+
+		<PaginationItem class="{moreData ? '' : 'disabled'}">
+			<PaginationLink next href="#/sanity-stats" on:click="{() => incrementOffset(1)}"/>
+		</PaginationItem>
+
+	</Pagination>
 </main>
 <style>
 	td	{
