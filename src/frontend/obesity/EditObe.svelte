@@ -24,7 +24,7 @@
  	];
 	
 
-	const BASE_CONTACT_API_PATH = "/api/v1";
+	const BASE_CONTACT_API_PATH = "/api/v2";
     export let params = {};
     let obesity = {};
 	let upCountry = "XXXX";
@@ -58,9 +58,11 @@
 			console.log(JSON.stringify(obesity));
             console.log("Received data.");
         } else {
-			if(res-status === 404){
-            	errorMsg = `No existe dato con pais: ${obesity.country} y fecha: ${obesity.year}`;
+			if(res.status === 404){
+            	errorMsg = `No existe dato con pais: ${params.country} y fecha: ${params.year}`;
             	console.log("ERROR!" + errorMsg);
+				visibleOk=false;
+				visible=true;
 			} else if (res.status === 500) {
         		errorMsg = "No se han podido acceder a la base de datos";
       		}

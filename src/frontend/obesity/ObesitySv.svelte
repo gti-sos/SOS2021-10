@@ -124,17 +124,21 @@ let filterObesity= {
 			console.log("Ok.");
 			const json = await res.json();
 			obesity= json ;
+			if(obesity.length>0){
+			okMsg = "Datos filtrados";
+			visibleOk=true;
+			visible=false;
 			console.log(`We have ${obesity.length} obesity.`);
 			console.log(JSON.stringify(obesity));
-		}
-		
-		else{
-		
+			}else{
+			errorMsg = "No se encuentran datos con los filtros seleccionados";
+			visibleOk=false;
+			visible=true;
 			console.log("Error!");
 			
 		}
 		
-		
+		}
 		
 	}
 
@@ -213,10 +217,16 @@ let filterObesity= {
 								method: "DELETE"
 								
 							}).then( function (res) {
+							if(res.ok){
 								getObesity();
 								okMsg = "Todos los datos se han eliminado";
 								visibleOk=true;
 								visible=false;
+							}else{
+								errorMsg = "No hay datos que borrar";
+								visibleOk=false;
+								visible=true;
+							}
 							})
 	}
 	

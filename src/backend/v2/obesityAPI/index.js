@@ -40,6 +40,48 @@ var obesityInitialData = [
 		"man_percent": 1.7,
 		"woman_percent": 3.6,
 		"total_population": 1217725952
+	},
+	{
+		"country": "India",
+		"year": 2011,
+		"man_percent": 2,
+		"woman_percent": 4,
+		"total_population": 1250288000
+	},
+	{
+		"country": "Argentina",
+		"year": 2007,
+		"man_percent": 22.5,
+		"woman_percent": 25,
+		"total_population": 39684000
+	},
+	{
+		"country": "Spain",
+		"year": 2009,
+		"man_percent": 21.3,
+		"woman_percent": 21.2,
+		"total_population": 46584000
+	},
+	{
+		"country": "Germany",
+		"year": 2011,
+		"man_percent": 21.6,
+		"woman_percent": 18.9,
+		"total_population": 80856000
+	},
+	{
+		"country": "Japan",
+		"year": 2010,
+		"man_percent": 3.5,
+		"woman_percent": 3.1,
+		"total_population": 128542000
+	},
+	{
+		"country": "Portugal",
+		"year": 2013,
+		"man_percent": 18.6,
+		"woman_percent": 20.1,
+		"total_population": 10473000
 	}
 ];
 
@@ -103,6 +145,9 @@ function hasNumbers(t){
  });
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
+		for(var i=0;i<obesityInitialData.length;i++){
+			db.remove({"country":obesityInitialData[i].country},{multi:true});
+		}
         db.insert(obesityInitialData);
         
         
