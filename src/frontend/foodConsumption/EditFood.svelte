@@ -3,6 +3,7 @@
 	import Header from '../Header.svelte';
 	import Alert from 'sveltestrap/src/Alert.svelte';
 	let visible = false;
+	let color="";
 
     import {
         onMount
@@ -46,11 +47,12 @@
 			updatedGramperperson = parseInt(foodconsumption.gramperperson);
 			updatedDailygram = parseInt(foodconsumption.dailygram);
 			updatedDailycalory = parseInt(foodconsumption.dailycalory);
-			visible = false;
+		
             console.log("Received foodconsumption.");
         } else {
+			errorMsg= "El dato con país " + params.country + ", año " + params.year + " y tipo de comida " + params.foodtype + " no existe." ;
 			visible = true;
-            errorMsg = res.status + ": " + res.statusText;
+			color="danger";
             console.log("ERROR!" + errorMsg);
         }
     }
@@ -76,6 +78,12 @@
             }
         }).then(function (res) {
             getFoodconsumption();
+			if(res.ok){
+				errorMsg= "Dato actualizado correctamente.";
+				visible = true;
+				color="success";
+			}
+			
         });
 
 
@@ -114,11 +122,13 @@
         </Table>
  
        <Alert
-			color="danger"
+			color={color}
 			isOpen={visible}
-			>
-			
-			Este dato no existe.
+			toggle={() => (visible = false)}>
+			{#if errorMsg}
+                <p style="color: #063257 ">{errorMsg}</p>
+        	{/if}
+		
 		</Alert>
 
     <Button outline color="secondary" on:click="{pop}">Back</Button>
