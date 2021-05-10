@@ -39,27 +39,42 @@
 	}
 	
 	var BASE_CONTACT_API_PATH= "/api/v1";
-	let numeroRecursos = 10;
-	let offset = 0;
-	let currentPage = 1; 
-	let moreData = true; 
 	
-	function incrementOffset(valor) {
-		currentPage += valor;
-		
-		if(foodconsumption.length===0){
-			moreData=false;
-		}
-		else{
-			moreData=true;
-		}
-		
-		getFoodconsumption();
+	let c_offset = 0;
+    let offset = 0;
+    let limit = 10;
+    let c_page = 1;
+    let lastPage = 1;
+    let total = 0;
+	
+	async function paginacion() {
+      const data = await fetch(BASE_CONTACT_API_PATH + "/foodconsumption-stats");
+      if (data.status == 200) {
+        const json = await data.json();
+        total = json.length;
+        cambiapag(c_page, c_offset);
+      } 
+    }
+	
+    function range(size, start = 0) {
+      return [...Array(size).keys()].map((i) => i + start);
 	}
+	 
+	function cambiapag(page, offset) {
+      
+      lastPage = Math.ceil(total / 10);
+      console.log("Last page = " + lastPage);
+      if (page !== c_page) {
+        c_offset = offset;
+        c_page = page;
+        getFoodconsumption();
+      }
+    } 
+	
 	async function getFoodconsumption(){
-	 	let offset = (currentPage-1)*numeroRecursos;
+	 
 		console.log("Fetching foodconsumption...");
-		const res = await fetch("/api/v1/foodconsumption-stats?offset="+offset+"&limit=10");
+		const res = await fetch("/api/v1/foodconsumption-stats?offset="+c_offset+"&limit=" + limit);
 		
 		
 		if(res.ok){
@@ -69,6 +84,7 @@
 			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 			console.log(JSON.stringify(foodconsumption));
+			paginacion();
 			
 		}
 		
@@ -91,10 +107,11 @@
 	
 	
 	async function getFiltro(){
-		let offset = (currentPage-1)*numeroRecursos;
-		let dbquery= "?offset=" + offset + "&limit=10";
+		
+		let dbquery= "?";
 		var e = document.getElementById("myselect");
 		var tipocomida = e.options[e.selectedIndex].value;
+		console.log(tipocomida);
 		
 		
 		if (document.getElementById('filtroPais').checked){
@@ -112,7 +129,7 @@
 			
 		}
 		if (document.getElementById('filtroComida').checked) {
-            dbquery += `footype=${tipocomida}`;
+            dbquery += `foodtype=${tipocomida}`;
 			if( document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
 				dbquery +=`&`;
 			}
@@ -148,11 +165,11 @@
 			console.log("Ok.");
 			const json = await res.json();
 			foodconsumption= json ;
-			console.log(`We have ${foodconsumption.length} foodconsumption.`);
-			console.log(JSON.stringify(foodconsumption));
+			
 			errorMsg= "Datos filtrados correctamente.";
 			visible = true;
 			color="success";
+			console.log(dbquery);
 		}
 		
 		else{
@@ -372,38 +389,28 @@
 				{/each}
 
 			</tbody>
-		</Table>
-		<Pagination ariaLabel="Cambiar de página">
-
-
-		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/foodconsumption-stats" on:click="{() => incrementOffset(-1)}" />
-		</PaginationItem>
 		
-		<!-- If we are not in the first page-->
-		{#if currentPage != 1}
-		<PaginationItem>
-			<PaginationLink href="#/foodconsumption-stats" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem active>
-			<PaginationLink href="#/foodconsumption-stats" >{currentPage}</PaginationLink>
-		</PaginationItem>
-
-		<!-- If there are more elements-->
-		{#if moreData}
-		<PaginationItem >
-			<PaginationLink href="#/foodconsumption-stats" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-
-		<PaginationItem class="{moreData ? '' : 'disabled'}">
-			<PaginationLink next href="#/foodconsumption-stats" on:click="{() => incrementOffset(1)}"/>
-		</PaginationItem>
-
-	</Pagination>
-	
-	
+		</Table>
+			<div>
+    		
+      		<Pagination ariaLabel="Web pagination">
+        		<PaginationItem class = {c_page === 1 ? "enable" : ""}>
+          			<PaginationLink previous href="#/foodconsumption-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
+        		</PaginationItem>
+        		{#each range(lastPage, 1) as page}
+          			<PaginationItem class = {c_page === page ? "active" : ""}>
+            			<PaginationLink previous href="#/foodconsumption-stats" on:click={() => cambiapag(page, (page - 1) * 10)}>
+            				{page}
+            			</PaginationLink>
+          			</PaginationItem>
+        		{/each}
+        		<PaginationItem class = {c_page === lastPage ? "disabled" : ""}>
+          			<PaginationLink next href="#/foodconsumption-stats" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
+        		</PaginationItem>
+      		</Pagination>
+    
+    	</div>
+		
 </main>
 
 <style>

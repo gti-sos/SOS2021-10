@@ -50,7 +50,7 @@
 		
             console.log("Received foodconsumption.");
         } else {
-			errorMsg= "Este dato no existe.";
+			errorMsg= "El dato con país " + params.country + ", año " + params.year + " y tipo de comida " + params.foodtype + " no existe." ;
 			visible = true;
 			color="danger";
             console.log("ERROR!" + errorMsg);
