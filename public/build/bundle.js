@@ -14782,11 +14782,11 @@ var app = (function () {
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[36] = list[i];
+    	child_ctx[37] = list[i];
     	return child_ctx;
     }
 
-    // (186:2) <Alert     color="danger"     isOpen={visible}     toggle={() => (visible = false)}>
+    // (192:2) <Alert     color="danger"     isOpen={visible}     toggle={() => (visible = false)}>
     function create_default_slot_29(ctx) {
     	let t;
 
@@ -14809,14 +14809,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_29.name,
     		type: "slot",
-    		source: "(186:2) <Alert     color=\\\"danger\\\"     isOpen={visible}     toggle={() => (visible = false)}>",
+    		source: "(192:2) <Alert     color=\\\"danger\\\"     isOpen={visible}     toggle={() => (visible = false)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (194:9) <Button id={`btn-${placement}`}>
+    // (200:9) <Button id={`btn-${placement}`}>
     function create_default_slot_28(ctx) {
     	let t;
 
@@ -14836,14 +14836,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_28.name,
     		type: "slot",
-    		source: "(194:9) <Button id={`btn-${placement}`}>",
+    		source: "(200:9) <Button id={`btn-${placement}`}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (199:8) <CustomInput                type="checkbox"                 id="pais"                label="País" >
+    // (205:8) <CustomInput                type="checkbox"                 id="pais"                label="País" >
     function create_default_slot_27(ctx) {
     	let input;
     	let mounted;
@@ -14853,7 +14853,7 @@ var app = (function () {
     		c: function create() {
     			input = element("input");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 201, 28, 5327);
+    			add_location(input, file$b, 207, 28, 5449);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14880,14 +14880,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_27.name,
     		type: "slot",
-    		source: "(199:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"pais\\\"                label=\\\"País\\\" >",
+    		source: "(205:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"pais\\\"                label=\\\"País\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (204:8) <CustomInput                type="checkbox"                 id="filtrodesdeaño"                label="Año desde" >
+    // (210:8) <CustomInput                type="checkbox"                 id="filtrodesdeaño"                label="Año desde" >
     function create_default_slot_26$1(ctx) {
     	let input;
     	let mounted;
@@ -14898,7 +14898,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 206, 33, 5510);
+    			add_location(input, file$b, 212, 33, 5632);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14925,14 +14925,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_26$1.name,
     		type: "slot",
-    		source: "(204:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdeaño\\\"                label=\\\"Año desde\\\" >",
+    		source: "(210:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdeaño\\\"                label=\\\"Año desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (208:8) <CustomInput                type="checkbox"                 id="filtrohastaaño"                label="Año hasta" >
+    // (214:8) <CustomInput                type="checkbox"                 id="filtrohastaaño"                label="Año hasta" >
     function create_default_slot_25$1(ctx) {
     	let input;
     	let mounted;
@@ -14943,7 +14943,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 210, 33, 5704);
+    			add_location(input, file$b, 216, 33, 5826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -14970,14 +14970,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_25$1.name,
     		type: "slot",
-    		source: "(208:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastaaño\\\"                label=\\\"Año hasta\\\" >",
+    		source: "(214:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastaaño\\\"                label=\\\"Año hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (212:8) <CustomInput                type="checkbox"                 id="filtrodesdesanidad"                label="Costes sanidad desde" >
+    // (218:8) <CustomInput                type="checkbox"                 id="filtrodesdesanidad"                label="Costes sanidad desde" >
     function create_default_slot_24$1(ctx) {
     	let input;
     	let mounted;
@@ -14988,7 +14988,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 214, 44, 5911);
+    			add_location(input, file$b, 220, 44, 6033);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15015,14 +15015,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_24$1.name,
     		type: "slot",
-    		source: "(212:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdesanidad\\\"                label=\\\"Costes sanidad desde\\\" >",
+    		source: "(218:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdesanidad\\\"                label=\\\"Costes sanidad desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (216:8) <CustomInput                type="checkbox"                 id="filtrohastasanidad"                label="Costes sanidad hasta" >
+    // (222:8) <CustomInput                type="checkbox"                 id="filtrohastasanidad"                label="Costes sanidad hasta" >
     function create_default_slot_23$1(ctx) {
     	let input;
     	let mounted;
@@ -15033,7 +15033,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 218, 44, 6122);
+    			add_location(input, file$b, 224, 44, 6244);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15060,14 +15060,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_23$1.name,
     		type: "slot",
-    		source: "(216:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastasanidad\\\"                label=\\\"Costes sanidad hasta\\\" >",
+    		source: "(222:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastasanidad\\\"                label=\\\"Costes sanidad hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (219:114) <CustomInput                type="checkbox"                 id="filtrodesdemedicos"                label="Médicos desde" >
+    // (225:114) <CustomInput                type="checkbox"                 id="filtrodesdemedicos"                label="Médicos desde" >
     function create_default_slot_22$1(ctx) {
     	let input;
     	let mounted;
@@ -15078,7 +15078,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 221, 37, 6314);
+    			add_location(input, file$b, 227, 37, 6436);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15105,14 +15105,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_22$1.name,
     		type: "slot",
-    		source: "(219:114) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdemedicos\\\"                label=\\\"Médicos desde\\\" >",
+    		source: "(225:114) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdemedicos\\\"                label=\\\"Médicos desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (223:8) <CustomInput                type="checkbox"                 id="filtrohastamedicos"                label="Médicos hasta" >
+    // (229:8) <CustomInput                type="checkbox"                 id="filtrohastamedicos"                label="Médicos hasta" >
     function create_default_slot_21$1(ctx) {
     	let input;
     	let mounted;
@@ -15123,7 +15123,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 225, 37, 6518);
+    			add_location(input, file$b, 231, 37, 6640);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15150,14 +15150,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_21$1.name,
     		type: "slot",
-    		source: "(223:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastamedicos\\\"                label=\\\"Médicos hasta\\\" >",
+    		source: "(229:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastamedicos\\\"                label=\\\"Médicos hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (226:107) <CustomInput                type="checkbox"                 id="filtrodesdecamas"                label="Camas desde" >
+    // (232:107) <CustomInput                type="checkbox"                 id="filtrodesdecamas"                label="Camas desde" >
     function create_default_slot_20$2(ctx) {
     	let input;
     	let mounted;
@@ -15168,7 +15168,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 228, 35, 6706);
+    			add_location(input, file$b, 234, 35, 6828);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15195,14 +15195,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_20$2.name,
     		type: "slot",
-    		source: "(226:107) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdecamas\\\"                label=\\\"Camas desde\\\" >",
+    		source: "(232:107) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrodesdecamas\\\"                label=\\\"Camas desde\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (230:8) <CustomInput                type="checkbox"                 id="filtrohastacamas"                label="Camas hasta" >
+    // (236:8) <CustomInput                type="checkbox"                 id="filtrohastacamas"                label="Camas hasta" >
     function create_default_slot_19$2(ctx) {
     	let input;
     	let mounted;
@@ -15213,7 +15213,7 @@ var app = (function () {
     			input = element("input");
     			attr_dev(input, "type", "number");
     			attr_dev(input, "class", "svelte-ycj1m8");
-    			add_location(input, file$b, 232, 35, 6903);
+    			add_location(input, file$b, 238, 35, 7025);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, input, anchor);
@@ -15240,14 +15240,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_19$2.name,
     		type: "slot",
-    		source: "(230:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastacamas\\\"                label=\\\"Camas hasta\\\" >",
+    		source: "(236:8) <CustomInput                type=\\\"checkbox\\\"                 id=\\\"filtrohastacamas\\\"                label=\\\"Camas hasta\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (235:8) <Button on:click={getFiltro}>
+    // (241:8) <Button on:click={getFiltro}>
     function create_default_slot_18$2(ctx) {
     	let t;
 
@@ -15267,14 +15267,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_18$2.name,
     		type: "slot",
-    		source: "(235:8) <Button on:click={getFiltro}>",
+    		source: "(241:8) <Button on:click={getFiltro}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (197:10) <FormGroup>
+    // (203:10) <FormGroup>
     function create_default_slot_17$2(ctx) {
     	let custominput0;
     	let t0;
@@ -15427,7 +15427,7 @@ var app = (function () {
     			br = element("br");
     			t7 = space();
     			create_component(button.$$.fragment);
-    			add_location(br, file$b, 233, 8, 6980);
+    			add_location(br, file$b, 239, 8, 7102);
     		},
     		m: function mount(target, anchor) {
     			mount_component(custominput0, target, anchor);
@@ -15454,70 +15454,70 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const custominput0_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput0_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput0.$set(custominput0_changes);
     			const custominput1_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput1_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput1.$set(custominput1_changes);
     			const custominput2_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput2_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput2.$set(custominput2_changes);
     			const custominput3_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput3_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput3.$set(custominput3_changes);
     			const custominput4_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput4_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput4.$set(custominput4_changes);
     			const custominput5_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput5_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput5.$set(custominput5_changes);
     			const custominput6_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput6_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput6.$set(custominput6_changes);
     			const custominput7_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput7_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput7.$set(custominput7_changes);
     			const custominput8_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				custominput8_changes.$$scope = { dirty, ctx };
     			}
 
     			custominput8.$set(custominput8_changes);
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15577,14 +15577,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_17$2.name,
     		type: "slot",
-    		source: "(197:10) <FormGroup>",
+    		source: "(203:10) <FormGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (196:7) <Form>
+    // (202:7) <Form>
     function create_default_slot_16$2(ctx) {
     	let formgroup;
     	let current;
@@ -15608,7 +15608,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const formgroup_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				formgroup_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15632,14 +15632,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_16$2.name,
     		type: "slot",
-    		source: "(196:7) <Form>",
+    		source: "(202:7) <Form>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (195:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+    // (201:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
     function create_default_slot_15$2(ctx) {
     	let form;
     	let current;
@@ -15663,7 +15663,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const form_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				form_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15687,14 +15687,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_15$2.name,
     		type: "slot",
-    		source: "(195:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
+    		source: "(201:9) <Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (247:8) <Button  on:click={SanityData}>
+    // (253:8) <Button  on:click={SanityData}>
     function create_default_slot_14$2(ctx) {
     	let t;
 
@@ -15714,14 +15714,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_14$2.name,
     		type: "slot",
-    		source: "(247:8) <Button  on:click={SanityData}>",
+    		source: "(253:8) <Button  on:click={SanityData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (248:8) <Button  on:click={Delete}>
+    // (254:8) <Button  on:click={Delete}>
     function create_default_slot_13$2(ctx) {
     	let t;
 
@@ -15741,14 +15741,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13$2.name,
     		type: "slot",
-    		source: "(248:8) <Button  on:click={Delete}>",
+    		source: "(254:8) <Button  on:click={Delete}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (266:8) <Button on:click={PostSanity(NewSanity)}>
+    // (272:8) <Button on:click={PostSanity(NewSanity)}>
     function create_default_slot_12$2(ctx) {
     	let t;
 
@@ -15768,14 +15768,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12$2.name,
     		type: "slot",
-    		source: "(266:8) <Button on:click={PostSanity(NewSanity)}>",
+    		source: "(272:8) <Button on:click={PostSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (267:8) <Button on:click={PutSanity(NewSanity)}>
+    // (273:8) <Button on:click={PutSanity(NewSanity)}>
     function create_default_slot_11$5(ctx) {
     	let t;
 
@@ -15795,14 +15795,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11$5.name,
     		type: "slot",
-    		source: "(267:8) <Button on:click={PutSanity(NewSanity)}>",
+    		source: "(273:8) <Button on:click={PutSanity(NewSanity)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (276:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
+    // (282:8) <Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>
     function create_default_slot_10$5(ctx) {
     	let t;
 
@@ -15822,36 +15822,36 @@ var app = (function () {
     		block,
     		id: create_default_slot_10$5.name,
     		type: "slot",
-    		source: "(276:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
+    		source: "(282:8) <Button Button color=\\\"secondary\\\" on:click={DeleteContact(sani.country,sani.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (269:3) {#each sanity as sani}
+    // (275:3) {#each sanity as sani}
     function create_each_block$2(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*sani*/ ctx[36].country + "";
+    	let t0_value = /*sani*/ ctx[37].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*sani*/ ctx[36].year + "";
+    	let t2_value = /*sani*/ ctx[37].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*sani*/ ctx[36].health_expenditure_in_percentage + "";
+    	let t4_value = /*sani*/ ctx[37].health_expenditure_in_percentage + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*sani*/ ctx[36].doctor_per_1000_habitant + "";
+    	let t6_value = /*sani*/ ctx[37].doctor_per_1000_habitant + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*sani*/ ctx[36].hospital_bed + "";
+    	let t8_value = /*sani*/ ctx[37].hospital_bed + "";
     	let t8;
     	let t9;
     	let td5;
@@ -15870,7 +15870,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*DeleteContact*/ ctx[11](/*sani*/ ctx[36].country, /*sani*/ ctx[36].year))) /*DeleteContact*/ ctx[11](/*sani*/ ctx[36].country, /*sani*/ ctx[36].year).apply(this, arguments);
+    		if (is_function(/*DeleteContact*/ ctx[11](/*sani*/ ctx[37].country, /*sani*/ ctx[37].year))) /*DeleteContact*/ ctx[11](/*sani*/ ctx[37].country, /*sani*/ ctx[37].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -15895,22 +15895,22 @@ var app = (function () {
     			td5 = element("td");
     			create_component(button.$$.fragment);
     			t10 = space();
-    			attr_dev(a, "href", a_href_value = "#/sanity-stats/" + /*sani*/ ctx[36].country + "/" + /*sani*/ ctx[36].year);
-    			add_location(a, file$b, 270, 8, 8099);
+    			attr_dev(a, "href", a_href_value = "#/sanity-stats/" + /*sani*/ ctx[37].country + "/" + /*sani*/ ctx[37].year);
+    			add_location(a, file$b, 276, 8, 8221);
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 270, 4, 8095);
+    			add_location(td0, file$b, 276, 4, 8217);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 271, 4, 8176);
+    			add_location(td1, file$b, 277, 4, 8298);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 272, 4, 8202);
+    			add_location(td2, file$b, 278, 4, 8324);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 273, 4, 8256);
+    			add_location(td3, file$b, 279, 4, 8378);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 274, 4, 8302);
+    			add_location(td4, file$b, 280, 4, 8424);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 275, 4, 8336);
+    			add_location(td5, file$b, 281, 4, 8458);
     			attr_dev(tr, "class", "svelte-ycj1m8");
-    			add_location(tr, file$b, 269, 4, 8085);
+    			add_location(tr, file$b, 275, 4, 8207);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -15937,19 +15937,19 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty[0] & /*sanity*/ 4) && t0_value !== (t0_value = /*sani*/ ctx[36].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*sanity*/ 4) && t0_value !== (t0_value = /*sani*/ ctx[37].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty[0] & /*sanity*/ 4 && a_href_value !== (a_href_value = "#/sanity-stats/" + /*sani*/ ctx[36].country + "/" + /*sani*/ ctx[36].year)) {
+    			if (!current || dirty[0] & /*sanity*/ 4 && a_href_value !== (a_href_value = "#/sanity-stats/" + /*sani*/ ctx[37].country + "/" + /*sani*/ ctx[37].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty[0] & /*sanity*/ 4) && t2_value !== (t2_value = /*sani*/ ctx[36].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty[0] & /*sanity*/ 4) && t4_value !== (t4_value = /*sani*/ ctx[36].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty[0] & /*sanity*/ 4) && t6_value !== (t6_value = /*sani*/ ctx[36].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty[0] & /*sanity*/ 4) && t8_value !== (t8_value = /*sani*/ ctx[36].hospital_bed + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty[0] & /*sanity*/ 4) && t2_value !== (t2_value = /*sani*/ ctx[37].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty[0] & /*sanity*/ 4) && t4_value !== (t4_value = /*sani*/ ctx[37].health_expenditure_in_percentage + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*sanity*/ 4) && t6_value !== (t6_value = /*sani*/ ctx[37].doctor_per_1000_habitant + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty[0] & /*sanity*/ 4) && t8_value !== (t8_value = /*sani*/ ctx[37].hospital_bed + "")) set_data_dev(t8, t8_value);
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -15974,14 +15974,14 @@ var app = (function () {
     		block,
     		id: create_each_block$2.name,
     		type: "each",
-    		source: "(269:3) {#each sanity as sani}",
+    		source: "(275:3) {#each sanity as sani}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (244:1) <Table responsive>
+    // (250:1) <Table responsive>
     function create_default_slot_9$5(ctx) {
     	let thead;
     	let tr0;
@@ -16140,55 +16140,55 @@ var app = (function () {
     			}
 
     			attr_dev(td0, "class", "svelte-ycj1m8");
-    			add_location(td0, file$b, 246, 4, 7168);
+    			add_location(td0, file$b, 252, 4, 7290);
     			attr_dev(td1, "class", "svelte-ycj1m8");
-    			add_location(td1, file$b, 247, 4, 7245);
+    			add_location(td1, file$b, 253, 4, 7367);
     			attr_dev(tr0, "class", "svelte-ycj1m8");
-    			add_location(tr0, file$b, 245, 3, 7158);
+    			add_location(tr0, file$b, 251, 3, 7280);
     			attr_dev(td2, "class", "svelte-ycj1m8");
-    			add_location(td2, file$b, 250, 4, 7327);
+    			add_location(td2, file$b, 256, 4, 7449);
     			attr_dev(td3, "class", "svelte-ycj1m8");
-    			add_location(td3, file$b, 251, 4, 7346);
+    			add_location(td3, file$b, 257, 4, 7468);
     			attr_dev(td4, "class", "svelte-ycj1m8");
-    			add_location(td4, file$b, 252, 4, 7364);
+    			add_location(td4, file$b, 258, 4, 7486);
     			attr_dev(td5, "class", "svelte-ycj1m8");
-    			add_location(td5, file$b, 253, 4, 7409);
+    			add_location(td5, file$b, 259, 4, 7531);
     			attr_dev(td6, "class", "svelte-ycj1m8");
-    			add_location(td6, file$b, 254, 4, 7457);
+    			add_location(td6, file$b, 260, 4, 7579);
     			attr_dev(tr1, "class", "svelte-ycj1m8");
-    			add_location(tr1, file$b, 249, 3, 7317);
-    			add_location(thead, file$b, 244, 2, 7146);
+    			add_location(tr1, file$b, 255, 3, 7439);
+    			add_location(thead, file$b, 250, 2, 7268);
     			attr_dev(input0, "class", "svelte-ycj1m8");
-    			add_location(input0, file$b, 260, 8, 7540);
+    			add_location(input0, file$b, 266, 8, 7662);
     			attr_dev(td7, "class", "svelte-ycj1m8");
-    			add_location(td7, file$b, 260, 4, 7536);
+    			add_location(td7, file$b, 266, 4, 7658);
     			attr_dev(input1, "type", "number");
     			attr_dev(input1, "class", "svelte-ycj1m8");
-    			add_location(input1, file$b, 261, 8, 7595);
+    			add_location(input1, file$b, 267, 8, 7717);
     			attr_dev(td8, "class", "svelte-ycj1m8");
-    			add_location(td8, file$b, 261, 4, 7591);
+    			add_location(td8, file$b, 267, 4, 7713);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "class", "svelte-ycj1m8");
-    			add_location(input2, file$b, 262, 8, 7657);
+    			add_location(input2, file$b, 268, 8, 7779);
     			attr_dev(td9, "class", "svelte-ycj1m8");
-    			add_location(td9, file$b, 262, 4, 7653);
+    			add_location(td9, file$b, 268, 4, 7775);
     			attr_dev(input3, "type", "number");
     			attr_dev(input3, "class", "svelte-ycj1m8");
-    			add_location(input3, file$b, 263, 8, 7747);
+    			add_location(input3, file$b, 269, 8, 7869);
     			attr_dev(td10, "class", "svelte-ycj1m8");
-    			add_location(td10, file$b, 263, 4, 7743);
+    			add_location(td10, file$b, 269, 4, 7865);
     			attr_dev(input4, "type", "number");
     			attr_dev(input4, "class", "svelte-ycj1m8");
-    			add_location(input4, file$b, 264, 8, 7829);
+    			add_location(input4, file$b, 270, 8, 7951);
     			attr_dev(td11, "class", "svelte-ycj1m8");
-    			add_location(td11, file$b, 264, 4, 7825);
+    			add_location(td11, file$b, 270, 4, 7947);
     			attr_dev(td12, "class", "svelte-ycj1m8");
-    			add_location(td12, file$b, 265, 4, 7895);
+    			add_location(td12, file$b, 271, 4, 8017);
     			attr_dev(td13, "class", "svelte-ycj1m8");
-    			add_location(td13, file$b, 266, 4, 7970);
+    			add_location(td13, file$b, 272, 4, 8092);
     			attr_dev(tr2, "class", "svelte-ycj1m8");
-    			add_location(tr2, file$b, 259, 3, 7526);
-    			add_location(tbody, file$b, 257, 2, 7509);
+    			add_location(tr2, file$b, 265, 3, 7648);
+    			add_location(tbody, file$b, 263, 2, 7631);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -16261,14 +16261,14 @@ var app = (function () {
     			ctx = new_ctx;
     			const button0_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16296,14 +16296,14 @@ var app = (function () {
 
     			const button2_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button2_changes.$$scope = { dirty, ctx };
     			}
 
     			button2.$set(button2_changes);
     			const button3_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button3_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16381,14 +16381,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9$5.name,
     		type: "slot",
-    		source: "(244:1) <Table responsive>",
+    		source: "(250:1) <Table responsive>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (288:2) <PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+    // (294:2) <PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
     function create_default_slot_8$5(ctx) {
     	let paginationlink;
     	let current;
@@ -16427,14 +16427,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8$5.name,
     		type: "slot",
-    		source: "(288:2) <PaginationItem class=\\\"{currentPage === 1 ? 'disabled' : ''}\\\">",
+    		source: "(294:2) <PaginationItem class=\\\"{currentPage === 1 ? 'disabled' : ''}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (293:2) {#if currentPage != 1}
+    // (299:2) {#if currentPage != 1}
     function create_if_block_1$1(ctx) {
     	let paginationitem;
     	let current;
@@ -16458,7 +16458,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const paginationitem_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationitem_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16482,14 +16482,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(293:2) {#if currentPage != 1}",
+    		source: "(299:2) {#if currentPage != 1}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (295:3) <PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" >
+    // (301:3) <PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" >
     function create_default_slot_7$5(ctx) {
     	let t_value = /*currentPage*/ ctx[5] - 1 + "";
     	let t;
@@ -16513,14 +16513,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$5.name,
     		type: "slot",
-    		source: "(295:3) <PaginationLink href=\\\"#/sanity-stats\\\" on:click=\\\"{() => incrementOffset(-1)}\\\" >",
+    		source: "(301:3) <PaginationLink href=\\\"#/sanity-stats\\\" on:click=\\\"{() => incrementOffset(-1)}\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (294:2) <PaginationItem>
+    // (300:2) <PaginationItem>
     function create_default_slot_6$5(ctx) {
     	let paginationlink;
     	let current;
@@ -16547,7 +16547,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const paginationlink_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationlink_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16571,14 +16571,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$5.name,
     		type: "slot",
-    		source: "(294:2) <PaginationItem>",
+    		source: "(300:2) <PaginationItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (299:3) <PaginationLink href="#/sanity-stats" >
+    // (305:3) <PaginationLink href="#/sanity-stats" >
     function create_default_slot_5$5(ctx) {
     	let t;
 
@@ -16601,14 +16601,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$5.name,
     		type: "slot",
-    		source: "(299:3) <PaginationLink href=\\\"#/sanity-stats\\\" >",
+    		source: "(305:3) <PaginationLink href=\\\"#/sanity-stats\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (298:2) <PaginationItem active>
+    // (304:2) <PaginationItem active>
     function create_default_slot_4$5(ctx) {
     	let paginationlink;
     	let current;
@@ -16633,7 +16633,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const paginationlink_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationlink_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16657,14 +16657,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$5.name,
     		type: "slot",
-    		source: "(298:2) <PaginationItem active>",
+    		source: "(304:2) <PaginationItem active>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (303:2) {#if moreData}
+    // (309:2) {#if moreData}
     function create_if_block$2(ctx) {
     	let paginationitem;
     	let current;
@@ -16688,7 +16688,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const paginationitem_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationitem_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16712,14 +16712,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(303:2) {#if moreData}",
+    		source: "(309:2) {#if moreData}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (305:3) <PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(1)}">
+    // (311:3) <PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(1)}">
     function create_default_slot_3$6(ctx) {
     	let t_value = /*currentPage*/ ctx[5] + 1 + "";
     	let t;
@@ -16743,14 +16743,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$6.name,
     		type: "slot",
-    		source: "(305:3) <PaginationLink href=\\\"#/sanity-stats\\\" on:click=\\\"{() => incrementOffset(1)}\\\">",
+    		source: "(311:3) <PaginationLink href=\\\"#/sanity-stats\\\" on:click=\\\"{() => incrementOffset(1)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (304:2) <PaginationItem >
+    // (310:2) <PaginationItem >
     function create_default_slot_2$7(ctx) {
     	let paginationlink;
     	let current;
@@ -16777,7 +16777,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const paginationlink_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationlink_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16801,14 +16801,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$7.name,
     		type: "slot",
-    		source: "(304:2) <PaginationItem >",
+    		source: "(310:2) <PaginationItem >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (309:2) <PaginationItem class="{moreData ? '' : 'disabled'}">
+    // (315:2) <PaginationItem class="{moreData ? '' : 'disabled'}">
     function create_default_slot_1$7(ctx) {
     	let paginationlink;
     	let current;
@@ -16847,14 +16847,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$7.name,
     		type: "slot",
-    		source: "(309:2) <PaginationItem class=\\\"{moreData ? '' : 'disabled'}\\\">",
+    		source: "(315:2) <PaginationItem class=\\\"{moreData ? '' : 'disabled'}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (285:1) <Pagination ariaLabel="Cambiar de página">
+    // (291:1) <Pagination ariaLabel="Cambiar de página">
     function create_default_slot$9(ctx) {
     	let paginationitem0;
     	let t0;
@@ -16924,7 +16924,7 @@ var app = (function () {
     			const paginationitem0_changes = {};
     			if (dirty[0] & /*currentPage*/ 32) paginationitem0_changes.class = /*currentPage*/ ctx[5] === 1 ? "disabled" : "";
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				paginationitem0_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16955,7 +16955,7 @@ var app = (function () {
 
     			const paginationitem1_changes = {};
 
-    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*currentPage*/ 32 | dirty[1] & /*$$scope*/ 512) {
     				paginationitem1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -16987,7 +16987,7 @@ var app = (function () {
     			const paginationitem2_changes = {};
     			if (dirty[0] & /*moreData*/ 64) paginationitem2_changes.class = /*moreData*/ ctx[6] ? "" : "disabled";
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				paginationitem2_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17027,7 +17027,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$9.name,
     		type: "slot",
-    		source: "(285:1) <Pagination ariaLabel=\\\"Cambiar de página\\\">",
+    		source: "(291:1) <Pagination ariaLabel=\\\"Cambiar de página\\\">",
     		ctx
     	});
 
@@ -17113,8 +17113,8 @@ var app = (function () {
     			attr_dev(div, "class", "mt-3");
     			set_style(div, "position", "absolute");
     			set_style(div, "right", "80px");
-    			add_location(div, file$b, 192, 2, 4971);
-    			add_location(main, file$b, 183, 0, 4840);
+    			add_location(div, file$b, 198, 2, 5093);
+    			add_location(main, file$b, 189, 0, 4961);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17138,35 +17138,35 @@ var app = (function () {
     			if (dirty[0] & /*visible*/ 1) alert_changes.isOpen = /*visible*/ ctx[0];
     			if (dirty[0] & /*visible*/ 1) alert_changes.toggle = /*func*/ ctx[14];
 
-    			if (dirty[0] & /*mensaje*/ 2 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*mensaje*/ 2 | dirty[1] & /*$$scope*/ 512) {
     				alert_changes.$$scope = { dirty, ctx };
     			}
 
     			alert.$set(alert_changes);
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
     			button.$set(button_changes);
     			const popover_changes = {};
 
-    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*filterSanity*/ 16 | dirty[1] & /*$$scope*/ 512) {
     				popover_changes.$$scope = { dirty, ctx };
     			}
 
     			popover.$set(popover_changes);
     			const table_changes = {};
 
-    			if (dirty[0] & /*sanity, NewSanity*/ 12 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*sanity, NewSanity*/ 12 | dirty[1] & /*$$scope*/ 512) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
     			table.$set(table_changes);
     			const pagination_changes = {};
 
-    			if (dirty[0] & /*moreData, currentPage*/ 96 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*moreData, currentPage*/ 96 | dirty[1] & /*$$scope*/ 512) {
     				pagination_changes.$$scope = { dirty, ctx };
     			}
 
@@ -17240,8 +17240,9 @@ var app = (function () {
     	};
 
     	///////////////
-    	let numeroRecursos = 10;
+    	let mensajeOk = "";
 
+    	let numeroRecursos = 10;
     	let offset = 0;
     	let currentPage = 1;
     	let moreData = true;
@@ -17262,7 +17263,7 @@ var app = (function () {
     		console.log(filterSanity);
     		let offset = (currentPage - 1) * numeroRecursos;
     		let limit = currentPage * numeroRecursos;
-    		const res = await fetch("/api/v2/sanity-stats/statistics?country=" + filterSanity.country + "&fromyear=" + filterSanity.fromyear + "&toyear=" + filterSanity.toyear + "&fromhealth=" + filterSanity.fromhealth + "&tohealth=" + filterSanity.tohealth + "&fromdoctor=" + filterSanity.fromdoctor + "&todoctor=" + filterSanity.todoctor + "&frombed=" + filterSanity.frombed + "&tobed=" + filterSanity.tobed + "?offset=" + offset + "&limit=" + limit);
+    		const res = await fetch("/api/v2/sanity-stats/statistics?country=" + filterSanity.country + "&fromyear=" + filterSanity.fromyear + "&toyear=" + filterSanity.toyear + "&fromhealth=" + filterSanity.fromhealth + "&tohealth=" + filterSanity.tohealth + "&fromdoctor=" + filterSanity.fromdoctor + "&todoctor=" + filterSanity.todoctor + "&frombed=" + filterSanity.frombed + "&tobed=" + filterSanity.tobed + "&offset=" + offset + "&limit=" + limit);
 
     		if (res.ok) {
     			console.log("Ok.");
@@ -17282,6 +17283,8 @@ var app = (function () {
     		if (res.ok) {
     			console.log("Ok.");
     			getSanity();
+    			mensajeOk = "GG, datos conseguidos";
+    			$$invalidate(0, visible = true);
     		} else {
     			console.log("Error");
     		}
@@ -17298,6 +17301,8 @@ var app = (function () {
     			const json = await res.json();
     			$$invalidate(2, sanity = json);
     			console.log(`We have ${sanity.length} Sanity.`);
+    			mensajeOk = "GG, datos conseguidos";
+    			$$invalidate(0, visible = true);
     		} else {
     			console.log("Error");
     		}
@@ -17353,7 +17358,7 @@ var app = (function () {
     			}
 
     			if (res.status == 409) {
-    				$$invalidate(1, mensaje = "Intestas modificar otro dato CUIDAO");
+    				$$invalidate(1, mensaje = "Dato ya creado");
     				$$invalidate(0, visible = true);
     			}
 
@@ -17491,6 +17496,7 @@ var app = (function () {
     		sanity,
     		NewSanity,
     		filterSanity,
+    		mensajeOk,
     		numeroRecursos,
     		offset,
     		currentPage,
@@ -17511,6 +17517,7 @@ var app = (function () {
     		if ("sanity" in $$props) $$invalidate(2, sanity = $$props.sanity);
     		if ("NewSanity" in $$props) $$invalidate(3, NewSanity = $$props.NewSanity);
     		if ("filterSanity" in $$props) $$invalidate(4, filterSanity = $$props.filterSanity);
+    		if ("mensajeOk" in $$props) mensajeOk = $$props.mensajeOk;
     		if ("numeroRecursos" in $$props) numeroRecursos = $$props.numeroRecursos;
     		if ("offset" in $$props) offset = $$props.offset;
     		if ("currentPage" in $$props) $$invalidate(5, currentPage = $$props.currentPage);

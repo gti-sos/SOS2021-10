@@ -38,6 +38,7 @@
 		tobed:0
 	}
 ///////////////
+let mensajeOk="";
 let numeroRecursos = 10;
 	let offset = 0;
 	let currentPage = 1; 
@@ -58,7 +59,7 @@ let numeroRecursos = 10;
 		
         let offset = (currentPage-1)*numeroRecursos;
         let limit = currentPage*numeroRecursos;
-		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"?offset="+offset+"&limit="+limit);
+		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"&offset="+offset+"&limit="+limit);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -78,9 +79,12 @@ let numeroRecursos = 10;
     	console.log("Loading data...");
    		const res = await fetch("/api/v2/sanity-stats/loadInitialData");
 		
+		 
         if(res.ok){
 			console.log("Ok.");
 			getSanity();
+			mensajeOk="GG, datos conseguidos";
+			visible = true;
 		}else{
 			console.log("Error");
 		}
@@ -97,6 +101,8 @@ let numeroRecursos = 10;
           const json = await res.json();
           sanity = json;
           console.log(`We have ${sanity.length} Sanity.`)
+			mensajeOk="GG, datos conseguidos";
+			visible = true;
         }else{
           console.log("Error");
         }
@@ -145,7 +151,7 @@ let numeroRecursos = 10;
 				visible = true;
 			}
 			if(res.status == 409){
-				mensaje="Intestas modificar otro dato CUIDAO";
+				mensaje="Dato ya creado";
 				visible = true;
 			}
 			   getSanity();
@@ -182,7 +188,7 @@ let numeroRecursos = 10;
 </script>
 
 <main>
-
+	
 		<Alert
 			color="danger"
 			isOpen={visible}
