@@ -1,4 +1,5 @@
 <script>
+ 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 
     import {
         pop
@@ -38,17 +39,30 @@
 	}
 	
 	var BASE_CONTACT_API_PATH= "/api/v1";
+	let numeroRecursos = 10;
+	let offset = 0;
+	let currentPage = 1; 
+	let moreData = true; 
 	
+	function incrementOffset(valor) {
+		offset += valor;
+		currentPage += valor;
+		getSanity();
+	}
 	async function getFoodconsumption(){
+	 	let offset = (currentPage-1)*numeroRecursos;
 		console.log("Fetching foodconsumption...");
-		const res = await fetch("/api/v1/foodconsumption-stats");
+		const res = await fetch("/api/v1/foodconsumption-stats?offset="+offset+"&limit=10");
+		
 		
 		if(res.ok){
 			console.log("Ok.");
+			
 			const json = await res.json();
 			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 			console.log(JSON.stringify(foodconsumption));
+			
 		}
 		
 		else{
@@ -70,7 +84,8 @@
 	
 	
 	async function getFiltro(){
-		let dbquery= "?";
+		let offset = (currentPage-1)*numeroRecursos;
+		let dbquery= "?offset=" + offset + "&limit=10";
 		var e = document.getElementById("myselect");
 		var tipocomida = e.options[e.selectedIndex].value;
 		
@@ -128,9 +143,17 @@
 			foodconsumption= json ;
 			console.log(`We have ${foodconsumption.length} foodconsumption.`);
 			console.log(JSON.stringify(foodconsumption));
+			errorMsg= "Datos filtrados correctamente.";
+			visible = true;
+			color="success";
 		}
 		
 		else{
+			if(res.status === 404){
+				errorMsg= "ERROR: No se encuentran tales datos.";
+				visible = true;
+				color="danger";
+			}
 		
 			console.log("Error!");
 			
@@ -144,7 +167,13 @@
 		console.log("Fetching foodconsumption...");
 		const res = await fetch("/api/v1/foodconsumption-stats/loadInitialData").then( (res)=> {
 						getFoodconsumption();
+						if(res.ok){
+						errorMsg= "Datos cargados correctamente.";
+							visible = true;
+							color="success";
+						}
 						})
+						
 		
 	}
 	
@@ -167,12 +196,12 @@
 						}
 						else if(res.status ===409){
 						
-							errorMsg= "Este dato ya existe.";
+							errorMsg= "ERROR: Este dato ya existe.";
 							visible = true;
 							color="danger";
 						}
 						else if(res.ok){
-							errorMsg= "ERROR: El dato ha sido añadido correctamente.";
+							errorMsg= "El dato ha sido añadido correctamente.";
 							visible = true;
 							color="success";
 						}
@@ -189,6 +218,12 @@
 						}).then( (res)=> {
 						
 						getFoodconsumption();
+						if(res.ok){
+							errorMsg= "El dato ha sido eliminado correctamente.";
+							visible = true;
+							color="success";
+						}
+						
 						
 						})
 						
@@ -202,12 +237,20 @@
 							
 						}).then( (res)=> {
 						getFoodconsumption();
+						if(res.ok){
+							errorMsg= "Base de datos eliminada correctamente.";
+							visible = true;
+							color="success";
+						}
 						
 						})
 		
 	}
 	
+	
+	
 	onMount(getFoodconsumption);
+	
 	
 </script>
 
@@ -323,6 +366,35 @@
 
 			</tbody>
 		</Table>
+		<Pagination ariaLabel="Cambiar de página">
+
+
+		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/foodconsumption-stats" on:click="{() => incrementOffset(-1)}" />
+		</PaginationItem>
+		
+		<!-- If we are not in the first page-->
+		{#if currentPage != 1}
+		<PaginationItem>
+			<PaginationLink href="#/foodconsumption-stats" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/foodconsumption-stats" >{currentPage}</PaginationLink>
+		</PaginationItem>
+
+		<!-- If there are more elements-->
+		{#if moreData}
+		<PaginationItem >
+			<PaginationLink href="#/foodconsumption-stats" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+
+		<PaginationItem class="{moreData ? '' : 'disabled'}">
+			<PaginationLink next href="#/foodconsumption-stats" on:click="{() => incrementOffset(1)}"/>
+		</PaginationItem>
+
+	</Pagination>
 	
 	
 </main>

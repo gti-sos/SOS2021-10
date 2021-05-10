@@ -54,6 +54,60 @@ var food_consumptionInitialData = [
 		"dailycalory": 3073
 	},
 	{
+		"country": "India",
+		"year": 2005,
+		"foodtype": "Produce",
+		"caloryperperson": 141,
+		"gramperperson": 338,
+		"dailygram": 1122,
+		"dailycalory": 2266
+	},
+	{
+		"country": "India",
+		"year": 2011,
+		"foodtype": "Meat",
+		"caloryperperson": 29,
+		"gramperperson": 29,
+		"dailygram": 1317,
+		"dailycalory": 2458
+	},
+	{
+		"country": "Argentina",
+		"year": 2007,
+		"foodtype": "SugarAndFat",
+		"caloryperperson": 827,
+		"gramperperson": 174,
+		"dailygram": 2084,
+		"dailycalory": 3137
+	},
+	{
+		"country": "Spain",
+		"year": 2009,
+		"foodtype": "SugarAndFat",
+		"caloryperperson": 1008,
+		"gramperperson": 170,
+		"dailygram": 2526,
+		"dailycalory": 3221
+	},
+	{
+		"country": "Germany",
+		"year": 2011,
+		"foodtype": "Grain",
+		"caloryperperson": 827,
+		"gramperperson": 305,
+		"dailygram": 2649,
+		"dailycalory": 3539
+	},
+	{
+		"country": "Japan",
+		"year": 2010,
+		"foodtype": "DairyAndEggs",
+		"caloryperperson": 222,
+		"gramperperson": 255,
+		"dailygram": 1591,
+		"dailycalory": 2691
+	},
+	{
 		"country": "United_States",
 		"year": 2007,
 		"foodtype": "Grain",
@@ -62,6 +116,7 @@ var food_consumptionInitialData = [
 		"dailygram": 2877,
 		"dailycalory": 3771
 	}
+	
 ];
 
 function hasNumbers(t)
