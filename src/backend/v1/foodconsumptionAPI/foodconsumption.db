@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"country":"Argentina","year":2007,"foodtype":"SugarAndFat","caloryperperson":827,"gramperperson":174,"dailygram":2084,"dailycalory":3137,"_id":"1rESCJIeO1T4AQ3j"}
 {"country":"Spain","year":2011,"foodtype":"Sugar&Fat","caloryperperson":955,"gramperperson":132,"dailygram":2559,"dailycalory":3192,"_id":"5zi9bp2PwAg6BME1"}
 {"country":"India","year":2011,"foodtype":"Meat","caloryperperson":29,"gramperperson":29,"dailygram":1317,"dailycalory":2458,"_id":"7l30Fa5BRcXfYMRU"}
@@ -179,3 +180,5 @@
 {"country":"United_States","year":2007,"foodtype":"Grain","caloryperperson":832232,"gramperperson":303,"dailygram":2877,"dailycalory":3771,"_id":"5dJvomGNAZMgdanx"}
 {"country":"United_States","year":2007,"foodtype":"Grain","caloryperperson":832232,"gramperperson":303,"dailygram":2877,"dailycalory":3771,"_id":"5dJvomGNAZMgdanx"}
 {"country":"United_States","year":2007,"foodtype":"Grain","caloryperperson":832232,"gramperperson":303,"dailygram":2877,"dailycalory":3771,"_id":"5dJvomGNAZMgdanx"}
+=======
+>>>>>>> 386696e35d88d5bebb0a9f97bdd6f3f3403bc957

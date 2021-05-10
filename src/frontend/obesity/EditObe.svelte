@@ -22,7 +22,7 @@
    		 'light',
    		 'dark'
  	];
-	let visible = false;
+	
 
 	const BASE_CONTACT_API_PATH = "/api/v1";
     export let params = {};
@@ -34,6 +34,8 @@
 	let upTotal_population = 12345;
     let errorMsg = "";
  	let okMsg = "";
+	let visible = false;
+	let visibleOk = false;
 
     onMount(getObesity);
 
@@ -91,11 +93,14 @@
 				console.log("Ok.");
 				getObesity();
 				okMsg = "Actualización correcta";
-				errorMsg ="";
+				visibleOk=true;
+				visible=false;
 				
 			}else{
 				if(res.status === 404){
 					errorMsg ="El dato solicitado no existe";
+					visibleOk=false;
+					visible=true;
 				}
 			}
 			
@@ -111,6 +116,20 @@
     <h3>Editar campos <strong>{params.country}</strong><strong>{params.year}</strong></h3>
         <Table bordered>
             <thead>
+				<div>
+					<Alert color="danger" isOpen={visible} toggle={() => (visible = false)}>
+						{#if errorMsg}
+							<p>ERROR: {errorMsg}</p>
+   						{/if}
+					</Alert>
+					<Alert color="success" isOpen={visibleOk} toggle={() => (visibleOk = false)}>
+						{#if okMsg}
+							<p>Correcto: {okMsg}</p>
+   		 				{/if}
+					</Alert>
+				</div>
+			
+			
                 <tr>
                     <th>Pais</th>
 					<th>Año</th>
@@ -134,17 +153,10 @@
                 </tr>
         	</tbody>
         </Table>
-		<div>
 		
-			{#if errorMsg}
-				<p style="color: #9d1c24">ERROR: {errorMsg}</p>
-   			{/if}
-			{#if okMsg}
-				<p style="color: #155724">{okMsg}</p>
-   		 	{/if}
 		
 		<Button outline color="secondary" on:click="{pop}">Volver</Button>
-		<div>
+		
 </main>
 
 <style>
