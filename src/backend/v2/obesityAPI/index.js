@@ -1,4 +1,4 @@
-var BASE_API_PATH = "/api/v1/obesity-stats";
+var BASE_API_PATH = "/api/v2/obesity-stats";
 var Datastore = require("nedb");
 
 var path = require('path');
@@ -66,10 +66,12 @@ function hasNumbers(t){
 		
 		//BUSQUEDA
 		if(req.query.country) dbquery["country"]= req.query.country;
-		if(req.query.year) dbquery["year"] = parseInt(req.query.year);
 		if(req.query.man_percent) dbquery["man_percent"] = parseFloat(req.query.man_percent);
 		if(req.query.woman_percent) dbquery["woman_percent"] = parseFloat(req.query.woman_percent);
 		if(req.query.total_population) dbquery["total_population"] = parseInt(req.query.total_population);	
+		if(req.query.fromyear && req.query.toyear){ dbquery["year"]= {$gte: parseInt(req.query.fromyear), $lte: parseInt(req.query.toyear)}}
+		else if(req.query.fromyear){ dbquery["year"]= {$gte: parseInt(req.query.fromyear)}}
+		else if(req.query.toyear){ dbquery["year"] = {$lte: parseInt(req.query.toyear)}}
 		
 		db.find(dbquery).sort({country:1,year:-1}).skip(offset).limit(limit).exec((error, obesity) =>{
 			if(error){
@@ -158,7 +160,7 @@ function hasNumbers(t){
     app.post(BASE_API_PATH, (req,res)=>{
         var newobesity =req.body;
         console.log(`Nuevo objeto en obesity: <${JSON.stringify(newobesity,null,2)}>`);
-        db.find({country: newobesity.country, year: newobesity.year, man_percent: newobesity.man_percent, woman_percent: newobesity.woman_percent, 			total_population: newobesity.total_population}, (err, obesityInDB)=>{
+        db.find({$and: [{country: newobesity.country}, {year: newobesity.year}]}, (err, obesityInDB)=>{
 		if(err){
 			console.error("ERROR accessing 	DB in POST");
 			res.sendStatus(500);

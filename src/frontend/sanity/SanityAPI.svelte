@@ -1,5 +1,6 @@
 <script>
-	import Header from '../Header.svelte';
+
+	const placement = 'right';
 	import {
     	Button
   	} from 'sveltestrap';
@@ -8,7 +9,16 @@
 	} from "svelte";
 	
 	import Table from "sveltestrap/src/Table.svelte";
-	let sanity = [];
+
+	import Alert from 'sveltestrap/src/Alert.svelte';
+	import Popover from 'sveltestrap/src/Popover.svelte';
+	import { CustomInput, Form, FormGroup, Label } from 'sveltestrap';
+	
+	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+
+	let visible = false;
+	let mensaje="";
+	let sanity= [];
 	let NewSanity={
 		"country" :"",
 		"year": 0,
@@ -16,10 +26,57 @@
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
-	
+	let filterSanity= {
+		country:"",
+		fromyear:0,
+		toyear:0,
+		fromhealth:0,
+		tohealth:0,
+		fromdoctor:0,
+		todoctor:0,
+		frombed:0,
+		tobed:0
+	}
+///////////////
+let numeroRecursos = 10;
+	let offset = 0;
+	let currentPage = 1; 
+	let moreData = true; 
+
+
+
+
+ function incrementOffset(valor) {
+		offset += valor;
+		currentPage += valor;
+		getSanity();
+	}
+///////////////////
+	async function getFiltro(){
+		console.log("Fetching foodconsumption...");
+		console.log(filterSanity);
+		
+        let offset = (currentPage-1)*numeroRecursos;
+        let limit = currentPage*numeroRecursos;
+		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"&offset="+offset+"&limit="+limit);
+		
+		if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			sanity= json ;
+			console.log(`We have ${sanity.length} sanity.`);
+			console.log(JSON.stringify(sanity));
+		}
+		else{
+			console.log("Error!");	
+		}
+	}
+
+
+
 	async function SanityData() {
     	console.log("Loading data...");
-   		const res = await fetch("/api/v1/sanity-stats/loadInitialData");
+   		const res = await fetch("/api/v2/sanity-stats/loadInitialData");
 		
         if(res.ok){
 			console.log("Ok.");
@@ -31,7 +88,9 @@
 
 	async function getSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats");
+        let offset = (currentPage-1)*numeroRecursos;
+        let limit = currentPage*numeroRecursos;
+   		const res = await fetch("/api/v2/sanity-stats?offset="+offset+"&limit="+limit);
 		
         if(res.ok){
           console.log("Ok.");
@@ -41,52 +100,151 @@
         }else{
           console.log("Error");
         }
+		if(res.status == 404){
+			mensaje="No hemos encontrado ese dato, sorry";
+			visible = true;
+		}
+		if(res.status == 500){
+			mensaje="Ups, el server petó, intentalo de nuevo en unos segundos";
+			visible = true;
+		}
   	}
 	async function Delete() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats",{method:"Delete"}).then( (res)=>{
+   		const res = await fetch("/api/v2/sanity-stats",{method:"Delete"}).then( (res)=>{
+			if(res.status == 404){
+				console.log("No hemos encontrado ese dato, sorry");
+				visible = true;
+			}
 			   getSanity();
 		   })
+		   
   	}
 	async function DeleteContact(ContactName,ContactYear) {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
+   		const res = await fetch("/api/v2/sanity-stats/"+ContactName+"/"+ContactYear,{method:"Delete"}).then( (res)=>{
+			if(res.status == 404){
+				mensaje="No hemos encontrado ese dato, sorry";
+			visible = true;
+		}
 			   getSanity();
 		})
-		getSanity();
+		
   	}
 	async function PostSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats",{
+   		const res = await fetch("/api/v2/sanity-stats",{
 			   method:"POST", 
 			   body:JSON.stringify(NewSanity),
 			   headers:{
 				   "Content-Type":"application/json"
 			   }
 			}).then( (res)=>{
+				if(res.status == 400){
+					mensaje="Campos mal definidos";
+				visible = true;
+			}
+			if(res.status == 409){
+				mensaje="Intestas modificar otro dato CUIDAO";
+				visible = true;
+			}
 			   getSanity();
 		   })
+		  
+			
   	}
 	  async function PutSanity() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/sanity-stats/"+NewSanity.country+"/"+NewSanity.year,{
+   		const res = await fetch("/api/v2/sanity-stats/"+NewSanity.country+"/"+NewSanity.year,{
 			   method:"PUT", 
 			   body:JSON.stringify(NewSanity),
 			   headers:{
 				   "Content-Type":"application/json"
 			   }
 			}).then( (res)=>{
+				if(res.status == 400){
+					mensaje="Campos mal definidos";
+				visible = true;
+			}
+			if(res.status == 409){
+				mensaje="Intestas modificar otro dato CUIDAO";
+				visible = true;
+			}
+			if(res.status == 404){
+				mensaje="No hemos encontrado ese dato, sorry";
+				visible = true;
+			}
 			   getSanity();
 		   })
+		   
   	}
 	onMount(getSanity);
 </script>
 
 <main>
+
+		<Alert
+			color="danger"
+			isOpen={visible}
+			toggle={() => (visible = false)}>
+			
+			{mensaje}
+		</Alert>
+		<div class="mt-3" style="position: absolute; right:80px;">
+    					<Button id={`btn-${placement}`}>Filtrar</Button>
+   						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+							<Form>
+  								<FormGroup>
+
+								<CustomInput
+        						type="checkbox"
+       							 id="pais"
+        						label="País" ><input bind:value="{filterSanity.country}"></CustomInput>
+
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrodesdeaño"
+        						label="Año desde" ><input type=number bind:value="{filterSanity.fromyear}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastaaño"
+        						label="Año hasta" ><input type=number bind:value="{filterSanity.toyear}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrodesdesanidad"
+        						label="Costes sanidad desde" ><input type=number bind:value="{filterSanity.fromhealth}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastasanidad"
+        						label="Costes sanidad hasta" ><input type=number bind:value="{filterSanity.tohealth}"></CustomInput><CustomInput
+        						type="checkbox"
+       							 id="filtrodesdemedicos"
+        						label="Médicos desde" ><input type=number bind:value="{filterSanity.fromdoctor}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastamedicos"
+        						label="Médicos hasta" ><input type=number bind:value="{filterSanity.todoctor}"></CustomInput><CustomInput
+        						type="checkbox"
+       							 id="filtrodesdecamas"
+        						label="Camas desde" ><input type=number bind:value="{filterSanity.frombed}"></CustomInput>
+								<CustomInput
+        						type="checkbox"
+       							 id="filtrohastacamas"
+        						label="Camas hasta" ><input type=number bind:value="{filterSanity.tobed}"></CustomInput>
+								<br>
+								<Button on:click={getFiltro}>Filtrar</Button>
+								</FormGroup>
+							</Form>
+    					</Popover>
+  					</div>
+
+
+
+
 	<Table responsive>
 		<thead>
 			<tr>
-				<td><Button  on:click={SanityData}>Cargar Datos</Button></td>
+				<td><Button  on:click={SanityData}>Cargar Datos Iniciales</Button></td>
 				<td><Button  on:click={Delete}>Borrar Datos</Button></td>
 			</tr>
 			<tr>
@@ -122,7 +280,37 @@
 			{/each}
 			
 		</tbody>
+		
 	</Table>
+	<Pagination ariaLabel="Cambiar de página">
+
+
+		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/rural-tourism-stats" on:click="{() => incrementOffset(-1)}" />
+		</PaginationItem>
+		
+		<!-- If we are not in the first page-->
+		{#if currentPage != 1}
+		<PaginationItem>
+			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/sanity-stats" >{currentPage}</PaginationLink>
+		</PaginationItem>
+
+		<!-- If there are more elements-->
+		{#if moreData}
+		<PaginationItem >
+			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+
+		<PaginationItem class="{moreData ? '' : 'disabled'}">
+			<PaginationLink next href="#/sanity-stats" on:click="{() => incrementOffset(1)}"/>
+		</PaginationItem>
+
+	</Pagination>
 </main>
 <style>
 	td	{
