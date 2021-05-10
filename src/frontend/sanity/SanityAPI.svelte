@@ -17,7 +17,9 @@
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
 
 	let visible = false;
+	let visibleok=false;
 	let mensaje="";
+	let mensajeOk="";
 	let sanity= [];
 	let NewSanity={
 		"country" :"",
@@ -38,7 +40,6 @@
 		tobed:0
 	}
 ///////////////
-let mensajeOk="";
 let numeroRecursos = 10;
 	let offset = 0;
 	let currentPage = 1; 
@@ -49,17 +50,50 @@ let numeroRecursos = 10;
 
  function incrementOffset(valor) {
 		currentPage += valor;
-		if(sanity.length<currentPage*numeroRecursos){moreData=false}
+		if(sanity.length<(currentPage+1)*numeroRecursos){moreData=false}
 		getSanity();
 	}
+
+
+
+
+
+	async function paginacion() {
+      const data = await fetch("/api/v2/sanity-stats");
+      if (data.status == 200) {
+        const json = await data.json();
+        total = json.length;
+        cambiapag(c_page, c_offset);
+      } 
+    }
+	
+    function range(size, start = 0) {
+      return [...Array(size).keys()].map((i) => i + start);
+	}
+	 
+	function cambiapag(page, offset) {
+      
+      lastPage = Math.ceil(total / 10);
+      console.log("Last page = " + lastPage);
+      if (page !== c_page) {
+        c_offset = offset;
+        c_page = page;
+        getSanity();
+      }
+    } 
 ///////////////////
+let c_offset = 0;
+    let limit = 10;
+    let c_page = 1;
+    let lastPage = 1;
+    let total = 0;
 	async function getFiltro(){
 		console.log("Fetching foodconsumption...");
 		console.log(filterSanity);
 		
         let offset = (currentPage-1)*numeroRecursos;
         let limit = currentPage*numeroRecursos;
-		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"&offset="+offset+"&limit="+limit);
+		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"&offset="+c_offset+"&limit="+limit);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -83,8 +117,10 @@ let numeroRecursos = 10;
         if(res.ok){
 			console.log("Ok.");
 			getSanity();
+			if(mensajeOk!=""){
 			mensajeOk="GG, datos conseguidos";
-			visible = true;
+			visibleok=true;
+			visible=false;}
 		}else{
 			console.log("Error");
 		}
@@ -94,33 +130,39 @@ let numeroRecursos = 10;
     	console.log("Fetching data...");
         let offset = (currentPage-1)*numeroRecursos;
         let limit = currentPage*numeroRecursos;
-   		const res = await fetch("/api/v2/sanity-stats?offset="+offset+"&limit="+limit);
-		
+   		const res = await fetch("/api/v2/sanity-stats?offset="+c_offset+"&limit="+limit);
+		console.log(offset+"  lim="+limit);
         if(res.ok){
           console.log("Ok.");
           const json = await res.json();
           sanity = json;
+		paginacion();
           console.log(`We have ${sanity.length} Sanity.`)
-			mensajeOk="GG, datos conseguidos";
-			visible = true;
         }else{
           console.log("Error");
         }
 		if(res.status == 404){
 			mensaje="No hemos encontrado ese dato, sorry";
 			visible = true;
+			visibleok=false;
 		}
 		if(res.status == 500){
 			mensaje="Ups, el server petó, intentalo de nuevo en unos segundos";
 			visible = true;
+			visibleok=false;
 		}
   	}
 	async function Delete() {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v2/sanity-stats",{method:"Delete"}).then( (res)=>{
 			if(res.status == 404){
-				console.log("No hemos encontrado ese dato, sorry");
+				mensaje="No hemos encontrado ese dato, sorry";
 				visible = true;
+				visibleok=false;
+			}if(res.ok){
+				mensajeOk="datos borrados";
+				visible = false;
+				visibleok=true;
 			}
 			   getSanity();
 		   })
@@ -132,7 +174,12 @@ let numeroRecursos = 10;
 			if(res.status == 404){
 				mensaje="No hemos encontrado ese dato, sorry";
 			visible = true;
-		}
+			visibleok=false;
+		}if(res.ok){
+				mensajeOk=ContactName+" "+ContactYear+" borrado";
+				visible = false;
+				visibleok=true;
+			}
 			   getSanity();
 		})
 		
@@ -149,10 +196,12 @@ let numeroRecursos = 10;
 				if(res.status == 400){
 					mensaje="Campos mal definidos";
 				visible = true;
+			visibleok=false;
 			}
 			if(res.status == 409){
 				mensaje="Dato ya creado";
 				visible = true;
+			visibleok=false;
 			}
 			   getSanity();
 		   })
@@ -171,14 +220,17 @@ let numeroRecursos = 10;
 				if(res.status == 400){
 					mensaje="Campos mal definidos";
 				visible = true;
+			visibleok=false;
 			}
 			if(res.status == 409){
 				mensaje="Intestas modificar otro dato CUIDAO";
 				visible = true;
+			visibleok=false;
 			}
 			if(res.status == 404){
 				mensaje="No hemos encontrado ese dato, sorry";
 				visible = true;
+			visibleok=false;
 			}
 			   getSanity();
 		   })
@@ -193,8 +245,17 @@ let numeroRecursos = 10;
 			color="danger"
 			isOpen={visible}
 			toggle={() => (visible = false)}>
-			
+			{#if mensaje}
 			{mensaje}
+			{/if}
+		</Alert>
+		<Alert
+			color="success"
+			isOpen={visibleok}
+			toggle={() => (visibleok = false)}>
+			{#if mensajeOk}
+			{mensajeOk}
+			{/if}
 		</Alert>
 		<div class="mt-3" style="position: absolute; right:80px;">
     					<Button id={`btn-${placement}`}>Filtrar</Button>
@@ -288,35 +349,23 @@ let numeroRecursos = 10;
 		</tbody>
 		
 	</Table>
-	<Pagination ariaLabel="Cambiar de página">
 
+	<Pagination ariaLabel="Web pagination">
+		<PaginationItem class = {c_page === 1 ? "enable" : ""}>
+			  <PaginationLink previous href="#/sanity-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
+		</PaginationItem>
+		{#each range(lastPage, 1) as page}
+			  <PaginationItem class = {c_page === page ? "active" : ""}>
+				<PaginationLink previous href="#/sanity-stats" on:click={() => cambiapag(page, (page - 1) * 10)}>
+					{page}
+				</PaginationLink>
+			  </PaginationItem>
+		{/each}
+		<PaginationItem class = {c_page === lastPage ? "disabled" : ""}>
+			  <PaginationLink next href="#/sanity-stats" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
+		</PaginationItem>
+	  </Pagination>
 
-		<PaginationItem class="{currentPage === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" />
-		</PaginationItem>
-		
-		<!-- If we are not in the first page-->
-		{#if currentPage != 1}
-		<PaginationItem>
-			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(-1)}" >{currentPage - 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem active>
-			<PaginationLink href="#/sanity-stats" >{currentPage}</PaginationLink>
-		</PaginationItem>
-
-		<!-- If there are more elements-->
-		{#if moreData}
-		<PaginationItem >
-			<PaginationLink href="#/sanity-stats" on:click="{() => incrementOffset(1)}">{currentPage + 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-
-		<PaginationItem class="{moreData ? '' : 'disabled'}">
-			<PaginationLink next href="#/sanity-stats" on:click="{() => incrementOffset(1)}"/>
-		</PaginationItem>
-
-	</Pagination>
 </main>
 <style>
 	td	{
