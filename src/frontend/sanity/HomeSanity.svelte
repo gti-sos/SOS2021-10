@@ -54,9 +54,12 @@
 	
 	<Breadcrumb class="peque">
 		<BreadcrumbItem active>Estaditicas de Sanidad</BreadcrumbItem>
-  		<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
+  		<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postmanv1</a></BreadcrumbItem>
 	</Breadcrumb>
-	
+	<Breadcrumb class="peque">
+		<BreadcrumbItem active>Estaditicas de Sanidad</BreadcrumbItem>
+  		<BreadcrumbItem><a href="https://www.getpostman.com/collections/72e47219d53553a3541b">Sanity_postmanv2</a></BreadcrumbItem>
+	</Breadcrumb>
 	
 
 </main>
