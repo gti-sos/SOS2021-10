@@ -207,6 +207,9 @@ let filterObesity= {
 								
 							}).then( function (res) {
 								getObesity();
+								okMsg = "Dato eliminado";
+								visibleOk=true;
+								visible=false;
 							})
 	}
 	
