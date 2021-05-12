@@ -48,7 +48,7 @@
 	
 	async function getObesity() {
     	console.log("Fetching data...");
-   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats"+ "?limit=" + limit + "&offset=" + c_offset);
+   		const res = await fetch("/api/v2/obesity-stats"+ "?limit=" + limit + "&offset=" + c_offset);
 		
         if(res.ok){
 			console.log("Ok.");
@@ -73,7 +73,7 @@ let filterObesity= {
 	
 	
 	async function getFiltro(){
-		let dbquery= "?";
+		let dbquery= "";
 		var e = document.getElementById("myselect");
 		
 		
@@ -118,7 +118,7 @@ let filterObesity= {
             dbquery += `total_population=${filterObesity.total_population}`
 			
 		}
-		const res = await fetch("/api/v2/obesity-stats" + dbquery);
+		const res = await fetch("/api/v2/obesity-stats?" + dbquery);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -251,25 +251,7 @@ let filterObesity= {
 	</Alert>
 	
 	
-	<div class="mt-3" style="position: absolute; right:80px;">
-    	<Button id={`btn-${placement}`}>Buscar</Button>
-   		<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
-			<Form>
-  				<FormGroup>
-   						 
-					<CustomInput type="checkbox" id="filtroPais" label="País" ><input bind:value="{filterObesity.country}"></CustomInput>
-					<CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input type=number bind:value="{filterObesity.fromyear}"></CustomInput>
-					<CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input type=number bind:value="{filterObesity.toyear}"></CustomInput>
-					<CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input type=number bind:value="{filterObesity.man_percent}"></CustomInput>
-					<CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input type=number bind:value="{filterObesity.woman_percent}"></CustomInput>
-					<CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input type=number bind:value="{filterObesity.total_population}"></CustomInput>
-					<br>
-					<Button on:click={getFiltro}>Filtrar</Button>
-					<Button outline color="secondary" on:click="{getObesity}">Atrás</Button>
-				</FormGroup>
-			</Form>
-    	</Popover>
-  	</div>
+	
 	
 	
 	
@@ -280,6 +262,15 @@ let filterObesity= {
 				<td><Button on:click={ObesityData}>Cargar datos</Button></td>
 				<td><Button on:click={deleteAll}>Borrar datos</Button></td>
 					
+			</tr>
+			<tr>
+				<td><CustomInput type="checkbox" id="filtroPais" label="País" ><input bind:value="{filterObesity.country}"></CustomInput></td>
+				<td><CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input type=number bind:value="{filterObesity.fromyear}"></CustomInput></td>
+				<td><CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input type=number bind:value="{filterObesity.toyear}"></CustomInput></td>
+				<td><CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input type=number bind:value="{filterObesity.man_percent}"></CustomInput></td>
+				<td><CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input type=number bind:value="{filterObesity.woman_percent}"></CustomInput></td>
+				<td><CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input type=number bind:value="{filterObesity.total_population}"></CustomInput></td>
+				<td><Button on:click={getFiltro}>Buscar</Button></td>
 			</tr>
 			
 			<tr>
@@ -292,6 +283,7 @@ let filterObesity= {
 			</tr>
 		</thead>
 		<tbody>
+			
 			<tr>
 				<td><input bind:value="{newObesity.country}"></td>
 				<td><input type=number bind:value="{newObesity.year}"></td>
