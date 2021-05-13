@@ -9,11 +9,11 @@
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
-    let spain = [];
-    let data=[2916, 2404, 2942, 3082, 3121, 4044];
-    let spainBed=[];
-    let spainHealth=[];
-    let spainDoctors=[];
+    var spain = [];
+    var data=[2916, 2404, 2942, 3082, 3121, 4044];
+    var spainBed=[];
+    var spainHealth=[];
+    var spainDoctors=[];
     async function getsanity(){
         console.log("Fetching sanity...");
         const res = await fetch("/api/v2/sanity-stats?country=Spain");
@@ -25,23 +25,26 @@
             console.log(spain);
             console.log("made");
             console.log(`We have received ${spain.length} sanity points.`);
+            let i=0;
+            while(i<spain.length){
+                NewSpain=spain[i];
+                spainBed.push(NewSpain.hospital_bed);
+                spainHealth.push(NewSpain.health_expenditure_in_percentage);
+                spainDoctors.push(NewSpain.doctor_per_1000_habitant);
+                i++;
+            }
         }else{
             console.log("Error!");
         }
-        let i=0;
-        while(i<spain.length){
-            NewSpain=spain[i];
-            spainBed.push(NewSpain.hospital_bed);
-            spainHealth.push(NewSpain.health_expenditure_in_percentage);
-            spainDoctors.push(NewSpain.doctor_per_1000_habitant);
-            i++;
-        }
+        console.log(1)
         console.log(data)
         console.log(spainBed)
+        loadGraph();
     }   
    
     onMount(getsanity);
-  async function loadGraph(){  
+async function loadGraph(){
+    console.log(2)
     Highcharts.chart('container', {
         
   title: {
@@ -80,22 +83,15 @@
   },
 
   series: [{
-    name: 'Camas',
+    name: 'Camas de Hospital',
     data: spainBed
   }, {
-    name: 'Manufacturing',
-    data: data
+    name: 'Médicos cada 1000 habitantes',
+    data: spainDoctors
   }, {
-    name: 'Sales & Distribution',
-    data: [1144, 1722, 1605, 1971, 5185, 3387]
-  }, {
-    name: 'Project Development',
-    data: [null, null, 798, 1169, 1512, 3427]
-  }, {
-    name: 'Other',
-    data: [1208, 5948, 5105, 1248, 899, 1811]
+    name: 'Porcentaje de gasto en Sanidad',
+    data: spainHealth
   }],
-
   responsive: {
     rules: [{
       condition: {
@@ -111,11 +107,12 @@
     }]
   }
     });
+console.log(3);
   }
 </script>
 
 <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
