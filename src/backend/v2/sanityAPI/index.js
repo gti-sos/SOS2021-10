@@ -21,7 +21,27 @@ var sanityInitialData = [
         "health_expenditure_in_percentage": 19.01326713,"doctor_per_1000_habitant": 2.41,"hospital_bed": 945199
 	},
 	{
+		"country": "Spain","year": 2007,
+        "health_expenditure_in_percentage": 15.57613924,"doctor_per_1000_habitant": 4.603,"hospital_bed": 146840
+	},
+	{
 		"country": "Spain","year": 2008,
+        "health_expenditure_in_percentage": 15.73140496,"doctor_per_1000_habitant": 4.67,"hospital_bed": 146934
+	},
+	{
+		"country": "Spain","year": 2009,
+        "health_expenditure_in_percentage": 15.60644541,"doctor_per_1000_habitant": 4.731,"hospital_bed": 146934
+	},
+	{
+		"country": "Spain","year": 2010,
+        "health_expenditure_in_percentage": 15.49018176,"doctor_per_1000_habitant": 3.756,"hospital_bed": 145207
+	},
+	{
+		"country": "Spain","year": 2011,
+        "health_expenditure_in_percentage": 15.3092174,"doctor_per_1000_habitant": 3.838,"hospital_bed": 142640
+	},
+	{
+		"country": "Spain","year": 2012,
         "health_expenditure_in_percentage": 15.73140496,"doctor_per_1000_habitant": 4.67,"hospital_bed": 146934
 	},
 	{
