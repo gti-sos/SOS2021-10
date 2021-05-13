@@ -46,7 +46,9 @@
 				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
 			  </Modal>
+	<h5>Gráfica del Consumo de Comida:</h5>
 			
+		<Button outline color="warning"><a href="#/foodconsumption-stats/graphfood">Abrir</a></Button>
 			
 	<h2>
 		<strong>Documentación en Postman:</strong>

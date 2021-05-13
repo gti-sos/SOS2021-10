@@ -293,18 +293,17 @@
 		<div class="mt-3" style="position: absolute; right:80px;">
     					<Button id={`btn-${placement}`}>Buscar</Button>
    						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
-							<Form>
-  								<FormGroup>
-   						 
-								<CustomInput
+						
+   						 	<ul class="list-inline">
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroPais"
-        						label="País" ><input bind:value="{filterFoodconsumption.country}"></CustomInput>
-								<CustomInput
+        						label="País" ><input bind:value="{filterFoodconsumption.country}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroAnyo"
-        						label="Año" ><input type=number bind:value="{filterFoodconsumption.year}"></CustomInput>
-								<CustomInput
+        						label="Año" ><input type=number bind:value="{filterFoodconsumption.year}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroComida"
         						label="Tipo de comida" >
@@ -317,28 +316,27 @@
 										  <option value="SugarAndFat">Grasas y azúcares</option>
 										</CustomInput>
 									</FormGroup>
-							    </CustomInput>
-								<CustomInput
+							    </CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroCalPer"
-        						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput>
-								<CustomInput
+        						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroGramPer"
-        						label="Gramos por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.gramperperson}"></CustomInput>
-								<CustomInput
+        						label="Gramos por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.gramperperson}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroGramDia"
-        						label="Gramos diarios mayor que" ><input type=number bind:value="{filterFoodconsumption.dailygram}"></CustomInput>
-								<CustomInput
+        						label="Gramos diarios mayor que" ><input type=number bind:value="{filterFoodconsumption.dailygram}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtroCalDia"
-        						label="Calorías diarias mayor que" ><input type=number bind:value="{filterFoodconsumption.dailycalory}"></CustomInput>
+        						label="Calorías diarias mayor que" ><input type=number bind:value="{filterFoodconsumption.dailycalory}"></CustomInput></li>
 								<br>
 								<Button on:click={getFiltro}>Filtrar</Button>
 								<Button outline color="secondary" on:click="{getFoodconsumption}">Atrás</Button>
-								</FormGroup>
-							</Form>
+							</ul>
     					</Popover>
   					</div>
 		<Table responsive>

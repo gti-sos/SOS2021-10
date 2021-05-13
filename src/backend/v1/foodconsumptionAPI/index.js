@@ -29,7 +29,7 @@ var food_consumptionInitialData = [
 	{
 		"country": "Spain",
 		"year": 2011,
-		"foodtype": "Sugar&Fat",
+		"foodtype": "SugarAndFat",
 		"caloryperperson": 955,
 		"gramperperson": 132,
 		"dailygram": 2559,

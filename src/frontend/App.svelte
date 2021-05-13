@@ -8,6 +8,7 @@
 	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
 	import HomeFood from './foodConsumption/HomeFood.svelte';
+	import GraphFood from './foodConsumption/GraphFood.svelte';
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
 	import graph from './sanity/Graph.svelte';
@@ -19,6 +20,7 @@
 		"/info": Info,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year/:foodtype": EditFood,
+		"/foodconsumption-stats/graphfood": GraphFood,
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
 		"/sanity-stats": HomeSanity,
