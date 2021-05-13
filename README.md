@@ -9,7 +9,6 @@
 -  **APIs**:
  - [Obesity-stats v1](https://sos2021-10.herokuapp.com/api/v2/obesity-stats) | [Postman documentation v1](https://documenter.getpostman.com/view/14950492/TzRShoHF) || [Obesity-stats v2](https://sos2021-10.herokuapp.com/api/v2/obesity-stats) | [Postman documentation v2](https://documenter.getpostman.com/view/14950492/TzJoDfvw) (developed by [Almudena González López de Letona](https://github.com/almgonlop))
 
+- [Sanity-stats v1](https://sos2021-10.herokuapp.com/api/v2/sanity-stats) | [Postman documentation v1](https://documenter.getpostman.com/view/9683594/TzJoE1Qx) || [Sanity-stats v2](https://sos2021-10.herokuapp.com/api/v2/sanity-stats) | [Postman documentation v2](https://documenter.getpostman.com/view/9683594/TzRShoHD) (developed by [Antonio José Díaz González](https://github.com/AntonioJoseDiaz))
 
-Sanity_postmanv1: https://documenter.getpostman.com/view/9683594/TzJoE1Qx
-Sanity_postmanv2: https://documenter.getpostman.com/view/9683594/TzRShoHD
-Foodconsumption-stats Postman v1: https://documenter.getpostman.com/view/14948248/TzJoDfvx
+- [Food-Consumption-stats](https://sos2021-10.herokuapp.com/api/v2/foodconsumption-stats) | [Postman documentation](https://documenter.getpostman.com/view/14948248/TzJoDfvx) (developed by [Alicia Pérez Bolaños](https://github.com/aliperbol))
