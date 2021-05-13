@@ -118,25 +118,26 @@ let filterObesity= {
             dbquery += `total_population=${filterObesity.total_population}`
 			
 		}
-		const res = await fetch("/api/v2/obesity-stats?" + dbquery);
+		const res = await fetch("/api/v2/obesity-stats?"+ dbquery);
 		
 		if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
 			obesity= json ;
 			if(obesity.length>0){
-			okMsg = "Datos filtrados";
-			visibleOk=true;
-			visible=false;
-			console.log(`We have ${obesity.length} obesity.`);
-			console.log(JSON.stringify(obesity));
+				okMsg = "Datos filtrados";
+				visibleOk=true;
+				visible=false;
+				console.log(`We have ${obesity.length} obesity.`);
+				console.log(JSON.stringify(obesity));
+				
 			}else{
-			errorMsg = "No se encuentran datos con los filtros seleccionados";
-			visibleOk=false;
-			visible=true;
-			console.log("Error!");
+				errorMsg = "No se encuentran datos con los filtros seleccionados";
+				visibleOk=false;
+				visible=true;
+				console.log("Error!");
 			
-		}
+			}
 		
 		}
 		
@@ -251,9 +252,22 @@ let filterObesity= {
 	</Alert>
 	
 	
-	
-	
-	
+	<div class="mt-3" style="position: absolute; right:80px;">
+    	<Button id={`btn-${placement}`}>Buscar</Button>
+   		<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
+			<ul class="list-inline">
+				<li><CustomInput type="checkbox" id="filtroPais" label="País" ><input bind:value="{filterObesity.country}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input type=number bind:value="{filterObesity.fromyear}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input type=number bind:value="{filterObesity.toyear}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input type=number bind:value="{filterObesity.man_percent}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input type=number bind:value="{filterObesity.woman_percent}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input type=number bind:value="{filterObesity.total_population}"></CustomInput></li>
+				<br>
+				<Button on:click={getFiltro}>Filtrar</Button>
+				<Button outline color="secondary" on:click="{getObesity}">Atrás</Button>
+			</ul>
+		</Popover>
+  	</div>
 	
 	<Table responsive>
 	
@@ -263,15 +277,7 @@ let filterObesity= {
 				<td><Button on:click={deleteAll}>Borrar datos</Button></td>
 					
 			</tr>
-			<tr>
-				<td><CustomInput type="checkbox" id="filtroPais" label="País" ><input bind:value="{filterObesity.country}"></CustomInput></td>
-				<td><CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input type=number bind:value="{filterObesity.fromyear}"></CustomInput></td>
-				<td><CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input type=number bind:value="{filterObesity.toyear}"></CustomInput></td>
-				<td><CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input type=number bind:value="{filterObesity.man_percent}"></CustomInput></td>
-				<td><CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input type=number bind:value="{filterObesity.woman_percent}"></CustomInput></td>
-				<td><CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input type=number bind:value="{filterObesity.total_population}"></CustomInput></td>
-				<td><Button on:click={getFiltro}>Buscar</Button></td>
-			</tr>
+			
 			
 			<tr>
 				<th>Pais</th>
