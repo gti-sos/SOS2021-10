@@ -268,6 +268,7 @@ console.log(3);
 <main>
   <Header/>
     <figure class="highcharts-figure">
+      <br><br>
       <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad </a></button>
       <button><a href="#/sanity-stats-graphv2">Gráfica 2</a></button>
       

@@ -101,9 +101,22 @@ let c_offset = 0;
 			sanity= json ;
 			console.log(`We have ${sanity.length} sanity.`);
 			console.log(JSON.stringify(sanity));
-		}
-		else{
-			console.log("Error!");	
+			lastPage = Math.ceil(sanity.length/10);
+			console.log(lastPage)
+		if(sanity.length>0){
+				mensajeOk = "Datos filtrados";
+				visibleok=true;
+				visible=false;
+				console.log(`We have ${sanity.length} sanity.`);
+				console.log(JSON.stringify(sanity));
+				
+			}else{
+				mensaje = "No se encuentran datos con los filtros seleccionados";
+				visibleok=false;
+				visible=true;
+				console.log("Error!");
+			
+			}
 		}
 	}
 
@@ -197,6 +210,10 @@ let c_offset = 0;
 					mensaje="Campos mal definidos";
 				visible = true;
 			visibleok=false;
+			}if(res.ok){
+					mensajeOk="Dato creado";
+				visible = false;
+			visibleok=true;
 			}
 			if(res.status == 409){
 				mensaje="Dato ya creado";
@@ -353,7 +370,7 @@ let c_offset = 0;
 	</Table>
 
 	<Pagination ariaLabel="Web pagination">
-		<PaginationItem class = {c_page === 1 ? "enable" : ""}>
+		<PaginationItem class = {c_page === 1 ? "disabled" : ""}>
 			  <PaginationLink previous href="#/sanity-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
 		</PaginationItem>
 		{#each range(lastPage, 1) as page}
