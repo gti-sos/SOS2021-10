@@ -153,6 +153,13 @@ function hasNumbers(t){
         
 		res.sendStatus(200);
     });
+	 
+	app.get(BASE_API_PATH+"/data", (req, res)=>{
+		var data = Array.from({length: 40}, ()=> Math.floor(Math.random()*40));
+        
+        
+		res.sendStatus(data);
+    });
     
  
     /*

@@ -48,8 +48,8 @@
 				<Button color="secondary" on:click={toggleob}>Cerrar</Button>
 			</ModalFooter>
 		</Modal>
-			
-			
+	<h5>Gráfica de Obesidad:</h5>		
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graph'" style=" width: 5%;">Gráfica</Button>
 	<h2>
 		<strong>Documentación en Postman:</strong>
 	</h2>
