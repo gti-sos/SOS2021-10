@@ -260,48 +260,50 @@ let c_offset = 0;
 		<div class="mt-3" style="position: absolute; right:80px;">
     					<Button id={`btn-${placement}`}>Filtrar</Button>
    						<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
-							<Form>
-  								<FormGroup>
+							<ul class="list-inline">
 
-								<CustomInput
+								<li><CustomInput
         						type="checkbox"
        							 id="pais"
-        						label="País" ><input bind:value="{filterSanity.country}"></CustomInput>
+        						label="País" ><input bind:value="{filterSanity.country}"></CustomInput></li>
 
-								<CustomInput
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrodesdeaño"
-        						label="Año desde" ><input type=number bind:value="{filterSanity.fromyear}"></CustomInput>
-								<CustomInput
+        						label="Año desde" ><input type=number bind:value="{filterSanity.fromyear}"></CustomInput></li>
+								
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrohastaaño"
-        						label="Año hasta" ><input type=number bind:value="{filterSanity.toyear}"></CustomInput>
-								<CustomInput
+        						label="Año hasta" ><input type=number bind:value="{filterSanity.toyear}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrodesdesanidad"
-        						label="Costes sanidad desde" ><input type=number bind:value="{filterSanity.fromhealth}"></CustomInput>
-								<CustomInput
+        						label="Costes sanidad desde" ><input type=number bind:value="{filterSanity.fromhealth}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrohastasanidad"
-        						label="Costes sanidad hasta" ><input type=number bind:value="{filterSanity.tohealth}"></CustomInput><CustomInput
+        						label="Costes sanidad hasta" ><input type=number bind:value="{filterSanity.tohealth}"></CustomInput></li>
+								
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrodesdemedicos"
-        						label="Médicos desde" ><input type=number bind:value="{filterSanity.fromdoctor}"></CustomInput>
-								<CustomInput
+        						label="Médicos desde" ><input type=number bind:value="{filterSanity.fromdoctor}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrohastamedicos"
-        						label="Médicos hasta" ><input type=number bind:value="{filterSanity.todoctor}"></CustomInput><CustomInput
+        						label="Médicos hasta" ><input type=number bind:value="{filterSanity.todoctor}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrodesdecamas"
-        						label="Camas desde" ><input type=number bind:value="{filterSanity.frombed}"></CustomInput>
-								<CustomInput
+        						label="Camas desde" ><input type=number bind:value="{filterSanity.frombed}"></CustomInput></li>
+								<li><CustomInput
         						type="checkbox"
        							 id="filtrohastacamas"
-        						label="Camas hasta" ><input type=number bind:value="{filterSanity.tobed}"></CustomInput>
+        						label="Camas hasta" ><input type=number bind:value="{filterSanity.tobed}"></CustomInput></li>
 								<br>
 								<Button on:click={getFiltro}>Filtrar</Button>
-								</FormGroup>
-							</Form>
+							</ul>
     					</Popover>
   					</div>
 

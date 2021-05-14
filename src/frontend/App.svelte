@@ -11,7 +11,13 @@
 	import GraphFood from './foodConsumption/GraphFood.svelte';
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
+
+	import GraphObe from './obesity/GraphObe.svelte';
+
+	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
+	import graphV2 from './sanity/GraphV2.svelte';
+
 	
 	
 	
@@ -23,8 +29,12 @@
 		"/foodconsumption-stats/graphfood": GraphFood,
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
+		"/obesity-stats/graph": GraphObe,
 		"/sanity-stats": HomeSanity,
-		"/sanity-stats/graph": graph,
+		"/sanity-stats/:country/:year": JustOneSanity,
+		"/sanity-stats-graph": graph,
+		"/sanity-stats-graphv2": graphV2,
+
 		"*": NotFound
 	}
 	
