@@ -24,16 +24,16 @@ async function loadGraph(){
         type: 'area'
     },    
   title: {
-    text: 'idk what im doing'
+    text: 'Gasto en sanidad'
   },
 
   subtitle: {
-    text: 'help'
+    text: 'Gasto en sanidad desde 2007 hasta '+(2007+spainHealth.length-1)
   },
 
   yAxis: {
     title: {
-      text: 'Number of Employees'
+      text: 'Gasto en Sanidad (%)'
     }
   },
 
@@ -59,17 +59,17 @@ async function loadGraph(){
   },
 
   series: [{
-    name: 'España',
-    data: spainHealth
+    name: 'Estados Unidos',
+    data: usaHealth
   },{
     name: 'Alemania',
     data: germanyHealth
   },{
+    name: 'España',
+    data: spainHealth
+  },{
     name: 'China',
     data: chinaHealth
-  },{
-    name: 'Estados Unidos',
-    data: usaHealth
   },{
     name: 'India',
     data: indiaHealth
@@ -144,6 +144,9 @@ console.log(3);
 
 <main>
     <figure class="highcharts-figure">
+      
+      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
+      <button><a href="#/sanity-stats-graph">Gráfica 1</a></button>
         <div id="container"></div>
         <p class="highcharts-description">
             Basic line chart showing trends in a dataset. This chart includes the

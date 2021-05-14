@@ -54,7 +54,7 @@
 		
 			
 		</tbody>
-        <a href="#/sanity-stats-graph/{sanity.country}">Gráfica</a>
+        <button href="#/sanity-stats-graph/{sanity.country}">Gráfica</button>
 	</Table>
 </main>
 <style>

@@ -26,12 +26,12 @@ async function loadGraph(){
   },
 
   subtitle: {
-    text: 'Dastos desde el 2007 hasta 2011'
+    text: 'Dastos desde el 2007 hasta '+(2007+spainHealth.length-1)
   },
 
   yAxis: {
     title: {
-      text: 'Number of Employees'
+      text: 'Año'
     }
   },
 
@@ -213,6 +213,8 @@ console.log(3);
 
 <main>
     <figure class="highcharts-figure">
+      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad </a></button>
+      <button><a href="#/sanity-stats-graphv2">Gráfica 2</a></button>
         <div id="container"></div>
         <p class="highcharts-description">
             Basic line chart showing trends in a dataset. This chart includes the
