@@ -19,7 +19,7 @@
 		"/": Landing,
 		"/info": Info,
 		"/foodconsumption-stats": HomeFood,
-		"/foodconsumption-stats/:country/:year/:foodtype": EditFood,
+		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,

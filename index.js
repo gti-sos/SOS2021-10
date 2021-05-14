@@ -5,6 +5,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 
 var food_consumptionAPIv1 =  require("./src/backend/v1/foodconsumptionAPI");
+var food_consumptionAPIv2 =  require("./src/backend/v2/foodconsumptionAPI");
 var sanityAPIv1 =  require("./src/backend/v1/sanityAPI");
 var sanityAPIv2 =  require("./src/backend/v2/sanityAPI");
 var obesityAPIv1 =  require("./src/backend/v1/obesityAPI");
@@ -17,7 +18,7 @@ app.use(bodyParser.json());
 app.use("/", express.static(path.join(__dirname,"public")));
 
 
-
+food_consumptionAPIv2.register(app);
 food_consumptionAPIv1.register(app);
 sanityAPIv1.register(app);
 sanityAPIv2.register(app);
