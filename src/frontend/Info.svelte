@@ -85,16 +85,29 @@
 	</h2>
 	<ul>
 		<Breadcrumb class="peque">
-  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad v1</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
+			
+		</Breadcrumb>
+		<Breadcrumb class="peque">
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/sanity-stats">Estaditicas de Sanidad v2</a></BreadcrumbItem>
 			<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
 			
 		</Breadcrumb>
 		<Breadcrumb>
-  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Estaditicas de Obesidad</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/obesity-stats">Estaditicas de Obesidad v1</a></BreadcrumbItem>
 			<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
 		</Breadcrumb>
 		<Breadcrumb>
-  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Estaditicas del Consumo de Comida</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/obesity-stats">Estaditicas de Obesidad v2</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Almudena González López de Letona</BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/foodconsumption-stats">Estaditicas del Consumo de Comida v1</a></BreadcrumbItem>
+			<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
+		</Breadcrumb>
+		<Breadcrumb>
+  			<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/foodconsumption-stats">Estaditicas del Consumo de Comida v2</a></BreadcrumbItem>
 			<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
 		</Breadcrumb>
 		

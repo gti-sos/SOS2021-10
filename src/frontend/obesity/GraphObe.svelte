@@ -1,5 +1,5 @@
 <script>
-
+	import Header from '../Header.svelte';
     import {
         onMount
     } from "svelte";
@@ -20,9 +20,7 @@
 async function loadGraph(){
     console.log(2)
     Highcharts.chart('container', {
-        chart: {
-        type: 'area'
-    },    
+          
   title: {
     text: 'Gasto en sanidad'
   },
@@ -143,10 +141,12 @@ console.log(3);
 </svelte:head>
 
 <main>
+	<Header/>
+	<br>
     <figure class="highcharts-figure">
       
-      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
-      <button><a href="#/sanity-stats-graph">Gráfica 1</a></button>
+      <button><a href="#/obesity-stats">Volver a Estadísticas de Obesidad</a></button>
+      <button><a href="#/obesity-stats/graphv2">Gráfica 2</a></button>
         <div id="container"></div>
         <p class="highcharts-description">
             Basic line chart showing trends in a dataset. This chart includes the
