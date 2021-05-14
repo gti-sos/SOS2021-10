@@ -1,4 +1,13 @@
 <script>
+    import Header from '../Header.svelte';
+
+    const url=window.location.hash;
+    console.log(url);
+    const param=url.split("/");
+    console.log(param);
+    const country=param[2];
+    console.log(country);
+
     import {
         onMount
     } from "svelte";
@@ -10,13 +19,13 @@
 		"hospital_bed" : 0.0
 	}
     var spain = [];
-    var data=[2916, 2404, 2942, 3082, 3121, 4044];
     var spainBed=[];
     var spainHealth=[];
     var spainDoctors=[];
+    
     async function getsanity(){
         console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/sanity-stats?country=Spain");
+        const res = await fetch("/api/v2/sanity-stats?country="+country);
         if(res.ok){
             console.log("Ok.");
             const json = await res.json();
@@ -37,7 +46,6 @@
             console.log("Error!");
         }
         console.log(1)
-        console.log(data)
         console.log(spainBed)
         loadGraph();
     }   
@@ -46,7 +54,9 @@
 async function loadGraph(){
     console.log(2)
     Highcharts.chart('container', {
-        
+        chart: {
+        type: 'area'
+    },    
   title: {
     text: 'idk what im doing'
   },
@@ -83,14 +93,14 @@ async function loadGraph(){
   },
 
   series: [{
-    name: 'Camas de Hospital',
-    data: spainBed
-  }, {
-    name: 'Médicos cada 1000 habitantes',
-    data: spainDoctors
-  }, {
     name: 'Porcentaje de gasto en Sanidad',
     data: spainHealth
+  },{
+    name: 'Médicos cada 1000 habitantes',
+    data: spainDoctors
+  },{
+    name: 'Camas de Hospital',
+    data: spainBed
   }],
   responsive: {
     rules: [{

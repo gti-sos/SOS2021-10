@@ -10,6 +10,7 @@
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
+	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
 	
 	
@@ -22,7 +23,8 @@
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
 		"/sanity-stats": HomeSanity,
-		"/sanity-stats/graph": graph,
+		"/sanity-stats/:country/:year": JustOneSanity,
+		"/sanity-stats-graph/:country": graph,
 		"*": NotFound
 	}
 	
