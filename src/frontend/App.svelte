@@ -32,7 +32,7 @@
 		"/obesity-stats/graph": GraphObe,
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
-		"/sanity-stats-graph": graph,
+		"/sanity-stats-graph/:country": graph,
 		"/sanity-stats-graphv2": graphV2,
 
 		"*": NotFound

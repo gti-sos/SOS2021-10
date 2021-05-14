@@ -3,7 +3,7 @@
     import {
         onMount
     } from "svelte";
-    let NewSpain={
+    var NewSpain={
 		"country" :"",
 		"year": 0,
 		"health_expenditure_in_percentage" : 0.0,
@@ -146,12 +146,7 @@ console.log(3);
     <figure class="highcharts-figure">
       
       <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
-      <button><a href="#/sanity-stats-graph">Gráfica 1</a></button>
         <div id="container"></div>
-        <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
-        </p>
+        
     </figure>  
 </main>
