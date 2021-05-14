@@ -22,7 +22,6 @@
 	
     let updatedCountry = "XXXX";
 	let updatedyear = 12345;
-	let updatedFoodtype = "XXXX";
 	let updatedCaloryperperson = 12345;
 	let updatedGramperperson = 12345;
     let updatedDailygram = 12345;
@@ -34,7 +33,7 @@
     async function getFoodconsumption() {
 
         console.log("Fetching contact...");
-        const res = await fetch("/api/v1/foodconsumption-stats/" + params.country + "/" + params.year + "/" + params.foodtype);
+        const res = await fetch("/api/v2/foodconsumption-stats/" + params.country + "/" + params.year);
 
         if (res.ok) {
             console.log("Ok:");
@@ -42,7 +41,6 @@
             foodconsumption = json;
             updatedCountry = foodconsumption.country;
             updatedyear = parseInt(foodconsumption.year);
-			updatedFoodtype = foodconsumption.foodtype;
 			updatedCaloryperperson = parseInt(foodconsumption.caloryperperson);
 			updatedGramperperson = parseInt(foodconsumption.gramperperson);
 			updatedDailygram = parseInt(foodconsumption.dailygram);
@@ -50,7 +48,7 @@
 		
             console.log("Received foodconsumption.");
         } else {
-			errorMsg= "El dato con país " + params.country + ", año " + params.year + " y tipo de comida " + params.foodtype + " no existe." ;
+			errorMsg= "El dato con país " + params.country + "con año " + params.year + " no existe." ;
 			visible = true;
 			color="danger";
             console.log("ERROR!" + errorMsg);
@@ -60,14 +58,13 @@
 
     async function updateFoodconsumption() {
 
-        console.log("Updating foodconsumption..." + JSON.stringify(params.country) + ", " + JSON.stringify(params.year) + ", " + JSON.stringify(params.foodtype));
+        console.log("Updating foodconsumption..." + JSON.stringify(params.country) + ", " + JSON.stringify(params.year));
 		let year = parseInt(params.year);
-        const res = await fetch("/api/v1/foodconsumption-stats/" + params.country + "/" + params.year + "/" + params.foodtype, {
+        const res = await fetch("/api/v2/foodconsumption-stats/" + params.country + "/" + params.year, {
             method: "PUT",
             body: JSON.stringify({
                 country:params.country,
 				year:year,
-				foodtype: params.foodtype,
 				caloryperperson:updatedCaloryperperson,
 				gramperperson:updatedGramperperson,
 				dailygram: updatedDailygram,
@@ -93,13 +90,13 @@
 <main>
     <Header/>
 	<br>
-    <h3>Editar consumo de comida <strong>{params.country},{params.year},{params.foodtype}</strong></h3>
+    <h3>Editar consumo de azúcares y grasas <strong>{params.country}, {params.year}</strong></h3>
         <Table bordered>
             <thead>
                 <tr>
                     <th>País</th>
                     <th>Año</th>
-					<th>Tipo de comida</th>
+					
 					<th>Calorías por persona</th>
 					<th>Gramos por persona</th>
 					<th>Gramos diarios</th>
@@ -111,8 +108,7 @@
                 <tr>
                     <td>{updatedCountry}</td>
 					<td>{updatedyear}</td>
-					<td>{updatedFoodtype}</td>
-                    <td><input type=number bind:value="{updatedCaloryperperson}"></td>
+					<td><input type=number bind:value="{updatedCaloryperperson}"></td>
 					<td><input type=number bind:value="{updatedGramperperson}"></td>
 					<td><input type=number bind:value="{updatedDailygram}"></td>
 					<td><input type=number bind:value="{updatedDailycalory}"></td>

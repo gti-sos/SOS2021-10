@@ -31,14 +31,13 @@
 	let newFoodconsumption= {
 		country:"",
 		year:0,
-		foodtype: "",
 		caloryperperson:0,
 		gramperperson:0,
 		dailygram: 0,
 		dailycalory: 0
 	}
 	
-	var BASE_CONTACT_API_PATH= "/api/v1";
+	var BASE_CONTACT_API_PATH= "/api/v2";
 	
 	let c_offset = 0;
     let offset = 0;
@@ -74,7 +73,7 @@
 	async function getFoodconsumption(){
 	 
 		console.log("Fetching foodconsumption...");
-		const res = await fetch("/api/v1/foodconsumption-stats?offset="+c_offset+"&limit=" + limit);
+		const res = await fetch("/api/v2/foodconsumption-stats?offset="+c_offset+"&limit=" + limit);
 		
 		
 		if(res.ok){
@@ -98,7 +97,6 @@
 	let filterFoodconsumption= {
 		country:"",
 		year:0,
-		foodtype: "",
 		caloryperperson:0,
 		gramperperson:0,
 		dailygram: 0,
@@ -109,32 +107,22 @@
 	async function getFiltro(){
 		
 		let dbquery= "?";
-		var e = document.getElementById("myselect");
-		var tipocomida = e.options[e.selectedIndex].value;
-		console.log(tipocomida);
-		
-		
+	
 		if (document.getElementById('filtroPais').checked){
             dbquery += `country=${filterFoodconsumption.country}`;
-			if(document.getElementById('filtroAnyo').checked || document.getElementById('filtroComida').checked || document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+			if(document.getElementById('filtroAnyo').checked  || document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
 			dbquery +=`&`;
 			}
 		}
 		
 		if (document.getElementById('filtroAnyo').checked) {
             dbquery += `year=${filterFoodconsumption.year}`;
-			if(document.getElementById('filtroComida').checked || document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
+			if(document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
 				dbquery +=`&`;
 			}
 			
 		}
-		if (document.getElementById('filtroComida').checked) {
-            dbquery += `foodtype=${tipocomida}`;
-			if( document.getElementById('filtroCalPer').checked || document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
-				dbquery +=`&`;
-			}
-			
-		}
+		
 		if (document.getElementById('filtroCalPer').checked) {
             dbquery += `caloryperpersonAbove=${filterFoodconsumption.caloryperperson}`;
 			if(document.getElementById('filtroGramPer').checked || document.getElementById('filtroGramDia').checked || document.getElementById('filtroCalDia').checked){
@@ -159,7 +147,7 @@
             dbquery += `dailycaloryAbove=${filterFoodconsumption.dailycalory}`
 			
 		}
-		const res = await fetch("/api/v1/foodconsumption-stats" + dbquery);
+		const res = await fetch("/api/v2/foodconsumption-stats" + dbquery);
 		
 		if(res.ok){
 			console.log("Ok.");
@@ -189,7 +177,7 @@
 	
 	async function loadInitialData(){
 		console.log("Fetching foodconsumption...");
-		const res = await fetch("/api/v1/foodconsumption-stats/loadInitialData").then( (res)=> {
+		const res = await fetch("/api/v2/foodconsumption-stats/loadInitialData").then( (res)=> {
 						getFoodconsumption();
 						if(res.ok){
 						errorMsg= "Datos cargados correctamente.";
@@ -233,9 +221,9 @@
 						})
 		
 	}
-	async function deleteFood(country, year, foodtype){
-		console.log("Deleting foodconsumption with country " + JSON.stringify(country) + " year "+ JSON.stringify(year) + " and foodtype " + JSON.stringify(foodtype));
-		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats/"+ country+ "/" + year + "/" +foodtype,
+	async function deleteFood(country, year){
+		console.log("Deleting foodconsumption with country " + JSON.stringify(country) + "and year "+ JSON.stringify(year));
+		const res = await fetch(BASE_CONTACT_API_PATH+"/foodconsumption-stats/"+ country+ "/" + year,
 						{
 							method: "DELETE"
 							
@@ -305,20 +293,6 @@
         						label="Año" ><input type=number bind:value="{filterFoodconsumption.year}"></CustomInput></li>
 								<li><CustomInput
         						type="checkbox"
-       							 id="filtroComida"
-        						label="Tipo de comida" >
-									<FormGroup>
-										<CustomInput type="select" id="myselect">
-										  <option value="Meat">Carne</option>
-										  <option value="DairyAndEggs">Huevos y lácteos</option>
-										  <option value="Produce">Producido</option>
-										  <option value="Grain">Cereales</option>
-										  <option value="SugarAndFat">Grasas y azúcares</option>
-										</CustomInput>
-									</FormGroup>
-							    </CustomInput></li>
-								<li><CustomInput
-        						type="checkbox"
        							 id="filtroCalPer"
         						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput></li>
 								<li><CustomInput
@@ -350,7 +324,6 @@
 				<tr>
 					<td>País</td>
 					<td>Año</td>
-					<td>Tipo de comida</td>
 					<td>Calorías por persona</td>
 					<td>Gramos por persona</td>
 					<td>Gramos diarios</td>
@@ -363,7 +336,6 @@
 				<tr>
 					<td><input bind:value="{newFoodconsumption.country}"></td>
 					<td><input type=number bind:value="{newFoodconsumption.year}"></td>
-					<td><input bind:value="{newFoodconsumption.foodtype}"></td>
 					<td><input type=number bind:value="{newFoodconsumption.caloryperperson}"></td>
 					<td><input type=number bind:value="{newFoodconsumption.gramperperson}"></td>
 					<td><input type=number bind:value="{newFoodconsumption.dailygram}"></td>
@@ -374,14 +346,13 @@
 				{#each foodconsumption as datafood}
 					<tr>
 
-					<td><a href="#/foodconsumption-stats/{datafood.country}/{datafood.year}/{datafood.foodtype}">{datafood.country}</td>
+					<td><a href="#/foodconsumption-stats/{datafood.country}/{datafood.year}">{datafood.country}</td>
 					<td>{datafood.year}</td>
-					<td>{datafood.foodtype}</td>
 					<td>{datafood.caloryperperson}</td>
 					<td>{datafood.gramperperson}</td>
 					<td>{datafood.dailygram}</td>
 					<td>{datafood.dailycalory}</td>
-					<td><Button on:click={deleteFood(datafood.country,datafood.year, datafood.foodtype )}>Borrar</Button></td>
+					<td><Button on:click={deleteFood(datafood.country,datafood.year)}>Borrar</Button></td>
 
 					</tr>
 				{/each}
