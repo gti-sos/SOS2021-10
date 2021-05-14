@@ -6,9 +6,9 @@
     let NewSpain={
 		"country" :"",
 		"year": 0,
-		"man_percent" : 0.0,
-		"woman_percent" : 0.0,
-		"total_population" : 0.0
+		"health_expenditure_in_percentage" : 0.0,
+		"doctor_per_1000_habitant" : 0.0,
+		"hospital_bed" : 0.0
 	}
     var country = [];
     var chinaHealth=[];
@@ -93,9 +93,9 @@ console.log(3);
   }
 
   
-  async function getobesity(){
+  async function getsanity(){
         console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/obesity-stats");
+        const res = await fetch("/api/v2/sanity-stats");
         if(res.ok){
             console.log("Ok.");
             const json = await res.json();
@@ -108,19 +108,19 @@ console.log(3);
             while(i<country.length){
                 NewSpain=country[i];
                 if(NewSpain.country=="Spain"){
-                  spainHealth.push(NewSpain.total_population);
+                  spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="China"){
-                  chinaHealth.push(NewSpain.total_population);
+                  chinaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="Germany"){
-                  germanyHealth.push(NewSpain.total_population);
+                  germanyHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="India"){
-                  indiaHealth.push(NewSpain.total_population);
+                  indiaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="United_States"){
-                  usaHealth.push(NewSpain.total_population);
+                  usaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 i++;
             }
@@ -131,7 +131,7 @@ console.log(3);
         loadGraph();
     }   
    
-    onMount(getobesity);
+    onMount(getsanity);
 </script>
 
 <svelte:head>

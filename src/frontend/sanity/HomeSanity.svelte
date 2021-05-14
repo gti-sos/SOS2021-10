@@ -45,7 +45,10 @@
 				<ModalFooter>
 				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
+
 			  </Modal>
+				<Button outline color="warning"><a href="#/sanity-stats-graph">Gráfica 1</a></Button>
+				<Button outline color="warning"><a href="#/sanity-stats-graphv2">Gráfica 2</a></Button>
 			
 			
 	<h2>
