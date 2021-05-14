@@ -13,6 +13,7 @@
 	import EditObe from './obesity/EditObe.svelte';
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
+	import graphV2 from './sanity/GraphV2.svelte';
 	
 	
 	
@@ -26,7 +27,8 @@
 		"/obesity-stats/:country/:year": EditObe,
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
-		"/sanity-stats-graph/:country": graph,
+		"/sanity-stats-graph": graph,
+		"/sanity-stats-graphv2": graphV2,
 		"*": NotFound
 	}
 	
