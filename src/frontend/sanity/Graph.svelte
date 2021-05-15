@@ -252,13 +252,12 @@ console.log(3);
         getpaises();
         console.log(spainBed)
         loadGraph();
-    }   
-   onMount(getsanity);
+    }
     
 </script>
 
 <svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js" on:load="{getsanity}"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
