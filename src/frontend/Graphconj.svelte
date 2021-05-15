@@ -11,12 +11,25 @@ import Header from '../Header.svelte';
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
+    var newObe={	
+		"country": "",
+		"year": 0,
+		"man_percent": 0,
+		"woman_percent": 0,
+		"total_population": 0
+	}
+    var newfood={
+		"country": "",
+		"year": 0,
+		"caloryperperson": 0,
+		"gramperperson":0 ,
+		"dailygram": 0,
+		"dailycalory": 0
+	}
     var country = [];
-    var chinaHealth=[];
-    var spainHealth=[];
-    var usaHealth=[];
-    var indiaHealth=[];
-    var germanyHealth=[];
+    var poblacion=[];
+    var health=[];
+    var calorias=[];
     
 async function loadGraph(){
     console.log(2)
@@ -29,7 +42,7 @@ async function loadGraph(){
   },
 
   subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '+(2007+spainHealth.length-1)
+    text: 'Gasto en sanidad desde 2007 hasta '
   },
 
   yAxis: {
@@ -60,20 +73,14 @@ async function loadGraph(){
   },
 
   series: [{
-    name: 'Estados Unidos',
-    data: usaHealth
+    name: 'gasto en sanidad',
+    data: health
   },{
-    name: 'Alemania',
-    data: germanyHealth
+    name: 'calorias',
+    data: calorias
   },{
-    name: 'España',
-    data: spainHealth
-  },{
-    name: 'China',
-    data: chinaHealth
-  },{
-    name: 'India',
-    data: indiaHealth
+    name: 'poblacion',
+    data: poblacion
   }],
   responsive: {
     rules: [{
@@ -96,33 +103,43 @@ console.log(3);
   
   async function getsanity(){
         console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/sanity-stats");
+        const res = await fetch("/api/v2/sanity-stats/statistics?country=China");
         if(res.ok){
             console.log("Ok.");
             const json = await res.json();
             country = json;
-            console.log(json);
-            console.log(country);
-            console.log("made");
-            console.log(`We have received ${country.length} sanity points.`);
             let i=0;
             while(i<country.length){
                 NewSpain=country[i];
-                if(NewSpain.country=="Spain"){
-                  spainHealth.push(NewSpain.health_expenditure_in_percentage);
-                }
-                else if(NewSpain.country=="China"){
-                  chinaHealth.push(NewSpain.health_expenditure_in_percentage);
-                }
-                else if(NewSpain.country=="Germany"){
-                  germanyHealth.push(NewSpain.health_expenditure_in_percentage);
-                }
-                else if(NewSpain.country=="India"){
-                  indiaHealth.push(NewSpain.health_expenditure_in_percentage);
-                }
-                else if(NewSpain.country=="United_States"){
-                  usaHealth.push(NewSpain.health_expenditure_in_percentage);
-                }
+                health.push(NewSpain.health_expenditure_in_percentage);
+                i++;
+            }
+        }else{
+            console.log("Error!");
+        }
+        const res2 = await fetch("/api/v2/obesity-stats?country=China");
+        if(res2.ok){
+            console.log("Ok.");
+            const json = await res2.json();
+            let country2 = json;
+            let i=0;
+            while(i<country2.length){
+                newObe=country2[i];
+                poblacion.push(newObe.total_population);
+                i++;
+            }
+        }else{
+            console.log("Error!");
+        }
+        const res3 = await fetch("/api/v2/foodconsumption-stats?country=China");
+        if(res3.ok){
+            console.log("Ok.");
+            const json = await res3.json();
+            let country3 = json;
+            let i=0;
+            while(i<country3.length){
+                newfood=country3[i];
+                calorias.push(newfood.dailycalory);
                 i++;
             }
         }else{
@@ -144,10 +161,10 @@ console.log(3);
 </svelte:head>
 
 <main>
-  <Header/>
-  <figure class="highcharts-figure">
-    <br><br> 
-      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
+    <Header/>
+    <figure class="highcharts-figure">
+      <br><br> 
+      <button><a href="#/info">Volver a Inicio</a></button>
         <div id="container"></div>
         
     </figure>  

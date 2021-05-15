@@ -80,6 +80,8 @@
 	<p>
 		<strong>URL: </strong><a href="http://sos2021-10.herokuapp.com">http://sos2021-10.herokuapp.com</a> 
 	</p>
+	
+	<button><a href="#/graphconj">Grafica conjunta</a></button>
 	<h2>
 		APIs desarrolladas:
 	</h2>
