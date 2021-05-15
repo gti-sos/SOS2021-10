@@ -25,6 +25,7 @@ const url=window.location.hash;
     var spainHealth=[];
     var spainDoctors=[];
 
+    var years=[];
 ////////////////
 function recarga(int){
   if(int==1){
@@ -34,8 +35,8 @@ function recarga(int){
 
 function cargarpaises() {
     for (let pais of paises) {
-      let html=`<button>
-                      <a href="#/sanity-stats-graph/${pais}">${pais}
+      let html=`<button style="margin-left:10px;background-color:#41C2F1;">
+                      <a style="text-decoration: none" href="#/sanity-stats-graph/${pais}">${pais}
                       </a>
                       
                       </button>`;
@@ -79,13 +80,14 @@ async function loadGraph(){
   },
 
   subtitle: {
-    text: 'Dastos desde el 2007 hasta '+(2007+spainHealth.length-1)
+    text: 'Gasto en sanidad desde '+years[0]+' hasta '+years[years.length-1]
   },
 
-  yAxis: {
+  xAxis: {
     title: {
       text: 'Año'
-    }
+    },
+    categories:years
   },
 
   yAxis: [{ // Primary yAxis
@@ -154,8 +156,7 @@ async function loadGraph(){
     series: {
       label: {
         connectorAllowed: false
-      },
-      pointStart: 2007
+      }
     }
   },
 
@@ -240,6 +241,9 @@ console.log(3);
             let i=0;
             while(i<spain.length){
                 NewSpain=spain[i];
+                if(!years.includes(NewSpain.year)){
+                  years.push(NewSpain.year);
+                }
                 spainBed.push(NewSpain.hospital_bed);
                 spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 spainDoctors.push(NewSpain.doctor_per_1000_habitant);
@@ -268,15 +272,14 @@ console.log(3);
   <Header/>
     <figure class="highcharts-figure">
       <br><br>
-      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad </a></button>
-      <button><a href="#/sanity-stats-graphv2">Gráfica 2</a></button>
+      <button style="margin-left:10px;">
+        <a style="text-decoration: none" href="#/sanity-stats">Volver a Estadísticas de sanidad </a></button>
+        <button style="margin-left:10px;">
+            <a style="text-decoration: none" href="#/sanity-stats-graphv2">Gráfica 2</a></button>
       
         <div id="container"></div>
         <div class="container" id="contenedor">
           <hr>
-          <div class="enlaces">
-           
-          </div>
           <div id="hi">
             <p> {@html row} </p>
             

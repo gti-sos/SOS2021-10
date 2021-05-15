@@ -11,6 +11,7 @@ import Header from '../Header.svelte';
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
+  var years=[];
     var country = [];
     var chinaHealth=[];
     var spainHealth=[];
@@ -21,15 +22,15 @@ import Header from '../Header.svelte';
 async function loadGraph(){
     console.log(2)
     Highcharts.chart('container', {
-        chart: {
+      chart: {
         type: 'line'
-    },    
+    },
   title: {
     text: 'Gasto en sanidad'
   },
 
   subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '+(2007+spainHealth.length-1)
+    text: 'Gasto en sanidad desde '+years[0]+' hasta '+years[years.length-1]
   },
 
   yAxis: {
@@ -40,8 +41,9 @@ async function loadGraph(){
 
   xAxis: {
     accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+      rangeDescription: 'Range: '+years[0]+' hasta '+years[years.length-1]
+    }, 
+    categories:years
   },
 
   legend: {
@@ -54,8 +56,7 @@ async function loadGraph(){
     series: {
       label: {
         connectorAllowed: false
-      },
-      pointStart: 2007
+      }
     }
   },
 
@@ -101,6 +102,7 @@ console.log(3);
             console.log("Ok.");
             const json = await res.json();
             country = json;
+            country.sort((a, b) => (a.year > b.year) ? 1 : -1)
             console.log(json);
             console.log(country);
             console.log("made");
@@ -108,6 +110,9 @@ console.log(3);
             let i=0;
             while(i<country.length){
                 NewSpain=country[i];
+                if(!years.includes(NewSpain.year)){
+                  years.push(NewSpain.year);
+                }
                 if(NewSpain.country=="Spain"){
                   spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
@@ -147,7 +152,8 @@ console.log(3);
   <Header/>
   <figure class="highcharts-figure">
     <br><br> 
-      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
+    <button style="margin-left:10px;">
+      <a style="text-decoration: none"  href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
         <div id="container"></div>
         
     </figure>  
