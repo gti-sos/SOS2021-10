@@ -23,3 +23,8 @@
 {"country":"United_States","year":2007,"health_expenditure_in_percentage":19.01326713,"doctor_per_1000_habitant":2.41,"hospital_bed":945199,"_id":"rqaOj1depR40pfji"}
 {"country":"India","year":2008,"health_expenditure_in_percentage":4.34361163,"doctor_per_1000_habitant":0.615,"hospital_bed":494510,"_id":"wYkc5yrwnZ0ijTt2"}
 {"country":"Germany","year":2010,"health_expenditure_in_percentage":18.14760105,"doctor_per_1000_habitant":3.775,"hospital_bed":674473,"_id":"yFin1twREuI892OL"}
+{"country":"China","year":2012,"health_expenditure_in_percentage":8.8,"doctor_per_1000_habitant":3,"hospital_bed":67789,"_id":"CeAdNp98qUnARgJC"}
+{"$$deleted":true,"_id":"RqoWYwrh2V7ao30m"}
+{"country":"Germany","year":2013,"health_expenditure_in_percentage":5.5,"doctor_per_1000_habitant":5.5,"hospital_bed":5555,"_id":"HGTUnp4oClgekm7H"}
+{"country":"China","year":2015,"health_expenditure_in_percentage":16.8,"doctor_per_1000_habitant":2.5,"hospital_bed":53883,"_id":"ePwCqjs9MBHECwUi"}
+{"country":"China","year":2014,"health_expenditure_in_percentage":10.5,"doctor_per_1000_habitant":3.6,"hospital_bed":534,"_id":"xgpjzCTbb9l1OdUL"}

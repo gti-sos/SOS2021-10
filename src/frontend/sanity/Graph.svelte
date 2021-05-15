@@ -19,6 +19,8 @@ const url=window.location.hash;
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
+  var years=[];
+  var spyears=[];
   var paises=new Set();
     var spain = [];
     var spainBed=[];
@@ -244,11 +246,21 @@ console.log(3);
                 if(!years.includes(NewSpain.year)){
                   years.push(NewSpain.year);
                 }
+                spyears.push(NewSpain.year);
+                if(NewSpain.year!=(spyears[spyears.length-2]+1)){
+                    for(let i=spyears[spyears.length-2];i<(NewSpain.year-1);i++){
+                        years.push(i+1);
+                      spainHealth.push(null);
+                      spainBed.push(null);
+                      spainDoctors.push(null);
+                    }
+                }
                 spainBed.push(NewSpain.hospital_bed);
                 spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 spainDoctors.push(NewSpain.doctor_per_1000_habitant);
                 i++;
             }
+            years.sort((a, b) => (a > b) ? 1 : -1)
         }else{
             console.log("Error!");
         }
@@ -271,19 +283,19 @@ console.log(3);
 <main>
   <Header/>
     <figure class="highcharts-figure">
-      <br><br>
+      <br><br> <p style="text-align: center">
       <button style="margin-left:10px;">
         <a style="text-decoration: none" href="#/sanity-stats">Volver a Estadísticas de sanidad </a></button>
         <button style="margin-left:10px;">
             <a style="text-decoration: none" href="#/sanity-stats-graphv2">Gráfica 2</a></button>
+        </p>
       
         <div id="container"></div>
-        <div class="container" id="contenedor">
-          <hr>
-          <div id="hi">
-            <p> {@html row} </p>
-            
-           </div>
-      </div>  
+          
     </figure>  
+    <div class="container" id="contenedor">
+        <br>
+          <p style="text-align: center"> {@html row} </p>
+          
+    </div>
 </main>

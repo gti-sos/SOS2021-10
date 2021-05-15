@@ -12,6 +12,11 @@ import Header from '../Header.svelte';
 		"hospital_bed" : 0.0
 	}
   var years=[];
+  var spyears=[];
+  var chyears=[];
+  var usyears=[];
+  var inyears=[];
+  var geyears=[];
     var country = [];
     var chinaHealth=[];
     var spainHealth=[];
@@ -40,9 +45,9 @@ async function loadGraph(){
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: '+years[0]+' hasta '+years[years.length-1]
-    }, 
+    title: {
+      text: 'Año'
+    },
     categories:years
   },
 
@@ -114,18 +119,48 @@ console.log(3);
                   years.push(NewSpain.year);
                 }
                 if(NewSpain.country=="Spain"){
+                  spyears.push(NewSpain.year);
+                  if(NewSpain.year!=(spyears[spyears.length-2]+1)){
+                    for(let i=spyears[spyears.length-2];i<(NewSpain.year-1);i++){
+                      spainHealth.push(null);
+                    }
+                  }
                   spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="China"){
+                  chyears.push(NewSpain.year);
+                  if(NewSpain.year!=(chyears[chyears.length-2]+1)){
+                    for(let i=chyears[chyears.length-2];i<(NewSpain.year-1);i++){
+                      chinaHealth.push(null);
+                    }
+                  }
                   chinaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="Germany"){
+                  geyears.push(NewSpain.year);
+                  if(NewSpain.year!=(geyears[geyears.length-2]+1)){
+                    for(let i=geyears[geyears.length-2];i<(NewSpain.year-1);i++){
+                      germanyHealth.push(null);
+                    }
+                  }
                   germanyHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="India"){
+                  inyears.push(NewSpain.year);
+                  if(NewSpain.year!=(inyears[inyears.length-2]+1)){
+                    for(let i=inyears[inyears.length-2];i<(NewSpain.year-1);i++){
+                      indiaHealth.push(null);
+                    }
+                  }
                   indiaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="United_States"){
+                  usyears.push(NewSpain.year);
+                  if(NewSpain.year!=(usyears[usyears.length-2]+1)){
+                    for(let i=usyears[usyears.length-2];i<(NewSpain.year-1);i++){
+                      usaHealth.push(null);
+                    }
+                  }
                   usaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 i++;
@@ -151,9 +186,9 @@ console.log(3);
 <main>
   <Header/>
   <figure class="highcharts-figure">
-    <br><br> 
+    <br><br> <p style="text-align: center">
     <button style="margin-left:10px;">
-      <a style="text-decoration: none"  href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
+      <a style="text-decoration: none"  href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button></p>
         <div id="container"></div>
         
     </figure>  
