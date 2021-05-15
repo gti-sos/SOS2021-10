@@ -1,15 +1,22 @@
 <script>
 
+import Header from '../Header.svelte';
     import {
         onMount
     } from "svelte";
-    let NewSpain={
+    var NewSpain={
 		"country" :"",
 		"year": 0,
 		"health_expenditure_in_percentage" : 0.0,
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
+  var years=[];
+  var spyears=[];
+  var chyears=[];
+  var usyears=[];
+  var inyears=[];
+  var geyears=[];
     var country = [];
     var chinaHealth=[];
     var spainHealth=[];
@@ -20,15 +27,15 @@
 async function loadGraph(){
     console.log(2)
     Highcharts.chart('container', {
-        chart: {
-        type: 'area'
-    },    
+      chart: {
+        type: 'line'
+    },
   title: {
     text: 'Gasto en sanidad'
   },
 
   subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '+(2007+spainHealth.length-1)
+    text: 'Gasto en sanidad desde '+years[0]+' hasta '+years[years.length-1]
   },
 
   yAxis: {
@@ -38,9 +45,10 @@ async function loadGraph(){
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+    title: {
+      text: 'Año'
+    },
+    categories:years
   },
 
   legend: {
@@ -53,8 +61,7 @@ async function loadGraph(){
     series: {
       label: {
         connectorAllowed: false
-      },
-      pointStart: 2007
+      }
     }
   },
 
@@ -100,6 +107,7 @@ console.log(3);
             console.log("Ok.");
             const json = await res.json();
             country = json;
+            country.sort((a, b) => (a.year > b.year) ? 1 : -1)
             console.log(json);
             console.log(country);
             console.log("made");
@@ -107,23 +115,72 @@ console.log(3);
             let i=0;
             while(i<country.length){
                 NewSpain=country[i];
+                if(!years.includes(NewSpain.year)){
+                  years.push(NewSpain.year);
+                }
                 if(NewSpain.country=="Spain"){
+                  spyears.push(NewSpain.year);
+                  if(NewSpain.year!=(spyears[spyears.length-2]+1)){
+                    for(let i=spyears[spyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
+                      spainHealth.push(null);
+                    }
+                  }
                   spainHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="China"){
+                  chyears.push(NewSpain.year);
+                  if(NewSpain.year!=(chyears[chyears.length-2]+1)){
+                    for(let i=chyears[chyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
+                      chinaHealth.push(null);
+                    }
+                  }
                   chinaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="Germany"){
+                  geyears.push(NewSpain.year);
+                  if(NewSpain.year!=(geyears[geyears.length-2]+1)){
+                    for(let i=geyears[geyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
+                      germanyHealth.push(null);
+                    }
+                  }
                   germanyHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="India"){
+                  inyears.push(NewSpain.year);
+                  if(NewSpain.year!=(inyears[inyears.length-2]+1)){
+                    for(let i=inyears[inyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
+                      indiaHealth.push(null);
+                    }
+                  }
                   indiaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 else if(NewSpain.country=="United_States"){
+                  usyears.push(NewSpain.year);
+                  if(NewSpain.year!=(usyears[usyears.length-2]+1)){
+                    for(let i=usyears[usyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
+                      usaHealth.push(null);
+                    }
+                  }
                   usaHealth.push(NewSpain.health_expenditure_in_percentage);
                 }
                 i++;
             }
+            years.sort((a, b) => (a > b) ? 1 : -1)
         }else{
             console.log("Error!");
         }
@@ -143,15 +200,12 @@ console.log(3);
 </svelte:head>
 
 <main>
-    <figure class="highcharts-figure">
-      
-      <button><a href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button>
-      <button><a href="#/sanity-stats-graph">Gráfica 1</a></button>
+  <Header/>
+  <figure class="highcharts-figure">
+    <br><br> <p style="text-align: center">
+    <button style="margin-left:10px;">
+      <a style="text-decoration: none"  href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button></p>
         <div id="container"></div>
-        <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
-        </p>
+        
     </figure>  
 </main>

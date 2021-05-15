@@ -41,9 +41,8 @@
 	}
 ///////////////
 let numeroRecursos = 10;
-	let offset = 0;
 	let currentPage = 1; 
-	let moreData = true; 
+	let filtrar = false; 
 
 
 
@@ -74,25 +73,37 @@ let numeroRecursos = 10;
 	function cambiapag(page, offset) {
       
       lastPage = Math.ceil(total / 10);
-      console.log("Last page = " + lastPage);
-      if (page !== c_page) {
+     // console.log("Last page = " + lastPage);
+     if (page !== c_page) {
         c_offset = offset;
         c_page = page;
         getSanity();
-      }
+     }
     } 
 ///////////////////
-let c_offset = 0;
+	let c_offset = 0;
     let limit = 10;
     let c_page = 1;
     let lastPage = 1;
     let total = 0;
 	async function getFiltro(){
+		if(!filtrar){c_page=1;}
+		filtrar = true; 
 		console.log("Fetching foodconsumption...");
 		console.log(filterSanity);
 		
-        let offset = (currentPage-1)*numeroRecursos;
-        let limit = currentPage*numeroRecursos;
+		console.log(c_page+" "+lastPage)
+        c_offset = (c_page-1)*numeroRecursos;
+		console.log(c_offset+" "+limit)
+		
+		const res2 = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed);
+		if(res2.ok){
+			console.log("Ok.");
+			const json = await res2.json();
+			let sanity2= json ;
+			console.log("san->")
+			console.log(sanity2)
+			lastPage =Math.ceil(sanity2.length / 10);}
 		const res = await fetch("/api/v2/sanity-stats/statistics?country="+filterSanity.country+"&fromyear="+filterSanity.fromyear+"&toyear="+filterSanity.toyear+"&fromhealth="+filterSanity.fromhealth+"&tohealth="+filterSanity.tohealth+"&fromdoctor="+filterSanity.fromdoctor+"&todoctor="+filterSanity.todoctor+"&frombed="+filterSanity.frombed+"&tobed="+filterSanity.tobed+"&offset="+c_offset+"&limit="+limit);
 		
 		if(res.ok){
@@ -100,10 +111,20 @@ let c_offset = 0;
 			const json = await res.json();
 			sanity= json ;
 			console.log(`We have ${sanity.length} sanity.`);
-			console.log(JSON.stringify(sanity));
-		}
-		else{
-			console.log("Error!");	
+			console.log(sanity);
+		if(sanity.length>0){
+				mensajeOk = "Datos filtrados";
+				visibleok=true;
+				visible=false;
+				console.log(`We have ${sanity.length} sanity.`);
+				
+			}else{
+				mensaje = "No se encuentran datos con los filtros seleccionados";
+				visibleok=false;
+				visible=true;
+				console.log("Error!");
+			
+			}
 		}
 	}
 
@@ -129,27 +150,34 @@ let c_offset = 0;
 	async function getSanity() {
     	console.log("Fetching data...");
         let offset = (currentPage-1)*numeroRecursos;
-        let limit = currentPage*numeroRecursos;
-   		const res = await fetch("/api/v2/sanity-stats?offset="+c_offset+"&limit="+limit);
-		console.log(offset+"  lim="+limit);
-        if(res.ok){
-          console.log("Ok.");
-          const json = await res.json();
-          sanity = json;
-		paginacion();
-          console.log(`We have ${sanity.length} Sanity.`)
-        }else{
-          console.log("Error");
-        }
-		if(res.status == 404){
-			mensaje="No hemos encontrado ese dato, sorry";
-			visible = true;
-			visibleok=false;
+
+
+
+		if(filtrar){
+			getFiltro();
 		}
-		if(res.status == 500){
-			mensaje="Ups, el server petó, intentalo de nuevo en unos segundos";
-			visible = true;
-			visibleok=false;
+		else{
+			const res = await fetch("/api/v2/sanity-stats?offset="+c_offset+"&limit="+limit);
+			console.log(offset+"  lim="+limit);
+			if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			sanity = json;
+			paginacion();
+			console.log(`We have ${sanity.length} Sanity.`)
+			}else{
+			console.log("Error");
+			}
+			if(res.status == 404){
+				mensaje="No hemos encontrado ese dato, sorry";
+				visible = true;
+				visibleok=false;
+			}
+			if(res.status == 500){
+				mensaje="Ups, el server petó, intentalo de nuevo en unos segundos";
+				visible = true;
+				visibleok=false;
+			}
 		}
   	}
 	async function Delete() {
@@ -197,6 +225,10 @@ let c_offset = 0;
 					mensaje="Campos mal definidos";
 				visible = true;
 			visibleok=false;
+			}if(res.ok){
+					mensajeOk="Dato creado";
+				visible = false;
+			visibleok=true;
 			}
 			if(res.status == 409){
 				mensaje="Dato ya creado";
@@ -353,7 +385,7 @@ let c_offset = 0;
 	</Table>
 
 	<Pagination ariaLabel="Web pagination">
-		<PaginationItem class = {c_page === 1 ? "enable" : ""}>
+		<PaginationItem class = {c_page === 1 ? "disabled" : ""}>
 			  <PaginationLink previous href="#/sanity-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
 		</PaginationItem>
 		{#each range(lastPage, 1) as page}

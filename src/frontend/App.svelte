@@ -12,6 +12,7 @@
 	import GraphFoodLineal from './foodConsumption/GraphFoodLineal.svelte';
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
+	import graphconj from './Graphconj.svelte';
 
 	import GraphObeV2 from './obesity/GraphObeV2.svelte';
 	import GraphObe from './obesity/GraphObe.svelte';
@@ -26,6 +27,7 @@
 	const routes = {
 		"/": Landing,
 		"/info": Info,
+		"/graphconj": graphconj,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
@@ -36,7 +38,7 @@
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
-		"/sanity-stats-graph": graph,
+		"/sanity-stats-graph/:country": graph,
 		"/sanity-stats-graphv2": graphV2,
 
 		"*": NotFound

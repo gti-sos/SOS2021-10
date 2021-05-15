@@ -10,35 +10,38 @@
 		"woman_percent" : 0.0,
 		"total_population" : 0.0
 	}
-    var country = [];
-    var chinaHealth=[];
-    var spainHealth=[];
-    var usaHealth=[];
-    var indiaHealth=[];
-    var germanyHealth=[];
+    let obesity = [];
+  	let obegra = [];
     
 async function loadGraph(){
-    console.log(2)
+    const resData = await fetch("/api/v2/obesity-stats");
+        obesity = await resData.json();
+        obesity.forEach( (x) => {
+            obegra.push({name: x.country + " " + x.year, data: [parseFloat(x.man_percent), parseFloat(x.woman_percent)]});
+        });
+
     Highcharts.chart('container', {
           
   title: {
-    text: 'Gasto en sanidad'
+    text: 'Porcentaje de obesidad'
   },
 
   subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '+(2007+spainHealth.length-1)
+    text: 'Obesidad de hombres y mujeres por paises y años'
   },
 
   yAxis: {
     title: {
-      text: 'Gasto en Sanidad (%)'
+      text: 'Obesidad (%)'
     }
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+    categories: [
+                    'Hombres',
+                    'Mujeres'
+                ],
+                crosshair: true
   },
 
   legend: {
@@ -46,32 +49,22 @@ async function loadGraph(){
     align: 'right',
     verticalAlign: 'middle'
   },
-
+	tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
   plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false
-      },
-      pointStart: 2007
-    }
+    column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
   },
 
-  series: [{
-    name: 'Estados Unidos',
-    data: usaHealth
-  },{
-    name: 'Alemania',
-    data: germanyHealth
-  },{
-    name: 'España',
-    data: spainHealth
-  },{
-    name: 'China',
-    data: chinaHealth
-  },{
-    name: 'India',
-    data: indiaHealth
-  }],
+  series: obegra,
   responsive: {
     rules: [{
       condition: {
@@ -87,49 +80,11 @@ async function loadGraph(){
     }]
   }
     });
-console.log(3);
+
   }
 
   
-  async function getobesity(){
-        console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/obesity-stats");
-        if(res.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            country = json;
-            console.log(json);
-            console.log(country);
-            console.log("made");
-            console.log(`We have received ${country.length} sanity points.`);
-            let i=0;
-            while(i<country.length){
-                NewSpain=country[i];
-                if(NewSpain.country=="Spain"){
-                  spainHealth.push(NewSpain.total_population);
-                }
-                else if(NewSpain.country=="China"){
-                  chinaHealth.push(NewSpain.total_population);
-                }
-                else if(NewSpain.country=="Germany"){
-                  germanyHealth.push(NewSpain.total_population);
-                }
-                else if(NewSpain.country=="India"){
-                  indiaHealth.push(NewSpain.total_population);
-                }
-                else if(NewSpain.country=="United_States"){
-                  usaHealth.push(NewSpain.total_population);
-                }
-                i++;
-            }
-        }else{
-            console.log("Error!");
-        }
-        console.log(1)
-        loadGraph();
-    }   
-   
-    onMount(getobesity);
+  
 </script>
 
 <svelte:head>
@@ -137,7 +92,7 @@ console.log(3);
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
 
 <main>
@@ -148,10 +103,6 @@ console.log(3);
       <button><a href="#/obesity-stats">Volver a Estadísticas de Obesidad</a></button>
       <button><a href="#/obesity-stats/graphv2">Gráfica 2</a></button>
         <div id="container"></div>
-        <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
-        </p>
+        
     </figure>  
 </main>

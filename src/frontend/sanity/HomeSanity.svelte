@@ -24,8 +24,12 @@
 	<h2>
 		<strong>API</strong>
 	</h2>
-	<Breadcrumb>
-  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad</a></BreadcrumbItem>
+			<Breadcrumb>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v1/sanity-stats">Estaditicas de Sanidad V1</a></BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
+			</Breadcrumb>
+			<Breadcrumb>
+  				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/sanity-stats">Estaditicas de Sanidad V2</a></BreadcrumbItem>
 				<BreadcrumbItem active>Desarrollado por Antonio José Díaz González</BreadcrumbItem>
 			</Breadcrumb>
 			
@@ -47,8 +51,8 @@
 				</ModalFooter>
 
 			  </Modal>
-				<Button outline color="warning"><a href="#/sanity-stats-graph">Gráfica 1</a></Button>
-				<Button outline color="warning"><a href="#/sanity-stats-graphv2">Gráfica 2</a></Button>
+				<Button outline color="warning">
+					<a style="text-decoration: none" href="#/sanity-stats-graphv2">Gráfica 2</a></Button>
 			
 			
 	<h2>

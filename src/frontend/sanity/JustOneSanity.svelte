@@ -53,9 +53,9 @@
 			</tr>
 		
 			
-		</tbody>
-        <button href="#/sanity-stats-graph/{sanity.country}">Gráfica</button>
-	</Table>
+</tbody>
+	</Table><br><br><p style="text-align: center">
+<button><a href="#/sanity-stats-graph/{sanity.country}">Gráfica</a></button></p>
 </main>
 <style>
 	tr {

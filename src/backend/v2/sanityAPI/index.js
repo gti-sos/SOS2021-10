@@ -203,8 +203,12 @@ var sanityInitialData = [
             offset = parseInt(req.query.offset);
             delete req.query.offset;
         }
-        if (req.query.country=="") {
+		if (req.query.limit) {
+            limit = parseInt(req.query.limit);
             delete req.query.limit;
+        }
+        if (req.query.country=="") {
+            delete req.query.country;
         }
 		if (req.query.fromyear==0) {
             delete req.query.fromyear;
