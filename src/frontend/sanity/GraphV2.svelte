@@ -122,6 +122,9 @@ console.log(3);
                   spyears.push(NewSpain.year);
                   if(NewSpain.year!=(spyears[spyears.length-2]+1)){
                     for(let i=spyears[spyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
                       spainHealth.push(null);
                     }
                   }
@@ -131,6 +134,9 @@ console.log(3);
                   chyears.push(NewSpain.year);
                   if(NewSpain.year!=(chyears[chyears.length-2]+1)){
                     for(let i=chyears[chyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
                       chinaHealth.push(null);
                     }
                   }
@@ -140,6 +146,9 @@ console.log(3);
                   geyears.push(NewSpain.year);
                   if(NewSpain.year!=(geyears[geyears.length-2]+1)){
                     for(let i=geyears[geyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
                       germanyHealth.push(null);
                     }
                   }
@@ -149,6 +158,9 @@ console.log(3);
                   inyears.push(NewSpain.year);
                   if(NewSpain.year!=(inyears[inyears.length-2]+1)){
                     for(let i=inyears[inyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
                       indiaHealth.push(null);
                     }
                   }
@@ -158,6 +170,9 @@ console.log(3);
                   usyears.push(NewSpain.year);
                   if(NewSpain.year!=(usyears[usyears.length-2]+1)){
                     for(let i=usyears[usyears.length-2];i<(NewSpain.year-1);i++){
+                      if(!years.includes(i+1)){
+                        years.push(i+1);
+                      }
                       usaHealth.push(null);
                     }
                   }
@@ -165,6 +180,7 @@ console.log(3);
                 }
                 i++;
             }
+            years.sort((a, b) => (a > b) ? 1 : -1)
         }else{
             console.log("Error!");
         }
