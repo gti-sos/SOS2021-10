@@ -52,7 +52,7 @@ async function loadGraph(){
   },
 
   xAxis: {
-    categories: Array.from(yearso).sort()
+    categories: Array.from(years).sort()
 	
   },
 
@@ -100,7 +100,6 @@ async function loadGraph(){
   }
   
 	let years = new Set();
-	let yearso = new Set();
 	var dictGramosPais ={};
 	var dictObedic ={};
 	let gramosporanyo =[];
@@ -130,8 +129,8 @@ async function loadGraph(){
             let obe = json;
             let i=0;
             while(i<obe.length){
-             yearso.add(obe[i].year);
-			 console.log(yearso);
+             years.add(obe[i].year);
+			 console.log(years);
 			 if(dictObedic[obe[i].year]){
 					dictObedic[obe[i].year]+=parseInt(((parseFloat(obe[i].man_percent)+parseFloat(obe[i].woman_percent))/100)*parseInt(obe[i].total_population));
 				}

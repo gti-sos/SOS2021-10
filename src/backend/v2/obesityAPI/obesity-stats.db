@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+=======
+{"country":"China","year":2011,"man_percent":4.2,"woman_percent":5.2,"total_population":1376498048,"_id":"zvINPzUDZIqMHBGl"}
+{"country":"United_States","year":2007,"man_percent":29.1,"woman_percent":31.5,"total_population":300608000,"_id":"pfHslAtvrmEQVMsk"}
+{"country":"Spain","year":2008,"man_percent":20.8,"woman_percent":21,"total_population":46069000,"_id":"QHts9k7d5oXCYJg2"}
+{"country":"Germany","year":2010,"man_percent":21.1,"woman_percent":18.6,"total_population":80827000,"_id":"mPXM52ynNOlx8fIB"}
+{"country":"India","year":2009,"man_percent":1.7,"woman_percent":3.6,"total_population":1217725952,"_id":"JzZjZmiUQXa3pBKa"}
+{"country":"India","year":2011,"man_percent":2,"woman_percent":4,"total_population":1250288000,"_id":"POVc7F4RvPbxavt7"}
+{"country":"Argentina","year":2007,"man_percent":22.5,"woman_percent":25,"total_population":39684000,"_id":"ww5vS3ox6EdsKSiM"}
+{"country":"Spain","year":2009,"man_percent":21.3,"woman_percent":21.2,"total_population":46584000,"_id":"0xIOXUnmfHDVsL7b"}
+{"country":"Germany","year":2011,"man_percent":21.6,"woman_percent":18.9,"total_population":80856000,"_id":"LWl0HT1ewT7t8ad5"}
+{"country":"Japan","year":2010,"man_percent":3.5,"woman_percent":3.1,"total_population":128542000,"_id":"Vp5cN8rwa3vDaODE"}
+{"country":"Portugal","year":2013,"man_percent":18.6,"woman_percent":20.1,"total_population":10473000,"_id":"iPBTGUzPXtGCVYFo"}
+{"$$deleted":true,"_id":"JzZjZmiUQXa3pBKa"}
+{"$$deleted":true,"_id":"0xIOXUnmfHDVsL7b"}
+>>>>>>> 5e05b8561ee2cdfbc43bbed510502442bd4d3ba2
