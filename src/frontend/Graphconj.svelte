@@ -103,21 +103,37 @@ async function loadGraph(){
 	var dictObedic ={};
 	let gramosporanyo =[];
 	let obesidadhym =[];
-  
+  let sanitydic={};
+
   async function getsanity(){
         console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/sanity-stats/statistics?country=China");
+        const res = await fetch("/api/v2/sanity-stats");
         if(res.ok){
             console.log("Ok.");
             const json = await res.json();
             country = json;
             let i=0;
             while(i<country.length){
-				years.add(country[i].year);
+				        years.add(country[i].year);
                 NewSpain=country[i];
-                health.push(NewSpain.health_expenditure_in_percentage);
+                if(sanitydic[NewSpain.year]){
+                  sanitydic[NewSpain.year].push(NewSpain.health_expenditure_in_percentage);
+                }else{
+                  sanitydic[NewSpain.year]=[parseFloat(NewSpain.health_expenditure_in_percentage)];
+                }
                 i++;
             }
+            Object.entries(sanitydic).forEach(([key, value]) => {
+              let c=0;
+              let sum=0;
+              console.log(value);
+              while(c<value.length){
+                sum+=value[c];
+                c++;
+              }
+              console.log(sum/value.length)
+                health.push(sum/value.length);
+            });
         }else{
             console.log("Error!");
         }
