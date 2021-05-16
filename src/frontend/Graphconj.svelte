@@ -26,35 +26,70 @@ import Header from './Header.svelte';
 		"dailygram": 0,
 		"dailycalory": 0
 	}
-    var country = [];
-    var poblacion=[];
-    var health=[];
-    var calorias=[];
+    var sanity = [];
+	var costes = [];
+    var obesity=[];
+	var porcentajeobe=[];
+    var food=[];
+    var gramos=[];
+	var years = [];
     
+	function distinctRecords(MYJSON, prop) {
+    return MYJSON.filter((obj, pos, arr) => {
+      return arr.map((mapObj) => mapObj[prop]).indexOf(obj[prop]) === pos;
+    });
+  }	
+	
 async function loadGraph(){
-    console.log(2)
+	const san = await fetch("api/v2/sanity-stats");
+    const foo = await fetch("api/v2/foodconsumption-stats");
+	const obe = await fetch("api/v2/obesity-stats");
+	
+	if (obe.ok) {
+	obesity = await obe.json();
+	var distinctDates = distinctRecords(obesity, "year");
+        distinctDates.sort(function (a, b) {
+          return a.year - b.year;
+        });
+        distinctDates.forEach((element) => {
+          if (!years.includes(element.year)) {
+            years.push(element.year);
+            console.log("years: " + element.year);
+          }
+        });
+		
+        console.log("Distintc years: " + years);
+	years.forEach( (x) => {
+            var yAxis = obesity
+            .filter((d) => d.date === x)
+            .map((nr) => nr["year"])
+            .reduce((acc, nr) => nr + acc,0);
+          console.log("YAxis: " + yAxis);
+          porcentajeobe.push(Math.round(yAxis));
+        });
+	}
+	
+    
     Highcharts.chart('container', {
         chart: {
         type: 'line'
     },    
   title: {
-    text: 'Gasto en sanidad'
-  },
-
-  subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '
+    text: 'Analíticas'
   },
 
   yAxis: {
     title: {
-      text: 'Gasto en Sanidad (%)'
+      text: 'Ratio'
     }
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+  	title: {
+          text: "Años",
+        },
+	categories: years,
+    
   },
 
   legend: {
@@ -74,13 +109,13 @@ async function loadGraph(){
 
   series: [{
     name: 'gasto en sanidad',
-    data: health
+    data: costes
   },{
     name: 'calorias',
-    data: calorias
+    data: gramos
   },{
-    name: 'poblacion',
-    data: poblacion
+    name: 'Obesidad(%)',
+    data: porcentajeobe
   }],
   responsive: {
     rules: [{
@@ -101,55 +136,7 @@ console.log(3);
   }
 
   
-  async function getsanity(){
-        console.log("Fetching sanity...");
-        const res = await fetch("/api/v2/sanity-stats/statistics?country=China");
-        if(res.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            country = json;
-            let i=0;
-            while(i<country.length){
-                NewSpain=country[i];
-                health.push(NewSpain.health_expenditure_in_percentage);
-                i++;
-            }
-        }else{
-            console.log("Error!");
-        }
-        const res2 = await fetch("/api/v2/obesity-stats?country=China");
-        if(res2.ok){
-            console.log("Ok.");
-            const json = await res2.json();
-            let country2 = json;
-            let i=0;
-            while(i<country2.length){
-                newObe=country2[i];
-                poblacion.push(newObe.total_population);
-                i++;
-            }
-        }else{
-            console.log("Error!");
-        }
-        const res3 = await fetch("/api/v2/foodconsumption-stats?country=China");
-        if(res3.ok){
-            console.log("Ok.");
-            const json = await res3.json();
-            let country3 = json;
-            let i=0;
-            while(i<country3.length){
-                newfood=country3[i];
-                calorias.push(newfood.dailycalory);
-                i++;
-            }
-        }else{
-            console.log("Error!");
-        }
-        console.log(1)
-        loadGraph();
-    }   
-   
-    onMount(getsanity);
+  
 </script>
 
 <svelte:head>
@@ -157,7 +144,7 @@ console.log(3);
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
 </svelte:head>
 
 <main>
@@ -169,3 +156,46 @@ console.log(3);
         
     </figure>  
 </main>
+<style>
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
+  .highcharts-figure,
+  .highcharts-data-table table {
+    min-width: 360px;
+    max-width: 800px;
+    margin: 1em auto;
+  }
+  .highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+  }
+  .highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+  }
+  .highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+  }
+  .highcharts-data-table td,
+  .highcharts-data-table th,
+  .highcharts-data-table caption {
+    padding: 0.5em;
+  }
+  .highcharts-data-table thead tr,
+  .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+  }
+  .highcharts-data-table tr:hover {
+    background: #f1f7ff;
+  }
+</style>
