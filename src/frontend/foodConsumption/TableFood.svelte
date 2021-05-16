@@ -363,7 +363,7 @@
 			<div>
     		
       		<Pagination ariaLabel="Web pagination">
-        		<PaginationItem class = {c_page === 1 ? "enable" : ""}>
+        		<PaginationItem class = {c_page === 1 ? "disable" : ""}>
           			<PaginationLink previous href="#/foodconsumption-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
         		</PaginationItem>
         		{#each range(lastPage, 1) as page}

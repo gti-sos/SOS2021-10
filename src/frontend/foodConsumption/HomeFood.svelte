@@ -52,7 +52,8 @@
 			  </Modal>
 	<h5>Gráfica del Consumo de azúcares y grasas:</h5>
 			
-		<Button outline color="warning"><a href="#/foodconsumption-stats/graphfood">Abrir</a></Button>
+		<Button outline color="warning"><a href="#/foodconsumption-stats/graphfood">Gráfico Barras</a></Button>
+		<Button outline color="warning"><a href="#/foodconsumption-stats/graphfoodlineal">Gráfico Lineal</a></Button>
 			
 	<h2>
 		<strong>Documentación en Postman:</strong>
