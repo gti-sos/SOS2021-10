@@ -52,9 +52,7 @@ async function loadGraph(){
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+    categories: Array.from(years)
   },
 
   legend: {
@@ -68,7 +66,7 @@ async function loadGraph(){
       label: {
         connectorAllowed: false
       },
-      pointStart: 2007
+  
     }
   },
 
@@ -77,7 +75,7 @@ async function loadGraph(){
     data: health
   },{
     name: 'calorias',
-    data: calorias
+    data: gramosporanyo
   },{
     name: 'poblacion',
     data: poblacion
@@ -99,7 +97,9 @@ async function loadGraph(){
     });
 console.log(3);
   }
-
+	let years = new Set();
+	var dictGramosPais ={};
+	let gramosporanyo =[];
   
   async function getsanity(){
         console.log("Fetching sanity...");
@@ -110,6 +110,7 @@ console.log(3);
             country = json;
             let i=0;
             while(i<country.length){
+				years.add(country[i].year);
                 NewSpain=country[i];
                 health.push(NewSpain.health_expenditure_in_percentage);
                 i++;
@@ -124,6 +125,7 @@ console.log(3);
             let country2 = json;
             let i=0;
             while(i<country2.length){
+				years.add(country2[i].year);
                 newObe=country2[i];
                 poblacion.push(newObe.total_population);
                 i++;
@@ -131,17 +133,30 @@ console.log(3);
         }else{
             console.log("Error!");
         }
-        const res3 = await fetch("/api/v2/foodconsumption-stats?country=China");
+        const res3 = await fetch("/api/v2/foodconsumption-stats");
         if(res3.ok){
             console.log("Ok.");
             const json = await res3.json();
-            let country3 = json;
+            let dataFood = json;
             let i=0;
-            while(i<country3.length){
-                newfood=country3[i];
-                calorias.push(newfood.dailycalory);
+			dataFood.reverse();
+            while(i<dataFood.length){
+             years.add(dataFood[i].year);
+			 if(dictGramosPais[dataFood[i].year]){
+					dictGramosPais[dataFood[i].year]+=parseInt(dataFood[i].caloryperperson);
+				}
+				else{
+					dictGramosPais[dataFood[i].year]=parseInt(dataFood[i].caloryperperson);
+				}
                 i++;
             }
+			
+			
+			Object.entries(dictGramosPais).forEach(([key, value]) => {
+			
+				gramosporanyo.push(value);
+			});
+			
         }else{
             console.log("Error!");
         }
