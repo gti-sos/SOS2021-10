@@ -32,29 +32,28 @@ import Header from './Header.svelte';
     var calorias=[];
     
 async function loadGraph(){
-    console.log(2)
+    
     Highcharts.chart('container', {
         chart: {
         type: 'line'
     },    
   title: {
-    text: 'Gasto en sanidad'
+    text: 'Análisis mundial'
   },
 
   subtitle: {
-    text: 'Gasto en sanidad desde 2007 hasta '
+    text: 'Consumo de gramos por persona, población total con obesidad y gastos en sanidad'
   },
 
   yAxis: {
     title: {
-      text: 'Gasto en Sanidad (%)'
+      text: 'Números'
     }
   },
 
   xAxis: {
-    accessibility: {
-      rangeDescription: 'Range: 2007 to '+(2011+country.length)
-    }
+    categories: Array.from(years).sort()
+	
   },
 
   legend: {
@@ -68,19 +67,19 @@ async function loadGraph(){
       label: {
         connectorAllowed: false
       },
-      pointStart: 2007
+  
     }
   },
 
   series: [{
-    name: 'gasto en sanidad',
+    name: 'Gasto en sanidad',
     data: health
   },{
     name: 'calorias',
-    data: calorias
+    data: gramosporanyo
   },{
-    name: 'poblacion',
-    data: poblacion
+    name: 'Población obesa',
+    data: obesidadhym
   }],
   responsive: {
     rules: [{
@@ -97,9 +96,14 @@ async function loadGraph(){
     }]
   }
     });
-console.log(3);
-  }
 
+  }
+  
+	let years = new Set();
+	var dictGramosPais ={};
+	var dictObedic ={};
+	let gramosporanyo =[];
+	let obesidadhym =[];
   
   async function getsanity(){
         console.log("Fetching sanity...");
@@ -110,6 +114,7 @@ console.log(3);
             country = json;
             let i=0;
             while(i<country.length){
+				years.add(country[i].year);
                 NewSpain=country[i];
                 health.push(NewSpain.health_expenditure_in_percentage);
                 i++;
@@ -117,35 +122,60 @@ console.log(3);
         }else{
             console.log("Error!");
         }
-        const res2 = await fetch("/api/v2/obesity-stats?country=China");
+        const res2 = await fetch("/api/v2/obesity-stats");
         if(res2.ok){
             console.log("Ok.");
             const json = await res2.json();
-            let country2 = json;
+            let obe = json;
             let i=0;
-            while(i<country2.length){
-                newObe=country2[i];
-                poblacion.push(newObe.total_population);
+            while(i<obe.length){
+             years.add(obe[i].year);
+			
+			 if(dictObedic[obe[i].year]){
+					dictObedic[obe[i].year]+=parseInt(((parseFloat(obe[i].man_percent)+parseFloat(obe[i].woman_percent))/100)*parseInt(obe[i].total_population));
+				}
+				else{
+					dictObedic[obe[i].year]=parseInt(((parseFloat(obe[i].man_percent)+parseFloat(obe[i].woman_percent))/100)*parseInt(obe[i].total_population));
+				}
                 i++;
             }
+			
+			
+			Object.entries(dictObedic).forEach(([key, value]) => {
+			
+				obesidadhym.push(value);
+			});
         }else{
             console.log("Error!");
         }
-        const res3 = await fetch("/api/v2/foodconsumption-stats?country=China");
+        const res3 = await fetch("/api/v2/foodconsumption-stats");
         if(res3.ok){
             console.log("Ok.");
             const json = await res3.json();
-            let country3 = json;
+            let dataFood = json;
             let i=0;
-            while(i<country3.length){
-                newfood=country3[i];
-                calorias.push(newfood.dailycalory);
+			dataFood.reverse();
+            while(i<dataFood.length){
+             years.add(dataFood[i].year);
+			 if(dictGramosPais[dataFood[i].year]){
+					dictGramosPais[dataFood[i].year]+=parseInt(dataFood[i].caloryperperson);
+				}
+				else{
+					dictGramosPais[dataFood[i].year]=parseInt(dataFood[i].caloryperperson);
+				}
                 i++;
             }
+			
+			
+			Object.entries(dictGramosPais).forEach(([key, value]) => {
+			
+				gramosporanyo.push(value);
+			});
+			
         }else{
             console.log("Error!");
         }
-        console.log(1)
+        console.log(Array.from(years).sort());
         loadGraph();
     }   
    

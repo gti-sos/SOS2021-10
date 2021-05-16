@@ -3,13 +3,7 @@
     import {
         onMount
     } from "svelte";
-    let NewSpain={
-		"country" :"",
-		"year": 0,
-		"man_percent" : 0.0,
-		"woman_percent" : 0.0,
-		"total_population" : 0.0
-	}
+    
     let obesity = [];
   	let obegra = [];
     
