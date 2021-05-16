@@ -105,6 +105,7 @@
 	
 	
 	async function getFiltro(){
+	
 		
 		let dbquery= "?";
 	
@@ -153,7 +154,7 @@
 			console.log("Ok.");
 			const json = await res.json();
 			foodconsumption= json ;
-			
+			lastPage = Math.ceil(foodconsumption.length / 10);
 			errorMsg= "Datos filtrados correctamente.";
 			visible = true;
 			color="success";
@@ -363,12 +364,12 @@
 			<div>
     		
       		<Pagination ariaLabel="Web pagination">
-        		<PaginationItem class = {c_page === 1 ? "disable" : ""}>
+        		<PaginationItem class = {c_page === 1 ? "disabled" : ""}>
           			<PaginationLink previous href="#/foodconsumption-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
         		</PaginationItem>
         		{#each range(lastPage, 1) as page}
           			<PaginationItem class = {c_page === page ? "active" : ""}>
-            			<PaginationLink previous href="#/foodconsumption-stats" on:click={() => cambiapag(page, (page - 1) * 10)}>
+            			<PaginationLink previous href="#/foodconsumption-stats">
             				{page}
             			</PaginationLink>
           			</PaginationItem>

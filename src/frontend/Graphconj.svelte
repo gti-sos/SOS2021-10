@@ -67,7 +67,6 @@ async function loadGraph(){
       label: {
         connectorAllowed: false
       },
-  
     }
   },
 
@@ -140,11 +139,6 @@ async function loadGraph(){
                 i++;
             }
 			
-			
-			Object.entries(dictObedic).forEach(([key, value]) => {
-			
-				obesidadhym.push(value);
-			});
         }else{
             console.log("Error!");
         }
@@ -157,6 +151,7 @@ async function loadGraph(){
 			dataFood.reverse();
             while(i<dataFood.length){
              years.add(dataFood[i].year);
+			 
 			 if(dictGramosPais[dataFood[i].year]){
 					dictGramosPais[dataFood[i].year]+=parseInt(dataFood[i].caloryperperson);
 				}
@@ -165,16 +160,42 @@ async function loadGraph(){
 				}
                 i++;
             }
-			
-			
-			Object.entries(dictGramosPais).forEach(([key, value]) => {
-			
-				gramosporanyo.push(value);
-			});
+
 			
         }else{
             console.log("Error!");
         }
+		
+			let e=0;
+			while(e<Array.from(years).length){
+				let anyo=Array.from(years).sort();
+				
+				if(anyo[e] in dictGramosPais){
+					gramosporanyo.push(dictGramosPais[anyo[e]]);
+					e++
+				}
+				else{
+					
+					gramosporanyo.push(null);
+					e++
+				}
+			}
+			
+			let o=0;
+			while(o<Array.from(years).length){
+				let anyo=Array.from(years).sort();
+				
+				if(anyo[o] in dictObedic){
+					obesidadhym.push(dictObedic[anyo[o]]);
+					o++
+				}
+				else{
+					
+					obesidadhym.push(null);
+					o++
+				}
+			}
+		
         console.log(Array.from(years).sort());
         loadGraph();
     }   
