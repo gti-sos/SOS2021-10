@@ -130,7 +130,7 @@ async function loadGraph(){
             let i=0;
             while(i<obe.length){
              years.add(obe[i].year);
-			 console.log(years);
+			
 			 if(dictObedic[obe[i].year]){
 					dictObedic[obe[i].year]+=parseInt(((parseFloat(obe[i].man_percent)+parseFloat(obe[i].woman_percent))/100)*parseInt(obe[i].total_population));
 				}
