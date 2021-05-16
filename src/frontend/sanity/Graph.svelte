@@ -35,19 +35,6 @@ function recarga(int){
 }
 
 
-function cargarpaises() {
-    for (let pais of paises) {
-      let html=`<button style="margin-left:10px;background-color:#41C2F1;">
-                      <a style="text-decoration: none" href="#/sanity-stats-graph/${pais}">${pais}
-                      </a>
-                      
-                      </button>`;
-                row+=html;
-    }
-}
-
-
-
     //////////////////////
     async function getpaises(){
         console.log("Fetching sanity...");
@@ -228,7 +215,6 @@ async function loadGraph(){
 console.log(3);
   }
 
-      
     async function getsanity(){
         console.log("Fetching sanity...");
         const res = await fetch("/api/v2/sanity-stats?country="+country);
@@ -268,7 +254,19 @@ console.log(3);
         getpaises();
         console.log(spainBed)
         loadGraph();
+        
     }
+
+    function cargarpaises() {
+    for (let pais of paises) {
+      let html=`<button style="margin-left:10px;background-color:#41C2F1;" onclick="getsanity()">
+                      <a style="text-decoration: none" href="#/sanity-stats-graph/${pais}">${pais}
+                      </a>
+                      
+                      </button>`;
+                row+=html;
+    }
+}
     
 </script>
 
