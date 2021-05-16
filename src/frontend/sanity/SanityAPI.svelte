@@ -399,7 +399,6 @@ let numeroRecursos = 10;
 			  <PaginationLink next href="#/sanity-stats" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
 		</PaginationItem>
 	  </Pagination>
-<p>Esto es solo una prueba</p>
 </main>
 <style>
 	td	{
