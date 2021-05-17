@@ -124,7 +124,7 @@ let filterObesity= {
 			console.log("Ok.");
 			const json = await res.json();
 			obesity= json ;
-			lastPage = 1;
+			lastPage =Math.ceil(obesity.length / 10);
 			if(obesity.length>0){
 				okMsg = "Datos filtrados";
 				visibleOk=true;
@@ -322,7 +322,7 @@ let filterObesity= {
         		</PaginationItem>
         		{#each range(lastPage, 1) as page}
           			<PaginationItem class = {c_page === page ? "active" : ""}>
-            			<PaginationLink previous href="#/obesity-stats" on:click={() => cambiapag(page, (page - 1) * 10)}>
+            			<PaginationLink previous href="#/obesity-stats" >
             				{page}
             			</PaginationLink>
           			</PaginationItem>
