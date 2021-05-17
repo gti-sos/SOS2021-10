@@ -9,8 +9,9 @@
 	const paises = new Set();
 	let years = new Set();
 	var dictGramosPais ={};
-	let gramperperson = [];
 	let gramosporpais = [];
+	
+	var dictAnyoPais ={};
 	
 	
     let data = [];
@@ -32,16 +33,43 @@
 				else{
 					dictGramosPais[data[i].country]=[parseInt(data[i].caloryperperson)];
 				}
+				
+				
+				
+				
+				if(dictAnyoPais[data[i].country]){
+					dictAnyoPais[data[i].country].push(data[i].year);
+				}
+				else{
+					dictAnyoPais[data[i].country]=[parseInt(data[i].year)];
+				}
 				i++;
 			}
-			Object.entries(dictGramosPais).forEach(([key, value]) => {
+			console.log(dictGramosPais);
 			
-				gramosporpais.push({name: key , data: value})
-			});
 			
         }else{
             console.log("Error!");
         }
+		let paises= Object.keys(dictGramosPais);
+		for(let p=0; p<paises.length; p++){
+			if(dictAnyoPais[paises[p]]){
+				let anyos=dictAnyoPais[paises[p]].sort();
+				let a=0;
+					while(a<Array.from(years).length){
+						let ord =Array.from(years).sort();
+						if(!anyos.includes(ord[a])){
+							dictGramosPais[paises[p]].splice(a, 0, null);
+						}
+						a++
+					}
+			}
+		}
+	
+		Object.entries(dictGramosPais).forEach(([key, value]) => {
+			
+				gramosporpais.push({name: key , data: value})
+			});
 		loadGraph();
 		
     }   

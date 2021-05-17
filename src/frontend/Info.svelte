@@ -131,7 +131,8 @@
 		</Breadcrumb>
 		<Breadcrumb>
   			<BreadcrumbItem active>Estaditicas del Consumo de Comida </BreadcrumbItem>
-  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzJoDfvx">Food_postman v1</a></BreadcrumbItem>
+			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14948248/TzRXARnX">Food_postman v2</a></BreadcrumbItem>
 			
 			</Breadcrumb>
 		
