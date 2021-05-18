@@ -7,7 +7,7 @@
 	import {
 		onMount
 	} from "svelte";
-	
+	let prueba=0;
 	import Table from "sveltestrap/src/Table.svelte";
 
 	import Alert from 'sveltestrap/src/Alert.svelte';
