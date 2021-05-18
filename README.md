@@ -11,4 +11,4 @@
 
 - [Sanity-stats v1](https://sos2021-10.herokuapp.com/api/v2/sanity-stats) | [Postman documentation v1](https://documenter.getpostman.com/view/9683594/TzJoE1Qx) || [Sanity-stats v2](https://sos2021-10.herokuapp.com/api/v2/sanity-stats) | [Postman documentation v2](https://documenter.getpostman.com/view/9683594/TzRShoHD) (developed by [Antonio José Díaz González](https://github.com/AntonioJoseDiaz))
 
-- [Food-Consumption-stats](https://sos2021-10.herokuapp.com/api/v2/foodconsumption-stats) | [Postman documentation](https://documenter.getpostman.com/view/14948248/TzJoDfvx) (developed by [Alicia Pérez Bolaños](https://github.com/aliperbol))
+- [Food-Consumption-stats](https://sos2021-10.herokuapp.com/api/v2/foodconsumption-stats) || [Postman documentation v1](https://documenter.getpostman.com/view/14948248/TzJoDfvx) || [Postman documentation v2](https://documenter.getpostman.com/view/14948248/TzRXARnX)(developed by [Alicia Pérez Bolaños](https://github.com/aliperbol))

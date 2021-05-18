@@ -122,12 +122,15 @@
 	<ul>
 		<Breadcrumb class="peque">
   			<BreadcrumbItem active>Estaditicas de Sanidad</BreadcrumbItem>
-  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzJoE1Qx">Sanity_postman v1</a></BreadcrumbItem>
+			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzRShoHD">Sanity_postman v2</a></BreadcrumbItem>
+			
 			
 		</Breadcrumb>
 		<Breadcrumb>
   			<BreadcrumbItem active>Estaditicas de Obesidad </BreadcrumbItem>
-  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></BreadcrumbItem>
+  			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzRShoHF">Obesity_postman v1</a></BreadcrumbItem>
+			<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman v2</a></BreadcrumbItem>
 		</Breadcrumb>
 		<Breadcrumb>
   			<BreadcrumbItem active>Estaditicas del Consumo de Comida </BreadcrumbItem>
