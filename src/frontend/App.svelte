@@ -7,9 +7,11 @@
 	import EditFood from './foodConsumption/EditFood.svelte';
 	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
+	
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import GraphFood from './foodConsumption/GraphFood.svelte';
-	import GraphFoodLineal from './foodConsumption/GraphFoodLineal.svelte';
+	import GraphFoodBubbles from './foodConsumption/GraphFoodBubbles.svelte';
+	
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
 	import graphconj from './Graphconj.svelte';
@@ -31,7 +33,7 @@
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
-		"/foodconsumption-stats/graphfoodlineal": GraphFoodLineal,
+		"/foodconsumption-stats/graphfoodbubbles": GraphFoodBubbles,
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
 		"/obesity-stats/graph": GraphObe,
