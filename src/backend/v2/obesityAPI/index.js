@@ -1,6 +1,6 @@
 var BASE_API_PATH = "/api/v2/obesity-stats";
 var Datastore = require("nedb");
-
+const request =require("request");
 var path = require('path');
 var datafile = path.join(__dirname, 'obesity-stats.db');
 var db = new Datastore({ filename: datafile, autoload: true});
@@ -325,6 +325,19 @@ function hasNumbers(t){
 	});
     });
 
-
+ 
+app.use("/proxyHeroku", function(req, res) {
+	console.log(`New Proxy Call /proxyHeroku`)
+	var apiServerHost = 'http://sos2021-natality-stats.herokuapp.com';
+	console.log(`apiServerHost = <${apiServerHost}>`);
+	console.log(`baseURL = <${req.baseUrl}>`);
+	console.log(`url = <${req.url}>`);
+	
+  	var url = apiServerHost + req.url;
+	
+  	console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
+	
+  	req.pipe(request(url)).pipe(res);
+});
 
  };

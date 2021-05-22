@@ -33,11 +33,11 @@
     let lastPage = 1;
     let total = 0;
 	
-	const BASE_CONTACT_API_PATH = "/api/v2";
+	const BASE_CONTACT_API_PATH = "/proxyHeroku/api/v2";
 	
 	async function ObesityData() {
     	console.log("Loading data...");
-   		const res = await fetch(BASE_CONTACT_API_PATH +"/obesity-stats/loadInitialData").then( (res)=> {
+   		const res = await fetch(BASE_CONTACT_API_PATH +"/natality-stats/loadInitialData").then( (res)=> {
 						getObesity();
 						okMsg = "Los datos se introdujeron correctamente";
 						visibleOk=true;
