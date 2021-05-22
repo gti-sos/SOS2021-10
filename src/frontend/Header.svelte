@@ -1,5 +1,5 @@
 <script>
-
+	let sdf=0;
 	import {
 		Collapse,
 		Navbar,
