@@ -318,17 +318,17 @@ let filterObesity= {
     		
       		<Pagination ariaLabel="Web pagination">
         		<PaginationItem class = {c_page === 1 ? "disabled" : ""}>
-          			<PaginationLink previous href="#/obesity-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
+          			<PaginationLink previous href="#/" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
         		</PaginationItem>
         		{#each range(lastPage, 1) as page}
           			<PaginationItem class = {c_page === page ? "active" : ""}>
-            			<PaginationLink previous href="#/obesity-stats" >
+            			<PaginationLink previous href="#/" >
             				{page}
             			</PaginationLink>
           			</PaginationItem>
         		{/each}
         		<PaginationItem class = {c_page === lastPage ? "disabled" : ""}>
-          			<PaginationLink next href="#/obesity-stats" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
+          			<PaginationLink next href="#/" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
         		</PaginationItem>
       		</Pagination>
     

@@ -1,5 +1,5 @@
 <script>
-	import Header from '../Header.svelte';
+	
 	import ObesitySv from './ObesitySv.svelte';
 	import {
 		Button,
@@ -19,7 +19,7 @@
 </script>
 
 <main>
-	<Header/>
+	
 	
 	<h2>
 		<strong>API</strong>
@@ -48,9 +48,7 @@
 				<Button color="secondary" on:click={toggleob}>Cerrar</Button>
 			</ModalFooter>
 		</Modal>
-	<h5>Gráfica de Obesidad:</h5>		
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graph'" >Gráfica 1(Lineal)</Button>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphv2'" >Gráfica 2(Bubble)</Button>
+	
 	<h2>
 		<strong>Documentación en Postman:</strong>
 	</h2>
