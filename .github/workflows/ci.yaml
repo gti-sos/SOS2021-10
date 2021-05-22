@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm start &
-      - run: npx newman run tests/integrationObe.json && npx newman run tests/integrationFoodv2.json && npx newman run tests/integrationSanity.json
+      - run: npx newman run tests/integrationObe.json
