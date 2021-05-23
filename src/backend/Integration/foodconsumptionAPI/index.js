@@ -1,11 +1,13 @@
 
-var BASE_API_PATH = "/api/v2/foodconsumption-stats";
+var BASE_API_PATH = "/api/integration/foodconsumption-stats";
 
 var path = require("path");
 
 var Datastore = require("nedb");
 
 const dbFileName = path.join(__dirname,"foodconsumption.db");
+
+var cors = require("cors");
 
 
 const dbFood = new Datastore({
@@ -229,6 +231,8 @@ function hasNumbers(t)
 
 
  module.exports.register = (app) => {
+	 app.use(cors());
+
 	 
 	 app.get(BASE_API_PATH+"/:country/:year",(req,res)=>{
 		var countryD = req.params.country;
