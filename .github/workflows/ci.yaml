@@ -12,5 +12,5 @@ jobs:
       - run: npm install
       - run: npm start &
       - run: npx newman run tests/integrationObe.json
-	  - run: npx newman run tests/integrationFood.json
+	  - run: npx newman run tests/integrationFoodv2.json
 	  - run: npx newman run tests/integrationSanity.json
