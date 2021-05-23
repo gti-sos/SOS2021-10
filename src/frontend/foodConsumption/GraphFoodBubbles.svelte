@@ -17,35 +17,38 @@
 -->
 
 <main>
-	<Header/>
 	<div id="chartdiv"></div>
 </main>
 
-<style>
-#chartdiv {
-	margin: auto;
-	width: 90%;
-	max-width: 90%;
-	height: 550px;
-}
+<style type="text/css">
+	main {
+		width: 100%; height: 100%;
+		display: flex;
+	}
+	main > * {
+		flex-grow: 1;
+	}
 </style>
 
 <!-- workaround for svelte repl -->
 <svelte:head>
   <script on:load={handleScriptLoaded} src="//cdn.amcharts.com/lib/4/core.js"></script>
   <script on:load={handleScriptLoaded} src="//cdn.amcharts.com/lib/4/charts.js"></script>
-  <script on:load={handleScriptLoaded} src="//cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
   <script on:load={handleScriptLoaded} src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
 </svelte:head>
 
 <script>
 import { onMount } from "svelte";
-import Header from '../Header.svelte';
 
+/* use this with webpack / rollup
+import * as am4core from "@amcharts/amcharts4/core.js";
+import * as am4charts from '@amcharts/amcharts4/charts.js';
+import am4themes_animated from '@amcharts/amcharts4/themes/animated.js';
+*/
 
 // workaround for svelte repl
 let scripts_loaded = 0;
-const num_scripts = 4;
+const num_scripts = 3;
 function handleScriptLoaded(event) {
   console.dir(event);
   scripts_loaded++;
@@ -55,282 +58,110 @@ function handleScriptLoaded(event) {
   }
 }
 
+/* use this with webpack / rollup
+onMount(async () => {
+  am4core.ready(amcharts4_ready_handler);
+});
+*/
 
 function amcharts4_ready_handler() {
 
 
 
+/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
 am4core.useTheme(am4themes_animated);
 
 // Create chart instance
-var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
-chart.legend = new am4charts.Legend();
+var chart = am4core.create("chartdiv", am4charts.XYChart);
+chart.paddingRight = 30;
 
-var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
-
-networkSeries.data = [{
-  name: 'Flora',
-  children: [{
-    name: 'Black Tea', value: 1
-  }, {
-    name: 'Floral',
-    children: [{
-      name: 'Chamomile', value: 1
-    }, {
-      name: 'Rose', value: 1
-    }, {
-      name: 'Jasmine', value: 1
-    }]
-  }]
+// Add data
+chart.data = [{
+  "date": new Date(2018, 0, 1),
+  "value": 450,
+  "value2": 362,
+  "value3": 699
 }, {
-  name: 'Fruity',
-  children: [{
-    name: 'Berry',
-    children: [{
-      name: 'Blackberry', value: 1
-    }, {
-      name: 'Raspberry', value: 1
-    }, {
-      name: 'Blueberry', value: 1
-    }, {
-      name: 'Strawberry', value: 1
-    }]
-  }, {
-    name: 'Dried Fruit',
-    children: [{
-      name: 'Raisin', value: 1
-    }, {
-      name: 'Prune', value: 1
-    }]
-  }, {
-    name: 'Other Fruit',
-    children: [{
-      name: 'Coconut', value: 1
-    }, {
-      name: 'Cherry', value: 1
-    }, {
-      name: 'Pomegranate', value: 1
-    }, {
-      name: 'Pineapple', value: 1
-    }, {
-      name: 'Grape', value: 1
-    }, {
-      name: 'Apple', value: 1
-    }, {
-      name: 'Peach', value: 1
-    }, {
-      name: 'Pear', value: 1
-    }]
-  }, {
-    name: 'Citrus Fruit',
-    children: [{
-      name: 'Grapefruit', value: 1
-    }, {
-      name: 'Orange', value: 1
-    }, {
-      name: 'Lemon', value: 1
-    }, {
-      name: 'Lime', value: 1
-    }]
-  }]
+  "date": new Date(2018, 0, 2),
+  "value": 269,
+  "value2": 450,
+  "value3": 841
 }, {
-  name: 'Sour/Fermented',
-  children: [{
-    name: 'Sour',
-    children: [{
-      name: 'Sour Aromatics', value: 1
-    }, {
-      name: 'Acetic Acid', value: 1
-    }, {
-      name: 'Butyric Acid', value: 1
-    }, {
-      name: 'Isovaleric Acid', value: 1
-    }, {
-      name: 'Citric Acid', value: 1
-    }, {
-      name: 'Malic Acid', value: 1
-    }]
-  }, {
-    name: 'Alcohol/Fremented',
-    children: [{
-      name: 'Winey', value: 1
-    }, {
-      name: 'Whiskey', value: 1
-    }, {
-      name: 'Fremented', value: 1
-    }, {
-      name: 'Overripe', value: 1
-    }]
-  }]
+  "date": new Date(2018, 0, 3),
+  "value": 700,
+  "value2": 358,
+  "value3": 699
 }, {
-  name: 'Green/Vegetative',
-  children: [{
-    name: 'Olive Oil', value: 1
-  }, {
-    name: 'Raw', value: 1
-  }, {
-    name: 'Green/Vegetative',
-    children: [{
-      name: 'Under-ripe', value: 1
-    }, {
-      name: 'Peapod', value: 1
-    }, {
-      name: 'Fresh', value: 1
-    }, {
-      name: 'Dark Green', value: 1
-    }, {
-      name: 'Vegetative', value: 1
-    }, {
-      name: 'Hay-like', value: 1
-    }, {
-      name: 'Herb-like', value: 1
-    }]
-  }, {
-    name: 'Beany', value: 1
-  }]
+  "date": new Date(2018, 0, 4),
+  "value": 490,
+  "value2": 367,
+  "value3": 500
 }, {
-  name: 'Other',
-  children: [{
-    name: 'Papery/Musty',
-    children: [{
-      name: 'Stale', value: 1
-    }, {
-      name: 'Cardboard', value: 1
-    }, {
-      name: 'Papery', value: 1
-    }, {
-      name: 'Woody', value: 1
-    }, {
-      name: 'Moldy/Damp', value: 1
-    }, {
-      name: 'Musty/Dusty', value: 1
-    }, {
-      name: 'Musty/Earthy', value: 1
-    }, {
-      name: 'Animalic', value: 1
-    }, {
-      name: 'Meaty Brothy', value: 1
-    }, {
-      name: 'Phenolic', value: 1
-    }]
-  }, {
-    name: 'Chemical',
-    children: [{
-      name: 'Bitter', value: 1
-    }, {
-      name: 'Salty', value: 1
-    }, {
-      name: 'Medicinal', value: 1
-    }, {
-      name: 'Petroleum', value: 1
-    }, {
-      name: 'Skunky', value: 1
-    }, {
-      name: 'Rubber', value: 1
-    }]
-  }]
+  "date": new Date(2018, 0, 5),
+  "value": 500,
+  "value2": 485,
+  "value3": 369
 }, {
-  name: 'Roasted',
-  children: [{
-    name: 'Pipe Tobacco', value: 1
-  }, {
-    name: 'Tobacco', value: 1
-  }, {
-    name: 'Burnt',
-    children: [{
-      name: 'Acrid', value: 1
-    }, {
-      name: 'Ashy', value: 1
-    }, {
-      name: 'Smoky', value: 1
-    }, {
-      name: 'Brown, Roast', value: 1
-    }]
-  }, {
-    name: 'Cereal',
-    children: [{
-      name: 'Grain', value: 1
-    }, {
-      name: 'Malt', value: 1
-    }]
-  }]
+  "date": new Date(2018, 0, 6),
+  "value": 550,
+  "value2": 354,
+  "value3": 250
 }, {
-  name: 'Spices',
-  children: [{
-    name: 'Pungent', value: 1
-  }, {
-    name: 'Pepper', value: 1
-  }, {
-    name: 'Brown Spice',
-    children: [{
-      name: 'Anise', value: 1
-    }, {
-      name: 'Nutmeg', value: 1
-    }, {
-      name: 'Cinnamon', value: 1
-    }, {
-      name: 'Clove', value: 1
-    }]
-  }]
-}, {
-  name: 'Nutty/Cocoa',
-  children: [{
-    name: 'Nutty',
-    children: [{
-      name: 'Peanuts', value: 1
-    }, {
-      name: 'Hazelnut', value: 1
-    }, {
-      name: 'Almond', value: 1
-    }]
-  }, {
-    name: 'Cocoa',
-    children: [{
-      name: 'Chocolate', value: 1
-    }, {
-      name: 'Dark Chocolate', value: 1
-    }]
-  }]
-}, {
-  name: 'Sweet',
-  children: [{
-    name: 'Brown Sugar',
-    children: [{
-      name: 'Molasses', value: 1
-    }, {
-      name: 'Maple Syrup', value: 1
-    }, {
-      name: 'Caramelized', value: 1
-    }, {
-      name: 'Honey', value: 1
-    }]
-  }, {
-    name: 'Vanilla', value: 1
-  }, {
-    name: 'Vanillin', value: 1
-  }, {
-    name: 'Overall Sweet', value: 1
-  }, {
-    name: 'Sweet Aromatics', value: 1
-  }]
+  "date": new Date(2018, 0, 7),
+  "value": 420,
+  "value2": 350,
+  "value3": 600
 }];
 
-networkSeries.dataFields.linkWith = "linkWith";
-networkSeries.dataFields.name = "name";
-networkSeries.dataFields.id = "name";
-networkSeries.dataFields.value = "value";
-networkSeries.dataFields.children = "children";
+// Create axes
+var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+dateAxis.renderer.grid.template.location = 0;
+dateAxis.renderer.minGridDistance = 30;
+dateAxis.startLocation = 0.5;
+dateAxis.endLocation = 0.5;
 
-networkSeries.nodes.template.tooltipText = "{name}";
-networkSeries.nodes.template.fillOpacity = 1;
+var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
-networkSeries.nodes.template.label.text = "{name}"
-networkSeries.fontSize = 8;
-networkSeries.maxLevels = 2;
-networkSeries.maxRadius = am4core.percent(6);
-networkSeries.manyBodyStrength = -16;
-networkSeries.nodes.template.label.hideOversized = true;
-networkSeries.nodes.template.label.truncate = true;
+// Create series
+function createSeries(field, name) {
+  var series = chart.series.push(new am4charts.LineSeries());
+  series.dataFields.valueY = field;
+  series.dataFields.dateX = "date";
+  series.name = name;
+  series.tooltipText = "{dateX}: [b]{valueY}[/]";
+  series.strokeWidth = 2;
+  series.tensionX = 0.8;
+  series.stacked = true;
+  series.fillOpacity = 0.2;
+  
+  return series;
+}
+
+var series1 = createSeries("value", "Series #1");
+var series2 = createSeries("value2", "Series #2");
+var series3 = createSeries("value3", "Series #3");
+
+chart.legend = new am4charts.Legend();
+chart.cursor = new am4charts.XYCursor();
+
+// Add scrollbar
+var scrollbar = new am4charts.XYChartScrollbar();
+scrollbar.series.push(series1)
+
+chart.scrollbarX = scrollbar;
+
+
 
 } // end amcharts4_ready_handler
 
