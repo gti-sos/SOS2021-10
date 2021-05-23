@@ -11,6 +11,8 @@
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import GraphFood from './foodConsumption/GraphFood.svelte';
 	import GraphFoodBubbles from './foodConsumption/GraphFoodBubbles.svelte';
+	import IntegrationAPI from './foodConsumption/IntegrationAPI.svelte';
+	
 	
 	import HomeObesity from './obesity/HomeObesity.svelte';
 	import EditObe from './obesity/EditObe.svelte';
@@ -34,6 +36,9 @@
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
 		"/foodconsumption-stats/graphfoodbubbles": GraphFoodBubbles,
+		"/foodconsumption-stats/IntegrationAPI": IntegrationAPI,
+		
+		
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
 		"/obesity-stats/graph": GraphObe,
