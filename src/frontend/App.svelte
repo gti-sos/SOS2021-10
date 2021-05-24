@@ -7,6 +7,7 @@
 	import EditFood from './foodConsumption/EditFood.svelte';
 	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
+	import integrations from './Integrations.svelte';
 	
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import GraphFood from './foodConsumption/GraphFood.svelte';
@@ -22,6 +23,9 @@
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
 	import graphV2 from './sanity/GraphV2.svelte';
+	
+	import intsan1 from './Integrations/SanityIntegrations/G01-life.svelte';
+	import intsan2 from './Integrations/SanityIntegrations/G04-education.svelte';
 
 	
 	
@@ -29,6 +33,7 @@
 	const routes = {
 		"/": Landing,
 		"/info": Info,
+		"/integrations": integrations,
 		"/graphconj": graphconj,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year": EditFood,
@@ -42,6 +47,8 @@
 		"/sanity-stats/:country/:year": JustOneSanity,
 		"/sanity-stats-graph/:country": graph,
 		"/sanity-stats-graphv2": graphV2,
+		"/sanity-stats-integrations/1": intsan1,
+		"/sanity-stats-integrations/2": intsan2,
 
 		"*": NotFound
 	}
