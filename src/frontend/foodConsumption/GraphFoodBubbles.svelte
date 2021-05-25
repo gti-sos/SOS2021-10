@@ -4,119 +4,136 @@
   import Charts from 'fusioncharts/fusioncharts.charts';
   import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
   import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
-  
+  import {
+        onMount
+    } from "svelte";
+
+    import {
+        pop
+    } from "svelte-spa-router";
+    import Button from "sveltestrap/src/Button.svelte";
+
   // Always set FusionCharts as the first parameter
   fcRoot(FusionCharts, Charts, FusionTheme);
-  
-  const dataSource = {
+
+  var BASE_CONTACT_API_PATH= "/api/v2";
+	const paises = new Set();
+	let years = new Set();
+	var dictGramosPais ={};
+	let gramosporpais = [];
+	let dataSource ={};
+
+
+	var dictAnyoPais ={};
+	let categoriasAnyos = [];
+	
+    let data = [];
+    async function getData(){
+        console.log("Fetching data...");
+        const res = await fetch(BASE_CONTACT_API_PATH + "/foodconsumption-stats");
+        if(res.ok){
+            console.log("Ok.");
+            const json = await res.json();
+            data = json;
+            console.log(`We have received ${data.length} data points.`);
+			let i=0;
+			data.reverse();
+			while(i<data.length){
+				years.add(data[i].year);
+				if(dictGramosPais[data[i].country]){
+					dictGramosPais[data[i].country].push({"value":  parseInt(data[i].caloryperperson)});
+				}
+				else{
+					dictGramosPais[data[i].country]=[{"value":  parseInt(data[i].caloryperperson)}];
+				}
+
+				if(dictAnyoPais[data[i].country]){
+					dictAnyoPais[data[i].country].push(data[i].year);
+				}
+				else{
+					dictAnyoPais[data[i].country]=[parseInt(data[i].year)];
+				}
+				i++;
+			}
+			console.log(dictGramosPais);
+			
+			
+        }else{
+            console.log("Error!");
+        }
+		let paises= Object.keys(dictGramosPais);
+		for(let p=0; p<paises.length; p++){
+			if(dictAnyoPais[paises[p]]){
+				let anyos=dictAnyoPais[paises[p]].sort();
+				let a=0;
+					while(a<Array.from(years).length){
+						let ord =Array.from(years).sort();
+						if(!anyos.includes(ord[a])){
+							dictGramosPais[paises[p]].splice(a, 0, null);
+						}
+						a++
+					}
+			}
+		}
+    
+    for(let a=0; a< years.size; a++){
+      let anyos= Array.from(years).sort();
+      categoriasAnyos.push({"label" : anyos[a].toString()});
+
+    }
+   
+	  console.log(categoriasAnyos);
+		Object.entries(dictGramosPais).forEach(([key, value]) => {
+			
+				gramosporpais.push({"seriesname": key , "data": value})
+			});
+      console.log(gramosporpais);
+    dataSource = {
     "chart": {
-      "caption": "App Publishing Trend",
-      "subcaption": "2012-2016",
-      "xaxisname": "Years",
-      "yaxisname": "Total number of apps in store",
+      "caption": "Consumo de azúcares y grasas por año",
+      "subcaption": "",
+      "xaxisname": "Años",
+      "yaxisname": "Gramos por persona",
       "formatnumberscale": "1",
-      "plottooltext": "<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label",
+      "plottooltext": "<b>$dataValue</b> gramos por persona en <b>$seriesName</b> en el año $label",
       "theme": "fusion",
       "drawcrossline": "1"
     },
     "categories": [
       {
-        "category": [
-          {
-            "label": "2012"
-          },
-          {
-            "label": "2013"
-          },
-          {
-            "label": "2014"
-          },
-          {
-            "label": "2015"
-          },
-          {
-            "label": "2016"
-          }
-        ]
+        "category":categoriasAnyos
       }
     ],
-    "dataset": [
-      {
-        "seriesname": "iOS App Store",
-        "data": [
-          {
-            "value": "125000"
-          },
-          {
-            "value": "300000"
-          },
-          {
-            "value": "480000"
-          },
-          {
-            "value": "800000"
-          },
-          {
-            "value": "1100000"
-          }
-        ]
-      },
-      {
-        "seriesname": "Google Play Store",
-        "data": [
-          {
-            "value": "70000"
-          },
-          {
-            "value": "150000"
-          },
-          {
-            "value": "350000"
-          },
-          {
-            "value": "600000"
-          },
-          {
-            "value": "1400000"
-          }
-        ]
-      },
-      {
-        "seriesname": "Amazon AppStore",
-        "data": [
-          {
-            "value": "10000"
-          },
-          {
-            "value": "100000"
-          },
-          {
-            "value": "300000"
-          },
-          {
-            "value": "600000"
-          },
-          {
-            "value": "900000"
-          }
-        ]
-      }
-    ]
+    "dataset": gramosporpais
   };
-  
-  const chartConfigs = {
+  console.log("datos cargados")
+  cargarConf();
+    }  
+    onMount(getData);
+    var chartConfigs={};
+    async function cargarConf(){
+      chartConfigs = {
      
-     type: 'mscolumn2d',
-     width: "90%",
-     height: "90%",
-     dataFormat: 'json',
-     dataSource
-  };
+        type: 'mscolumn2d',
+        width: 1300,  
+        height: 600,
+        dataFormat: 'json',
+        dataSource
+      };
+    }
+    
+    
+  
+  
   </script>
   <main>
     <Header/>
+    <br>
+    <br>
+    <Button outline color="secondary" on:click="{pop}">Volver</Button>
     <div style="margin:auto;"> 
       <SvelteFC {...chartConfigs}/>
+      
     </div>
    
   </main>
