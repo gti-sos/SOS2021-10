@@ -1,45 +1,122 @@
 <script>
-
-
-  import FusionCharts from "fusioncharts";
-  import Charts from "fusioncharts/fusioncharts.charts";
-  import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-  import SvelteFC, { fcRoot } from "svelte-fusioncharts";
-
+  import Header from '../Header.svelte';
+  import FusionCharts from 'fusioncharts';
+  import Charts from 'fusioncharts/fusioncharts.charts';
+  import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+  import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
+  
   // Always set FusionCharts as the first parameter
   fcRoot(FusionCharts, Charts, FusionTheme);
-  //STEP 2 : preparing the chart Data
-  const chartData = [
-    { label: "Venezuela", value: "290" },
-    { label: "Saudi", value: "260" },
-    { label: "Canada", value: "180" },
-    { label: "Iran", value: "140" },
-    { label: "Russia", value: "115" },
-    { label: "UAE", value: "100" },
-    { label: "US", value: "30" },
-    { label: "China", value: "30" }
-  ];
-
-  //STEP 3: Create your configuration object
-  const chartConfigs = {
-    type: "column2d", //Select the chart type
-    width: 600, //Set the width of the chart
-    height: 400, //Set the height of the chart
-    dataFormat: "json", //Set the input dataFormat to json
-    dataSource: {
-      chart: {
-        caption: "Countries With Most Oil Reserves [2017-18]",
-        subCaption: "In MMbbl = One Million barrels",
-        xAxisName: "Country", //Assign a relevant name to your x-axis
-        yAxisName: "Reserves (MMbbl)", //Assign a relevant name to your y-axis
-        numberSuffix: "K",
-        theme: "fusion" //Apply a theme to your chart
+  
+  const dataSource = {
+    "chart": {
+      "caption": "App Publishing Trend",
+      "subcaption": "2012-2016",
+      "xaxisname": "Years",
+      "yaxisname": "Total number of apps in store",
+      "formatnumberscale": "1",
+      "plottooltext": "<b>$dataValue</b> apps were available on <b>$seriesName</b> in $label",
+      "theme": "fusion",
+      "drawcrossline": "1"
+    },
+    "categories": [
+      {
+        "category": [
+          {
+            "label": "2012"
+          },
+          {
+            "label": "2013"
+          },
+          {
+            "label": "2014"
+          },
+          {
+            "label": "2015"
+          },
+          {
+            "label": "2016"
+          }
+        ]
+      }
+    ],
+    "dataset": [
+      {
+        "seriesname": "iOS App Store",
+        "data": [
+          {
+            "value": "125000"
+          },
+          {
+            "value": "300000"
+          },
+          {
+            "value": "480000"
+          },
+          {
+            "value": "800000"
+          },
+          {
+            "value": "1100000"
+          }
+        ]
       },
-      //Include chartData from STEP 2
-      data: chartData
-    }
+      {
+        "seriesname": "Google Play Store",
+        "data": [
+          {
+            "value": "70000"
+          },
+          {
+            "value": "150000"
+          },
+          {
+            "value": "350000"
+          },
+          {
+            "value": "600000"
+          },
+          {
+            "value": "1400000"
+          }
+        ]
+      },
+      {
+        "seriesname": "Amazon AppStore",
+        "data": [
+          {
+            "value": "10000"
+          },
+          {
+            "value": "100000"
+          },
+          {
+            "value": "300000"
+          },
+          {
+            "value": "600000"
+          },
+          {
+            "value": "900000"
+          }
+        ]
+      }
+    ]
   };
-  console.log("listo");
-</script>
-
-<SvelteFC {...chartConfigs} />
+  
+  const chartConfigs = {
+     
+     type: 'mscolumn2d',
+     width: "90%",
+     height: "90%",
+     dataFormat: 'json',
+     dataSource
+  };
+  </script>
+  <main>
+    <Header/>
+    <div style="margin:auto;"> 
+      <SvelteFC {...chartConfigs}/>
+    </div>
+   
+  </main>
