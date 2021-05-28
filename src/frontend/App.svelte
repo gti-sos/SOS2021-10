@@ -20,7 +20,7 @@
 	import graphconj from './Graphconj.svelte';
 
 	import GraphObeV2 from './obesity/GraphObeV2.svelte';
-	import GraphObe from './obesity/GraphObe.svelte';
+	import GrafoBueno from './obesity/GrafoBueno.svelte';
 	import IntegrationObe from './obesity/IntegrationObe.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
@@ -47,9 +47,11 @@
 		
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
-		"/obesity-stats/graph": GraphObe,
+		"/obesity-stats/graph": GrafoBueno,
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/obesity-stats/IntegrationObe": IntegrationObe,
+
+
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
 		"/sanity-stats-graph/:country": graph,
