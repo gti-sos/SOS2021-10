@@ -30,7 +30,7 @@
         console.log(2)
         Highcharts.chart('container', {
       chart: {
-        type: 'area'
+        type: 'column'
     },
   title: {
     text: 'Integración G04-Education API'
