@@ -82,6 +82,7 @@
 	</p>
 	
 	<button><a href="#/graphconj">Grafica conjunta</a></button>
+	<button><a href="#/integrations">Grafica conjunta</a></button>
 	<h2>
 		APIs desarrolladas:
 	</h2>

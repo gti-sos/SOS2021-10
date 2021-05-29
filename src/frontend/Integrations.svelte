@@ -38,7 +38,11 @@
 	</h2>
 	<ul>
 		<Button href="/#/sanity-stats-integrations/1"> G01-Life</Button>
-		<Button href="/#/sanity-stats-integrations/2"> G04-Education</Button>
+		<Button href="/#/sanity-stats-integrations/2"> G02-Oil Production</Button>
+		<Button href="/#/sanity-stats-integrations/3"> G03-Air Pollution</Button>
+		<Button href="/#/sanity-stats-integrations/4"> G04-Education</Button>
+		<Button href="/#/sanity-stats-integrations/5"> G20-Founds Research</Button>
+		<Button href="/#/sanity-stats-integrations/6"> G25-Sales</Button>
 	</ul>
 	
 

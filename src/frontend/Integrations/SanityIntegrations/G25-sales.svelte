@@ -1,7 +1,10 @@
 
 
 <script>
-  
+  import {
+            onMount
+        } from "svelte";
+  import Header from '../../Header.svelte';
     var NewSpain={
           "country" :"",
           "year": 0,
@@ -18,7 +21,8 @@
     var spainHealth=[];
     var sptotal=[];
     var spmap=new Map();
-    window.onload = async function () {
+        onMount(getsanity);
+        async function getsanity() {
           console.log("Fetching sanity...");
           const res = await fetch("/api/v2/sanity-stats");
           if(res.ok){
@@ -37,13 +41,14 @@
                     years.push(NewSpain.year);
                   }
                   if(NewSpain.country=="Spain"){
-                    spyears.push(NewSpain.year);
+                    if(!spyears.includes(NewSpain.year)){
+                      spyears.push(NewSpain.year);
+                    }
                     if(NewSpain.year!=(spyears[spyears.length-2]+1)){
                       for(let i=spyears[spyears.length-2];i<(NewSpain.year-1);i++){
                         if(!years.includes(i+1)){
                           years.push(i+1);
                         }
-                        spainHealth.push(null);
                       }
                     }
                     spainHealth.push({label:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
@@ -68,12 +73,18 @@
               let i=0;
               let año;
               while(i<country2.length){
-                año=country2[i].year;
+                año=parseInt(country2[i].year);
+                if(año==2006){
+                  console.log(country2[i])
+                  console.log("raro cojones")
+                }
                   if(!years.includes(año)){
                     years.push(año);
                   }
+                  if(!toyears.includes(año)){
                     toyears.push(año);
-                    if(año!=(toyears[toyears.length-2]+1)){
+                  }
+                  if(año!=(toyears[toyears.length-2]+1)){
                               for(let i=toyears[toyears.length-2];i<(año-1);i++){
                                   if(!years.includes(i+1)){
                                       years.push(i+1);
@@ -96,12 +107,12 @@
               console.log("Error!");
           }
           Object.entries(spmap).forEach(([key, value]) => {
-        sptotal.push({label: key , y: value})
+        sptotal.push({label: parseInt(key) , y: value})
   });
-          if(toyears[0]<spyears[0]){
+         
+            if(toyears[0]<spyears[0]){
                   for(let i=toyears[0];i<spyears[0];i++){
-                      spyears.unshift(i+1);
-                      sanity.unshift(null);
+                      spainHealth.unshift({label:i, y:null});
                       if(!years.includes(i+1)){
                           years.push(i+1);
                       }
@@ -109,20 +120,14 @@
               }
           if(toyears[0]>spyears[0]){
                   for(let i=toyears[0];i>=spyears[0];i--){
-                    console.log(spyears[0] +" a  "+toyears[0])
-                      toyears.unshift(i-1);
                       sptotal.unshift({label:i, y:null});
                       if(!years.includes(i-1)){
                           years.push(i-1);
                       }
                   }
               }
+
   
-  
-          console.log(spmap)
-  
-          
-  console.log(sptotal)
   
           loadGraph();
       }   
@@ -184,6 +189,7 @@
     }
     
     }
+    
   </script> 
   
   <svelte:head>
@@ -191,6 +197,8 @@
   
   </svelte:head>
   <main>
+    <Header/>
+    <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
   
   </main>

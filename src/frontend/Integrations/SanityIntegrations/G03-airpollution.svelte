@@ -1,6 +1,9 @@
 
 <script>
-
+import {
+            onMount
+        } from "svelte";
+import Header from '../../Header.svelte';
     var NewSpain={
             "country" :"",
             "year": 0,
@@ -21,7 +24,8 @@
         var indiaHealth=[];
         var germanyHealth=[];
     
-        window.onload = async function () {
+        onMount(getsanity);
+        async function getsanity() {
             console.log("Fetching sanity...");
             const res = await fetch("/api/v2/sanity-stats");
             if(res.ok){
@@ -175,6 +179,8 @@
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </svelte:head>
         <main>
+          <Header/>
+          <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
             <div id="chartContainer" style="height: 300px; width: 100%;"></div>
     
         </main>

@@ -1,5 +1,8 @@
 <script>
-
+import {
+            onMount
+        } from "svelte";
+import Header from '../../Header.svelte';
     import * as JSC from 'jscharting';
     var NewSpain={
               "country" :"",
@@ -16,8 +19,8 @@
         var toyears=[];
         var spainHealth=[];
         var sptotal=[];
-        var spmap=new Map();
-        window.onload = async function () {
+        onMount(getsanity);
+        async function getsanity() {
               console.log("Fetching sanity...");
               const res = await fetch("/api/v2/sanity-stats");
               if(res.ok){
@@ -140,6 +143,8 @@
     </svelte:head>
     
     <main>
+      <Header/>
+      <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
       <div id="chartDiv" style="max-width: 740px;height: 400px;margin: 0px auto">
       </div>
     </main>
