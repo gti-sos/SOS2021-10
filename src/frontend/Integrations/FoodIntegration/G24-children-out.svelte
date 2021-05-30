@@ -122,4 +122,6 @@
     }
     </script>
     <Header/>
+    <br>
+    <Button outline color="secondary" onclick="window.location.href='#/foodconsumption-stats'">Volver</Button>
     <SvelteFC {...chartConfigs} />

@@ -12,9 +12,12 @@
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import GraphFood from './foodConsumption/GraphFood.svelte';
 	import GraphFoodBubbles from './foodConsumption/GraphFoodBubbles.svelte';
-	import IntegrationAPI from './foodConsumption/IntegrationAPI.svelte';
 	import intfood1 from './Integrations/FoodIntegration/G02-nuts-production.svelte';
 	import intfood2 from './Integrations/FoodIntegration/G24-children-out.svelte';
+	import intfood3 from './Integrations/FoodIntegration/G01-divorce-stats.svelte';
+	import intfood4 from './Integrations/FoodIntegration/G02-wine-production-stats.svelte';
+	import intfood5 from './Integrations/FoodIntegration/G03-international-tour.svelte';
+	import intfood6 from './Integrations/FoodIntegration/G04-poverty-risks.svelte';
 
 	
 	import HomeObesity from './obesity/HomeObesity.svelte';
@@ -48,9 +51,13 @@
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
 		"/foodconsumption-stats/graphfoodbubbles": GraphFoodBubbles,
-		"/foodconsumption-stats/IntegrationAPI": IntegrationAPI,
 		"/foodconsumption-stats/nuts-production-Integration": intfood1,
 		"/foodconsumption-stats/children-out-school": intfood2,
+		"/foodconsumption-stats/divorce-stats": intfood3,
+		"/foodconsumption-stats/wine-production-stats": intfood4,
+		"/foodconsumption-stats/international-tourism": intfood5,
+		"/foodconsumption-stats/poverty-risks": intfood6,
+
 		
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
