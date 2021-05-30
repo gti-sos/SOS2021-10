@@ -12,7 +12,7 @@ async function loadGraph(){
         obesity = await resData.json();
         obesity.forEach( (x) => {
           if(x.year==2011){
-            obegra.push({name: x.country + " " +  x.year, value: [parseFloat(x.man_percent)]});
+            obegra.push({name: x.country + " " +  x.year, value: [parseInt(((parseFloat(x.man_percent)+parseFloat(x.woman_percent))/100)*parseInt(x.total_population))]});
           }
         });
 
@@ -20,6 +20,7 @@ async function loadGraph(){
       
 
       anychart.onDocumentReady(function () {
+        
         var chart = anychart.cartesian();
         var data = obegra;
   // JSON data
@@ -34,7 +35,7 @@ async function loadGraph(){
             "container": "container"
           }
         };
-  chart.title("Obesidad másculina");
+        
   // get JSON data
   var chart = anychart.fromJson(json);
 
@@ -74,6 +75,7 @@ async function loadGraph(){
       
       <button><a href="#/obesity-stats">Volver a Estadísticas de Obesidad</a></button>
       <button><a href="#/obesity-stats/graphv2">Gráfica 2</a></button>
+      <h5 style="text-align: center">Porcentaje de población obesa en 2011</h5>
         <div id="container"></div>
         
     </figure>  
