@@ -22,7 +22,7 @@
 	import graphconj from './Graphconj.svelte';
 
 	import GraphObeV2 from './obesity/GraphObeV2.svelte';
-	import GraphObe from './obesity/GraphObe.svelte';
+	import GrafoBueno from './obesity/GrafoBueno.svelte';
 	import IntegrationObe from './obesity/IntegrationObe.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
@@ -30,7 +30,11 @@
 	import graphV2 from './sanity/GraphV2.svelte';
 	
 	import intsan1 from './Integrations/SanityIntegrations/G01-life.svelte';
-	import intsan2 from './Integrations/SanityIntegrations/G04-education.svelte';
+	import intsan2 from './Integrations/SanityIntegrations/G02-oilproduction.svelte';
+	import intsan3 from './Integrations/SanityIntegrations/G03-airpollution.svelte';
+	import intsan4 from './Integrations/SanityIntegrations/G04-education.svelte';
+	import intsan5 from './Integrations/SanityIntegrations/G20-founsresearch.svelte';
+	import intsan6 from './Integrations/SanityIntegrations/G25-sales.svelte';
 
 	
 	
@@ -50,15 +54,21 @@
 		
 		"/obesity-stats": HomeObesity,
 		"/obesity-stats/:country/:year": EditObe,
-		"/obesity-stats/graph": GraphObe,
+		"/obesity-stats/graph": GrafoBueno,
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/obesity-stats/IntegrationObe": IntegrationObe,
+
+
 		"/sanity-stats": HomeSanity,
 		"/sanity-stats/:country/:year": JustOneSanity,
 		"/sanity-stats-graph/:country": graph,
 		"/sanity-stats-graphv2": graphV2,
 		"/sanity-stats-integrations/1": intsan1,
 		"/sanity-stats-integrations/2": intsan2,
+		"/sanity-stats-integrations/3": intsan3,
+		"/sanity-stats-integrations/4": intsan4,
+		"/sanity-stats-integrations/5": intsan5,
+		"/sanity-stats-integrations/6": intsan6,
 
 		"*": NotFound
 	}

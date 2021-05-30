@@ -30,7 +30,7 @@
         console.log(2)
         Highcharts.chart('container', {
       chart: {
-        type: 'area'
+        type: 'column'
     },
   title: {
     text: 'Integración G04-Education API'
@@ -203,6 +203,7 @@ console.log(spyears)
     
     <main>
       <Header/>
+      <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
       <figure class="highcharts-figure">
         <br><br> <p style="text-align: center">
             <div id="container"></div>
