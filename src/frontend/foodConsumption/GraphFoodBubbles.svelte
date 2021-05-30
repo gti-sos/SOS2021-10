@@ -8,9 +8,7 @@
         onMount
     } from "svelte";
 
-    import {
-        pop
-    } from "svelte-spa-router";
+    
     import Button from "sveltestrap/src/Button.svelte";
 
   // Always set FusionCharts as the first parameter
@@ -130,7 +128,7 @@
     <Header/>
     <br>
     <br>
-    <Button outline color="secondary" on:click="{pop}">Volver</Button>
+    <Button outline color="secondary" onclick="window.location.href='#/foodconsumption-stats'">Volver</Button>
     <div style="margin:auto;"> 
       <SvelteFC {...chartConfigs}/>
       

@@ -1,17 +1,24 @@
 
 var BASE_API_PATH = "/api/v2/foodconsumption-stats";
 
+var BASE_API_PATH_2 = "/api/v2";
+
 var path = require("path");
 
 var Datastore = require("nedb");
 
 const dbFileName = path.join(__dirname,"foodconsumption.db");
 
+var express = require('express');
+var request = require('request');
+
+var app = express();  
+
 
 const dbFood = new Datastore({
 				filename: dbFileName, 
 				autoload: true,
-					autoload: true,
+				autoload: true,
 				autoload: true,
 				autoload: true
 		});
@@ -229,6 +236,16 @@ function hasNumbers(t)
 
 
  module.exports.register = (app) => {
+
+	//////////////////Integrations//////////////
+	app.use(BASE_API_PATH_2 +"/nuts-production-stats", function(req, res) {
+		var apiServerHost = 'https://sos2021-02.herokuapp.com/api/v2/nuts-production-stats?year=2011';
+	  var url = apiServerHost + req.url;
+	  req.pipe(request(url)).pipe(res);
+	  
+	});
+
+	///////////////////////////////////////////////////
 	 
 	 app.get(BASE_API_PATH+"/:country/:year",(req,res)=>{
 		var countryD = req.params.country;
