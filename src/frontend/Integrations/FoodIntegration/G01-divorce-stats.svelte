@@ -166,5 +166,5 @@
     <Header/>
   
     <br>
-    <Button outline color="secondary" onclick="window.location.href='#/foodconsumption-stats'">Volver</Button>
+    <Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
     <SvelteFC {...chartConfigs} />

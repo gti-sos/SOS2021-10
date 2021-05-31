@@ -52,7 +52,7 @@
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
 		"/foodconsumption-stats/graphfoodbubbles": GraphFoodBubbles,
-		"/foodconsumption-stats/nuts-production-Integration": intfood1,
+		"/foodconsumption-stats/nuts-production": intfood1,
 		"/foodconsumption-stats/children-out-school": intfood2,
 		"/foodconsumption-stats/divorce-stats": intfood3,
 		"/foodconsumption-stats/wine-production-stats": intfood4,

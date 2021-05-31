@@ -3,6 +3,10 @@ var BASE_API_PATH_2 = "/api/v2";
 var Datastore = require("nedb");
 var request = require('request');
 var path = require('path');
+
+var express = require('express');
+var app = express(); 
+
 var datafile = path.join(__dirname, 'obesity-stats.db');
 var db = new Datastore({ filename: datafile, autoload: true});
 var obesity = [];
@@ -328,7 +332,7 @@ function hasNumbers(t){
 
 
 	app.use(BASE_API_PATH_2 +"/natality-stats", function(req, res) {
-		var apiServerHost = 'https://http://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain';
+		var apiServerHost = 'https://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain';
 	  var url = apiServerHost + req.url;
 	  req.pipe(request(url)).pipe(res);
 	  

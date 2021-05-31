@@ -27,7 +27,6 @@
             console.log("Ok.");
             const json = await res.json();
             const json2 = await res2.json();
-
             data = json;
             data2= json2;
             console.log(`We have received ${data.length} data points.`);
@@ -188,7 +187,7 @@
 <main>
 <Header/>
 <br>
-    <Button outline color="secondary" onclick="window.location.href='#/foodconsumption-stats'">Volver</Button>
+    <Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
 
     <figure class="highcharts-figure">
         <div id="container"></div>
