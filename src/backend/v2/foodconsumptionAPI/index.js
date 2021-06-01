@@ -245,6 +245,13 @@ function hasNumbers(t)
 	  
 	});
 
+	app.use(BASE_API_PATH_2 +"/wine-production-stats", function(req, res) {
+		var apiServerHost = 'https://sos2021-02.herokuapp.com/api/v2/wine-production-stats?year=2011';
+	  var url = apiServerHost + req.url;
+	  req.pipe(request(url)).pipe(res);
+	  
+	});
+
 	///////////////////////////////////////////////////
 	 
 	 app.get(BASE_API_PATH+"/:country/:year",(req,res)=>{
