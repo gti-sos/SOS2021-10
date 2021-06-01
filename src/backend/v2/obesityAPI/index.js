@@ -328,7 +328,7 @@ function hasNumbers(t){
 
 
 	app.use(BASE_API_PATH_2 +"/natality-stats", function(req, res) {
-		var apiServerHost = 'https://http://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain';
+		var apiServerHost = 'http://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain';
 	  var url = apiServerHost + req.url;
 	  req.pipe(request(url)).pipe(res);
 	  
