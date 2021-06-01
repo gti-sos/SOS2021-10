@@ -39,6 +39,8 @@
 	import intsan4 from './Integrations/SanityIntegrations/G04-education.svelte';
 	import intsan5 from './Integrations/SanityIntegrations/G20-founsresearch.svelte';
 	import intsan6 from './Integrations/SanityIntegrations/G25-sales.svelte';
+	import ext1 from './Integrations/SanityIntegrations/ext1.svelte';
+	import ext2 from './Integrations/SanityIntegrations/ext2.svelte';
 
 	
 	
@@ -78,6 +80,8 @@
 		"/sanity-stats-integrations/4": intsan4,
 		"/sanity-stats-integrations/5": intsan5,
 		"/sanity-stats-integrations/6": intsan6,
+		"/sanity-stats-integrations/9": ext1,
+		"/sanity-stats-integrations/10": ext2,
 
 		"*": NotFound
 	}
