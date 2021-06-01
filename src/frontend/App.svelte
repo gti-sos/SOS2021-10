@@ -28,6 +28,8 @@
 	import GrafoBueno from './obesity/GrafoBueno.svelte';
 	import IntegrationObe from './obesity/IntegrationObe.svelte';
 	import intobe1 from './Integrations/ObesityInt/G01-natality.svelte';
+	import intobe2 from './Integrations/ObesityInt/G11-anxiety.svelte';
+	import intobe3 from './Integrations/ObesityInt/G04-illiteracy.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
@@ -66,6 +68,8 @@
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/obesity-stats/IntegrationObe": IntegrationObe,
 		"/obesity-stats/graphnatality": intobe1,
+		"/obesity-stats/graphanxiety": intobe2,
+		"/obesity-stats/graphilliteracy": intobe3,
 
 
 		"/sanity-stats": HomeSanity,

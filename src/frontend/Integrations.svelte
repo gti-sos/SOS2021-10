@@ -61,6 +61,8 @@
 	</h2>
 	<ul>
 		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphnatality'" >G01- natality-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphanxiety'" >G11- anxiety-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphilliteracy'" >G04- illiteracy-stats</Button>
 	
 	</ul>
 
