@@ -1,6 +1,6 @@
 <script>
     import Header from '../Header.svelte';
-
+    import Button from "sveltestrap/src/Button.svelte";
     import {
         onMount
     } from "svelte";
@@ -27,7 +27,6 @@
             console.log("Ok.");
             const json = await res.json();
             const json2 = await res2.json();
-
             data = json;
             data2= json2;
             console.log(`We have received ${data.length} data points.`);
@@ -36,24 +35,17 @@
 			while(e<data2.length){
                 if(data2[e].country=="USA"){
                     paises.add("United_States");
-                   /* almond.push(data2[e].almond);
-                    walnut.push(data2[e].walnut);
-                    pistachio.push(data2[e].pistachio);
-                    console.log(data2[e].country);*/
                 }
                 else{
                     paises.add(data2[e].country);
-                    /*almond.push(data2[e].almond);
-                    walnut.push(data2[e].walnut);
-                    pistachio.push(data2[e].pistachio);*/
+                    
                 }
                 e++;
 
             }
 			while(i<data.length){
 				paises.add(data[i].country);
-				/*dailygram.push(data[i].dailygram);
-				dailycalory.push(data[i].dailycalory);*/
+				 
 				i++;
 			
 			}
@@ -136,7 +128,7 @@
         text: 'Source: <a href="https://www.nationalgeographic.com/what-the-world-eats/"> National Geographic </a>'
     },
     xAxis: {
-        categories:arrPaises,
+        categories: arrPaises,
         crosshair: true
     },
     yAxis: {
@@ -195,7 +187,8 @@
 <main>
 <Header/>
 <br>
-<br>
+    <Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
+
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">

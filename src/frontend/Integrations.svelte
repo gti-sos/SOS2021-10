@@ -44,7 +44,25 @@
 		<Button href="/#/sanity-stats-integrations/5"> G20-Founds Research</Button>
 		<Button href="/#/sanity-stats-integrations/6"> G25-Sales</Button>
 	</ul>
+
+	<h2>
+		Intregraciones Consumo de Azúcares y Grasas:
+	</h2>
+	<ul>
+		<Button href="/#/foodconsumption-stats/divorce-stats"> G01-Divorce stats</Button>
+		<Button href="/#/foodconsumption-stats/nuts-production"> G02-Nuts Production</Button>
+		<Button href="/#/foodconsumption-stats/wine-production-stats"> G02-Wine Production</Button>
+		<Button href="/#/foodconsumption-stats/international-tourism"> G03-International tourism</Button>
+		<Button href="/#/foodconsumption-stats/poverty-risks"> G04-Poverty risks</Button>
+		<Button href="/#/foodconsumption-stats/children-out-school"> G24-Children out of school</Button>
+	</ul>
+	<h2>
+		Intregraciones Obesidad:
+	</h2>
+	<ul>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphnatality'" >G01- natality-stats</Button>
 	
+	</ul>
 
 </main>
 
