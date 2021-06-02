@@ -18,6 +18,8 @@
 	import intfood4 from './Integrations/FoodIntegration/G02-wine-production-stats.svelte';
 	import intfood5 from './Integrations/FoodIntegration/G03-international-tour.svelte';
 	import intfood6 from './Integrations/FoodIntegration/G04-poverty-risks.svelte';
+	import intfood7 from './Integrations/FoodIntegration/APIEXT1.svelte';
+	import intfood8 from './Integrations/FoodIntegration/APIEXT2.svelte';
 
 	
 	import HomeObesity from './obesity/HomeObesity.svelte';
@@ -58,6 +60,8 @@
 		"/foodconsumption-stats/wine-production-stats": intfood4,
 		"/foodconsumption-stats/international-tourism": intfood5,
 		"/foodconsumption-stats/poverty-risks": intfood6,
+		"/foodconsumption-stats/APIEXT1": intfood7,
+		"/foodconsumption-stats/APIEXT2": intfood8,
 
 		
 		"/obesity-stats": HomeObesity,
