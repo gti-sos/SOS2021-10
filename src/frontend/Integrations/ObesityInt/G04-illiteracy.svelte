@@ -14,70 +14,63 @@
      let analfabetismo = [];
      var dataSource={};
      async function getData(){
-         const res = await fetch(BASE_API_PATH+"/obesity-stats");
+         const res = await fetch(BASE_API_PATH+"/obesity-stats?country=Spain");
         const res2 = await fetch("/api/v1/illiteracy");
         
         let mujeres = [];
-        let pais = [];
+      
         let almuj = [];
         let joven =[];
         
-		obesity = await res.json();
-		obesity.forEach( (x) => {
-            
-            let esp = x.country + " (" + x.year + ")";
-            pais.push({label:esp});
-            
-            mujeres.push({value:x.woman_percent});
-            
-            joven.push(null);
-            almuj.push(null);     
-        });
-
+        let mapa={};
+        obesity = await res.json();
+        obesity.forEach((x) => {
+          if(x.year==2014){
+              mujeres.push(x.woman_percent);
+          }
+              
+            });
         analfabetismo = await res2.json();
         analfabetismo.forEach( (x) => {
-            let esp = x.country + " (" + x.year + ")";
-            pais.push({label:esp});
-            almuj.push({value:100-x.female_illiteracy_rate});
-            joven.push({value:100-x.young_illiteracy_rate});
-            mujeres.push(null);
+          if(x.year==2014){
             
+             almuj.push(100-x.female_illiteracy_rate);
+              joven.push(100-x.young_illiteracy_rate);
+            
+          } 
         });
         
+      
+        console.log(mujeres);
+        console.log(almuj);
         
      
      dataSource = {
   "chart": {
-    "showvalues": "0",
-    "caption": "Apple's Revenue & Profit",
-    "subcaption": "(2013-2016)",
-    "numberprefix": "$",
-    "numbersuffix": "B",
-    "plottooltext": "Sales of $seriesName in $label was <b>$dataValue</b>",
-    "showhovereffect": "1",
-    "yaxisname": "$ (In billions)",
-    "showsum": "1",
+    "caption": "Pocentaje de mujeres con obesidad, analfabetas y jóvenes en España 2014",
+    
+    "showpercentvalues": "1",
+    "defaultcenterlabel": "España 2014",
+    "aligncaptionwithcanvas": "0",
+    "captionpadding": "0",
+    "decimals": "1",
+    
+    "centerlabel": "Porcentaje: $value %",
     "theme": "fusion"
   },
-  "categories": [
+  
+  "data": [
     {
-      "category": pais
-    }
-  ],
-  "dataset": [
-    {
-      "seriesname": "Obesidad mujeres",
-      "data": mujeres
+      "label": "Obesidad",
+      "value": mujeres
     },
     {
-      "seriesname": "Alfabetismo",
-      "data": almuj
+      "label": "Analfabetismo",
+      "value": almuj
     },
     {
-      "seriesname": "Juventud",
-      "plottooltext": "Total profit in $label was <b>$dataValue</b>",
-      "renderas": "Line",
-      "data": joven
+      "label": "Jóvenes",
+      "value": joven
     }
   ]
 };
@@ -87,7 +80,7 @@ onMount(getData);
 var chartConfigs={};
 async function cargarConf(){
     chartConfigs  = {
-    type: 'stackedcolumn2dline',
+    type: 'doughnut2d',
    width: 1400,
    height: 600,
    dataFormat: 'json',
