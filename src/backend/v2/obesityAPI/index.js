@@ -1,5 +1,6 @@
 var BASE_API_PATH = "/api/v2/obesity-stats";
 var BASE_API_PATH_2 = "/api/v2";
+var BASE_API_PATH_1 = "/api/v1";
 var Datastore = require("nedb");
 var request = require('request');
 var path = require('path');
@@ -87,6 +88,13 @@ var obesityInitialData = [
 		"man_percent": 18.6,
 		"woman_percent": 20.1,
 		"total_population": 10473000
+	},
+	{
+		"country": "Chile",
+		"year": 2016,
+		"man_percent": 24.9,
+		"woman_percent": 31,
+		"total_population": 18209000
 	}
 ];
 
@@ -331,8 +339,14 @@ function hasNumbers(t){
     });
 
 
-	app.use(BASE_API_PATH_2 +"/natality-stats", function(req, res) {
-		var apiServerHost = 'https://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain';
+	app.use(BASE_API_PATH_2 +"/anxiety_stats", function(req, res) {
+		var apiServerHost = 'http://sos2021-11.herokuapp.com/api/integration/anxiety_stats';
+	  var url = apiServerHost + req.url;
+	  req.pipe(request(url)).pipe(res);
+	  
+	});
+	app.use(BASE_API_PATH_1 +"/illiteracy", function(req, res) {
+		var apiServerHost = 'https://sos2021-04.herokuapp.com/api/v1/illiteracy';
 	  var url = apiServerHost + req.url;
 	  req.pipe(request(url)).pipe(res);
 	  

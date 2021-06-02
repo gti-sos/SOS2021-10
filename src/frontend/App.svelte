@@ -30,6 +30,8 @@
 	import GrafoBueno from './obesity/GrafoBueno.svelte';
 	import IntegrationObe from './obesity/IntegrationObe.svelte';
 	import intobe1 from './Integrations/ObesityInt/G01-natality.svelte';
+	import intobe2 from './Integrations/ObesityInt/G11-anxiety.svelte';
+	import intobe3 from './Integrations/ObesityInt/G04-illiteracy.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
@@ -41,6 +43,8 @@
 	import intsan4 from './Integrations/SanityIntegrations/G04-education.svelte';
 	import intsan5 from './Integrations/SanityIntegrations/G20-founsresearch.svelte';
 	import intsan6 from './Integrations/SanityIntegrations/G25-sales.svelte';
+	import ext1 from './Integrations/SanityIntegrations/ext1.svelte';
+	import ext2 from './Integrations/SanityIntegrations/ext2.svelte';
 
 	
 	
@@ -70,6 +74,8 @@
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/obesity-stats/IntegrationObe": IntegrationObe,
 		"/obesity-stats/graphnatality": intobe1,
+		"/obesity-stats/graphanxiety": intobe2,
+		"/obesity-stats/graphilliteracy": intobe3,
 
 
 		"/sanity-stats": HomeSanity,
@@ -82,6 +88,8 @@
 		"/sanity-stats-integrations/4": intsan4,
 		"/sanity-stats-integrations/5": intsan5,
 		"/sanity-stats-integrations/6": intsan6,
+		"/sanity-stats-integrations/9": ext1,
+		"/sanity-stats-integrations/10": ext2,
 
 		"*": NotFound
 	}
