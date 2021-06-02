@@ -109,7 +109,7 @@ function hasNumbers(t){
         let offset = 0;
         let limit = Number.MAX_SAFE_INTEGER;
 		
-		//PAGINACIÓN
+		//PAGINACIÓN.
         if (req.query.offset) {
             offset = parseInt(req.query.offset);
             delete req.query.offset;
