@@ -91,10 +91,10 @@ var obesityInitialData = [
 	},
 	{
 		"country": "Spain",
-		"year": 2013,
-		"man_percent": 18.6,
-		"woman_percent": 20.1,
-		"total_population": 10473000
+		"year": 2014,
+		"man_percent": 23.6,
+		"woman_percent": 22.3,
+		"total_population": 46778000
 	}
 ];
 

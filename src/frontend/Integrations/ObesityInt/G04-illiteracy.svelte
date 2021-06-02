@@ -14,60 +14,33 @@
      let analfabetismo = [];
      var dataSource={};
      async function getData(){
-         const res = await fetch(BASE_API_PATH+"/obesity-stats");
+         const res = await fetch(BASE_API_PATH+"/obesity-stats?country=Spain");
         const res2 = await fetch("/api/v1/illiteracy");
         
         let mujeres = [];
-        let anos = new Set();
+      
         let almuj = [];
         let joven =[];
         
         let mapa={};
-		obesity = await res.json();
-		obesity.forEach( (x) => {
-            
-            anos.add(x.year);
-                
-            } 
-        );
-        
+        obesity = await res.json();
+        obesity.forEach((x) => {
+          if(x.year==2014){
+              mujeres.push(x.woman_percent);
+          }
+              
+            });
         analfabetismo = await res2.json();
         analfabetismo.forEach( (x) => {
-          if(x.year<2017){
+          if(x.year==2014){
             
-             anos.add(x.year);
+             almuj.push(100-x.female_illiteracy_rate);
+              joven.push(100-x.young_illiteracy_rate);
             
           } 
         });
-        obesity.forEach((x) => {
-          console.log(Array.from(anos));
-          
-            if(Array.from(anos).includes(x.year)){
-              mujeres.push({value:x.woman_percent});
-            }else{
-              console.log(Array.from(anos));
-              mujeres.push(null);
-            }
-            
-              
-            });
-        analfabetismo.forEach((x) => {
-          if(x.year<2017){
-            if(Array.from(anos).includes(x.year)){
-              almuj.push({value:100-x.female_illiteracy_rate});
-              joven.push({value:100-x.young_illiteracy_rate});
-              
-            }else{
-              almuj.push(null);
-              joven.push(null);
-            }
-          }   
-              
-            });
-
-        let categorias =[];
-        anos.forEach((x) => categorias.push({label:x}));
-        console.log(anos);
+        
+      
         console.log(mujeres);
         console.log(almuj);
         
@@ -88,24 +61,16 @@
   
   "data": [
     {
-      "label": "Ice Cream Sandwich",
-      "value": "1000"
+      "label": "Obesidad Mujeres",
+      "value": mujeres
     },
     {
-      "label": "Jelly Bean",
-      "value": "5300"
+      "label": "Analfabetismo",
+      "value": almuj
     },
     {
-      "label": "Kitkat",
-      "value": "10500"
-    },
-    {
-      "label": "Lollipop",
-      "value": "18900"
-    },
-    {
-      "label": "Marshmallow",
-      "value": "17904"
+      "label": "Jovenes",
+      "value": joven
     }
   ]
 };
