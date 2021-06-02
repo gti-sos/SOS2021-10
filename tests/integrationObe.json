@@ -69,7 +69,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -78,7 +78,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
