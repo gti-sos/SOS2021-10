@@ -47,21 +47,21 @@
      
      dataSource = {
   "chart": {
-    "caption": "Android Distribution for our app",
-    "subcaption": "For all users in 2017",
+    "caption": "Pocentaje de mujeres con obesidad, analfabetas y jóvenes en España 2014",
+    
     "showpercentvalues": "1",
-    "defaultcenterlabel": "Android Distribution",
+    "defaultcenterlabel": "España 2014",
     "aligncaptionwithcanvas": "0",
     "captionpadding": "0",
     "decimals": "1",
-    "plottooltext": "<b>$percentValue</b> of our Android users are on <b>$label</b>",
-    "centerlabel": "# Users: $value",
+    
+    "centerlabel": "Porcentaje: $value %",
     "theme": "fusion"
   },
   
   "data": [
     {
-      "label": "Obesidad Mujeres",
+      "label": "Obesidad",
       "value": mujeres
     },
     {
@@ -69,7 +69,7 @@
       "value": almuj
     },
     {
-      "label": "Jovenes",
+      "label": "Jóvenes",
       "value": joven
     }
   ]
@@ -81,8 +81,8 @@ var chartConfigs={};
 async function cargarConf(){
     chartConfigs  = {
     type: 'doughnut2d',
-   width: 600,
-   height: 400,
+   width: 1400,
+   height: 600,
    dataFormat: 'json',
    dataSource
     };
