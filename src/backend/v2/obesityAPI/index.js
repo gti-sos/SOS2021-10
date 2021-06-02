@@ -90,11 +90,11 @@ var obesityInitialData = [
 		"total_population": 10473000
 	},
 	{
-		"country": "Chile",
-		"year": 2016,
-		"man_percent": 24.9,
-		"woman_percent": 31,
-		"total_population": 18209000
+		"country": "Spain",
+		"year": 2014,
+		"man_percent": 23.6,
+		"woman_percent": 22.3,
+		"total_population": 46778000
 	}
 ];
 
@@ -346,7 +346,7 @@ function hasNumbers(t){
 	  
 	});
 	app.use(BASE_API_PATH_1 +"/illiteracy", function(req, res) {
-		var apiServerHost = 'https://sos2021-04.herokuapp.com/api/v1/illiteracy';
+		var apiServerHost = 'https://sos2021-04.herokuapp.com/api/v1/illiteracy/Spain';
 	  var url = apiServerHost + req.url;
 	  req.pipe(request(url)).pipe(res);
 	  

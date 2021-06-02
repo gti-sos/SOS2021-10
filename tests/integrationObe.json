@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "60316e6d-e981-4d57-96bd-7a33377fc651",
-		"name": "SOS2021-10-obesity v2",
+		"_postman_id": "7fdf6f0a-5e34-4317-bdcf-97dcac7f2dc4",
+		"name": "SOS2021-10-obesity-stats v2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -33,7 +33,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -42,7 +42,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -104,7 +104,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/loadinitialdata",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/loadinitialdata",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -113,7 +113,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"loadinitialdata"
 					]
@@ -134,7 +134,7 @@
 							"\r",
 							"pm.test(\"Length data is 5\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(5);\r",
+							"    pm.expect(jsonData.length).to.eql(12);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -145,7 +145,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -154,7 +154,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -190,7 +190,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -199,7 +199,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -235,7 +235,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -244,7 +244,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -280,7 +280,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -289,7 +289,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -334,7 +334,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/Spain/2008",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -343,7 +343,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"Spain",
 						"2008"
@@ -371,7 +371,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Pruebaaaa/2011111",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/Pruebaaaa/2011111",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -380,7 +380,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"Pruebaaaa",
 						"2011111"
@@ -408,7 +408,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/China/2011",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -417,7 +417,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"China",
 						"2011"
@@ -463,7 +463,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/Spain/2008",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -472,7 +472,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"Spain",
 						"2008"
@@ -518,7 +518,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spaaaaaain/201111111",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/Spaaaaaain/201111111",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -527,7 +527,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"Spaaaaaain",
 						"201111111"
@@ -565,7 +565,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2008,\r\n\"man_percent\": 4.2,\r\n\"woman_percent\": 5.2,\r\n\"total_population\": 66666666\r\n}",
+					"raw": "{\r\n\"country\": \"Spain\",\r\n\"year\": 2008,\r\n\"man_percent\": 20.8,\r\n\"woman_percent\": 21,\r\n\"total_population\": 46069000\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -573,7 +573,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/Spain/2008",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/Spain/2008",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -582,7 +582,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"Spain",
 						"2008"
@@ -620,7 +620,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats/China/2011",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats/China/2011",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -629,7 +629,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats",
 						"China",
 						"2011"
@@ -666,7 +666,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -675,7 +675,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
@@ -710,7 +710,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://sos2021-10.herokuapp.com/api/v1/obesity-stats",
+					"raw": "http://sos2021-10.herokuapp.com/api/v2/obesity-stats",
 					"protocol": "http",
 					"host": [
 						"sos2021-10",
@@ -719,7 +719,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"obesity-stats"
 					]
 				}
