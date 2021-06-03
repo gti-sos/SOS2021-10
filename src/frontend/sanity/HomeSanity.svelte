@@ -38,7 +38,7 @@
 	</h2>
 	<h5>Estaditicas de Sanidad:</h5>
 			
-			  <Button outline color="warning" on:click={toggle}>Abrir</Button>
+			  <Button outline id="tablaDatos"color="warning" on:click={toggle}>Abrir</Button>
 			  <Modal isOpen={open} {toggle} size="xl">
 				<ModalHeader {toggle}>Estadísticas de sanidad</ModalHeader>
 				
@@ -47,11 +47,13 @@
 					</ModalBody>
 				
 				<ModalFooter>
-				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
+				  <Button id="cerrar" color="secondary" on:click={toggle}>Cerrar</Button>
 				</ModalFooter>
 
 			  </Modal>
-				<Button outline color="warning">
+			  <Button outline id="canvas" color="warning">
+				  <a style="text-decoration: none" href="#/sanity-stats-grafica">Gráfica Canvasjs</a></Button>
+				<Button outline id="otragrafica" color="warning">
 					<a style="text-decoration: none" href="#/sanity-stats-graphv2">Gráfica 2</a></Button>
 			
 			
@@ -68,6 +70,8 @@
   		<BreadcrumbItem><a href="https://documenter.getpostman.com/view/9683594/TzRShoHD">Sanity_postmanv2</a></BreadcrumbItem>
 	</Breadcrumb>
 	
+	<Button outline id="integraciones" color="warning">
+		<a style="text-decoration: none" href="#/Integrations">Integraciones</a></Button>
 
 </main>
 

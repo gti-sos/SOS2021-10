@@ -198,7 +198,7 @@
   </svelte:head>
   <main>
     <Header/>
-    <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
+    <button id="volver" style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
   
   </main>

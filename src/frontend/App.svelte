@@ -36,6 +36,7 @@
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
 	import graphV2 from './sanity/GraphV2.svelte';
+	import Grafica from './sanity/Grafica.svelte';
 	
 	import intsan1 from './Integrations/SanityIntegrations/G01-life.svelte';
 	import intsan2 from './Integrations/SanityIntegrations/G02-oilproduction.svelte';
@@ -84,6 +85,7 @@
 		"/sanity-stats/:country/:year": JustOneSanity,
 		"/sanity-stats-graph/:country": graph,
 		"/sanity-stats-graphv2": graphV2,
+		"/sanity-stats-grafica": Grafica,
 		"/sanity-stats-integrations/1": intsan1,
 		"/sanity-stats-integrations/2": intsan2,
 		"/sanity-stats-integrations/3": intsan3,

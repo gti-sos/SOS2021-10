@@ -37,12 +37,16 @@
 		Intregraciones Sanidad:
 	</h2>
 	<ul>
-		<Button href="/#/sanity-stats-integrations/1"> G01-Life</Button>
-		<Button href="/#/sanity-stats-integrations/2"> G02-Oil Production</Button>
-		<Button href="/#/sanity-stats-integrations/3"> G03-Air Pollution</Button>
-		<Button href="/#/sanity-stats-integrations/4"> G04-Education</Button>
-		<Button href="/#/sanity-stats-integrations/5"> G20-Founds Research</Button>
-		<Button href="/#/sanity-stats-integrations/6"> G25-Sales</Button>
+		<Button id="san1" href="/#/sanity-stats-integrations/1"> G01-Life</Button>
+		<Button id="san2" href="/#/sanity-stats-integrations/2"> G02-Oil Production</Button>
+		<Button id="san3" href="/#/sanity-stats-integrations/3"> G03-Air Pollution</Button>
+		<Button id="san4" href="/#/sanity-stats-integrations/4"> G04-Education</Button>
+		<Button id="san5" href="/#/sanity-stats-integrations/5"> G20-Founds Research</Button>
+		<Button id="san6" href="/#/sanity-stats-integrations/6"> G25-Sales</Button>
+		<Button id="san7" href="/#/sanity-stats-integrations/7"> Stress</Button>
+		<Button id="san8" href="/#/sanity-stats-integrations/8"> Children</Button>
+		<Button id="san9" href="/#/sanity-stats-integrations/9"> Api ext 1</Button>
+		<Button id="san10" href="/#/sanity-stats-integrations/10"> API ext 2</Button>
 	</ul>
 
 	<h2>

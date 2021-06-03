@@ -203,7 +203,7 @@ console.log(3);
   <Header/>
   <figure class="highcharts-figure">
     <br><br> <p style="text-align: center">
-    <button style="margin-left:10px;">
+    <button id="volver" style="margin-left:10px;">
       <a style="text-decoration: none"  href="#/sanity-stats">Volver a Estadísticas de sanidad</a></button></p>
         <div id="container"></div>
         

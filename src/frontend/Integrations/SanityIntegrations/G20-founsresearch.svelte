@@ -144,7 +144,7 @@ import Header from '../../Header.svelte';
     
     <main>
       <Header/>
-      <button style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
+      <button id="volver" style="margin-left:10px;"> <a style="text-decoration: none" href="#/integrations">Volver a Integraciones </a></button>
       <div id="chartDiv" style="max-width: 740px;height: 400px;margin: 0px auto">
       </div>
     </main>

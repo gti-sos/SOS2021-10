@@ -334,7 +334,7 @@ let numeroRecursos = 10;
        							 id="filtrohastacamas"
         						label="Camas hasta" ><input type=number bind:value="{filterSanity.tobed}"></CustomInput></li>
 								<br>
-								<Button on:click={getFiltro}>Filtrar</Button>
+								<Button id="aplicarFiltro" on:click={getFiltro}>Filtrar</Button>
 							</ul>
     					</Popover>
   					</div>
@@ -345,8 +345,8 @@ let numeroRecursos = 10;
 	<Table responsive>
 		<thead>
 			<tr>
-				<td><Button  on:click={SanityData}>Cargar Datos Iniciales</Button></td>
-				<td><Button  on:click={Delete}>Borrar Datos</Button></td>
+				<td><Button  id="cargarDatos" on:click={SanityData}>Cargar Datos Iniciales</Button></td>
+				<td><Button  id="borrarDatos" on:click={Delete}>Borrar Datos</Button></td>
 			</tr>
 			<tr>
 				<td>Pais</td>
@@ -359,13 +359,13 @@ let numeroRecursos = 10;
 		<tbody>
 			
 			<tr>
-				<td><input bind:value="{NewSanity.country}"></td>
-				<td><input type=number bind:value={NewSanity.year}></td>
-				<td><input type=number bind:value={NewSanity.health_expenditure_in_percentage}></td>
-				<td><input type=number bind:value={NewSanity.doctor_per_1000_habitant}></td>
-				<td><input type=number bind:value={NewSanity.hospital_bed}></td>
-				<td><Button on:click={PostSanity(NewSanity)}>Subir Dato</Button></td>
-				<td><Button on:click={PutSanity(NewSanity)}>Modificar Dato</Button></td>
+				<td><input id="pais" bind:value="{NewSanity.country}"></td>
+				<td><input id="año" type=number bind:value={NewSanity.year}></td>
+				<td><input id="sanidad" type=number bind:value={NewSanity.health_expenditure_in_percentage}></td>
+				<td><input id="medicos" type=number bind:value={NewSanity.doctor_per_1000_habitant}></td>
+				<td><input id="camas" type=number bind:value={NewSanity.hospital_bed}></td>
+				<td><Button id="subirDato" on:click={PostSanity(NewSanity)}>Subir Dato</Button></td>
+				<td><Button id="modificarDato" on:click={PutSanity(NewSanity)}>Modificar Dato</Button></td>
 			</tr>
 			{#each sanity as sani}
 				<tr>
@@ -374,7 +374,7 @@ let numeroRecursos = 10;
 				<td>{sani.health_expenditure_in_percentage}</td>
 				<td>{sani.doctor_per_1000_habitant}</td>
 				<td>{sani.hospital_bed}</td>
-				<td><Button Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>Borrar Datos</Button></td>
+				<td><Button id="borrar{sani.country}{sani.year}" Button color="secondary" on:click={DeleteContact(sani.country,sani.year)}>Borrar Datos</Button></td>
 				
 				
 				</tr>
@@ -385,7 +385,7 @@ let numeroRecursos = 10;
 	</Table>
 
 	<Pagination ariaLabel="Web pagination">
-		<PaginationItem class = {c_page === 1 ? "disabled" : ""}>
+		<PaginationItem id="pagAtras" class = {c_page === 1 ? "disabled" : ""}>
 			  <PaginationLink previous href="#/sanity-stats" on:click={() => cambiapag(c_page - 1, c_offset - 10)}/>
 		</PaginationItem>
 		{#each range(lastPage, 1) as page}
@@ -395,7 +395,7 @@ let numeroRecursos = 10;
 				</PaginationLink>
 			  </PaginationItem>
 		{/each}
-		<PaginationItem class = {c_page === lastPage ? "disabled" : ""}>
+		<PaginationItem id="pagAdelante" class = {c_page === lastPage ? "disabled" : ""}>
 			  <PaginationLink next href="#/sanity-stats" on:click={() => cambiapag(c_page + 1, c_offset + 10)}/>
 		</PaginationItem>
 	  </Pagination>
