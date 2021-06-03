@@ -11,18 +11,19 @@ import Header from '../../Header.svelte';
             "doctor_per_1000_habitant" : 0.0,
             "hospital_bed" : 0.0
         }
+        var and={
+            "country" :"",
+            "year": 0,
+            "deaths_ambient_particulate_matter_pollution" : 0.0,
+            "deaths_household_air_pollution_from_solid_fuels" : 0.0,
+            "deaths_air_pollution" : 0.0
+        }
       var years=[];
       var spyears=[];
-      var chyears=[];
-      var usyears=[];
-      var inyears=[];
-      var geyears=[];
+      var anyears=[];
         var country = [];
-        var chinaHealth=[];
+        var andorra=[];
         var spainHealth=[];
-        var usaHealth=[];
-        var indiaHealth=[];
-        var germanyHealth=[];
     
         onMount(getsanity);
         async function getsanity() {
@@ -50,58 +51,10 @@ import Header from '../../Header.svelte';
                           if(!years.includes(i+1)){
                             years.push(i+1);
                           }
-                          spainHealth.push(null);
+                          spainHealth.push({x:NewSpain.year, y:and.null});
                         }
                       }
                       spainHealth.push({x:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
-                    }
-                    else if(NewSpain.country=="China"){
-                      chyears.push(NewSpain.year);
-                      if(NewSpain.year!=(chyears[chyears.length-2]+1)){
-                        for(let i=chyears[chyears.length-2];i<(NewSpain.year-1);i++){
-                          if(!years.includes(i+1)){
-                            years.push(i+1);
-                          }
-                          chinaHealth.push(null);
-                        }
-                      }
-                      chinaHealth.push({x:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
-                    }
-                    else if(NewSpain.country=="Germany"){
-                      geyears.push(NewSpain.year);
-                      if(NewSpain.year!=(geyears[geyears.length-2]+1)){
-                        for(let i=geyears[geyears.length-2];i<(NewSpain.year-1);i++){
-                          if(!years.includes(i+1)){
-                            years.push(i+1);
-                          }
-                          germanyHealth.push(null);
-                        }
-                      }
-                      germanyHealth.push({x:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
-                    }
-                    else if(NewSpain.country=="India"){
-                      inyears.push(NewSpain.year);
-                      if(NewSpain.year!=(inyears[inyears.length-2]+1)){
-                        for(let i=inyears[inyears.length-2];i<(NewSpain.year-1);i++){
-                          if(!years.includes(i+1)){
-                            years.push(i+1);
-                          }
-                          indiaHealth.push(null);
-                        }
-                      }
-                      indiaHealth.push({x:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
-                    }
-                    else if(NewSpain.country=="United_States"){
-                      usyears.push(NewSpain.year);
-                      if(NewSpain.year!=(usyears[usyears.length-2]+1)){
-                        for(let i=usyears[usyears.length-2];i<(NewSpain.year-1);i++){
-                          if(!years.includes(i+1)){
-                            years.push(i+1);
-                          }
-                          usaHealth.push(null);
-                        }
-                      }
-                      usaHealth.push({x:NewSpain.year, y:NewSpain.health_expenditure_in_percentage});
                     }
                     i++;
                 }
@@ -109,6 +62,45 @@ import Header from '../../Header.svelte';
             }else{
                 console.log("Error!");
             }
+
+            const res2 = await fetch("https://sos2021-03.herokuapp.com/api/integrations/air-pollution/");
+            if(res2.ok){
+                console.log("Ok.");
+                const json = await res2.json();
+                country = json;
+                country.sort((a, b) => (a.year > b.year) ? 1 : -1)
+                console.log(json);
+                console.log(country);
+                console.log("made");
+                console.log(`We have received ${country.length} sanity points.`);
+                let i=0;
+                while(i<country.length){
+                  and=country[i];
+                    if(!years.includes(and.year)){
+                      years.push(and.year);
+                    }
+                    if(and.country=="ANDORRA"){
+                      anyears.push(and.year);
+                      if(and.year!=(anyears[anyears.length-2]+1)){
+                        for(let i=anyears[anyears.length-2];i<(and.year-1);i++){
+                          if(!years.includes(i+1)){
+                            years.push(i+1);
+                          }
+                          andorra.push({x:and.year, y:and.null});
+                        }
+                      }
+                      andorra.push({x:and.year, y:and.deaths_air_pollution});
+                    }
+                    i++;
+                }
+                years.sort((a, b) => (a > b) ? 1 : -1)
+            }else{
+                console.log("Error!");
+            }
+
+
+            console.log(andorra)
+            console.log(spainHealth)
             console.log(1)
             loadGraph();
         }   
@@ -119,7 +111,7 @@ import Header from '../../Header.svelte';
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,
             title: {
-                text: "Daily Email Analysis"
+                text: "Integración G03"
             },
             axisX: {
                 minimum: years[0],
@@ -138,21 +130,13 @@ import Header from '../../Header.svelte';
             },
             data: [
             {
-                name: "usa",
+                name: "andorra",
                 showInLegend: true,
                 legendMarkerType: "square",
                 type: "area",
-                color: "red",
+                color: "green",
                 markerSize: 0,
-                dataPoints: usaHealth
-            },{
-                name: "alemanes",
-                showInLegend: true,
-                legendMarkerType: "square",
-                type: "area",
-                color: "white",
-                markerSize: 0,
-                dataPoints: germanyHealth
+                dataPoints: andorra
             },{
                 name: "españita",
                 showInLegend: true,
@@ -161,14 +145,6 @@ import Header from '../../Header.svelte';
                 color: "blue",
                 markerSize: 0,
                 dataPoints: spainHealth
-            },{
-                name: "china",
-                showInLegend: true,
-                legendMarkerType: "square",
-                type: "area",
-                color: "yellow",
-                markerSize: 0,
-                dataPoints: chinaHealth
             }]
         });
         chart.render();

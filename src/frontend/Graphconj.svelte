@@ -1,9 +1,17 @@
 <script>
+import FusionCharts from 'fusioncharts';
+import Charts from 'fusioncharts/fusioncharts.charts';
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
+import Button from "sveltestrap/src/Button.svelte";
 
 import Header from './Header.svelte';
     import {
         onMount
     } from "svelte";
+
+    fcRoot(FusionCharts, Charts, FusionTheme);
+
     var NewSpain={
 		"country" :"",
 		"year": 0,
@@ -11,90 +19,20 @@ import Header from './Header.svelte';
 		"doctor_per_1000_habitant" : 0.0,
 		"hospital_bed" : 0.0
 	}
-    var newObe={	
-		"country": "",
-		"year": 0,
-		"man_percent": 0,
-		"woman_percent": 0,
-		"total_population": 0
-	}
-    var newfood={
-		"country": "",
-		"year": 0,
-		"caloryperperson": 0,
-		"gramperperson":0 ,
-		"dailygram": 0,
-		"dailycalory": 0
-	}
+ 
     var country = [];
-    var poblacion=[];
     var health=[];
-    var calorias=[];
-    
+    var dataSource={};
+    var chartConfigs={};
 async function loadGraph(){
     
-    Highcharts.chart('container', {
-        chart: {
-        type: 'line'
-    },    
-  title: {
-    text: 'Análisis mundial'
-  },
-
-  subtitle: {
-    text: 'Consumo de gramos por persona, población total con obesidad y gastos en sanidad'
-  },
-
-  yAxis: {
-    title: {
-      text: 'Números'
-    }
-  },
-
-  xAxis: {
-    categories: Array.from(years).sort()
-	
-  },
-
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle'
-  },
-
-  plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false
-      },
-    }
-  },
-
-  series: [{
-    name: 'Gasto en sanidad',
-    data: health
-  },{
-    name: 'calorias',
-    data: gramosporanyo
-  },{
-    name: 'Población obesa',
-    data: obesidadhym
-  }],
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-      chartOptions: {
-        legend: {
-          layout: 'horizontal',
-          align: 'center',
-          verticalAlign: 'bottom'
-        }
-      }
-    }]
-  }
-    });
+    chartConfigs = {
+   type: 'msarea',
+   width: 1200,
+   height: 600,
+   dataFormat: 'json',
+   dataSource
+};
 
   }
   
@@ -105,7 +43,7 @@ async function loadGraph(){
 	let obesidadhym =[];
   let sanitydic={};
 
-  async function getsanity(){
+  async function getData(){
         console.log("Fetching sanity...");
         const res = await fetch("/api/v2/sanity-stats");
         if(res.ok){
@@ -126,7 +64,7 @@ async function loadGraph(){
             Object.entries(sanitydic).forEach(([key, value]) => {
               let c=0;
               let sum=0;
-              console.log(value);
+              //console.log(value);
               while(c<value.length){
                 sum+=value[c];
                 c++;
@@ -211,28 +149,54 @@ async function loadGraph(){
 					o++
 				}
 			}
+      var categorias =[];
+      var valoresHealth =[];
+      var valoresObesity =[];
+      var valoresFood =[];
+      Array.from(years).sort().forEach(x => categorias.push({label: x}));
 		
         console.log(Array.from(years).sort());
-        loadGraph();
+        health.forEach(x=> valoresHealth.push({value: x}));
+        gramosporanyo.forEach(x=> valoresFood.push({value: x}));
+        obesidadhym.forEach(x=> valoresObesity.push({value: x}));
+
+        dataSource = {
+      "chart": {
+        "caption": "Análisis de datos en conjunto",
+        "subcaption": "Análisis mundial",
+        "numbersuffix": "",
+        "showsum": "1",
+        "plottooltext": "$label:  <b>$dataValue</b> $seriesName",
+        "theme": "fusion",
+        "drawcrossline": "1"
+      },
+      "categories": [
+        {
+          "category": categorias
+        }
+      ],
+      "dataset": [
+        {
+          "seriesname": "Gasto en sanidad",
+          "data": valoresHealth
+        },
+        {
+          "seriesname": "Calorías",
+          "data": valoresFood
+        },
+        {
+          "seriesname": "Población obesa",
+          "data": valoresObesity
+        }
+      ]
+    };
+      loadGraph();
     }   
    
-    onMount(getsanity);
+    onMount(getData);
 </script>
+<Header/>
 
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-</svelte:head>
-
-<main>
-    <Header/>
-    <figure class="highcharts-figure">
-      <br><br> 
-      <button><a href="#/info">Volver a Inicio</a></button>
-        <div id="container"></div>
-        
-    </figure>  
-</main>
+<br>
+<Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
+<SvelteFC {...chartConfigs} />

@@ -1,6 +1,10 @@
 var BASE_API_PATH = "/api/v2/sanity-stats";
 
+var express = require('express');
+var request = require('request');
 var datastore = require("nedb");
+
+var app = express();  
 const path = require("path");
 const dbFileName = path.join(__dirname,"sanity.db");
 const db = new datastore({
@@ -117,6 +121,19 @@ var sanityInitialData = [
 ];
 
  module.exports.register = (app) => {
+
+	//////////////////Integrations//////////////
+
+	app.use(BASE_API_PATH +"/stress-stats", function(req, res) {
+		var apiServerHost = 'https://sos2021-11.herokuapp.com/api/v2/stress_stats';
+	  var url = apiServerHost + req.url;
+	  req.pipe(request(url)).pipe(res);
+	  
+	});
+
+	//////////////////////////////////////////////////
+
+
 
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{

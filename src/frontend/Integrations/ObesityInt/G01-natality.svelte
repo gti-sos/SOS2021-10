@@ -1,5 +1,4 @@
-<!-- 
-  <script>
+<!--<script>
     import Header from '../Header.svelte';
     import FusionCharts from 'fusioncharts';
     import Charts from 'fusioncharts/fusioncharts.charts';
@@ -310,5 +309,4 @@ const chartConfigs = {
     margin: 1em auto;
 }
 
-</style>
--->
+</style>-->

@@ -252,6 +252,19 @@ function hasNumbers(t)
 	  
 	});
 
+	
+	
+
+	app.use(BASE_API_PATH_2 +"/radio-stations", function(req, res) {
+		var apiServerHost = 'https://30-000-radio-stations-and-music-charts.p.rapidapi.com/rapidapi';
+	  var url = apiServerHost + req.url;
+	  req.pipe(request(url)).pipe(res);
+	  
+	});
+	
+	
+	
+
 	///////////////////////////////////////////////////
 	 
 	 app.get(BASE_API_PATH+"/:country/:year",(req,res)=>{

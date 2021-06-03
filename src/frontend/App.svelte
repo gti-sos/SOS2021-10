@@ -18,6 +18,8 @@
 	import intfood4 from './Integrations/FoodIntegration/G02-wine-production-stats.svelte';
 	import intfood5 from './Integrations/FoodIntegration/G03-international-tour.svelte';
 	import intfood6 from './Integrations/FoodIntegration/G04-poverty-risks.svelte';
+	import intfood7 from './Integrations/FoodIntegration/APIEXT1.svelte';
+	import intfood8 from './Integrations/FoodIntegration/APIEXT2.svelte';
 
 	
 	import HomeObesity from './obesity/HomeObesity.svelte';
@@ -28,6 +30,8 @@
 	import GrafoBueno from './obesity/GrafoBueno.svelte';
 	import IntegrationObe from './obesity/IntegrationObe.svelte';
 	import intobe1 from './Integrations/ObesityInt/G01-natality.svelte';
+	import intobe2 from './Integrations/ObesityInt/G11-anxiety.svelte';
+	import intobe3 from './Integrations/ObesityInt/G04-illiteracy.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
@@ -39,6 +43,8 @@
 	import intsan4 from './Integrations/SanityIntegrations/G04-education.svelte';
 	import intsan5 from './Integrations/SanityIntegrations/G20-founsresearch.svelte';
 	import intsan6 from './Integrations/SanityIntegrations/G25-sales.svelte';
+	import intsan7 from './Integrations/SanityIntegrations/stress.svelte';
+	import intsan8 from './Integrations/SanityIntegrations/children.svelte';
 	import ext1 from './Integrations/SanityIntegrations/ext1.svelte';
 	import ext2 from './Integrations/SanityIntegrations/ext2.svelte';
 
@@ -60,6 +66,8 @@
 		"/foodconsumption-stats/wine-production-stats": intfood4,
 		"/foodconsumption-stats/international-tourism": intfood5,
 		"/foodconsumption-stats/poverty-risks": intfood6,
+		"/foodconsumption-stats/APIEXT1": intfood7,
+		"/foodconsumption-stats/APIEXT2": intfood8,
 
 		
 		"/obesity-stats": HomeObesity,
@@ -68,6 +76,8 @@
 		"/obesity-stats/graphv2": GraphObeV2,
 		"/obesity-stats/IntegrationObe": IntegrationObe,
 		"/obesity-stats/graphnatality": intobe1,
+		"/obesity-stats/graphanxiety": intobe2,
+		"/obesity-stats/graphilliteracy": intobe3,
 
 
 		"/sanity-stats": HomeSanity,
@@ -80,6 +90,8 @@
 		"/sanity-stats-integrations/4": intsan4,
 		"/sanity-stats-integrations/5": intsan5,
 		"/sanity-stats-integrations/6": intsan6,
+		"/sanity-stats-integrations/7": intsan7,
+		"/sanity-stats-integrations/8": intsan8,
 		"/sanity-stats-integrations/9": ext1,
 		"/sanity-stats-integrations/10": ext2,
 
