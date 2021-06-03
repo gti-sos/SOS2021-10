@@ -47,6 +47,7 @@
     "fusioncharts": "^3.17.0",
     "jscharting": "^3.0.3-beta",
     "nedb": "^1.8.0",
+    "puppeteer": "^10.0.0",
     "quickchart-js": "^1.0.7",
     "request": "^2.88.2",
     "svelte-fusioncharts": "^1.0.0",
