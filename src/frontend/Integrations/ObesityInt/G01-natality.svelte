@@ -1,4 +1,5 @@
-<script>
+<!-- 
+  <script>
     import Header from '../Header.svelte';
     import FusionCharts from 'fusioncharts';
     import Charts from 'fusioncharts/fusioncharts.charts';
@@ -86,7 +87,7 @@
         
     
     };
-    onst dataSource = {
+    const dataSource = {
   "chart": {
     "caption": "Top Finishers",
     "subcaption": "2016-2017",
@@ -310,3 +311,4 @@ const chartConfigs = {
 }
 
 </style>
+-->
