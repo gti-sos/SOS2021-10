@@ -335,12 +335,12 @@
 			<tbody>
 
 				<tr>
-					<td><input bind:value="{newFoodconsumption.country}"></td>
-					<td><input type=number bind:value="{newFoodconsumption.year}"></td>
-					<td><input type=number bind:value="{newFoodconsumption.caloryperperson}"></td>
-					<td><input type=number bind:value="{newFoodconsumption.gramperperson}"></td>
-					<td><input type=number bind:value="{newFoodconsumption.dailygram}"></td>
-					<td><input type=number bind:value="{newFoodconsumption.dailycalory}"></td>
+					<td><input id="paisFood" bind:value="{newFoodconsumption.country}"></td>
+					<td><input  id="anyoFood" type=number bind:value="{newFoodconsumption.year}"></td>
+					<td><input id="caloryFood" type=number bind:value="{newFoodconsumption.caloryperperson}"></td>
+					<td><input id="gramFood" type=number bind:value="{newFoodconsumption.gramperperson}"></td>
+					<td><input id="dailycalFood" type=number bind:value="{newFoodconsumption.dailygram}"></td>
+					<td><input id="dailygramFood" type=number bind:value="{newFoodconsumption.dailycalory}"></td>
 					<td><Button on:click={insertFoodconsumption}>Añadir</Button></td>
 
 				</tr>
