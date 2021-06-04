@@ -17,14 +17,14 @@ import Header from '../Header.svelte';
         obesity = await resData.json();
         obesity.forEach( (x) => {
           if(x.year==2014){
-            muj=x.woman_percent;
-            hom=x.man_percent;
+            muj=(x.woman_percent)*(x.total_population);
+            hom=(x.man_percent)*(x.total_population);
           }
         });
 
       
 		
-		const resData2 = await fetch("http://sos2021-natality-stats.herokuapp.com/api/v2/natality-stats?country=spain");
+		const resData2 = await fetch("https://sos2021-23.herokuapp.com/api/v1/mh-stats");
         natalidad = await resData2.json();
         natalidad.forEach( (x) => {
          
@@ -35,51 +35,39 @@ import Header from '../Header.svelte';
 
       console.log(nat);
 				
-			let datosConjuntos = [{name: 'Obesidad Mujeres',y: muj},{name: 'Natalidad',y: nat},{name: 'Obesidad Hombres',y: hom},{name: 'Fertilidad',y: fer}];
+			let datosConjuntos = [{name: 'Obesidad Mujeres',y: muj,z:hom},{name: '',y: muj,z:hom}];
 
 			Highcharts.chart('container', {
     chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
+        type: 'variablepie'
     },
     title: {
-        text: 'Porcentaje de obesidad y natalidad en España'
+        text: 'Countries compared by population density and total area.'
     },
     tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {y:.2f} %'
-            }
-        }
+        headerFormat: '',
+        pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
+            'Area (square km): <b>{point.y}</b><br/>' +
+            'Population density (people per square km): <b>{point.z}</b><br/>'
     },
     series: [{
-      name: 'Porcentaje',
-        colorByPoint: true,
-         data: datosConjuntos
+        minPointSize: 10,
+        innerSize: '20%',
+        zMin: 0,
+        name: 'countries',
+        data: datosConjuntos
     }]
 });
+
 	}
 	
 </script>
 
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
+<script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load={loadGraph}></script>
     
 </svelte:head>
@@ -96,9 +84,13 @@ import Header from '../Header.svelte';
 </main>
 
 <style>
-	.highcharts-figure, .highcharts-data-table table {
+#container {
+	height: 500px;
+}
+
+.highcharts-figure, .highcharts-data-table table {
     min-width: 320px; 
-    max-width: 800px;
+    max-width: 700px;
     margin: 1em auto;
 }
 
@@ -130,8 +122,4 @@ import Header from '../Header.svelte';
     background: #f1f7ff;
 }
 
-
-input[type="number"] {
-	min-width: 50px;
-}
 </style>

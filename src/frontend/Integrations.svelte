@@ -64,9 +64,13 @@
 		Intregraciones Obesidad:
 	</h2>
 	<ul>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphnatality'" >G01- natality-stats</Button>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphanxiety'" >G11- anxiety-stats</Button>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphilliteracy'" >G04- illiteracy-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphnatality'" >G01-natality-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphanxiety'" >G11-anxiety-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphilliteracy'" >G04-illiteracy-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphdrugs'" >G23-drugs-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphmental'" >G23-mental-health-stats</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/externa1'" >API Externa 1</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/externa2'" >API Externa 2</Button>
 	
 	</ul>
 

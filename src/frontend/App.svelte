@@ -32,6 +32,10 @@
 	import intobe1 from './Integrations/ObesityInt/G01-natality.svelte';
 	import intobe2 from './Integrations/ObesityInt/G11-anxiety.svelte';
 	import intobe3 from './Integrations/ObesityInt/G04-illiteracy.svelte';
+	import intobe4 from './Integrations/ObesityInt/Externa1.svelte';
+	import intobe5 from './Integrations/ObesityInt/Externa2.svelte';
+	import intobe6 from './Integrations/ObesityInt/G23-drugs.svelte';
+	import intobe7 from './Integrations/ObesityInt/G23-mental.svelte';
 
 	import JustOneSanity from './sanity/JustOneSanity.svelte';
 	import graph from './sanity/Graph.svelte';
@@ -79,6 +83,10 @@
 		"/obesity-stats/graphnatality": intobe1,
 		"/obesity-stats/graphanxiety": intobe2,
 		"/obesity-stats/graphilliteracy": intobe3,
+		"/obesity-stats/externa1": intobe4,
+		"/obesity-stats/externa2": intobe5,
+		"/obesity-stats/graphdrugs": intobe6,
+		"/obesity-stats/graphmental": intobe7,
 
 
 		"/sanity-stats": HomeSanity,
