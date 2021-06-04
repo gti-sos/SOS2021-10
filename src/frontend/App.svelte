@@ -20,6 +20,7 @@
 	import intfood6 from './Integrations/FoodIntegration/G04-poverty-risks.svelte';
 	import intfood7 from './Integrations/FoodIntegration/APIEXT1.svelte';
 	import intfood8 from './Integrations/FoodIntegration/APIEXT2.svelte';
+	
 
 	
 	import HomeObesity from './obesity/HomeObesity.svelte';
@@ -56,7 +57,7 @@
 		"/": Landing,
 		"/info": Info,
 		"/integrations": integrations,
-		"/graphconj": graphconj,
+		"/analytics": graphconj,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,
@@ -67,8 +68,9 @@
 		"/foodconsumption-stats/wine-production-stats": intfood4,
 		"/foodconsumption-stats/international-tourism": intfood5,
 		"/foodconsumption-stats/poverty-risks": intfood6,
-		"/foodconsumption-stats/APIEXT1": intfood7,
-		"/foodconsumption-stats/APIEXT2": intfood8,
+		"/foodconsumption-stats/apiext1": intfood7,
+		"/foodconsumption-stats/apiext2": intfood8,
+	
 
 		
 		"/obesity-stats": HomeObesity,
