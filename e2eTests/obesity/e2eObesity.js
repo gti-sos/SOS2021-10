@@ -29,6 +29,7 @@ const guarda = 'e2eTests/obesity/capturasObe/';
   await page.waitForTimeout(2000);
   await page.screenshot({ path: guarda+'Integracion_Externa1.png' });
   
+  //atras
   
   
   /*await page.click("body > main > main > button.btn.btn-outline-warning");
