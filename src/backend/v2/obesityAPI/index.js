@@ -158,9 +158,9 @@ function hasNumbers(t){
  });
     
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
-		for(var i=0;i<obesityInitialData.length;i++){
-			db.remove({"country":obesityInitialData[i].country},{multi:true});
-		}
+		
+		db.remove({},{multi:true});
+		
         db.insert(obesityInitialData);
         
         
