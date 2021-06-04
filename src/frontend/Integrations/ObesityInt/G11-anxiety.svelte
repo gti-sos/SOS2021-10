@@ -90,6 +90,8 @@ async function cargarConf(){
 </script>
 <Header/>
 <br>
+  <button><a href="#/integrations">Volver a las Integraciones</a></button>
+<br>
 
 <SvelteFC {...chartConfigs} />
 

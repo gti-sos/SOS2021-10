@@ -84,6 +84,9 @@ import Header from '../Header.svelte';
 
 <main>
   <Header/>
+  <br>
+  <button><a href="#/integrations">Volver a las Integraciones</a></button>
+<br>
 	<figure class="highcharts-figure">
     
 		<div id="container"></div>
