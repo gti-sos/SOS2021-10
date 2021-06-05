@@ -370,7 +370,7 @@ function hasNumbers(t)
 
 	//LOAD INITIAL DATA
     app.get(BASE_API_PATH+"/loadInitialData", (req, res)=>{
-		db.remove({},{multi:true});
+		dbFood.remove({},{multi:true});
 		dbFood.insert(food_consumptionInitialData);
 
         res.send("Datos cargados");

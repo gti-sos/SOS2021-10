@@ -341,7 +341,7 @@
 					<td><input id="gramFood" type=number bind:value="{newFoodconsumption.gramperperson}"></td>
 					<td><input id="dailycalFood" type=number bind:value="{newFoodconsumption.dailygram}"></td>
 					<td><input id="dailygramFood" type=number bind:value="{newFoodconsumption.dailycalory}"></td>
-					<td><Button on:click={insertFoodconsumption}>Añadir</Button></td>
+					<td><Button id="addFood" on:click={insertFoodconsumption}>Añadir</Button></td>
 
 				</tr>
 				{#each foodconsumption as datafood}
