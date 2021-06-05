@@ -292,11 +292,11 @@ let filterObesity= {
 		<tbody>
 			
 			<tr>
-				<td><input bind:value="{newObesity.country}"></td>
-				<td><input type=number bind:value="{newObesity.year}"></td>
-				<td><input type=number bind:value="{newObesity.man_percent}"></td>
-				<td><input type=number bind:value="{newObesity.woman_percent}"></td>
-				<td><input type=number bind:value="{newObesity.total_population}"></td>
+				<td><input id="pais" bind:value="{newObesity.country}"></td>
+				<td><input id="anyo" type=number bind:value="{newObesity.year}"></td>
+				<td><input id="hombreper" type=number bind:value="{newObesity.man_percent}"></td>
+				<td><input id="mujerper" type=number bind:value="{newObesity.woman_percent}"></td>
+				<td><input id="total" type=number bind:value="{newObesity.total_population}"></td>
 				<td><Button on:click={insertObesity}>Insertar</Button></td>
 			</tr>
 			{#each obesity as obe}

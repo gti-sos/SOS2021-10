@@ -50,12 +50,9 @@
 		</Modal>
 	<br/>	
 	<h5>Gráfica de Obesidad:</h5>		
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graph'" >Gráfica 1(Lineal)</Button>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphv2'" >Gráfica 2(Bubble)</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graph'" >Gráfica 1(AnyChart)</Button>
+		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphv2'" >Gráfica 2(HighCharts)</Button>
 	<br/>
-	<h5>Gráficas con integración:</h5>		
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphnatality'" >G01- natality-stats</Button>
-		<Button  class="secondary" onclick="window.location.href='#/obesity-stats/graphv2'" >Gráfica 2(Bubble)</Button>
 	<h2>
 		<strong>Documentación en Postman:</strong>
 	</h2>

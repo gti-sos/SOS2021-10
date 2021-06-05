@@ -25,17 +25,28 @@ const guarda = 'e2eTests/obesity/capturasObe/';
   await page.screenshot({ path: guarda+'Integracion_Natality.png' });
 
   //Integracion API Externa
+  page.click("body > main > main > button > a");
+  await page.waitForTimeout(100);
   page.click("body > main > main > div > ul:nth-child(7) > button:nth-child(6)");
   await page.waitForTimeout(2000);
   await page.screenshot({ path: guarda+'Integracion_Externa1.png' });
   
-  //atras
-  
-  
-  /*await page.click("body > main > main > button.btn.btn-outline-warning");
-  await page.waitForTimeout(1000);
-  await page.screenshot({ path: guarda+'obesityhome.png' });
-  await page.click("body > main > main > button.btn.btn-outline-warning");*/
+   //Obesidad Home
+   page.click("body > main > main > nav > button > span");
+   await page.waitForTimeout(100);
+   page.click("body > main > main > nav > div > ul > li:nth-child(2) > a");
+   await page.waitForTimeout(100);
+   await page.screenshot({ path: guarda+'Obesidad_Home.png' });
+
+  //Tabla Obesity
+  page.click("body > main > main > button.btn.btn-outline-warning");
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: guarda+'Obesidad_Tabla.png' });
+
+  //Cargar Datos
+  page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > thead > tr:nth-child(1) > td:nth-child(1) > button");
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: guarda+'Cargar_Datos.png' });
 
   
   await browser.close();
