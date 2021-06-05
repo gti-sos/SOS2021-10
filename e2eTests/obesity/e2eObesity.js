@@ -48,6 +48,20 @@ const guarda = 'e2eTests/obesity/capturasObe/';
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+'Cargar_Datos.png' });
 
+  //Añadir Datos
+  await page.waitForSelector("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > tbody > tr");
+  await page.$eval("#pais", el=>el.value='prueba');
+  await page.$eval("#anyo", el=>el.value=parseInt(999));
+  await page.$eval("#hombreper", el=>el.value=parseFloat(9.9));
+  await page.$eval("#mujerper", el=>el.value=parseFloat(9.9));
+  await page.$eval("#total", el=>el.value=parseInt(999));
+  await page.waitForTimeout(50);
+  await page.screenshot({ path: guarda+'Añadir_Datos.png' });
+
+  //Dato Añadido
+  page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > tbody > tr:nth-child(1) > td:nth-child(6) > button");
+  await page.waitForTimeout(500);
+  await page.screenshot({ path: guarda+'Dato_Cargado.png' });
   
   await browser.close();
 })();
