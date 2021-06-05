@@ -69,7 +69,7 @@
               console.log(json);
               console.log(country);
               console.log("made");
-              console.log(`We have received ${country.length} sanity points.`);
+              console.log(`We have received ${country.length} sales points.`);
               let i=0;
               let año;
               while(i<country2.length){
@@ -110,6 +110,9 @@
         sptotal.push({label: parseInt(key) , y: value})
   });
          
+  console.log(toyears)
+  console.log(spyears)
+  
             if(toyears[0]<spyears[0]){
                   for(let i=toyears[0];i<spyears[0];i++){
                       spainHealth.unshift({label:i, y:null});
@@ -127,7 +130,6 @@
                   }
               }
 
-  
   
           loadGraph();
       }   
