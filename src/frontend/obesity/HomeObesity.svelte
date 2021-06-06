@@ -62,6 +62,7 @@
   		<BreadcrumbItem><a href="https://documenter.getpostman.com/view/14950492/TzJoDfvw">Obesity_postman</a></BreadcrumbItem>
 	</Breadcrumb>
 	
+	<Button outline color="secondary" onclick="window.location.href='#/info'">Volver</Button>
 	
 
 </main>

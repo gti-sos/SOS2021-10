@@ -54,6 +54,7 @@ console.log(paisesCiudad);
        dataSource = {
   "chart": {
     "caption": "Integración API externa 2",
+    "subCaption": "Datos de Alemania y sus ciudades",
     "placevaluesinside": "1",
     "showvalues": "0",
     "plottooltext": "<b>$dataValue</b> $seriesName en $label ",

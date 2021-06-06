@@ -18,7 +18,7 @@
 
 					<!-- Description -->
 					<div style="background-color:white; border-radius:5px; max-width:180px; max-height: 50px; margin: auto;">
-						<h4><a href="#/info">Informacion</a></h4>
+						<h4><a href="#/info">Información</a></h4>
 					</div>
 
 				</div>

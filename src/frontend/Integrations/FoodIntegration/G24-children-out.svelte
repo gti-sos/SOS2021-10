@@ -31,7 +31,7 @@
     async function getData(){
         console.log("Fetching data...");
         const res = await fetch(BASE_CONTACT_API_PATH + "/foodconsumption-stats/Germany/2011");
-        const res2 = await fetch("http://sos2021-24.herokuapp.com/api/v2/children-out-school/Germany/2011");
+        const res2 = await fetch("https://sos2021-24.herokuapp.com/api/v2/children-out-school/Germany/2011");
 
         if(res.ok){
             console.log("Ok.");

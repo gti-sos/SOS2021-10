@@ -40,6 +40,7 @@ var chart = JSC.Chart('chartDiv', {
         defaultSeries_type: 'pieDonut',
         defaultPoint_label_text: '<b>%name</b>',
         title_label_text: 'Intengracion con API externa 1',
+        subtitle_label_text: 'Datos de España',
         yAxis: { label_text: 'Cantidad', formatString: 'n' },
         series: [
           {

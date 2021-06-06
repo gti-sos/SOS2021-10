@@ -153,7 +153,7 @@ async function loadGraph(){
       var valoresHealth =[];
       var valoresObesity =[];
       var valoresFood =[];
-      Array.from(years).sort().forEach(x => categorias.push({label: x}));
+      Array.from(years).sort().forEach(x => categorias.push({label: x.toString()}));
 		
         console.log(Array.from(years).sort());
         health.forEach(x=> valoresHealth.push({value: x}));
@@ -198,5 +198,5 @@ async function loadGraph(){
 <Header/>
 
 <br>
-<Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
+<Button outline color="secondary" onclick="window.location.href='#/info'">Volver</Button>
 <SvelteFC {...chartConfigs} />
