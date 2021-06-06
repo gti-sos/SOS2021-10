@@ -257,12 +257,12 @@ let filterObesity= {
     	<Button id={`btn-${placement}`}>Buscar</Button>
    		<Popover target={`btn-${placement}`} {placement} title={`Filtros disponibles`}>
 			<ul class="list-inline">
-				<li><CustomInput type="checkbox" id="filtroPais" label="País" ><input bind:value="{filterObesity.country}"></CustomInput></li>
-				<li><CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input type=number bind:value="{filterObesity.fromyear}"></CustomInput></li>
-				<li><CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input type=number bind:value="{filterObesity.toyear}"></CustomInput></li>
-				<li><CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input type=number bind:value="{filterObesity.man_percent}"></CustomInput></li>
-				<li><CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input type=number bind:value="{filterObesity.woman_percent}"></CustomInput></li>
-				<li><CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input type=number bind:value="{filterObesity.total_population}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroPais" label="País" ><input id="filPais" bind:value="{filterObesity.country}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroAnyoFrom" label="Desde el año:" ><input id="filAnyoFrom" type=number bind:value="{filterObesity.fromyear}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroAnyoTo" label="Antes el año:" ><input id="filAnyoTo" type=number bind:value="{filterObesity.toyear}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroMan" label="Porcentaje de hombres" ><input id="filMan" type=number bind:value="{filterObesity.man_percent}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroWoman" label="Porcentaje de mujeres" ><input id="filWoman" type=number bind:value="{filterObesity.woman_percent}"></CustomInput></li>
+				<li><CustomInput type="checkbox" id="filtroTotal" label="Población total" ><input id="filTotal" type=number bind:value="{filterObesity.total_population}"></CustomInput></li>
 				<br>
 				<Button on:click={getFiltro}>Filtrar</Button>
 				<Button outline color="secondary" on:click="{getObesity}">Atrás</Button>

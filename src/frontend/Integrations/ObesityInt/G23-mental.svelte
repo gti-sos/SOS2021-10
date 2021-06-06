@@ -7,48 +7,53 @@ import Header from '../Header.svelte';
     
 	async function loadGraph() { 
 		let obesity = [];
-    let natalidad = [];
+    let mental = [];
     let muj = 0;
-    let hom= 0;
-    let nat = 0;
-    let fer = 0;
+    let pop= 0;
+    let esqui = 0;
+    let popa = 0;
 		
 		const resData = await fetch("/api/v2/obesity-stats?country=Spain");
         obesity = await resData.json();
         obesity.forEach( (x) => {
           if(x.year==2014){
-            muj=(x.woman_percent)*(x.total_population);
-            hom=(x.man_percent)*(x.total_population);
+            muj=((x.woman_percent)*(x.total_population))/100;
+            pop=x.total_population;
           }
         });
 
       
 		
-		const resData2 = await fetch("https://sos2021-23.herokuapp.com/api/v1/mh-stats");
-        natalidad = await resData2.json();
-        natalidad.forEach( (x) => {
-         
-            nat=x["natality-rate"];
-            fer=x["fertility-rate"];
+		const resData2 = await fetch("https://sos2021-23.herokuapp.com/api/v1/mh-stats?country=Spain");
+        mental = await resData2.json();
+        mental.forEach( (x) => {
+            var numero=x.population;
+            numero = numero.replace(/,/g, "");
+            popa=(parseInt(numero));
+            esqui=((parseInt(x.schizophrenia))*numero)/10000;
           
         });
 
-      console.log(nat);
+        console.log(popa);
+        
 				
-			let datosConjuntos = [{name: 'Obesidad Mujeres',y: muj,z:hom},{name: '',y: muj,z:hom}];
+			let datosConjuntos = [{name: 'Obesidad en mujeres',y: pop,z:muj},{name: 'Personas con esquizofrenia',y: popa,z:esqui}];
 
 			Highcharts.chart('container', {
     chart: {
         type: 'variablepie'
     },
     title: {
-        text: 'Countries compared by population density and total area.'
+        text: 'Comparación entre población de España con distintas afecciones.'
+    },
+    subtitle: {
+        text: 'Comparamos la obesidad en las mujeres en el 2014 y la esquizofrenia en el 2007'
     },
     tooltip: {
         headerFormat: '',
         pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-            'Area (square km): <b>{point.y}</b><br/>' +
-            'Population density (people per square km): <b>{point.z}</b><br/>'
+            'Población total: <b>{point.y}</b><br/>' +
+            'Personas con este padecimiento: <b>{point.z}</b><br/>'
     },
     series: [{
         minPointSize: 10,
