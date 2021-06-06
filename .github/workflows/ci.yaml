@@ -14,3 +14,4 @@ jobs:
       - run: npm start &
       - run: npx newman run tests/integrationObe.json && npx newman run tests/integrationFoodv2.json && npx newman run tests/integrationSanity.json
       - run: node e2eTests/sanity/e2eSanity.js
+      - run: node e2eTests/obesity/e2eObesity.js
