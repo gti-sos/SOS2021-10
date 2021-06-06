@@ -8,6 +8,7 @@
 	import Info from './Info.svelte';
 	import Landing from './Landing.svelte';
 	import integrations from './Integrations.svelte';
+	import about from './About.svelte';
 	
 	import HomeFood from './foodConsumption/HomeFood.svelte';
 	import GraphFood from './foodConsumption/GraphFood.svelte';
@@ -62,6 +63,7 @@
 		"/info": Info,
 		"/integrations": integrations,
 		"/analytics": graphconj,
+		"/about": about,
 		"/foodconsumption-stats": HomeFood,
 		"/foodconsumption-stats/:country/:year": EditFood,
 		"/foodconsumption-stats/graphfood": GraphFood,

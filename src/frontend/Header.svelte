@@ -31,6 +31,9 @@ class="fixed-top">
 	  <NavItem>
         <NavLink href="#/sanity-stats">Estadísticas de sanidad</NavLink>
       </NavItem>
+      <NavItem>
+        <NavLink href="#/about">Sobre nosotros</NavLink>
+      </NavItem>
     </Nav>
   </Collapse>
 </Navbar>
