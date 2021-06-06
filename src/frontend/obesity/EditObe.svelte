@@ -7,7 +7,7 @@
         pop
     } from "svelte-spa-router";
 
-
+	import Header from '../Header.svelte';
 	import Alert from "sveltestrap/src/Alert.svelte";
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
@@ -115,6 +115,8 @@
 	
 </script>
 <main>
+	<Header/>
+	<br>
     <h3>Editar campos <strong>{params.country}</strong><strong>{params.year}</strong></h3>
         <Table bordered>
             <thead>
