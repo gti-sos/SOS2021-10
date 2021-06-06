@@ -53,12 +53,14 @@
 		Intregraciones Consumo de Azúcares y Grasas:
 	</h2>
 	<ul>
-		<Button href="/#/foodconsumption-stats/divorce-stats"> G01-Divorce stats</Button>
-		<Button href="/#/foodconsumption-stats/nuts-production"> G02-Nuts Production</Button>
-		<Button href="/#/foodconsumption-stats/wine-production-stats"> G02-Wine Production</Button>
-		<Button href="/#/foodconsumption-stats/international-tourism"> G03-International tourism</Button>
-		<Button href="/#/foodconsumption-stats/poverty-risks"> G04-Poverty risks</Button>
-		<Button href="/#/foodconsumption-stats/children-out-school"> G24-Children out of school</Button>
+		<Button  class="secondary" onclick="window.location.href='#/foodconsumption-stats/divorce-stats'" >G01-Divorce stats</Button>
+		<Button  class="secondary" onclick="window.location.href='/#/foodconsumption-stats/nuts-production'"> G02-Nuts Production</Button>
+		<Button class="secondary" onclick="window.location.href='/#/foodconsumption-stats/wine-production-stats'"> G02-Wine Production</Button>
+		<Button class="secondary" onclick="window.location.href='/#/foodconsumption-stats/international-tourism'"> G03-International tourism</Button>
+		<Button  class="secondary" onclick="window.location.href='/#/foodconsumption-stats/poverty-risks'"> G04-Poverty risks</Button>
+		<Button class="secondary" onclick="window.location.href='/#/foodconsumption-stats/children-out-school'"> G24-Children out of school</Button>
+		<Button class="secondary" onclick="window.location.href='/#/foodconsumption-stats/apiext1'"> API Externa 1</Button>
+		<Button class="secondary" onclick="window.location.href='/#/foodconsumption-stats/apiext2'"> API Externa 2</Button>
 	</ul>
 	<h2>
 		Intregraciones Obesidad:

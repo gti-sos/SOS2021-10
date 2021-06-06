@@ -287,7 +287,7 @@
 								<li><CustomInput
         						type="checkbox"
        							 id="filtroPais"
-        						label="País" ><input bind:value="{filterFoodconsumption.country}"></CustomInput></li>
+        						label="País" ><input id="datoFiltroPais" bind:value="{filterFoodconsumption.country}"></CustomInput></li>
 								<li><CustomInput
         						type="checkbox"
        							 id="filtroAnyo"
@@ -295,7 +295,7 @@
 								<li><CustomInput
         						type="checkbox"
        							 id="filtroCalPer"
-        						label="Calorías por persona mayor que" ><input type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput></li>
+        						label="Calorías por persona mayor que" ><input  id="datoFiltroCalorias" type=number bind:value="{filterFoodconsumption.caloryperperson}"></CustomInput></li>
 								<li><CustomInput
         						type="checkbox"
        							 id="filtroGramPer"

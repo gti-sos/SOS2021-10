@@ -10,7 +10,7 @@
 		Breadcrumb,
 		BreadcrumbItem
 	} from 'sveltestrap';
-	
+
 	let open = false;
 	
 	const toggle = () =>{
@@ -20,7 +20,8 @@
 
 <main>
 	<Header/>
-	
+	<br>
+	<Button outline color="secondary" onclick="window.location.href='#/info'">Volver</Button>
 	<h2>
 		<strong>API</strong>
 	</h2>
