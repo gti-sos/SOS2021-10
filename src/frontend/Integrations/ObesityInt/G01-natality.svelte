@@ -47,6 +47,9 @@ import Header from '../Header.svelte';
     title: {
         text: 'Porcentaje de obesidad y natalidad en España'
     },
+    subtitle: {
+        text: 'Los datos de obesidad con del 2014 y los de natalidad del 2019'
+    },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
     },
