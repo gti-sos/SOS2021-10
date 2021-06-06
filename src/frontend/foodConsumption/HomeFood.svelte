@@ -31,7 +31,7 @@
 			</Breadcrumb>
 			<Breadcrumb>
   				<BreadcrumbItem><a href="https://sos2021-10.herokuapp.com/api/v2/foodconsumption-stats">Estaditicas del Consumo de azúcares y grasas v2</a></BreadcrumbItem>
-				<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños</BreadcrumbItem>
+				<BreadcrumbItem active>Desarrollado por Alicia Pérez Bolaños </BreadcrumbItem>
 			</Breadcrumb>
 			
 	<h2>
