@@ -13,7 +13,9 @@ var id=0;
   page.click("body > main > main > div > div > div > h4 > a");
   await page.waitForTimeout(100);
   await page.screenshot({ path: guarda+(id++)+'_Info.png' });
+  console.log("Home");
   
+
   //Integraciones
   page.click("body > main > main > div > button:nth-child(9)");
   await page.waitForTimeout(100);
@@ -22,7 +24,7 @@ var id=0;
 
   //Integracion API Externa
   page.click("body > main > main > div > ul:nth-child(7) > button:nth-child(6)");
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(3000);
   await page.screenshot({ path: guarda+(id++)+'_Integracion_Externa1.png' });
   
    //Obesidad Home
@@ -31,7 +33,7 @@ var id=0;
    page.click("body > main > main > nav > div > ul > li:nth-child(2) > a");
    await page.waitForTimeout(100);
    await page.screenshot({ path: guarda+(id++)+'_Obesidad_Home.png' });
-
+   console.log("Obesity");
   //Tabla Obesity
   page.click("body > main > main > button.btn.btn-outline-warning");
   await page.waitForTimeout(500);
@@ -41,7 +43,7 @@ var id=0;
   page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > thead > tr:nth-child(1) > td:nth-child(1) > button");
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Cargar_Datos.png' });
-
+  console.log("Cargar Datos");
   //Añadir Datos
   await page.waitForSelector("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > tbody > tr");
   await page.focus('#pais');
@@ -104,7 +106,7 @@ var id=0;
   await page.goForward();
   await page.waitForTimeout(5000);
   await page.screenshot({ path: guarda+(id++)+'_Grafica.png' });
-
+  console.log("Gráfica");
 
   await browser.close();
 })();
