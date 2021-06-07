@@ -36,7 +36,7 @@ async function loadGraph(){
 
     accessibility: {
         point: {
-            valueDescriptionFormat: '{index}. {point.country}, Hombres: {point.x}%, Mujeres: {point.y}%, Población: {point.z}.'
+            valueDescriptionFormat: '{index}. {point.country}({point.year}), Hombres: {point.x}%, Mujeres: {point.y}%, Población: {point.z}.'
         }
     },
 
@@ -73,7 +73,7 @@ async function loadGraph(){
     tooltip: {
         useHTML: true,
         headerFormat: '<table>',
-        pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
+        pointFormat: '<tr><th colspan="2"><h3>{point.country}({point.year})</h3></th></tr>' +
             '<tr><th>Mujeres:</th><td>{point.x}%</td></tr>' +
             '<tr><th>Hombres:</th><td>{point.y}%</td></tr>' +
             '<tr><th>Población:</th><td>{point.z}</td></tr>',
@@ -112,13 +112,14 @@ console.log(3);
 			console.log(data);
 			while(i<data.length){
 				obe=data[i];
+                countryObe.year=obe.year;
 				countryObe.x=obe.woman_percent;
 				countryObe.y=obe.man_percent;
 				countryObe.z=obe.total_population;
 				countryObe.name=obe.country;
 				countryObe.country=obe.country;
 				console.log(countryObe);
-				obesity.push({x: obe.woman_percent, y: obe.man_percent, z: obe.total_population , name: obe.country, country: obe.country });
+				obesity.push({x: obe.woman_percent, y: obe.man_percent, z: obe.total_population , name: obe.country, country: obe.country, year:obe.year });
 				i++;
 				console.log(obesity);
 			}
