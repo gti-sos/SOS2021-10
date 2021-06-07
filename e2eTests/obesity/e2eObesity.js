@@ -91,7 +91,7 @@ var id=0;
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Cargar_Filtrado.png' });
 
-  //Filltrado
+  //Filtrado
   page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.mt-3 > div > div.popover-body > ul > button.btn.btn-secondary");
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Filtrado.png' });
