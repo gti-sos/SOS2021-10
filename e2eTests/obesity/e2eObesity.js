@@ -64,7 +64,7 @@ var id=0;
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Dato_Cargado.png' });
 
-  //Borrar primer dato
+  //Borrar Primer Dato
   page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-body > main > div.table-responsive > table > tbody > tr:nth-child(2) > td:nth-child(6) > button");
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Borrar_Argentina.png' });
@@ -96,7 +96,7 @@ var id=0;
   await page.waitForTimeout(500);
   await page.screenshot({ path: guarda+(id++)+'_Filtrado.png' });
   
-  //Grafica
+  //Gráfica
   page.click("body > main > main > div > div.modal.show.d-block > div > div > div.modal-footer > button");
   await page.waitForTimeout(500);
   page.click("body > main > main > button:nth-child(11)");
